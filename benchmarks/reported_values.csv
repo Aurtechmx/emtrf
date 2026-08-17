@@ -1,0 +1,3 @@
+benchmark,ordinary_dp,ec_dp,ratio,note
+synthetic 640k source vertices (10000 x 64-vertex; eps=0.10),45.49 ms,59.03 ms,1.30x,author reference-machine median; absolute times and ratio are machine/JIT-dependent
+four-site real-contour corpus (5305 vtx/pass),0.8567 ms,0.8844 ms,1.032x,author reference-machine median; machine-dependent

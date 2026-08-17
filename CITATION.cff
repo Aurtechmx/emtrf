@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use EMTRF, please cite the paper below."
+title: "EMTRF: Evidence-Monotone Terrain Representation Framework"
+authors:
+  - family-names: Urias
+    given-names: A.
+    orcid: "https://orcid.org/0009-0007-3147-323X"
+license: MIT
+repository-code: "https://github.com/Aurtechmx/emtrf"
+preferred-citation:
+  type: article
+  title: "Evidence-Monotone Terrain Representation Framework (EMTRF): A provenance-conserving operator contract for derived terrain geometry"
+  authors:
+    - family-names: Urias
+      given-names: A.
+  journal: "Computers & Geosciences"
+  year: 2026

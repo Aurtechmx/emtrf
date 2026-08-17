@@ -1,0 +1,11 @@
+const assert = require('assert');
+const ops = require('./compiled/typedEvidenceOperators.js');
+const mixed = {state:'mixed', provenance:['measured','interpolated'], support:{'raw-measured-support':0.7,'geometric-interpolation-support':0.4}};
+const measured = {state:'measured', provenance:['measured'], support:{'raw-measured-support':0.9}};
+const interp = {state:'interpolated', provenance:['interpolated'], support:{'geometric-interpolation-support':0.6}};
+const out = ops.contourEvidence([mixed, measured, interp, measured]);
+assert(out);
+assert.deepStrictEqual(out.provenance,['measured','interpolated']);
+assert.strictEqual(out.support['raw-measured-support'],0.7);
+assert.strictEqual(out.support['geometric-interpolation-support'],0.4);
+console.log(JSON.stringify({mixed_cell_supported:true,provenance:out.provenance,support:out.support},null,2));

@@ -1,0 +1,22 @@
+{
+  "package": "EMTRF Table 6 crop-processing bundle",
+  "sourceSoftware": "OpenLiDARViewer v0.6.5",
+  "sourceArchiveSha256": "fdb510e3416fb0cb02c71031bb7f653b8e0dde83ae9916c85d1c44e844b122fa",
+  "contourInterval": 0.5,
+  "datasets": [
+    "USGS White Sands 2020",
+    "StREAM 2026",
+    "Estonia Tava 2020",
+    "USGS Marsh Island"
+  ],
+  "entryPoint": "run_table6.cjs",
+  "outputs": [
+    "results/table6.csv",
+    "results/table6_full.json",
+    "results/source_arc_2cell.csv"
+  ],
+  "sourceGitCommit": "4fb00a784d860a2e24cc1834d6c1230dac550355",
+  "sourceVersionDoi": "10.5281/zenodo.21933671",
+  "note": "Terrain/contour modules here are a frozen study-local snapshot, NOT byte-identical to the OpenLiDARViewer v0.6.5 application release: the snapshot uses a hardened cellConfidence (voids left unsupported unless a bounded fallback is authorized) that differs from the release's nearest-support void fill. Per-file SHA-256 is recorded in SHA256SUMS. run_env.json records the run-dependent generation environment and is excluded from SHA256SUMS.",
+  "sourceIdentity": "frozen study-local snapshot (not the v0.6.5 application release)"
+}

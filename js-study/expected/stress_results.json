@@ -1,0 +1,79 @@
+{
+  "results": [
+    {
+      "tolerance": 0.02,
+      "ordinary": {
+        "segments": 26591,
+        "promotion_violations": 14687,
+        "promotion_rate": 0.5523297356248354
+      },
+      "ecdp": {
+        "segments": 26591,
+        "promotion_violations": 0,
+        "promotion_rate": 0,
+        "geometry_mismatches": 0
+      }
+    },
+    {
+      "tolerance": 0.05,
+      "ordinary": {
+        "segments": 13004,
+        "promotion_violations": 9830,
+        "promotion_rate": 0.755921254998462
+      },
+      "ecdp": {
+        "segments": 13004,
+        "promotion_violations": 0,
+        "promotion_rate": 0,
+        "geometry_mismatches": 0
+      }
+    },
+    {
+      "tolerance": 0.1,
+      "ordinary": {
+        "segments": 9469,
+        "promotion_violations": 7678,
+        "promotion_rate": 0.8108564790368571
+      },
+      "ecdp": {
+        "segments": 9469,
+        "promotion_violations": 0,
+        "promotion_rate": 0,
+        "geometry_mismatches": 0
+      }
+    },
+    {
+      "tolerance": 0.2,
+      "ordinary": {
+        "segments": 5459,
+        "promotion_violations": 4650,
+        "promotion_rate": 0.8518043597728522
+      },
+      "ecdp": {
+        "segments": 5459,
+        "promotion_violations": 0,
+        "promotion_rate": 0,
+        "geometry_mismatches": 0
+      }
+    },
+    {
+      "tolerance": 0.4,
+      "ordinary": {
+        "segments": 2000,
+        "promotion_violations": 2000,
+        "promotion_rate": 1
+      },
+      "ecdp": {
+        "segments": 2000,
+        "promotion_violations": 0,
+        "promotion_rate": 0,
+        "geometry_mismatches": 0
+      }
+    }
+  ],
+  "gap_stress": {
+    "fixtures": 1000,
+    "ordinary_dp_segments_bridging_unsupported_vertex": 970,
+    "ecdp_segments_bridging_unsupported_vertex": 0
+  }
+}

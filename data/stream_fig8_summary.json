@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "dataset": {
+    "id": "VT-STREAM-LAB-2026",
+    "label": "StREAM 2026",
+    "doi": "10.5069/G9NZ85W7",
+    "sourceCrop": "real-data-audit/crops/sl-field.bin",
+    "sourceCropSha256": "0cf44507b2e7e1dfc0a3989d4c0ab970eb2c6ed68ec5bfce170da6854fd40582",
+    "horizontalCrs": "NAD83(2011) / UTM zone 17N (EPSG:6346)",
+    "verticalDatum": "NAVD88 height (EPSG:5703)",
+    "license": "CC BY 4.0",
+    "grid": {
+      "originH1": 549240,
+      "originH2": 4118390,
+      "cols": 40,
+      "rows": 40,
+      "cellSizeM": 1
+    }
+  },
+  "reconstruction": {
+    "status": "reconstructed-derived-export-not-lost-original",
+    "contourIntervalM": 1,
+    "simplificationToleranceM": 1,
+    "featureSplit": "production display-grade runs",
+    "simplifier": "production contourGeometryProduct unbounded-line Douglas-Peucker",
+    "evidence": "complete source-arc typed M/I union and channel-wise minima"
+  },
+  "counts": {
+    "dtmCells": 1600,
+    "measuredCells": 1071,
+    "interpolatedCells": 529,
+    "unsupportedCells": 0,
+    "productionContourSegments": 234,
+    "mToDashedCount": 20,
+    "xAncestryCount": 147,
+    "featureRuns": 33,
+    "sourceVertices": 267,
+    "retainedVertices": 87,
+    "outputSpans": 54,
+    "endpointOnlySupportPromotions": 12,
+    "gradeDerivedProvenanceLosses": 54,
+    "typedEndpointProvenanceLosses": 1,
+    "p3SupportPromotions": 0,
+    "p3ProvenanceLosses": 0
+  },
+  "rates": {
+    "vertexReductionPct": 67.41573033707866,
+    "endpointOnlySupportPromotionPct": 22.22222222222222,
+    "gradeDerivedProvenanceLossPct": 100,
+    "typedEndpointProvenanceLossPct": 1.8518518518518519
+  },
+  "frozenTarget": {
+    "features": 33,
+    "spans": 54,
+    "sourceVertices": 267,
+    "retainedVertices": 87,
+    "vertexReductionPct": 67.4,
+    "endpointPromotion": 12,
+    "gradeLoss": 54,
+    "typedEndpointLoss": 1,
+    "p3SupportPromotion": 0,
+    "p3ProvenanceLoss": 0
+  },
+  "table6Reference0p5m": {
+    "segments": 766,
+    "mToDashed": 85,
+    "xAncestry": 453,
+    "note": "Table 6 uses 0.5 m contour interval; Figure 8 feature-level ablation uses one source-cell (1.0 m) contour interval and therefore has a different raw segment population."
+  },
+  "verification": {
+    "features": true,
+    "spans": true,
+    "sourceVertices": true,
+    "retainedVertices": true,
+    "endpointPromotion": true,
+    "gradeLoss": true,
+    "typedEndpointLoss": true,
+    "all": true
+  }
+}

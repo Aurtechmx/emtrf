@@ -1,0 +1,13 @@
+dataset,segments,m_to_dashed_count,m_to_dashed_pct,x_ancestry_count,x_ancestry_pct,promote_1cell_count,promote_1cell_spans,promote_1cell_pct,vertex_reduction_pct
+USGS White Sands 2020,956,481,50.3,22,2.3,20,152,13.2,80.9
+StREAM 2026,766,85,11.1,453,59.1,6,152,3.9,75.2
+Estonia Tava 2020,1315,83,6.3,682,51.9,7,344,2,66.3
+USGS Marsh Island,1980,9,0.45,39,2,9,175,5.1,88.8
+
+2-cell source-arc check:
+USGS White Sands 2020: 25/105 = 23.8%
+StREAM 2026: 9/95 = 9.5%
+Estonia Tava 2020: 9/225 = 4%
+USGS Marsh Island: 7/124 = 5.6%
+
+TABLE 6 VERIFICATION: PASS

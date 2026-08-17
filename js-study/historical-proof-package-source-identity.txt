@@ -1,0 +1,13 @@
+OpenLiDARViewer exact source identity used for EMTRF v1.2 hardening
+Version: 0.6.4
+Release date from CITATION.cff: 2026-08-05
+Source archive: openlidarviewer-v0.6.4-source-20260807-1249(1).zip
+Source archive SHA-256: d4b547b6861628a8f005668566da30c76a0d8f4a5a380270fc1cb5b2b239a189
+Zenodo concept DOI declared by supplied CITATION.cff/codemeta.json: 10.5281/zenodo.21544619
+Software Heritage snapshot: swh:1:snp:7b496fd207adaae61d5add4137e7d4eb781a1f83
+
+NOTE (repository context): this file documents the historical OpenLiDARViewer source
+(v0.6.4) used when the v0.5 EMTRF proof package was frozen. The standalone study code in
+this js-study/ directory does not import OpenLiDARViewer. The manuscript's separate
+real-data audit (real-data-audit/) is anchored to the deposited OpenLiDARViewer v0.6.5
+release (commit 4fb00a78); see that directory's README and the paper's Code availability.

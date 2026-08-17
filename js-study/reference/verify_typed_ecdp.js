@@ -1,0 +1,15 @@
+const assert=require('assert').strict;
+const {evidenceConstrainedDouglasPeuckerTyped}=require('./build/evidenceConstrainedGeneralizeTyped.js');
+const R=[];const pass=(name,d={})=>R.push({name,status:'pass',...d});
+const M=(x,y,s)=>({x,y,state:'measured',provenance:['measured'],support:{'empirical-measured-reliability':s}});
+const I=(x,y,s)=>({x,y,state:'interpolated',provenance:['interpolated'],support:{'geometric-interpolation-support':s}});
+const U=(x,y)=>({x,y,state:'unsupported',provenance:[],support:{}});
+let r=evidenceConstrainedDouglasPeuckerTyped([M(0,0,.95),M(1,.01,.31),M(2,0,.92)],1);
+assert.deepEqual(r.retainedIndices,[0,2]);assert.equal(r.segments[0].support['empirical-measured-reliability'],.31);pass('weak same-semantic interior survives geometric collapse',r.segments[0]);
+r=evidenceConstrainedDouglasPeuckerTyped([M(0,0,.9),M(1,0,.8),I(2,0,.45),I(3,0,.6)],10);
+assert.deepEqual(r.retainedIndices,[0,3]);
+const bridge=r.segments.find(s=>s.sourceStart===0&&s.sourceEnd===3);assert(bridge);assert.deepEqual(bridge.provenance,['measured','interpolated']);assert.equal(bridge.support['empirical-measured-reliability'],.8);assert.equal(bridge.support['geometric-interpolation-support'],.45);pass('collapsed provenance transition keeps ordinary-DP geometry while conserving both ancestries and unlike supports',bridge);
+r=evidenceConstrainedDouglasPeuckerTyped([M(0,0,.9),U(1,0),I(2,0,.5)],10);assert(!r.segments.some(s=>s.sourceStart===0&&s.sourceEnd===2));pass('unsupported arc cannot be bridged');
+r=evidenceConstrainedDouglasPeuckerTyped([M(0,0,.9),M(1,0,.9),M(2,0,.9)],10,new Set([1]));assert(r.retainedIndices.includes(1));pass('explicit evidence boundary remains mandatory');
+const a=evidenceConstrainedDouglasPeuckerTyped([M(0,0,.9),M(1,.2,.7),M(2,0,.8)],.1),b=evidenceConstrainedDouglasPeuckerTyped([M(0,0,.9),M(1,.2,.7),M(2,0,.8)],.1);assert.deepEqual(a,b);pass('typed EC-DP deterministic');
+console.log(JSON.stringify({status:'PASS',checks:R.length,results:R},null,2));

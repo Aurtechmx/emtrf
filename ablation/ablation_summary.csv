@@ -1,0 +1,5 @@
+pipeline,provenance_rule,support_rule,support_promotion_pct_range,provenance_loss_pct_range
+P0,grade-derived,endpoint-only,4.3-24.4,93.9-100
+P1,typed endpoints,endpoint-only,4.3-24.4,0-7.6
+P2,grade-derived,complete-source EC-DP,0,93.9-100
+P3,typed complete-source,complete-source EC-DP,0,0

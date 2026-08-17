@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "audit": "EMTRF production-source falsification of grade-as-provenance",
+  "release": "OpenLiDARViewer v0.6.5",
+  "commit": "4fb00a784d860a2e24cc1834d6c1230dac550355",
+  "archiveSha256": "fdb510e3416fb0cb02c71031bb7f653b8e0dde83ae9916c85d1c44e844b122fa",
+  "conceptDoi": "10.5281/zenodo.21544619",
+  "versionDoi": "10.5281/zenodo.21933671",
+  "findings": [
+    {
+      "symbol": "contourEvidence(grade)",
+      "module": "src/terrain/contour/contourFeatureModel.ts",
+      "finding": "Export helper maps display grade to a provenance-like label: solid -> measuredBacked, dashed -> interpolatedBacked.",
+      "consequence": "A measured-derived source with support in the dashed band (e.g. C_M(6;10,3)=0.40) is serialized as interpolatedBacked. Display grade is used as an ancestry type.",
+      "counterexampleParameters": {"n": 6, "n_t": 10, "h": 3, "supportValue": 0.40, "styleCuts": "33/66"}
+    },
+    {
+      "symbol": "simplifyPolyline",
+      "module": "src/terrain/contour/contourShapeStyle.ts",
+      "finding": "The shipped generalized-export path is a confidence/grade-gated Douglas-Peucker that pins low-confidence and grade-transition vertices, but does not aggregate complete-source typed evidence.",
+      "consequence": "Within a protected run, retained geometry can replace a complete source arc without recomputing typed provenance, support, applicability, or lineage."
+    }
+  ],
+  "scope": "This audits the export semantics of the v0.6.5 application release. It is independent of the field-derived Table 6 audit, which uses a frozen study-local terrain module snapshot (see ../real-data-audit/README.md)."
+}
