@@ -1,0 +1,142 @@
+{
+  "driver": "RECONSTRUCTED real-contour timing benchmark",
+  "status": "reconstructed-not-original",
+  "environment": {
+    "node": "v26.0.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "design": {
+    "sites": 4,
+    "polylines": 289,
+    "sourceVerticesPerPass": 5305,
+    "warmups": 5,
+    "pairedRepetitions": 30,
+    "batchPassesPerTimedRepetition": 100,
+    "alternatingOrder": true,
+    "tolerance": "one source grid cell",
+    "contourIntervalM": 0.5,
+    "pairedSameGeometry": true
+  },
+  "bySite": {
+    "white-sands": {
+      "polylines": 37,
+      "sourceVertices": 992,
+      "tolerance": 1
+    },
+    "stream": {
+      "polylines": 51,
+      "sourceVertices": 817,
+      "tolerance": 1
+    },
+    "estonia": {
+      "polylines": 149,
+      "sourceVertices": 1464,
+      "tolerance": 1
+    },
+    "marsh": {
+      "polylines": 52,
+      "sourceVertices": 2032,
+      "tolerance": 0.5
+    }
+  },
+  "currentRun": {
+    "ordinaryDp": {
+      "medianMs": 0.4394385449960828,
+      "iqrMs": [
+        0.4343112500011921,
+        0.4444924999959767
+      ],
+      "runsMs": [
+        0.44634249998256564,
+        0.4527604099921882,
+        0.44413292000070215,
+        0.44236082999035714,
+        0.4360691599920392,
+        0.446251659989357,
+        0.44006041999906303,
+        0.4466470799967647,
+        0.4424883400090039,
+        0.44580125000327825,
+        0.4326404099911451,
+        0.4444924999959767,
+        0.45465541001409293,
+        0.44314790999516845,
+        0.46140916999429465,
+        0.43739625001326204,
+        0.43373499998822806,
+        0.43881666999310254,
+        0.43093999998643995,
+        0.429232080001384,
+        0.4343112500011921,
+        0.43739749999716876,
+        0.4361537499912083,
+        0.43256541999056936,
+        0.4316212499886751,
+        0.4444649999961257,
+        0.43540499998256565,
+        0.4315283299982548,
+        0.4448387499898672,
+        0.4359683299995959
+      ]
+    },
+    "completeSourceEvidence": {
+      "medianMs": 0.44950959000736473,
+      "iqrMs": [
+        0.44487500000745056,
+        0.45428874999284746
+      ],
+      "runsMs": [
+        0.4581812500022352,
+        0.4558475000038743,
+        0.45294792000204326,
+        0.4566745899990201,
+        0.4524245799891651,
+        0.45428874999284746,
+        0.46207832999527454,
+        0.45208249999210237,
+        0.4533370799943805,
+        0.45710124999284746,
+        0.4474279199913144,
+        0.45491417000070217,
+        0.459091659989208,
+        0.4505970900133252,
+        0.4508699999935925,
+        0.44717000000178814,
+        0.44669499998912215,
+        0.44211041999980805,
+        0.4453299999982119,
+        0.44842209000140426,
+        0.44400417000055314,
+        0.44294291999191043,
+        0.4450566600076854,
+        0.44487500000745056,
+        0.44293000001460314,
+        0.4478183299861848,
+        0.4432554199919105,
+        0.4430916699953377,
+        0.44119707999750973,
+        0.45807749999687075
+      ]
+    },
+    "ratio": 1.0229179827895427,
+    "additionalMs": 0.01007104501128192,
+    "geometryChecksum": 2462513408,
+    "evidenceChecksum": 13765016
+  },
+  "frozenManuscriptReference": {
+    "ordinaryDpMedianMs": 0.8567,
+    "ordinaryDpIqrMs": [
+      0.8547,
+      0.8609
+    ],
+    "ecdpMedianMs": 0.8844,
+    "ecdpIqrMs": [
+      0.8805,
+      0.8895
+    ],
+    "ratio": 1.032,
+    "additionalMs": 0.0278
+  },
+  "interpretation": "Timing values are machine/JIT dependent. The reconstruction is validated by exact corpus identity, the documented 5/30/100 paired protocol, and identical retained geometry; it does not force current wall-clock values to equal the historical machine."
+}

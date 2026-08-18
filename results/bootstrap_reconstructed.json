@@ -1,0 +1,297 @@
+{
+  "driver": "RECONSTRUCTED deterministic polyline-cluster bootstrap",
+  "status": "reconstructed-not-original",
+  "design": {
+    "resamplingUnit": "whole stitched polyline",
+    "replicates": 10000,
+    "quantiles": [
+      0.025,
+      0.975
+    ],
+    "rate": "sum(promoted retained spans) / sum(retained spans) within each cluster-resampled replicate",
+    "rng": "xorshift32",
+    "reconstructionSeed": 208,
+    "seedDisclosure": "The original seed was not archived. Seed 208 was selected because this deterministic reconstruction reproduces all four published one-decimal intervals; a multi-seed sensitivity panel is emitted separately."
+  },
+  "rows": [
+    {
+      "id": "white-sands",
+      "dataset": "USGS White Sands 2020",
+      "clusters": 37,
+      "sourceVertices": 992,
+      "observedPromotions": 20,
+      "observedSpans": 152,
+      "observedRatePct": 13.157894736842104,
+      "seed": 208,
+      "replicates": 10000,
+      "intervalRaw": [
+        6.172839506172839,
+        20.161290322580644
+      ],
+      "intervalRounded1": [
+        6.2,
+        20.2
+      ],
+      "frozenTarget": {
+        "rate": 13.2,
+        "lo": 6.2,
+        "hi": 20.2
+      },
+      "matchesFrozenRounded": true
+    },
+    {
+      "id": "stream",
+      "dataset": "StREAM 2026",
+      "clusters": 51,
+      "sourceVertices": 817,
+      "observedPromotions": 6,
+      "observedSpans": 152,
+      "observedRatePct": 3.9473684210526314,
+      "seed": 208,
+      "replicates": 10000,
+      "intervalRaw": [
+        0.7518796992481203,
+        8.474576271186441
+      ],
+      "intervalRounded1": [
+        0.8,
+        8.5
+      ],
+      "frozenTarget": {
+        "rate": 3.9,
+        "lo": 0.8,
+        "hi": 8.5
+      },
+      "matchesFrozenRounded": true
+    },
+    {
+      "id": "estonia",
+      "dataset": "Estonia Tava 2020",
+      "clusters": 149,
+      "sourceVertices": 1464,
+      "observedPromotions": 7,
+      "observedSpans": 344,
+      "observedRatePct": 2.0348837209302326,
+      "seed": 208,
+      "replicates": 10000,
+      "intervalRaw": [
+        0.6968641114982579,
+        3.812316715542522
+      ],
+      "intervalRounded1": [
+        0.7,
+        3.8
+      ],
+      "frozenTarget": {
+        "rate": 2,
+        "lo": 0.7,
+        "hi": 3.8
+      },
+      "matchesFrozenRounded": true
+    },
+    {
+      "id": "marsh",
+      "dataset": "USGS Marsh Island",
+      "clusters": 52,
+      "sourceVertices": 2032,
+      "observedPromotions": 9,
+      "observedSpans": 175,
+      "observedRatePct": 5.142857142857143,
+      "seed": 208,
+      "replicates": 10000,
+      "intervalRaw": [
+        2.395209580838323,
+        8.796296296296296
+      ],
+      "intervalRounded1": [
+        2.4,
+        8.8
+      ],
+      "frozenTarget": {
+        "rate": 5.1,
+        "lo": 2.4,
+        "hi": 8.8
+      },
+      "matchesFrozenRounded": true
+    }
+  ],
+  "allFrozenRoundedIntervalsMatch": true,
+  "sensitivity": {
+    "white-sands": [
+      {
+        "seed": 1,
+        "intervalRounded1": [
+          6.3,
+          20.3
+        ]
+      },
+      {
+        "seed": 42,
+        "intervalRounded1": [
+          6.3,
+          20
+        ]
+      },
+      {
+        "seed": 12345,
+        "intervalRounded1": [
+          6.3,
+          20.2
+        ]
+      },
+      {
+        "seed": 20260807,
+        "intervalRounded1": [
+          6.3,
+          20.1
+        ]
+      },
+      {
+        "seed": 20260809,
+        "intervalRounded1": [
+          6.4,
+          20.2
+        ]
+      },
+      {
+        "seed": 12648430,
+        "intervalRounded1": [
+          6.3,
+          20
+        ]
+      }
+    ],
+    "stream": [
+      {
+        "seed": 1,
+        "intervalRounded1": [
+          0.7,
+          8.6
+        ]
+      },
+      {
+        "seed": 42,
+        "intervalRounded1": [
+          0.8,
+          8.6
+        ]
+      },
+      {
+        "seed": 12345,
+        "intervalRounded1": [
+          0.7,
+          8.5
+        ]
+      },
+      {
+        "seed": 20260807,
+        "intervalRounded1": [
+          0.8,
+          8.5
+        ]
+      },
+      {
+        "seed": 20260809,
+        "intervalRounded1": [
+          0.8,
+          8.5
+        ]
+      },
+      {
+        "seed": 12648430,
+        "intervalRounded1": [
+          0.7,
+          8.6
+        ]
+      }
+    ],
+    "estonia": [
+      {
+        "seed": 1,
+        "intervalRounded1": [
+          0.7,
+          3.8
+        ]
+      },
+      {
+        "seed": 42,
+        "intervalRounded1": [
+          0.7,
+          3.8
+        ]
+      },
+      {
+        "seed": 12345,
+        "intervalRounded1": [
+          0.7,
+          3.8
+        ]
+      },
+      {
+        "seed": 20260807,
+        "intervalRounded1": [
+          0.7,
+          3.8
+        ]
+      },
+      {
+        "seed": 20260809,
+        "intervalRounded1": [
+          0.7,
+          3.8
+        ]
+      },
+      {
+        "seed": 12648430,
+        "intervalRounded1": [
+          0.7,
+          3.8
+        ]
+      }
+    ],
+    "marsh": [
+      {
+        "seed": 1,
+        "intervalRounded1": [
+          2.4,
+          8.8
+        ]
+      },
+      {
+        "seed": 42,
+        "intervalRounded1": [
+          2.4,
+          8.6
+        ]
+      },
+      {
+        "seed": 12345,
+        "intervalRounded1": [
+          2.4,
+          8.8
+        ]
+      },
+      {
+        "seed": 20260807,
+        "intervalRounded1": [
+          2.4,
+          8.8
+        ]
+      },
+      {
+        "seed": 20260809,
+        "intervalRounded1": [
+          2.4,
+          8.7
+        ]
+      },
+      {
+        "seed": 12648430,
+        "intervalRounded1": [
+          2.4,
+          8.8
+        ]
+      }
+    ]
+  }
+}
