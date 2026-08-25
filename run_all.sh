@@ -6,21 +6,21 @@ set -euo pipefail
 cd "$(dirname "$0")"
 fail() { echo "FAILED: $1" >&2; exit 1; }
 
-echo "== 1/11 exact-truth conformance checks (Section 4.1, Table 4 finite-state rows) =="
+echo "== 1/11 exact-truth conformance checks (Section 4.1, Table 2 finite-state rows) =="
 node js-study/conformance_checks.cjs | tail -1 || fail "conformance checks"
 
-echo "== 2/11 adversarial source-arc study + unsupported-gap (Section 4.2, Table 4) =="
+echo "== 2/11 adversarial source-arc study + unsupported-gap (Section 4.2, Table 2) =="
 bash js-study/reproduce.sh | tail -8 || fail "js-study"
 
 echo "== 3/11 independent oracles: semantic algebra + JS<->Python DP/EC-DP differential (Section 4.1) =="
 python3 oracles/semantic_oracle.py | tail -1 || fail "semantic oracle"
 bash oracles/differential.sh | tail -6 || fail "js<->py differential"
 
-echo "== 4/11 real-data audit (Table 6) =="
+echo "== 4/11 real-data audit (Table 3) =="
 ( cd real-data-audit && ./reproduce.sh >/dev/null && shasum -a 256 -c SHA256SUMS >/dev/null ) || fail "real-data audit"
-echo "  TABLE 6 + SHA256SUMS: pass"
+echo "  TABLE 3 + SHA256SUMS: pass"
 
-echo "== 5/11 P0-P3 ablation (reconstructed driver; Table 7 / S2) =="
+echo "== 5/11 P0-P3 ablation (reconstructed driver; Table 4 / S2) =="
 node ablation/reconstruct_ablation.cjs | grep -q '"allFrozenEventCountsMatch": true' || fail "ablation"
 echo "  ablation: frozen event counts reproduced"
 
@@ -62,7 +62,7 @@ CONFORMANCE CHECKS: PASS
 JS STUDY: PASS
 SEMANTIC ORACLE: PASS
 DP/EC-DP DIFFERENTIAL: PASS
-TABLE 6: PASS
+TABLE 3 (real-data audit): PASS
 ABLATION: PASS
 BOOTSTRAP: PASS
 SYNTHETIC BENCHMARK: PASS
