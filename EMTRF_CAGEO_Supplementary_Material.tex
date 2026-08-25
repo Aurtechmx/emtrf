@@ -3,6 +3,10 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\OLV}{OpenLiDARViewer}
 \usepackage{caption}
 \usepackage{newtxtext,newtxmath}
 \usepackage{microtype}
@@ -99,6 +103,10 @@ studies check selected numerical operators, whereas the adaptive-generalization 
 geometry immutability/retention, not complete-source provenance/support serialization. Test reachability and operator
 conformance are therefore separate claims.
 
+
+\vspace{4mm}
+\noindent\textbf{S6. Cross-implementation validation context (E4).} The audited source defines E4 as agreement with a second implementation of the same computation, separate from E5 field ground truth. Two E4 records bear on the upstream geometry used in the main text: the mean 1~m DTM on the Estonia crop against a NumPy point-in-cell mean, and marching-squares isolines against GDAL on an analytic DEM. Both are author-run implementation-agreement cross-checks, not evidence that export provenance is correct, and not field-accuracy validation.
+
 \clearpage
 \begin{table}[h]
 \centering
@@ -139,5 +147,64 @@ channel values are approximately $\{0.714,0.500,0.385\}$ and the representation-
 cell-level formula changes only how that typed channel is built; the provenance union, unsupported absorption,
 applicability, lineage, and EC-DP geometry are unchanged. This substitutability is why the reported mechanism
 failures do not depend on the particular numerical support scale.
+
+
+\clearpage
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S4.} Source context for the four field-derived contour crops. Metadata are limited to the fields frozen in the current OLV terrain-field and dataset manifests; ``not frozen'' means the committed crop records campaign/year context but not an exact flight day or instrument model. Checkpoints, where present, are not used to validate the EMTRF representation invariant.}
+\vspace{2mm}
+\small
+\scriptsize
+\setlength{\tabcolsep}{3.0pt}
+\begin{tabularx}{\linewidth}{@{}p{0.17\linewidth}p{0.25\linewidth}p{0.30\linewidth}p{0.20\linewidth}@{}}
+\toprule
+Crop & Acquisition / platform & Instrument and committed crop context & CRS / vertical reference \\
+\midrule
+White Sands & 2020 USGS 3DEP airborne LiDAR & Optech Galaxy; gypsum-dune ground crop derived from source tile \nolinkurl{USGS_LPC_NM_WhiteSandsNM_2020_D20_w3597n3635.laz} & EPSG:6342 / NAVD88 Geoid12B \\
+StREAM & 23 April 2026; two UAV LiDAR flights during leaf-off conditions & DJI Matrice 350 RTK + Zenmuse L1; riparian field, road, trees, and stream corridor; 0.1 m DTM/CHM source products published with the dataset & EPSG:6346 / NAVD88 \\
+Estonia Tava & 2020 national airborne LiDAR; exact flight day not frozen in crop metadata & National ALS source; 12\,571-point class-2 ground crop, flat boreal plain with about 1.6 m relief in the committed crop & EPSG:3301 / EH2000 \\
+Marsh Island & March 2025 campaign; site 2025-009-FA; exact flight day is not frozen in the committed crop manifest & UAS LiDAR product; flat coastal salt marsh; Emlid RS3 RTK checkpoints exist in the release but are outside the EMTRF invariant test & EPSG:6348 / NAVD88 GEOID18 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace{6mm}
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S5.} Claim--evidence boundary used throughout the study. The rows deliberately separate representation conformance, empirical mechanism occurrence, upstream numerical agreement, and terrain accuracy so evidence from one row is not used to authorize another.}
+\vspace{2mm}
+\small
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabularx}{\linewidth}{@{}p{0.20\linewidth}p{0.40\linewidth}X@{}}
+\toprule
+Claim class & Evidence used here & Not established by that evidence \\
+\midrule
+Operator conformance & Propositions; exhaustive directional states; adversarial source arcs/gaps; JavaScript--Python differential oracle & DTM vertical accuracy; population defect prevalence \\
+Mechanism on field geometry & Four public contour crops; complete-source audit; polyline-cluster bootstrap sensitivity summaries; P0--P3 ablation & Balanced terrain/sensor effects; population rates \\
+Upstream numerical implementation & Independent NumPy DTM and GDAL contour E4 records in the audited source & Correct export provenance; field ground truth; EMTRF conformance \\
+Application counterexample & Frozen source-path audit of grade-derived export evidence & Frequency of the same defect in other GIS packages \\
+Third-party generalizer & GDAL \code{gdal\_contour} attribute schema; endpoint-only vs.\ complete-arc promotion on GDAL geometry & Independent EC-DP reimplementation; population prevalence across GIS tools \\
+Runtime & Paired synthetic and real-contour representation-stage benchmarks & Universal browser/native-GIS or end-to-end pipeline overhead \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace{6mm}
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S6.} Orthogonal cross-implementation records bundled with the audited v0.6.5 source. E4 denotes independent implementation agreement in the application's evidence ladder, not external field truth.}
+\vspace{2mm}
+\small
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xrr@{}}
+\toprule
+Product & Independent reference & Executed scope & Compared & Max. difference \\
+\midrule
+DTM mean rasterization & NumPy point-in-cell mean & Estonia Tava, 1 m grid; identical data/NODATA mask & 7,627 cells & $2.36\times10^{-6}$ m \\
+Contour placement & GDAL 3.13.1 \code{gdal\_contour} & Tilted-plane DEM; 0.5 m interval & 2,222 vertices & $2.90\times10^{-5}$ m \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \end{document}

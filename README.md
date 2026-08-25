@@ -19,12 +19,12 @@ in the paper only as a separate real-terrain audit environment (see [OLV anchor]
 
 | Path | Contents | Paper reference |
 |---|---|---|
-| `js-study/conformance_checks.cjs` | Exact-truth conformance checks (Table 4 finite-state rows): measured support, interpolation sequence, 256 directional patterns, closed-ring invariance. | §4.1 |
+| `js-study/conformance_checks.cjs` | Exact-truth conformance checks (Table 2 finite-state rows): measured support, interpolation sequence, 256 directional patterns, closed-ring invariance. | §4.1 |
 | `js-study/` | Standalone JavaScript operator-contract study: reference support functions, directional classifier, ordinary DP, EC-DP, deterministic fixture generation (exhaustive finite-state + 10,000 adversarial polylines), unsupported-gap and closed-ring fixtures, timing harness. | §3, §4.1–4.3 |
 | `oracles/` | `semantic_oracle.py` (typed-evidence algebra, 14 checks including the applicability/scope/lineage clauses) and a JavaScript↔Python DP/EC-DP differential over a shared frozen corpus (`fixtures/differential_2500.jsonl`): `make_corpus.mjs` freezes 2,500 fixtures, `js_differential.mjs` (shipped EC-DP) and `dpecdp_differential.py` (independent Python reimplementation) run on it, and `compare_differential.py` asserts identical indices/intervals and support within 1e-15. Run all of it via `differential.sh`. | §3.4, §4.1 |
-| `real-data-audit/` | Real-data provenance/source-arc audit: Node harness (`run_table6.cjs`, `reproduce.sh`), four frozen public contour crops, production terrain/contour modules, raw outputs, `SHA256SUMS`. | Table 6, §4.7 |
+| `real-data-audit/` | Real-data provenance/source-arc audit: Node harness (`run_table6.cjs`, `reproduce.sh`), four frozen public contour crops, production terrain/contour modules, raw outputs, `SHA256SUMS`. | Table 3, §4.7 |
 | `gdal-audit/` | Third-party generalizer audit on `gdal_contour` geometry (`thirdparty_gdal_audit.py`, GDAL 3.13.1, no author code in the contour-extraction path). | §4.6 |
-| `ablation/` | Four-pipeline (P0–P3) evidence ablation: runnable driver + per-site records (Table 7, Table S2). | §4.8 |
+| `ablation/` | Four-pipeline (P0–P3) evidence ablation: runnable driver + per-site records (Table 4, Supplementary Table S2). | §4.8 |
 | `bootstrap/` | Deterministic 10,000-replicate polyline-cluster bootstrap driver (Figure 7 intervals). | §4.7 |
 | `benchmarks/` | Synthetic EC-DP overhead benchmark (640k vertices, 30 reps) and the real-contour benchmark driver (289 polylines / 5,305 vertices). | §4.3 |
 | `figures/` | Figure-generation scripts (repo-root-relative paths). | Figs. 1–9, S1 |
@@ -55,7 +55,7 @@ otherwise; to run it alone: `python gdal-audit/thirdparty_gdal_audit.py`.
 Individual steps:
 
 ```bash
-cd real-data-audit && ./reproduce.sh && shasum -a 256 -c SHA256SUMS   # Table 6
+cd real-data-audit && ./reproduce.sh && shasum -a 256 -c SHA256SUMS   # Table 3
 cd ../js-study && bash reproduce.sh                                    # adversarial stress + gap
 cd ../oracles && python semantic_oracle.py && bash differential.sh     # algebra + JS<->Py differential
 ```
@@ -75,13 +75,13 @@ the OpenLiDARViewer application release:
 - Zenodo concept DOI `10.5281/zenodo.21544619`; version DOI `10.5281/zenodo.21933671`
 - source-archive SHA-256 `fdb510e3416fb0cb02c71031bb7f653b8e0dde83ae9916c85d1c44e844b122fa`
 
-**B. Field-derived EMTRF audit (Table 6).** The terrain/contour modules under `real-data-audit/`
+**B. Field-derived EMTRF audit (Table 3).** The terrain/contour modules under `real-data-audit/`
 are a frozen study-local snapshot, identified by their own per-file SHA-256 in
 `real-data-audit/SHA256SUMS`. They are **not** byte-identical to the v0.6.5 application release:
 the snapshot uses a hardened `cellConfidence` that leaves otherwise-unreachable voids unsupported
 unless a bounded fallback is authorized, whereas the release fills such voids by nearest support.
 That difference changes the supported terrain domain and the downstream contour population, so
-Table 6 is reproducible from this frozen snapshot rather than from the release modules. The
+Table 3 is reproducible from this frozen snapshot rather than from the release modules. The
 production-source defect audited in (A) is independent of this and is reproducible against the
 release.
 
