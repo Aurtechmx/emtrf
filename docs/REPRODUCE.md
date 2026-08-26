@@ -19,7 +19,7 @@ Expected key outputs:
   at every tolerance; unsupported-gap 970/1000 ordinary vs 0 EC-DP.
 - semantic oracle 14/14 (including the applicability/scope/lineage clauses);
   JS<->Python DP/EC-DP differential 2500/2500 exact, max support difference 0.
-- Table 6 real-data counts reproduce exactly; `real-data-audit/SHA256SUMS` all pass.
+- Table 3 real-data counts reproduce exactly; `real-data-audit/SHA256SUMS` all pass.
 
 `run_all.sh` attempts the GDAL third-party audit automatically as stage 10/11 when the GDAL
 3.13.1 tools are on `PATH`, and reports it as skipped otherwise; the core checks do not depend

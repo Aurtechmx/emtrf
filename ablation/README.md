@@ -1,13 +1,13 @@
 # ablation/
 
 Four-pipeline (P0-P3) evidence ablation on the four committed real-data crops, evaluated at
-one source-cell tolerance on a single retained-geometry set. Behind Table 7 (summary) and
+one source-cell tolerance on a single retained-geometry set. Behind Table 4 (summary) and
 Supplementary Table S2 (per-site detail).
 
 - `reconstruct_ablation.cjs` - runnable driver. Rebuilds contours from the crops, applies the
   P0-P3 metadata rules, and reports per-site spans, promotions, and provenance losses. Run:
   `node ablation/reconstruct_ablation.cjs` (add `--strict` for the production eligibility rule).
-- `ablation_summary.csv` - P0-P3 promotion/loss ranges (Table 7).
+- `ablation_summary.csv` - P0-P3 promotion/loss ranges (Table 4).
 - `ablation_site_results.csv` - per-site frozen values (Supplementary Table S2).
 
 The driver reproduces every frozen P0-P3 event count and denominator. One documented difference:

@@ -55,6 +55,12 @@ function mandatory(v:readonly TypedEvidenceVertex[],extra:ReadonlySet<number>):n
   }
   return [...keep].sort((a,b)=>a-b);
 }
+/** Unsupported element strictly inside (a,b). Endpoints are retained anyway, so only an
+ *  interior gap may block simplification of the supported run between them. */
+function hasUnsupportedStrict(v:readonly TypedEvidenceVertex[],a:number,b:number):boolean{
+  for(let i=a+1;i<b;i++) if(v[i].state==='unsupported') return true;
+  return false;
+}
 function hasUnsupported(v:readonly TypedEvidenceVertex[],a:number,b:number):boolean{
   for(let i=a;i<=b;i++) if(v[i].state==='unsupported') return true;
   return false;
@@ -79,10 +85,18 @@ export function evidenceConstrainedDouglasPeuckerTyped(
   if(vertices.length<2) return {retainedIndices:vertices.map((_,i)=>i),segments:[]};
   vertices.forEach((x,i)=>{ if(!Number.isFinite(x.x)||!Number.isFinite(x.y)) throw new RangeError(`invalid coordinate at ${i}`); });
   const m=mandatory(vertices,extraProtected), keep=new Set<number>(m);
+  // Split the source at unsupported elements into maximal supported runs and simplify each
+  // run independently. Testing hasUnsupported() on [a,b] inclusively reports true whenever an
+  // interval's own endpoint is the unsupported vertex, which would leave every run beside a
+  // gap unsimplified: the gap is honoured but the geometry contract is broken.
   for(let j=0;j<m.length-1;j++){
     const a=m[j],b=m[j+1];
-    if(hasUnsupported(vertices,a,b)){ for(let i=a;i<=b;i++) keep.add(i); continue; }
-    for(const i of dpIndices(vertices,a,b,tolerance)) keep.add(i);
+    // a and b are retained regardless, so only an unsupported element strictly inside blocks DP.
+    const lo=vertices[a].state==='unsupported'?a+1:a;
+    const hi=vertices[b].state==='unsupported'?b-1:b;
+    if(hi<=lo){ for(let i=a;i<=b;i++) keep.add(i); continue; }
+    if(hasUnsupportedStrict(vertices,lo,hi)){ for(let i=a;i<=b;i++) keep.add(i); continue; }
+    for(const i of dpIndices(vertices,lo,hi,tolerance)) keep.add(i);
   }
   const retainedIndices=[...keep].sort((a,b)=>a-b); const segments:TypedEvidenceSegment[]=[];
   for(let j=0;j<retainedIndices.length-1;j++){

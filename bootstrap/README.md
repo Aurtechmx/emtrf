@@ -8,7 +8,7 @@ promotion rate on the four crops (Figure 7 intervals).
   it if absent) and resamples whole polylines. Run:
   `node bootstrap/reconstruct_polyline_bootstrap.cjs`.
 
-The input clusters, numerators, and denominators come from the preserved Table 6 audit. The
+The input clusters, numerators, and denominators come from the preserved Table 3 audit. The
 original RNG seed was not archived; a disclosed xorshift32 seed of 208 reproduces all four
 published one-decimal intervals, and a multi-seed sensitivity panel is written to the output so
 the choice is inspectable. This is a reconstructed driver: see `../docs/RECONSTRUCTED_DRIVERS.md`.

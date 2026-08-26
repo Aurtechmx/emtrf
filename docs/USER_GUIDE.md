@@ -9,10 +9,10 @@ its evidence-constrained Douglas-Peucker variant.
 - `js-study/` - standalone operator-contract study (typed operators, typed EC-DP, adversarial
   source-arc stress, gap and closed-ring fixtures, timing). Entry point: `js-study/reproduce.sh`.
 - `oracles/` - two independent Python oracles (typed-evidence algebra; DP/EC-DP differential).
-- `real-data-audit/` - Node harness over four committed public contour crops (Table 6),
+- `real-data-audit/` - Node harness over four committed public contour crops (Table 3),
   self-checksummed. Entry point: `real-data-audit/reproduce.sh`.
 - `gdal-audit/` - third-party generalizer audit on `gdal_contour` geometry.
-- `ablation/` - frozen P0-P3 evidence-ablation results (Table 7 / Supplementary Table S2).
+- `ablation/` - frozen P0-P3 evidence-ablation results (Table 4 / Supplementary Table S2).
 - `benchmarks/` - EC-DP overhead microbenchmark (runnable) and reported timing values.
 - `figures/` - figure-generation scripts (repo-root-relative paths).
 - `data/` - `make_stream_features.cjs` regenerates the StREAM DTM coverage from the crop.

@@ -10,8 +10,9 @@ LiDAR-derived crops under `real-data-audit/crops/` are third-party data under th
 | White Sands (`whitesands-dune__ground.f32`) | USGS 3DEP | U.S. Government public domain |
 | Estonia Tava (`estonia-tava__ground.f32`) | Estonian Land and Spatial Development Board (2020 elevation/LiDAR), via Zenodo 10.5281/zenodo.19232743 | Estonian Land and Spatial Development Board Open Data License; derivatives and redistribution permitted with attribution |
 
-Attribution for CC BY 4.0 data (StREAM) is required in any downstream use. Verify the Estonia
-crop's redistribution license against its source deposit; do not assume MIT.
+Attribution for CC BY 4.0 data (StREAM) is required in any downstream use. The MIT license
+covers EMTRF code only; each redistributed dataset keeps the license in the table above. The
+Estonia crop's terms are resolved in full below.
 
 ## Estonia crop attribution and license
 

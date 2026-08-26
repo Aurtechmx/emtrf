@@ -15,6 +15,13 @@ mechanism rate and oracle result reproduces exactly from the artifacts here; the
 benchmarks rerun on the same frozen corpora, but exact runtimes are machine-dependent. OLV appears
 in the paper only as a separate real-terrain audit environment (see [OLV anchor](#audited-olv-anchor)).
 
+
+> **Table numbering.** The manuscript's Tables 2, 3 and 4 are the finite-state, real-data
+> audit and ablation results. Two files keep legacy names from an earlier draft numbering:
+> `real-data-audit/run_table6.cjs` and its recorded `results/reproduction_stdout.txt` header
+> both refer to the audit now published as **Table 3**. The filenames are retained so the
+> archived SHA256 manifests stay verifiable.
+
 ## Repository layout
 
 | Path | Contents | Paper reference |

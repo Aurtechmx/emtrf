@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * Exact-truth conformance checks (Section 4.1 / Table 4 finite-state rows).
+ * Exact-truth conformance checks (Section 4.1 / Table 2 finite-state rows).
  * Asserts the closed-form results the manuscript reports and exits non-zero on any mismatch:
  *   - measured-support boundedness/monotonicity and single-return edge value;
  *   - interpolation-distance sequence;

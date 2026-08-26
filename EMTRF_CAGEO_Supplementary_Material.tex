@@ -40,7 +40,7 @@ Marsh Island & 0.8\% & 50.3\% & 48.9\% & 41 & 0.80\% & 15.5\% \\
 
 \begin{table}[h]
 \centering
-\caption*{\textbf{Table S2.} Site-specific four-pipeline ablation and performance diagnostics at one source-cell tolerance (the per-site detail behind the main-text P0--P3 ablation summary table). ``EP promote'' is the endpoint-only rate shared by P0/P1; ``Grade loss'' is the rate shared by P0/P2; ``Typed-EP loss'' is P1. The P3 column reports support-promotion/provenance-loss counts. The EC-DP overhead per kilometre is a secondary microtiming diagnostic; the paired 5,305-vertex benchmark in the main text is the primary runtime estimate.}
+\caption*{\textbf{Table S2.} Site-specific four-pipeline ablation and performance diagnostics at one source-cell tolerance (the per-site detail behind the main-text P0--P3 ablation summary table). ``EP promote'' is the endpoint-only rate shared by P0/P1; ``Grade loss'' is the rate shared by P0/P2; ``Typed-EP loss'' is P1. The P3 column reports support-promotion/provenance-loss counts. The EC-DP overhead per kilometre is a secondary microtiming diagnostic; the paired 5,305-vertex benchmark in the main text is the primary runtime estimate. Counts are the strict reconstruction, which retains every eligible span. The 2026 archived record contains 184 Marsh Island spans and 87.5\% reduction, where the strict reconstruction yields 186; the two additional eligible records are one-edge feature runs. Because the original eligibility rule was not preserved, the strict reconstruction is reported here and the archived result is retained in the repository as a historical cross-check.}
 \vspace{2mm}
 \small
 \setlength{\tabcolsep}{5pt}
@@ -51,7 +51,7 @@ Site & Spans & Red. & EP promote & Grade loss & Typed-EP loss & P3 & +ms/km \\
 White Sands & 82 & 71.1\% & 24.4\% & 93.9\% & 0.0\% & 0/0 & 2.12 \\
 Estonia Tava & 172 & 62.7\% & 6.4\% & 100\% & 7.6\% & 0/0 & 2.43 \\
 StREAM & 54 & 67.4\% & 22.2\% & 100\% & 1.9\% & 0/0 & 2.05 \\
-Marsh Island & 184 & 87.5\% & 4.3\% & 98.9\% & 0.0\% & 0/0 & 2.78 \\
+Marsh Island & 186 & 87.4\% & 4.3\% & 98.4\% & 0.0\% & 0/0 & 2.78 \\
 \bottomrule
 \end{tabular}
 \end{table}

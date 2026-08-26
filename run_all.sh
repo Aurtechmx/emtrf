@@ -11,6 +11,7 @@ node js-study/conformance_checks.cjs | tail -1 || fail "conformance checks"
 
 echo "== 2/11 adversarial source-arc study + unsupported-gap (Section 4.2, Table 2) =="
 bash js-study/reproduce.sh | tail -8 || fail "js-study"
+npx --yes tsx js-study/gap_regression.ts || fail "unsupported-gap regression"
 
 echo "== 3/11 independent oracles: semantic algebra + JS<->Python DP/EC-DP differential (Section 4.1) =="
 python3 oracles/semantic_oracle.py | tail -1 || fail "semantic oracle"
@@ -21,8 +22,38 @@ echo "== 4/11 real-data audit (Table 3) =="
 echo "  TABLE 3 + SHA256SUMS: pass"
 
 echo "== 5/11 P0-P3 ablation (reconstructed driver; Table 4 / S2) =="
-node ablation/reconstruct_ablation.cjs | grep -q '"allFrozenEventCountsMatch": true' || fail "ablation"
-echo "  ablation: frozen event counts reproduced"
+# The paper reports STRICT mode: every eligible span retained, no result-defined exclusion.
+node ablation/reconstruct_ablation.cjs --strict > /tmp/emtrf_ablation_strict.json || fail "ablation (strict)"
+python3 - <<'PYCHK' || fail "ablation (strict values)"
+import json,sys
+t=open("/tmp/emtrf_ablation_strict.json").read(); d=json.loads(t[t.find("{"):])
+def rows(o,a=None):
+    a=[] if a is None else a
+    if isinstance(o,dict):
+        if "frozenTarget" in o: a.append(o)
+        for v in o.values(): rows(v,a)
+    elif isinstance(o,list):
+        for v in o: rows(v,a)
+    return a
+want={"White Sands":(82,20,77),"Estonia Tava":(172,11,172),"StREAM":(54,12,54),"Marsh Island":(186,8,183)}
+bad=[]; seen=set()
+for r in rows(d):
+    n=r["label"]
+    if n not in want: continue
+    seen.add(n)
+    got=(r["spans"],r["supportPromotionCount"],r["gradeProvenanceLossCount"])
+    if got!=want[n]: bad.append((n,got,want[n]))
+    if r["p2SupportPromotionCount"] or r["p3SupportPromotionCount"] or r["p3ProvenanceLossCount"]:
+        bad.append((n,"P2/P3 nonzero",0))
+missing=set(want)-seen
+if missing: bad.append(("unmatched sites",sorted(missing),""))
+for b in bad: print("  ABLATION MISMATCH:",b,file=sys.stderr)
+sys.exit(1 if bad else 0)
+PYCHK
+echo "  ablation (strict): S2 values reproduced; P2/P3 zero"
+# Archive-compatible mode is retained only as a cross-check against the 2026 archived run.
+node ablation/reconstruct_ablation.cjs | grep -q '"allFrozenEventCountsMatch": true' || fail "ablation (archive cross-check)"
+echo "  ablation (archive cross-check): 2026 frozen counts still reproduce"
 
 echo "== 6/11 polyline-cluster bootstrap (reconstructed driver; Fig 7 intervals) =="
 node bootstrap/reconstruct_polyline_bootstrap.cjs | grep -q '"allFrozenRoundedIntervalsMatch": true' || fail "bootstrap"

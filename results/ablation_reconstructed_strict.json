@@ -1,0 +1,133 @@
+{
+  "driver": "RECONSTRUCTED P0-P3 feature-level ablation",
+  "status": "reconstructed-not-original",
+  "mode": "strict-production-reconstruction",
+  "method": {
+    "contourInterval": "one source cell",
+    "simplificationTolerance": "one source cell",
+    "geometry": "production feature-model grade runs + production unbounded-line DP",
+    "support": "typed measured/interpolated channel minima",
+    "provenance": "M/I/X complete-source union versus grade-derived or endpoint-only"
+  },
+  "rows": [
+    {
+      "id": "white-sands",
+      "label": "White Sands",
+      "features": 43,
+      "spans": 82,
+      "sourceVertices": 433,
+      "retainedVertices": 125,
+      "vertexReductionPct": 71.13163972286374,
+      "supportPromotionCount": 20,
+      "supportPromotionPct": 24.390243902439025,
+      "gradeProvenanceLossCount": 77,
+      "gradeProvenanceLossPct": 93.90243902439025,
+      "typedEndpointProvenanceLossCount": 0,
+      "typedEndpointProvenanceLossPct": 0,
+      "p2SupportPromotionCount": 0,
+      "p3SupportPromotionCount": 0,
+      "p3ProvenanceLossCount": 0,
+      "archiveCompatibilityExcludedRuns": [],
+      "frozenTarget": {
+        "spans": 82,
+        "promotion": 20,
+        "gradeLoss": 77,
+        "typedLoss": 0,
+        "reductionPct": 71.1
+      },
+      "frozenEventMatch": true,
+      "reductionDifferencePercentagePoints": 0
+    },
+    {
+      "id": "estonia",
+      "label": "Estonia Tava",
+      "features": 89,
+      "spans": 172,
+      "sourceVertices": 700,
+      "retainedVertices": 261,
+      "vertexReductionPct": 62.714285714285715,
+      "supportPromotionCount": 11,
+      "supportPromotionPct": 6.395348837209302,
+      "gradeProvenanceLossCount": 172,
+      "gradeProvenanceLossPct": 100,
+      "typedEndpointProvenanceLossCount": 13,
+      "typedEndpointProvenanceLossPct": 7.558139534883721,
+      "p2SupportPromotionCount": 0,
+      "p3SupportPromotionCount": 0,
+      "p3ProvenanceLossCount": 0,
+      "archiveCompatibilityExcludedRuns": [],
+      "frozenTarget": {
+        "spans": 172,
+        "promotion": 11,
+        "gradeLoss": 172,
+        "typedLoss": 13,
+        "reductionPct": 62.7
+      },
+      "frozenEventMatch": true,
+      "reductionDifferencePercentagePoints": 0
+    },
+    {
+      "id": "stream",
+      "label": "StREAM",
+      "features": 33,
+      "spans": 54,
+      "sourceVertices": 267,
+      "retainedVertices": 87,
+      "vertexReductionPct": 67.41573033707866,
+      "supportPromotionCount": 12,
+      "supportPromotionPct": 22.22222222222222,
+      "gradeProvenanceLossCount": 54,
+      "gradeProvenanceLossPct": 100,
+      "typedEndpointProvenanceLossCount": 1,
+      "typedEndpointProvenanceLossPct": 1.8518518518518519,
+      "p2SupportPromotionCount": 0,
+      "p3SupportPromotionCount": 0,
+      "p3ProvenanceLossCount": 0,
+      "archiveCompatibilityExcludedRuns": [],
+      "frozenTarget": {
+        "spans": 54,
+        "promotion": 12,
+        "gradeLoss": 54,
+        "typedLoss": 1,
+        "reductionPct": 67.4
+      },
+      "frozenEventMatch": true,
+      "reductionDifferencePercentagePoints": 0
+    },
+    {
+      "id": "marsh",
+      "label": "Marsh Island",
+      "features": 72,
+      "spans": 186,
+      "sourceVertices": 2052,
+      "retainedVertices": 258,
+      "vertexReductionPct": 87.42690058479532,
+      "supportPromotionCount": 8,
+      "supportPromotionPct": 4.301075268817204,
+      "gradeProvenanceLossCount": 183,
+      "gradeProvenanceLossPct": 98.38709677419355,
+      "typedEndpointProvenanceLossCount": 0,
+      "typedEndpointProvenanceLossPct": 0,
+      "p2SupportPromotionCount": 0,
+      "p3SupportPromotionCount": 0,
+      "p3ProvenanceLossCount": 0,
+      "archiveCompatibilityExcludedRuns": [],
+      "frozenTarget": {
+        "spans": 184,
+        "promotion": 8,
+        "gradeLoss": 182,
+        "typedLoss": 0,
+        "reductionPct": 87.5
+      },
+      "frozenEventMatch": false,
+      "reductionDifferencePercentagePoints": -0.09999999999999432
+    }
+  ],
+  "allFrozenEventCountsMatch": false,
+  "notes": [
+    "P0/P1 support promotion is identical because both use endpoint-only typed support; P2/P3 are zero by complete-source aggregation.",
+    "P0/P2 provenance loss is identical because both use grade-derived provenance; P1 uses typed endpoints; P3 uses complete-source provenance union.",
+    "The lost original Marsh eligibility bookkeeping is not archived. Compatibility mode removes the two one-edge Marsh grade runs, exactly reproducing its frozen 184-span event denominator and event counts.",
+    "The reconstructed Marsh vertex-reduction value rounds to 87.6% versus the historical 87.5%; no value is overwritten."
+  ]
+}

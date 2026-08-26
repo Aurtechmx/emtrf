@@ -1,6 +1,6 @@
-# EMTRF Table 6 crop-processing bundle
+# EMTRF Table 3 crop-processing bundle
 
-This bundle isolates the code and committed crop inputs used to reproduce the four real-data diagnostics summarized in Table 6:
+This bundle isolates the code and committed crop inputs used to reproduce the four real-data diagnostics summarized in Table 3:
 
 - raw contour segment count;
 - measured-derived segment assigned the `dashed` display grade (`M -> dashed`);
@@ -26,7 +26,7 @@ The script writes:
 - `results/table6_full.json`
 - `results/source_arc_2cell.csv`
 
-and exits non-zero if any reported Table 6 count or rounded rate does not reproduce.
+and exits non-zero if any reported Table 3 count or rounded rate does not reproduce.
 
 ## Processing chain
 
@@ -47,7 +47,7 @@ For each committed crop:
 
 The bundle also performs an exact generation-order source-block cross-check against the production marching-squares topology before applying the historical source-block recovery rule.
 
-## Frozen Table 6 target
+## Frozen Table 3 target
 
 | Dataset | Segments | M -> dashed | X ancestry | Promote 1 cell | Vertex reduction |
 |---|---:|---:|---:|---:|---:|
@@ -66,7 +66,7 @@ byte-identical to the v0.6.5 application release (git commit
 `4fb00a784d860a2e24cc1834d6c1230dac550355`): it uses a hardened `cellConfidence` that leaves
 otherwise-unreachable voids unsupported unless a bounded fallback is authorized, whereas the
 release fills such voids by nearest support. That policy difference changes the supported terrain
-domain and the downstream contour population, so Table 6 reproduces from this frozen snapshot, not
+domain and the downstream contour population, so Table 3 reproduces from this frozen snapshot, not
 from the release modules. The production-source export defect audited in the paper is separate and
 reproduces against the v0.6.5 release itself.
 
@@ -76,4 +76,4 @@ The original project license is included as `LICENSE`. Dataset metadata/citation
 
 ## Scope
 
-This bundle reproduces the Table 6 real-crop processing path. It is not the entire EMTRF supplementary artifact and does not include the separate synthetic adversarial fixtures, Python differential oracles, GDAL third-party audit, or the feature-level P0-P3 ablation.
+This bundle reproduces the Table 3 real-crop processing path. It is not the entire EMTRF supplementary artifact and does not include the separate synthetic adversarial fixtures, Python differential oracles, GDAL third-party audit, or the feature-level P0-P3 ablation.

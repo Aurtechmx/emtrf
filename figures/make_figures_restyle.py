@@ -11,6 +11,38 @@ import seaborn as sns
 from pathlib import Path
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Patch
 
+# --- EMTRF: ablation values are loaded from the committed strict analysis output, never
+# --- hardcoded. Hardcoding let the manuscript, supplement and figures drift apart once.
+import json as _json, os as _os
+def _load_ablation():
+    _p = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "results",
+                       "ablation_reconstructed_strict.json")
+    with open(_p) as _f:
+        _t = _f.read(); _d = _json.loads(_t[_t.find("{"):])
+    def _rows(o, a=None):
+        a = [] if a is None else a
+        if isinstance(o, dict):
+            if "frozenTarget" in o: a.append(o)
+            for v in o.values(): _rows(v, a)
+        elif isinstance(o, list):
+            for v in o: _rows(v, a)
+        return a
+    _order = ["White Sands", "Estonia Tava", "StREAM", "Marsh Island"]
+    _by = {r["label"]: r for r in _rows(_d)}
+    _missing = [s for s in _order if s not in _by]
+    if _missing:
+        raise SystemExit("ablation schema mismatch; missing sites: %s" % _missing)
+    for _k in ("vertexReductionPct","supportPromotionPct","gradeProvenanceLossPct",
+               "typedEndpointProvenanceLossPct"):
+        for _s in _order:
+            if _k not in _by[_s]:
+                raise SystemExit("ablation schema mismatch; %s missing %s" % (_s, _k))
+    _r1 = lambda k: [round(_by[s][k], 1) for s in _order]
+    return (_r1("vertexReductionPct"), _r1("supportPromotionPct"),
+            _r1("gradeProvenanceLossPct"), _r1("typedEndpointProvenanceLossPct"))
+_ABL_RED, _ABL_PROM, _ABL_GRADE, _ABL_TYPED = _load_ablation()
+
+
 # Paths are resolved relative to the package root so figures regenerate on any machine.
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures"; OUT.mkdir(parents=True, exist_ok=True)
@@ -178,7 +210,7 @@ ax.text(0,-.20,"Whiskers are deterministic 10,000-replicate polyline-cluster boo
 dimticks(ax); finish(fig,"fig6_real_promotion.pdf")
 
 # ============ Figure 7: four-pipeline ablation ============
-sitesA=["White","Estonia","StREAM","Marsh"]; support=[24.4,6.4,22.2,4.3]; grade=[93.9,100,100,98.9]; typed=[0,7.6,1.9,0]
+sitesA=["White","Estonia","StREAM","Marsh"]; support=_ABL_PROM; grade=_ABL_GRADE; typed=_ABL_TYPED
 pipes=[("P0  grade provenance\n+ endpoint support",support,grade),
        ("P1  typed provenance\n+ endpoint support",support,typed),
        ("P2  grade provenance\n+ complete source",[0,0,0,0],grade),
@@ -202,7 +234,7 @@ fig.subplots_adjust(bottom=.28,wspace=.12,top=.78)
 finish(fig,"fig7_ablation.pdf",despine=False)
 
 # ============ Supplementary S1: descriptive scatter ============
-red=np.array([71.1,62.7,67.4,87.5]); prom=np.array([24.4,6.4,22.2,4.3])
+red=np.array(_ABL_RED); prom=np.array(_ABL_PROM)
 names=["White Sands","Estonia Tava","StREAM","Marsh Island"]; markers=["o","s","^","D"]
 fig,ax=plt.subplots(figsize=(5.3,3.6))
 for r,p,n,m in zip(red,prom,names,markers):

@@ -6,6 +6,38 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle, Patch
 from matplotlib.lines import Line2D
 
+# --- EMTRF: ablation values are loaded from the committed strict analysis output, never
+# --- hardcoded. Hardcoding let the manuscript, supplement and figures drift apart once.
+import json as _json, os as _os
+def _load_ablation():
+    _p = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "results",
+                       "ablation_reconstructed_strict.json")
+    with open(_p) as _f:
+        _t = _f.read(); _d = _json.loads(_t[_t.find("{"):])
+    def _rows(o, a=None):
+        a = [] if a is None else a
+        if isinstance(o, dict):
+            if "frozenTarget" in o: a.append(o)
+            for v in o.values(): _rows(v, a)
+        elif isinstance(o, list):
+            for v in o: _rows(v, a)
+        return a
+    _order = ["White Sands", "Estonia Tava", "StREAM", "Marsh Island"]
+    _by = {r["label"]: r for r in _rows(_d)}
+    _missing = [s for s in _order if s not in _by]
+    if _missing:
+        raise SystemExit("ablation schema mismatch; missing sites: %s" % _missing)
+    for _k in ("vertexReductionPct","supportPromotionPct","gradeProvenanceLossPct",
+               "typedEndpointProvenanceLossPct"):
+        for _s in _order:
+            if _k not in _by[_s]:
+                raise SystemExit("ablation schema mismatch; %s missing %s" % (_s, _k))
+    _r1 = lambda k: [round(_by[s][k], 1) for s in _order]
+    return (_r1("vertexReductionPct"), _r1("supportPromotionPct"),
+            _r1("gradeProvenanceLossPct"), _r1("typedEndpointProvenanceLossPct"))
+_ABL_RED, _ABL_PROM, _ABL_GRADE, _ABL_TYPED = _load_ablation()
+
+
 # Paths are resolved relative to the package root so figures regenerate on any machine.
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures"
@@ -100,7 +132,7 @@ ax.text(0,-.22,'Whiskers are deterministic 10,000-replicate polyline-cluster boo
 save(fig,'fig6_real_promotion.pdf')
 
 # Figure 7: four pipeline ablation chart
-sitesA=['White','Estonia','StREAM','Marsh']; support=[24.4,6.4,22.2,4.3]; grade=[93.9,100,100,98.9]; typed=[0,7.6,1.9,0]
+sitesA=['White','Estonia','StREAM','Marsh']; support=_ABL_PROM; grade=_ABL_GRADE; typed=_ABL_TYPED
 pipes=[('P0  grade provenance\n+ endpoint support',support,grade),('P1  typed provenance\n+ endpoint support',support,typed),('P2  grade provenance\n+ complete source',[0,0,0,0],grade),('P3  typed provenance\n+ complete source',[0,0,0,0],[0,0,0,0])]
 fig,axs=plt.subplots(1,4,figsize=(7.25,3.7),sharey=True); barw=.34; x4=np.arange(4)
 for idx,(ax,(ttl,sp,pr)) in enumerate(zip(axs,pipes)):
@@ -155,7 +187,7 @@ fig.subplots_adjust(bottom=.20,wspace=.10,top=.88)
 save(fig,'fig8_stream_map.pdf')
 
 # Supplementary S1: descriptive reduction vs support-promotion scatter
-red=np.array([71.1,62.7,67.4,87.5]); prom=np.array([24.4,6.4,22.2,4.3]); names=['White Sands','Estonia Tava','StREAM','Marsh Island']
+red=np.array(_ABL_RED); prom=np.array(_ABL_PROM); names=['White Sands','Estonia Tava','StREAM','Marsh Island']
 fig,ax=plt.subplots(figsize=(5.3,3.6)); markers=['o','s','^','D']
 for r,p,n,m in zip(red,prom,names,markers): ax.scatter([r],[p],s=45,marker=m,color=BLUE); ax.annotate(n,(r,p),xytext=(5,5),textcoords='offset points',fontsize=7.5)
 ax.set_xlabel('Vertex reduction (%)'); ax.set_ylabel('Endpoint-only support promotion (%)'); ax.set_xlim(58,92); ax.set_ylim(0,28); ax.grid(alpha=.22); ax.set_title('Descriptive promotion vs. reduction across four audited crops',fontweight='bold'); ax.text(0,-.20,'Descriptive only: four heterogeneous crops do not support a fitted population relationship.',transform=ax.transAxes,fontsize=7.2,color=GRAY,va='top')
