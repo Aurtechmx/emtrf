@@ -152,7 +152,7 @@ b1=ax.bar(xx,M,w,label='Measured-derived (M)',color=BLUE,edgecolor='white'); b2=
 for i in range(4):
  for val,bot in [(M[i],0),(I[i],M[i]),(X[i],M[i]+I[i])]:
   if val>=7: ax.text(i,bot+val/2,f'{val:.1f}%',ha='center',va='center',fontsize=7.7,color='white' if (bot==0 or bot==M[i]+I[i]) else BLACK,fontweight='bold')
-ax.axhline(50,ls=':',lw=.9,color=GRAY); ax.text(3.46,50,'50%',va='center',fontsize=7.5,color=GRAY)
+ax.set_xlim(-.62,3.60); ax.axhline(50,ls=':',lw=.9,color=GRAY); ax.text(3.57,52.5,'50%',ha='right',va='bottom',fontsize=7.5,color=GRAY)
 ax.text(1.5,108,'Mixed ancestry exceeds 50% at StREAM and Estonia Tava',ha='center',va='center',fontsize=7.7,color=GRAY)
 ax.set_xticks(xx); ax.set_xticklabels([f'{s}\nn={n:,}' for s,n in zip(sites,ns)]); ax.set_ylim(0,114); ax.set_ylabel('Contour segments (%)'); ax.set_title('Ancestry composition of field-derived contour segments',fontweight='bold'); ax.grid(axis='y',alpha=.15); ax.legend(loc='upper center',bbox_to_anchor=(.5,-.15),ncol=3,frameon=False)
 save(fig,'fig5_real_ancestry.pdf')
