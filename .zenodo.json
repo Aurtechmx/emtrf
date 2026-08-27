@@ -1,0 +1,30 @@
+{
+  "title": "EMTRF: Evidence-Monotone Terrain Representation Framework",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Urias, A.",
+      "affiliation": "Aurtech, Hermosillo, Sonora, Mexico",
+      "orcid": "0009-0007-3147-323X"
+    }
+  ],
+  "description": "Reference implementation and reproducibility package for the Evidence-Monotone Terrain Representation Framework (EMTRF): an operator contract carrying provenance, typed support, applicability and complete-source lineage through representation-only transformations, with Evidence-Constrained Douglas-Peucker (EC-DP) as the reference instance. One command (./run_all.sh) reproduces every value reported in the accompanying Computers & Geosciences manuscript.",
+  "keywords": [
+    "terrain representation",
+    "provenance",
+    "data lineage",
+    "line simplification",
+    "Douglas-Peucker",
+    "LiDAR",
+    "digital terrain model",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Aurtechmx/emtrf",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

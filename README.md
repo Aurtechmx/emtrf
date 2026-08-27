@@ -1,5 +1,8 @@
 # EMTRF: Evidence-Monotone Terrain Representation Framework
 
+Author: A. Urias ([ORCID 0009-0007-3147-323X](https://orcid.org/0009-0007-3147-323X)), Aurtech, Hermosillo, Sonora, Mexico.
+
+
 Reference implementation and reproducibility package for the paper *Evidence-Monotone Terrain
 Representation Framework (EMTRF): A provenance-conserving operator contract for derived terrain
 geometry* (submitted to *Computers & Geosciences*).
