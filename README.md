@@ -101,7 +101,7 @@ MIT license; see [`LICENSE`](LICENSE). Code comments and documentation are in En
 
 ## Citation
 
-Archived release: version DOI [10.5281/zenodo.22104163](https://doi.org/10.5281/zenodo.22104163)
-(`v1.1.0`, git commit `dcc8f260d4f32b152d35e3592cc3eba656775a47`); concept DOI
+Archived release: version DOI [10.5281/zenodo.22134284](https://doi.org/10.5281/zenodo.22134284)
+(`v1.1.1`, git commit `ffa6a07b746858457b4a07c9e3d26e7db2dce05f`); concept DOI
 [10.5281/zenodo.21992294](https://doi.org/10.5281/zenodo.21992294) always resolves to the latest
 version. See [`CITATION.cff`](CITATION.cff).
