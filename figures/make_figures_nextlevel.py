@@ -82,6 +82,7 @@ for i,(x,w,lbl) in enumerate(zip(xs,ws,labels)):
     ec=BLUE if i<2 else BLACK
     p=FancyBboxPatch((x,BY),w,BH,boxstyle='round,pad=0.010,rounding_size=.015',facecolor=fc,edgecolor=ec,lw=1.05)
     ax.add_patch(p); ax.text(x+w/2,BMID,lbl,ha='center',va='center',fontweight='semibold' if i in BOLD else 'normal')
+    assert _tw[i] <= w + 1e-9, 'fig3 box %d too narrow for %r (%.4f > %.4f)' % (i, lbl.split(chr(10))[0], _tw[i], w)
     if i<len(xs)-1:
         ax.add_patch(FancyArrowPatch((x+w,BMID),(xs[i+1],BMID),arrowstyle='-|>',mutation_scale=11,lw=1.1,color=GRAY))
 _c=lambda i: xs[i]+ws[i]/2
@@ -135,6 +136,7 @@ _xs=[]; _cx=_ML
 for q in _ws: _xs.append(_cx); _cx+=q+_g
 for _i,(x0,w,l) in enumerate(zip(_xs,_ws,_lbl)):
     p=FancyBboxPatch((x0,.47),w,.27,boxstyle='round,pad=.01,rounding_size=.014',facecolor=_fc[_i],edgecolor=_ec[_i],lw=1.0); ax.add_patch(p); ax.text(x0+w/2,.605,l,ha='center',va='center')
+    assert _w[_i] <= w + 1e-9, 'fig4 box %d too narrow for %r (%.4f > %.4f)' % (_i, l.split(chr(10))[0], _w[_i], w)
     if _i<3: ax.add_patch(FancyArrowPatch((x0+w,.605),(_xs[_i+1],.605),arrowstyle='-|>',mutation_scale=10,lw=.9,color=GRAY))
 ax.text(.5,.90,'A support/style grade is not a provenance type',ha='center',fontweight='bold',fontsize=10.5)
 ax.text((_xs[3]+_ws[3]/2),.80,'semantic relabeling\n(the defect)',ha='center',va='center',color=VERM,fontweight='bold',fontsize=8)
