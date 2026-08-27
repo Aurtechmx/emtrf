@@ -57,7 +57,8 @@ def save(fig,name,folder=OUT):
     plt.close(fig)
 
 # Figure 1: pipeline
-fig,ax=plt.subplots(figsize=(7.6,2.35)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis('off')
+fig,ax=plt.subplots(figsize=(7.6,2.6)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis('off')
+_BFS=8.2
 labels=['Terrain\nobservations','DTM + evidence\n$z,\\,p,\\,S,\\,A,\\,\\ell$','Contour\nextraction','Stitch +\nsmooth','EC-DP\nsimplification','Vector\nexport']
 BOLD=[1,4]
 # Box widths are measured from the rendered text, not guessed: 'simplification' is the
@@ -65,23 +66,23 @@ BOLD=[1,4]
 fig.canvas.draw(); _r=fig.canvas.get_renderer(); _inv=ax.transData.inverted()
 _tw=[]
 for i,lbl in enumerate(labels):
-    _t=ax.text(0,0,lbl,fontsize=plt.rcParams['font.size'],
+    _t=ax.text(0,0,lbl,fontsize=_BFS,
                fontweight='semibold' if i in BOLD else 'normal')
     _bb=_t.get_window_extent(renderer=_r)
     _tw.append(abs(_inv.transform((_bb.width,0))[0]-_inv.transform((0,0))[0]))
     _t.remove()
-ML=0.012; g=0.018; PADX=0.020
+ML=0.010; g=0.036; PADX=0.030
 _raw=[w+2*PADX for w in _tw]
 _scale=(1-2*ML-(len(labels)-1)*g)/sum(_raw)
 ws=[r*_scale for r in _raw]
 xs=[]; _x=ML
 for w in ws: xs.append(_x); _x+=w+g
-BY,BH=.46,.28; BMID=BY+BH/2
+BY,BH=.44,.32; BMID=BY+BH/2
 for i,(x,w,lbl) in enumerate(zip(xs,ws,labels)):
     fc='#EAF4F8' if i<2 else '#F7F7F7'
     ec=BLUE if i<2 else BLACK
     p=FancyBboxPatch((x,BY),w,BH,boxstyle='round,pad=0.010,rounding_size=.015',facecolor=fc,edgecolor=ec,lw=1.05)
-    ax.add_patch(p); ax.text(x+w/2,BMID,lbl,ha='center',va='center',fontweight='semibold' if i in BOLD else 'normal')
+    ax.add_patch(p); ax.text(x+w/2,BMID,lbl,ha='center',va='center',fontsize=_BFS,fontweight='semibold' if i in BOLD else 'normal')
     assert _tw[i] <= w + 1e-9, 'fig3 box %d too narrow for %r (%.4f > %.4f)' % (i, lbl.split(chr(10))[0], _tw[i], w)
     if i<len(xs)-1:
         ax.add_patch(FancyArrowPatch((x+w,BMID),(xs[i+1],BMID),arrowstyle='-|>',mutation_scale=11,lw=1.1,color=GRAY))
@@ -101,7 +102,7 @@ ax=fig.add_subplot(gs[0]); ax.plot(x,geom,'o-',lw=1.6,ms=4.5,label='Source polyl
 ax.set_ylabel('Geometry\n(arbitrary units)'); ax.set_xticks(x); ax.set_xticklabels([]); ax.set_ylim(-.002,.025); ax.grid(axis='both',alpha=.22); ax.legend(loc='upper center',ncol=2,frameon=False); ax.set_title('Identical geometry, two different inherited support values',fontweight='bold')
 ax2=fig.add_subplot(gs[1]); bars=ax2.bar(x,sup,width=.52,edgecolor='white',lw=.6,color=BLUE)
 bars[3].set_facecolor(VERM); bars[3].set_hatch('////');
-for xi,yi in zip(x,sup): ax2.text(xi,yi+.025,f'{yi:.2f}',ha='center',va='bottom',fontsize=7.6,color=GRAY if xi!=3 else BLACK,fontweight='bold' if xi==3 else 'normal')
+for xi,yi in zip(x,sup): ax2.text(xi,yi+.045,f'{yi:.2f}',ha='center',va='bottom',fontsize=7.6,color=GRAY if xi!=3 else BLACK,fontweight='bold' if xi==3 else 'normal')
 ax2.axhline(.93,ls='--',lw=1.4,color=ORANGE); ax2.axhline(.18,ls='-',lw=1.4,color=GREEN)
 ax2.text(6.25,.93,'endpoint-only\ninherits 0.93',va='center',fontsize=8,color=ORANGE,fontweight='bold')
 ax2.text(6.25,.18,'complete-source\ninherits 0.18',va='center',fontsize=8,color=GREEN,fontweight='bold')
@@ -120,26 +121,27 @@ ax.text(0,-.22,'10,000 deterministic polylines with deliberately weak interior s
 save(fig,'fig2_stress.pdf')
 
 # Figure 4: grade-provenance schematic
-fig,ax=plt.subplots(figsize=(7.2,2.35)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis('off')
+fig,ax=plt.subplots(figsize=(7.4,2.6)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis('off')
 _lbl=['Measured-derived\nterrain cell','Reference support\n$n=6,\\;n_t=10,\\;h=3$\n$C_M=0.40$',"Visual grade\n'dashed'\n(33-65 bin)","Frozen OpenLiDARViewer\nexport label\n'interpolatedBacked'"]
+_BFS4=8.2
 _ec=[BLUE,BLUE,ORANGE,VERM]; _fc=['#EEF7FB','#F7FAFC','#FFF9E8','#FFF1EC']
 # Widths measured from the rendered text: 'Frozen OpenLiDARViewer' is the longest line and
 # previously overflowed a hardcoded box.
 fig.canvas.draw(); _r=fig.canvas.get_renderer(); _iv=ax.transData.inverted()
 _w=[]
 for _l in _lbl:
-    _t=ax.text(0,0,_l,fontsize=plt.rcParams['font.size']); _bb=_t.get_window_extent(renderer=_r)
+    _t=ax.text(0,0,_l,fontsize=_BFS4); _bb=_t.get_window_extent(renderer=_r)
     _w.append(abs(_iv.transform((_bb.width,0))[0]-_iv.transform((0,0))[0])); _t.remove()
-_ML=.012; _g=.035; _PX=.016
+_ML=.010; _g=.055; _PX=.030
 _raw=[q+2*_PX for q in _w]; _sc=(1-2*_ML-3*_g)/sum(_raw); _ws=[q*_sc for q in _raw]
 _xs=[]; _cx=_ML
 for q in _ws: _xs.append(_cx); _cx+=q+_g
 for _i,(x0,w,l) in enumerate(zip(_xs,_ws,_lbl)):
-    p=FancyBboxPatch((x0,.47),w,.27,boxstyle='round,pad=.01,rounding_size=.014',facecolor=_fc[_i],edgecolor=_ec[_i],lw=1.0); ax.add_patch(p); ax.text(x0+w/2,.605,l,ha='center',va='center')
+    p=FancyBboxPatch((x0,.45),w,.31,boxstyle='round,pad=.01,rounding_size=.014',facecolor=_fc[_i],edgecolor=_ec[_i],lw=1.0); ax.add_patch(p); ax.text(x0+w/2,.605,l,ha='center',va='center',fontsize=_BFS4,linespacing=1.5)
     assert _w[_i] <= w + 1e-9, 'fig4 box %d too narrow for %r (%.4f > %.4f)' % (_i, l.split(chr(10))[0], _w[_i], w)
     if _i<3: ax.add_patch(FancyArrowPatch((x0+w,.605),(_xs[_i+1],.605),arrowstyle='-|>',mutation_scale=10,lw=.9,color=GRAY))
-ax.text(.5,.90,'A support/style grade is not a provenance type',ha='center',fontweight='bold',fontsize=10.5)
-ax.text((_xs[3]+_ws[3]/2),.80,'semantic relabeling\n(the defect)',ha='center',va='center',color=VERM,fontweight='bold',fontsize=8)
+ax.text(.5,.965,'A support/style grade is not a provenance type',ha='center',fontweight='bold',fontsize=10.5)
+ax.text((_xs[3]+_ws[3]/2),.845,'semantic relabeling\n(the defect)',ha='center',va='center',color=VERM,fontweight='bold',fontsize=8)
 ax.text(.5,.23,'EMTRF preserves provenance = measured-derived; display grade may remain dashed.',ha='center',fontsize=8.2,color=GRAY)
 save(fig,'fig4_grade_provenance_counterexample.pdf')
 
@@ -181,7 +183,7 @@ for idx,(ax,(ttl,sp,pr)) in enumerate(zip(axs,pipes)):
    ax.text(b.get_x()+b.get_width()/2,h+_o,f'{h:g}',ha='center',fontsize=7.5,color=GRAY)
  if idx==0: ax.set_ylabel('Rate (%)')
  if idx==3: ax.text(1.5,54,'both violation\nclasses eliminated',ha='center',color=GREEN,fontweight='bold',fontsize=7.4)
-fig.suptitle('Four-pipeline ablation: each shortcut removed independently, identical retained geometry',fontweight='bold',y=1.01)
+fig.suptitle('Four-pipeline ablation: each shortcut removed\nindependently, identical retained geometry',fontweight='bold',fontsize=10,y=1.03)
 handles=[Patch(facecolor=VERM,label='Support promotion'),Patch(facecolor=BLUE,hatch='////',label='Provenance loss')]; fig.legend(handles=handles,loc='lower center',ncol=2,frameon=False,bbox_to_anchor=(.5,-.02))
 fig.subplots_adjust(bottom=.28,wspace=.20,top=.76)
 save(fig,'fig7_ablation.pdf')
