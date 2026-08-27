@@ -57,21 +57,40 @@ def save(fig,name,folder=OUT):
     plt.close(fig)
 
 # Figure 1: pipeline
-fig,ax=plt.subplots(figsize=(7.2,2.25)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis('off')
-xs=[.03,.205,.38,.55,.70,.855]; ws=[.14,.14,.14,.12,.12,.12]
+fig,ax=plt.subplots(figsize=(7.6,2.35)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis('off')
 labels=['Terrain\nobservations','DTM + evidence\n$z,\\,p,\\,S,\\,A,\\,\\ell$','Contour\nextraction','Stitch +\nsmooth','EC-DP\nsimplification','Vector\nexport']
+BOLD=[1,4]
+# Box widths are measured from the rendered text, not guessed: 'simplification' is the
+# longest word in the figure and previously sat in the narrowest box, so it overflowed.
+fig.canvas.draw(); _r=fig.canvas.get_renderer(); _inv=ax.transData.inverted()
+_tw=[]
+for i,lbl in enumerate(labels):
+    _t=ax.text(0,0,lbl,fontsize=plt.rcParams['font.size'],
+               fontweight='semibold' if i in BOLD else 'normal')
+    _bb=_t.get_window_extent(renderer=_r)
+    _tw.append(abs(_inv.transform((_bb.width,0))[0]-_inv.transform((0,0))[0]))
+    _t.remove()
+ML=0.012; g=0.018; PADX=0.020
+_raw=[w+2*PADX for w in _tw]
+_scale=(1-2*ML-(len(labels)-1)*g)/sum(_raw)
+ws=[r*_scale for r in _raw]
+xs=[]; _x=ML
+for w in ws: xs.append(_x); _x+=w+g
+BY,BH=.46,.28; BMID=BY+BH/2
 for i,(x,w,lbl) in enumerate(zip(xs,ws,labels)):
     fc='#EAF4F8' if i<2 else '#F7F7F7'
     ec=BLUE if i<2 else BLACK
-    p=FancyBboxPatch((x,.46),w,.28,boxstyle='round,pad=0.012,rounding_size=.015',facecolor=fc,edgecolor=ec,lw=1.05)
-    ax.add_patch(p); ax.text(x+w/2,.60,lbl,ha='center',va='center',fontweight='semibold' if i in [1,4] else 'normal')
+    p=FancyBboxPatch((x,BY),w,BH,boxstyle='round,pad=0.010,rounding_size=.015',facecolor=fc,edgecolor=ec,lw=1.05)
+    ax.add_patch(p); ax.text(x+w/2,BMID,lbl,ha='center',va='center',fontweight='semibold' if i in BOLD else 'normal')
     if i<len(xs)-1:
-        ax.add_patch(FancyArrowPatch((x+w,.60),(xs[i+1],.60),arrowstyle='-|>',mutation_scale=10,lw=.9,color=GRAY))
-ax.text(.11,.84,'terrain estimation',ha='center',va='center',fontweight='bold')
-ax.text(.66,.84,'representation-only operators',ha='center',va='center',fontweight='bold')
-ax.plot([.31,.31],[.40,.88],ls='--',lw=.9,color=GRAY)
-ax.text(.65,.25,'Representation-only operators conserve provenance, absorb unsupported inputs,\nand never promote support within a declared semantic channel.',ha='center',va='center',fontsize=8.3)
-ax.text(.19,.10,'Declared inference may create a new support/uncertainty channel,\nbut must expose its method, calibration semantics, and lineage.',ha='center',va='center',fontsize=7.8,color=GRAY)
+        ax.add_patch(FancyArrowPatch((x+w,BMID),(xs[i+1],BMID),arrowstyle='-|>',mutation_scale=11,lw=1.1,color=GRAY))
+_c=lambda i: xs[i]+ws[i]/2
+_div=(xs[1]+ws[1]+xs[2])/2
+ax.text((_c(0)+_c(1))/2,.86,'terrain estimation',ha='center',va='center',fontweight='bold')
+ax.text((_c(2)+_c(5))/2,.86,'representation-only operators',ha='center',va='center',fontweight='bold')
+ax.plot([_div,_div],[.40,.90],ls='--',lw=.9,color=GRAY)
+ax.text(.5,.26,'Representation-only operators conserve provenance, absorb unsupported inputs,\nand never promote support within a declared semantic channel.',ha='center',va='center',fontsize=8.3)
+ax.text(.5,.08,'Declared inference may create a new support/uncertainty channel,\nbut must expose its method, calibration semantics, and lineage.',ha='center',va='center',fontsize=7.8,color=GRAY)
 save(fig,'fig3_emtrf_pipeline.pdf')
 
 # Figure 2: source arc, two panels
@@ -85,15 +104,15 @@ for xi,yi in zip(x,sup): ax2.text(xi,yi+.025,f'{yi:.2f}',ha='center',va='bottom'
 ax2.axhline(.93,ls='--',lw=1.4,color=ORANGE); ax2.axhline(.18,ls='-',lw=1.4,color=GREEN)
 ax2.text(6.25,.93,'endpoint-only\ninherits 0.93',va='center',fontsize=8,color=ORANGE,fontweight='bold')
 ax2.text(6.25,.18,'complete-source\ninherits 0.18',va='center',fontsize=8,color=GREEN,fontweight='bold')
-ax2.annotate('weak interior source\nremoved by DP',xy=(3,.18),xytext=(3.45,.58),arrowprops=dict(arrowstyle='->',lw=.8,color=GRAY),ha='center',fontsize=7.8,color=GRAY)
-ax2.set_ylim(0,1.08); ax2.set_xlim(-.65,7.25); ax2.set_ylabel('Support value'); ax2.set_xlabel('Source-arc vertex'); ax2.set_xticks(x); ax2.grid(axis='y',alpha=.22)
+ax2.annotate('weak interior source\nremoved by DP',xy=(3,.20),xytext=(3,1.19),arrowprops=dict(arrowstyle='->',lw=.8,color=GRAY),ha='center',va='center',fontsize=7.8,color=GRAY)
+ax2.set_ylim(0,1.38); ax2.set_xlim(-.65,7.25); ax2.set_ylabel('Support value'); ax2.set_xlabel('Source-arc vertex'); ax2.set_xticks(x); ax2.grid(axis='y',alpha=.22)
 save(fig,'fig1_source_arc.pdf')
 
 # Figure 3: stress
 xt=np.array([.02,.05,.10,.20,.40]); y=np.array([55.2,75.6,81.1,85.2,100])
 fig,ax=plt.subplots(figsize=(7.1,3.6)); ax.plot(xt,y,'o-',lw=1.8,ms=5.5,label='Endpoint-only inheritance',color=VERM); ax.plot(xt,np.zeros_like(xt),'s-',lw=1.6,ms=4.8,label='EC-DP (complete source arc)',color=BLUE)
 for xi,yi in zip(xt,y): ax.text(xi,yi+3.2,f'{yi:.1f}',ha='center',fontsize=7.8,color=GRAY)
-ax.text(.275,5.5,'0 at every tolerance',color=BLUE,fontweight='bold',fontsize=8)
+ax.text(.085,4.5,'0 at every tolerance',color=BLUE,fontweight='bold',fontsize=8)
 ax.set_xlabel('Douglas-Peucker tolerance (fixture units)'); ax.set_ylabel('Spans with support promotion (%)'); ax.set_xlim(0,.425); ax.set_ylim(-3,109); ax.grid(alpha=.22); ax.legend(loc='lower right',frameon=False)
 ax.set_title('Endpoint-only inheritance promotes support; EC-DP never does',fontweight='bold')
 ax.text(0,-.22,'10,000 deterministic polylines with deliberately weak interior support.\nRates characterize this stress family, not real-world prevalence.',transform=ax.transAxes,fontsize=7.6,color=GRAY,va='top')
@@ -101,12 +120,24 @@ save(fig,'fig2_stress.pdf')
 
 # Figure 4: grade-provenance schematic
 fig,ax=plt.subplots(figsize=(7.2,2.35)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis('off')
-items=[(.025,.47,.18,.27,'Measured-derived\nterrain cell',BLUE,'#EEF7FB'),(.265,.47,.20,.27,'Reference support\n$n=6,\\;n_t=10,\\;h=3$\n$C_M=0.40$',BLUE,'#F7FAFC'),(.525,.47,.16,.27,"Visual grade\n'dashed'\n(33-65 bin)",ORANGE,'#FFF9E8'),(.745,.47,.22,.27,"Frozen OpenLiDARViewer\nexport label\n'interpolatedBacked'",VERM,'#FFF1EC')]
-for x0,y0,w,h,l,ec,fc in items:
- p=FancyBboxPatch((x0,y0),w,h,boxstyle='round,pad=.01,rounding_size=.014',facecolor=fc,edgecolor=ec,lw=1.0); ax.add_patch(p); ax.text(x0+w/2,y0+h/2,l,ha='center',va='center')
-for a,b in zip(items[:-1],items[1:]): ax.add_patch(FancyArrowPatch((a[0]+a[2],.605),(b[0],.605),arrowstyle='-|>',mutation_scale=10,lw=.9,color=GRAY))
+_lbl=['Measured-derived\nterrain cell','Reference support\n$n=6,\\;n_t=10,\\;h=3$\n$C_M=0.40$',"Visual grade\n'dashed'\n(33-65 bin)","Frozen OpenLiDARViewer\nexport label\n'interpolatedBacked'"]
+_ec=[BLUE,BLUE,ORANGE,VERM]; _fc=['#EEF7FB','#F7FAFC','#FFF9E8','#FFF1EC']
+# Widths measured from the rendered text: 'Frozen OpenLiDARViewer' is the longest line and
+# previously overflowed a hardcoded box.
+fig.canvas.draw(); _r=fig.canvas.get_renderer(); _iv=ax.transData.inverted()
+_w=[]
+for _l in _lbl:
+    _t=ax.text(0,0,_l,fontsize=plt.rcParams['font.size']); _bb=_t.get_window_extent(renderer=_r)
+    _w.append(abs(_iv.transform((_bb.width,0))[0]-_iv.transform((0,0))[0])); _t.remove()
+_ML=.012; _g=.035; _PX=.016
+_raw=[q+2*_PX for q in _w]; _sc=(1-2*_ML-3*_g)/sum(_raw); _ws=[q*_sc for q in _raw]
+_xs=[]; _cx=_ML
+for q in _ws: _xs.append(_cx); _cx+=q+_g
+for _i,(x0,w,l) in enumerate(zip(_xs,_ws,_lbl)):
+    p=FancyBboxPatch((x0,.47),w,.27,boxstyle='round,pad=.01,rounding_size=.014',facecolor=_fc[_i],edgecolor=_ec[_i],lw=1.0); ax.add_patch(p); ax.text(x0+w/2,.605,l,ha='center',va='center')
+    if _i<3: ax.add_patch(FancyArrowPatch((x0+w,.605),(_xs[_i+1],.605),arrowstyle='-|>',mutation_scale=10,lw=.9,color=GRAY))
 ax.text(.5,.90,'A support/style grade is not a provenance type',ha='center',fontweight='bold',fontsize=10.5)
-ax.text(.71,.78,'semantic relabeling\n(the defect)',ha='center',color=VERM,fontweight='bold',fontsize=8)
+ax.text((_xs[3]+_ws[3]/2),.80,'semantic relabeling\n(the defect)',ha='center',va='center',color=VERM,fontweight='bold',fontsize=8)
 ax.text(.5,.23,'EMTRF preserves provenance = measured-derived; display grade may remain dashed.',ha='center',fontsize=8.2,color=GRAY)
 save(fig,'fig4_grade_provenance_counterexample.pdf')
 
@@ -134,18 +165,23 @@ save(fig,'fig6_real_promotion.pdf')
 # Figure 7: four pipeline ablation chart
 sitesA=['White','Estonia','StREAM','Marsh']; support=_ABL_PROM; grade=_ABL_GRADE; typed=_ABL_TYPED
 pipes=[('P0  grade provenance\n+ endpoint support',support,grade),('P1  typed provenance\n+ endpoint support',support,typed),('P2  grade provenance\n+ complete source',[0,0,0,0],grade),('P3  typed provenance\n+ complete source',[0,0,0,0],[0,0,0,0])]
-fig,axs=plt.subplots(1,4,figsize=(7.25,3.7),sharey=True); barw=.34; x4=np.arange(4)
+fig,axs=plt.subplots(1,4,figsize=(7.5,3.8),sharey=True); barw=.34; x4=np.arange(4)
 for idx,(ax,(ttl,sp,pr)) in enumerate(zip(axs,pipes)):
  b1=ax.bar(x4-barw/2,sp,barw,color=VERM,label='Support promotion'); b2=ax.bar(x4+barw/2,pr,barw,color=BLUE,hatch='////',label='Provenance loss')
- ax.set_title(ttl,fontsize=8.1,fontweight='bold'); ax.set_xticks(x4); ax.set_xticklabels(sitesA,rotation=45,ha='right',fontsize=7.5); ax.grid(axis='y',alpha=.18); ax.set_ylim(0,108)
- for bars in [b1,b2]:
-  for b in bars:
-   h=b.get_height(); ax.text(b.get_x()+b.get_width()/2,h+2.0,f'{h:g}',ha='center',fontsize=7.5,color=GRAY)
+ ax.set_title(ttl,fontsize=7.7,fontweight='bold',pad=7); ax.set_xticks(x4); ax.set_xticklabels(sitesA,rotation=45,ha='right',fontsize=7.5); ax.grid(axis='y',alpha=.18); ax.set_ylim(0,108)
+ for _bi,bars in enumerate([b1,b2]):
+  for _k,b in enumerate(bars):
+   h=b.get_height()
+   # lift the right-hand label when its neighbour is close and both bars are short,
+   # otherwise the two numbers print on top of each other
+   _o=3.4
+   if _bi==1 and h<30 and abs(h-b1[_k].get_height())<16: _o=10.0
+   ax.text(b.get_x()+b.get_width()/2,h+_o,f'{h:g}',ha='center',fontsize=7.5,color=GRAY)
  if idx==0: ax.set_ylabel('Rate (%)')
  if idx==3: ax.text(1.5,54,'both violation\nclasses eliminated',ha='center',color=GREEN,fontweight='bold',fontsize=7.4)
 fig.suptitle('Four-pipeline ablation: each shortcut removed independently, identical retained geometry',fontweight='bold',y=1.01)
 handles=[Patch(facecolor=VERM,label='Support promotion'),Patch(facecolor=BLUE,hatch='////',label='Provenance loss')]; fig.legend(handles=handles,loc='lower center',ncol=2,frameon=False,bbox_to_anchor=(.5,-.02))
-fig.subplots_adjust(bottom=.28,wspace=.12,top=.78)
+fig.subplots_adjust(bottom=.28,wspace=.20,top=.76)
 save(fig,'fig7_ablation.pdf')
 
 # Figure 8: StREAM real cartographic map with DTM ancestry background and same simplified contours
