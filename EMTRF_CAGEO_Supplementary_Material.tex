@@ -4,6 +4,8 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{url}
+\usepackage{seqsplit}
+\newcommand{\hexid}[1]{\allowbreak\seqsplit{#1}}
 \usepackage[hidelinks]{hyperref}
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\OLV}{OpenLiDARViewer}
@@ -86,11 +88,11 @@ Marsh Island & 186 & 87.4\% & 4.3\% & 98.4\% & 0.0\% & 0/0 & 2.78 \\
 \noindent\textbf{Supplementary source audit.} The grade-to-label export mapping audited in the main text
 (\texttt{solid}\,$\rightarrow$\,\texttt{measuredBacked}, \texttt{dashed}\,$\rightarrow$\,\texttt{interpolatedBacked})
 is present in the audited OpenLiDARViewer source. The canonical archive is the v0.6.5 release at git commit
-\texttt{4fb00a784d860a2e24cc1834d6c1230dac550355} (version {DOI} 10.5281/zenodo.21933671, source-archive SHA-256
-\texttt{fdb510e3416fb0cb02c71031bb7f653b8e0dde83ae9916c85d1c44e844b122fa}). The identical mapping also appears
+\hexid{4fb00a784d860a2e24cc1834d6c1230dac550355} (version {DOI} 10.5281/zenodo.21933671, source-archive SHA-256
+\hexid{fdb510e3416fb0cb02c71031bb7f653b8e0dde83ae9916c85d1c44e844b122fa}). The identical mapping also appears
 unchanged in earlier v0.6.4 development snapshots (2026-08-09, SHA-256
-\texttt{71507a5115de8c8ad9125215e30222d87ca1cd400308fd464cebaac269373aaf} and
-\texttt{1dfe94ef79838772730a04df66037b973a7be6b42abeecbf6f6ad7d6fd6c145f}), confirming the counterexample is a
+\hexid{71507a5115de8c8ad9125215e30222d87ca1cd400308fd464cebaac269373aaf} and
+\hexid{1dfe94ef79838772730a04df66037b973a7be6b42abeecbf6f6ad7d6fd6c145f}), confirming the counterexample is a
 stable export design carried across versions rather than a transient state of one archive.
 
 \vspace{3mm}
@@ -184,7 +186,7 @@ Operator conformance & Propositions; exhaustive directional states; adversarial 
 Mechanism on field geometry & Four public contour crops; complete-source audit; polyline-cluster bootstrap sensitivity summaries; P0--P3 ablation & Balanced terrain/sensor effects; population rates \\
 Upstream numerical implementation & Independent NumPy DTM and GDAL contour E4 records in the audited source & Correct export provenance; field ground truth; EMTRF conformance \\
 Application counterexample & Frozen source-path audit of grade-derived export evidence & Frequency of the same defect in other GIS packages \\
-Third-party generalizer & GDAL \code{gdal\_contour} attribute schema; endpoint-only vs.\ complete-arc promotion on GDAL geometry & Independent EC-DP reimplementation; population prevalence across GIS tools \\
+Third-party contour geometry & GDAL \code{gdal\_contour} attribute schema; endpoint-only vs.\ complete-arc promotion on GDAL geometry & Independent EC-DP reimplementation; population prevalence across GIS tools \\
 Runtime & Paired synthetic and real-contour representation-stage benchmarks & Universal browser/native-GIS or end-to-end pipeline overhead \\
 \bottomrule
 \end{tabularx}

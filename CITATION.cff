@@ -7,7 +7,7 @@ authors:
     orcid: "https://orcid.org/0009-0007-3147-323X"
 license: MIT
 repository-code: "https://github.com/Aurtechmx/emtrf"
-version: "v1.1.0"
+version: "v1.1.1"
 commit: "dcc8f260d4f32b152d35e3592cc3eba656775a47"
 date-released: 2026-08-25
 doi: "10.5281/zenodo.21992294"
