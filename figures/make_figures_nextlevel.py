@@ -106,8 +106,8 @@ for xi,yi in zip(x,sup): ax2.text(xi,yi+.045,f'{yi:.2f}',ha='center',va='bottom'
 ax2.axhline(.93,ls='--',lw=1.4,color=ORANGE); ax2.axhline(.18,ls='-',lw=1.4,color=GREEN)
 ax2.text(6.25,.93,'endpoint-only\ninherits 0.93',va='center',fontsize=8,color=ORANGE,fontweight='bold')
 ax2.text(6.25,.18,'complete-source\ninherits 0.18',va='center',fontsize=8,color=GREEN,fontweight='bold')
-ax2.annotate('weak interior source\nremoved by DP',xy=(3,.20),xytext=(3,1.19),arrowprops=dict(arrowstyle='->',lw=.8,color=GRAY),ha='center',va='center',fontsize=7.8,color=GRAY)
-ax2.set_ylim(0,1.38); ax2.set_xlim(-.65,7.25); ax2.set_ylabel('Support value'); ax2.set_xlabel('Source-arc vertex'); ax2.set_xticks(x); ax2.grid(axis='y',alpha=.22)
+ax2.annotate('weak interior source\nremoved by DP',xy=(3,.20),xytext=(3,.62),arrowprops=dict(arrowstyle='->',lw=.8,color=GRAY),ha='center',va='center',fontsize=7.8,color=GRAY)
+ax2.set_ylim(0,1.06); ax2.set_xlim(-.65,7.25); ax2.set_ylabel('Support value'); ax2.set_xlabel('Source-arc vertex'); ax2.set_xticks(x); ax2.grid(axis='y',alpha=.22)
 save(fig,'fig1_source_arc.pdf')
 
 # Figure 3: stress
@@ -122,7 +122,7 @@ save(fig,'fig2_stress.pdf')
 
 # Figure 4: grade-provenance schematic
 fig,ax=plt.subplots(figsize=(7.4,2.6)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis('off')
-_lbl=['Measured-derived\nterrain cell','Reference support\n$n=6,\\;n_t=10,\\;h=3$\n$C_M=0.40$',"Visual grade\n'dashed'\n(33-65 bin)","Frozen OpenLiDARViewer\nexport label\n'interpolatedBacked'"]
+_lbl=['Measured-derived\nterrain cell','Reference support\n$n=6,\\;n_t=10,\\;h=3$\n$C_M=0.40$',"Visual grade\n'dashed'\n($33\\leq c<66$)","Frozen OpenLiDARViewer\nexport label\n'interpolatedBacked'"]
 _BFS4=8.2
 _ec=[BLUE,BLUE,ORANGE,VERM]; _fc=['#EEF7FB','#F7FAFC','#FFF9E8','#FFF1EC']
 # Widths measured from the rendered text: 'Frozen OpenLiDARViewer' is the longest line and

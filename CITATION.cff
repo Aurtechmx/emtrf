@@ -7,17 +7,13 @@ authors:
     orcid: "https://orcid.org/0009-0007-3147-323X"
 license: MIT
 repository-code: "https://github.com/Aurtechmx/emtrf"
-version: "v1.1.1"
-commit: "ffa6a07b746858457b4a07c9e3d26e7db2dce05f"
-date-released: 2026-08-25
+version: "v1.1.2"
+date-released: 2026-08-28
 doi: "10.5281/zenodo.21992294"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.21992294"
-    description: "Concept DOI (all versions)"
-  - type: doi
-    value: "10.5281/zenodo.21992295"
-    description: "Version DOI (v1.0.0)"
+    description: "Concept DOI, resolves to the latest version"
 preferred-citation:
   type: article
   title: "Evidence-Monotone Terrain Representation Framework (EMTRF): A provenance-conserving operator contract for derived terrain geometry"

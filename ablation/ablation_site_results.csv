@@ -1,5 +1,7 @@
+# Strict reconstruction (every eligible span retained); matches manuscript Table S2.
+# The 2026 archived run recorded Marsh Island as 184 spans / 87.5% / 98.9%; see docs/RECONSTRUCTED_DRIVERS.md.
 site,spans,vertex_reduction_pct,endpoint_only_promotion_pct,grade_derived_provenance_loss_pct,typed_endpoint_provenance_loss_pct,p3_support_promotion,p3_provenance_loss,ecdp_overhead_ms_per_km
 White Sands,82,71.1,24.4,93.9,0.0,0,0,2.12
 Estonia Tava,172,62.7,6.4,100.0,7.6,0,0,2.43
 StREAM,54,67.4,22.2,100.0,1.9,0,0,2.05
-Marsh Island,184,87.5,4.3,98.9,0.0,0,0,2.78
+Marsh Island,186,87.4,4.3,98.4,0.0,0,0,2.78
