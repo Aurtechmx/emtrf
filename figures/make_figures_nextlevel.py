@@ -102,7 +102,9 @@ ax=fig.add_subplot(gs[0]); ax.plot(x,geom,'o-',lw=1.6,ms=4.5,label='Source polyl
 ax.set_ylabel('Geometry\n(arbitrary units)'); ax.set_xticks(x); ax.set_xticklabels([]); ax.set_ylim(-.002,.025); ax.grid(axis='both',alpha=.22); ax.legend(loc='upper center',ncol=2,frameon=False); ax.set_title('Identical geometry, two different inherited support values',fontweight='bold')
 ax2=fig.add_subplot(gs[1]); bars=ax2.bar(x,sup,width=.52,edgecolor='white',lw=.6,color=BLUE)
 bars[3].set_facecolor(VERM); bars[3].set_hatch('////');
-for xi,yi in zip(x,sup): ax2.text(xi,yi+.045,f'{yi:.2f}',ha='center',va='bottom',fontsize=7.6,color=GRAY if xi!=3 else BLACK,fontweight='bold' if xi==3 else 'normal')
+for xi,yi in zip(x,sup):
+    if xi==3: ax2.text(xi,yi+.05,f'{yi:.2f}',ha='center',va='bottom',fontsize=7.6,color=BLACK,fontweight='bold')
+    else: ax2.text(xi,yi-.05,f'{yi:.2f}',ha='center',va='top',fontsize=7.6,color='white',fontweight='bold')
 ax2.axhline(.93,ls='--',lw=1.4,color=ORANGE); ax2.axhline(.18,ls='-',lw=1.4,color=GREEN)
 ax2.text(6.25,.93,'endpoint-only\ninherits 0.93',va='center',fontsize=8,color=ORANGE,fontweight='bold')
 ax2.text(6.25,.18,'complete-source\ninherits 0.18',va='center',fontsize=8,color=GREEN,fontweight='bold')
@@ -169,7 +171,7 @@ save(fig,'fig6_real_promotion.pdf')
 # Figure 7: four pipeline ablation chart
 sitesA=['White','Estonia','StREAM','Marsh']; support=_ABL_PROM; grade=_ABL_GRADE; typed=_ABL_TYPED
 pipes=[('P0  grade provenance\n+ endpoint support',support,grade),('P1  typed provenance\n+ endpoint support',support,typed),('P2  grade provenance\n+ complete source',[0,0,0,0],grade),('P3  typed provenance\n+ complete source',[0,0,0,0],[0,0,0,0])]
-fig,axs=plt.subplots(1,4,figsize=(7.5,3.8),sharey=True); barw=.34; x4=np.arange(4)
+fig,axs=plt.subplots(1,4,figsize=(7.5,3.8),sharey=True); barw=.30; x4=np.arange(4)
 for idx,(ax,(ttl,sp,pr)) in enumerate(zip(axs,pipes)):
  b1=ax.bar(x4-barw/2,sp,barw,color=VERM,label='Support promotion'); b2=ax.bar(x4+barw/2,pr,barw,color=BLUE,hatch='////',label='Provenance loss')
  ax.set_title(ttl,fontsize=7.7,fontweight='bold',pad=7); ax.set_xticks(x4); ax.set_xticklabels(sitesA,rotation=45,ha='right',fontsize=7.5); ax.grid(axis='y',alpha=.18); ax.set_ylim(0,108)
@@ -178,9 +180,12 @@ for idx,(ax,(ttl,sp,pr)) in enumerate(zip(axs,pipes)):
    h=b.get_height()
    # lift the right-hand label when its neighbour is close and both bars are short,
    # otherwise the two numbers print on top of each other
-   _o=3.4
-   if _bi==1 and h<30 and abs(h-b1[_k].get_height())<16: _o=10.0
-   ax.text(b.get_x()+b.get_width()/2,h+_o,f'{h:g}',ha='center',fontsize=7.5,color=GRAY)
+   _o=2.0
+   # lift the blue (provenance-loss) label only when it and its orange neighbour are both
+   # non-trivial and close in height, so a genuine near-tie separates vertically; never lift a 0
+   if _bi==1 and h>2 and b1[_k].get_height()>2 and abs(h-b1[_k].get_height())<12:
+       _o=max(h,b1[_k].get_height())-h+9.5
+   ax.text(b.get_x()+b.get_width()/2,h+_o,f'{h:g}',ha='center',va='bottom',fontsize=6.8,color=GRAY)
  if idx==0: ax.set_ylabel('Rate (%)')
  if idx==3: ax.text(1.5,54,'both violation\nclasses eliminated',ha='center',color=GREEN,fontweight='bold',fontsize=7.4)
 fig.suptitle('Four-pipeline ablation: each shortcut removed\nindependently, identical retained geometry',fontweight='bold',fontsize=10,y=1.03)
