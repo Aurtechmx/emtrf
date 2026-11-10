@@ -428,7 +428,7 @@ ARRA-FL\_Charlotte-W\_2010 & 11,975 & 264 & 69 & OK\_Panhandle\_B1C\_2018 & 33,2
 \end{center}
 
 \clearpage
-\noindent\textbf{S23. Attribute query on the probability sample.} Rules written before the run (\texttt{docs/\allowbreak RULES\_\allowbreak ADDITIONAL\_\allowbreak TESTS.md}, D5). The query of Methods S10 (measured support at or above $t$ and provenance measured only; $t=66$ primary, $t=33$ a check) was applied to the 60 crops of Methods S22, one per sampled work unit, under this study's evidence model, settings and eligibility rules; the result does not represent national contour length. Each source edge's length was classed by whether the edge's own record passes and whether its span's exported record passes: correctly accepted, falsely accepted, wrongly rejected or correctly rejected. The run checked that each of the 89,071 source edges lies in exactly one of the 14,058 spans, that the four lengths sum to the scored length for each method, and that scored and qualifying lengths match between methods. Retention is correctly accepted over qualifying length; it is undefined for a crop where no source length qualifies, and such crops are counted, not set to 0 or 100. Pooled values come from summed lengths, with 95\% intervals from 2{,}000 bootstrap replicates resampling whole crops; the typical crop is the median over crops with quartiles. At $t=66$ only 21 of 60 crops had any qualifying length (3.93 km of 68.73 km scored), so most crops show no false acceptance and the pooled values rest on few crops. Over the sample, EC-DP removed false acceptance and gave up qualifying length: at $t=66$ its retention was 20.5 points lower (95\% interval 13.9--24.6), and at $t=33$ 17.3 points lower (13.4--23.3). ``False'' means disagreement with the query applied to the source edges; it does not establish elevation error. Driver: \texttt{prevalence/query\_sample.cjs}.
+\noindent\textbf{S23. Attribute query on the probability sample.} Rules written before the run (\texttt{docs/\allowbreak RULES\_\allowbreak ADDITIONAL\_\allowbreak TESTS.md}, D5). The query of Methods S10 (measured support at or above $t$ and provenance measured only; $t=66$ primary, $t=33$ a check) was applied to the 60 crops of Methods S22, one per sampled work unit, under this study's evidence model, settings and eligibility rules; the result does not represent national contour length. Each source edge's length was classed by whether the edge's own record passes and whether its span's exported record passes: correctly accepted, falsely accepted, wrongly rejected or correctly rejected. The run checked that each of the 89,071 source edges lies in exactly one of the 14,058 spans, that the four lengths sum to the scored length for each method, and that scored and qualifying lengths match between methods. Retention is correctly accepted over qualifying length; it is undefined for a crop where no source length qualifies, and such crops are counted, not set to 0 or 100. Pooled values come from summed lengths, with 95\% intervals from 2{,}000 bootstrap replicates resampling whole crops; each replicate keeps both methods for every sampled crop and recomputes their pooled values and difference from summed lengths; the typical crop is the median over crops with quartiles. At $t=66$ only 21 of 60 crops had any qualifying length (3.93 km of 68.73 km scored), so most crops show no false acceptance and the pooled values rest on few crops. Over the sample, EC-DP removed false acceptance and gave up qualifying length: at $t=66$ its retention was 20.5 points lower (95\% interval 13.9--24.6), and at $t=33$ 17.3 points lower (13.4--23.3). ``False'' means disagreement with the query applied to the source edges; it does not establish elevation error. Driver: \texttt{prevalence/query\_sample.cjs}.
 
 \begin{center}
 \captionof*{table}{\textbf{Table S13.} Attribute query on the 60 sampled crops: false acceptance and wrong rejection per kilometre of scored contour, and the share of qualifying line kept. Pooled values with 95\% intervals from resampling whole crops (upper part); medians and quartiles over crops (lower part; retention only over crops with qualifying line).}
@@ -444,16 +444,18 @@ $t$ & qualifying & (km) & Endpoint & EC-DP & Endpoint & EC-DP & Endpoint & EC-DP
 \end{tabular}}
 
 \vspace{2mm}
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{@{}rrrrrrrr@{}}
+\vspace{2mm}\small
+\begin{tabular}{@{}lrrrr@{}}
 \toprule
- & \multicolumn{2}{c}{Crops with false acceptance} & \multicolumn{5}{c}{Typical crop, median [quartiles]} \\
-$t$ & Endpoint & EC-DP & Endpoint false acc. (m/km) & Endpoint wrong rej. (m/km) & EC-DP wrong rej. (m/km) & Endpoint retention (\%) & EC-DP retention (\%) \\
+Typical crop, median [quartiles] & \multicolumn{2}{c}{$t=66$} & \multicolumn{2}{c}{$t=33$} \\
+ & Endpoint & EC-DP & Endpoint & EC-DP \\
 \midrule
-66 & 13 & 0 & 0.0 [0.0--0.0] & 0.0 [0.0--11.9] & 0.0 [0.0--11.9] & 42.8 [3.9--57.9] & 32.0 [3.9--41.2] \\
-33 & 39 & 0 & 34.6 [0.0--89.1] & 55.0 [0.0--89.2] & 97.3 [4.1--140.9] & 67.0 [36.0--83.6] & 45.7 [24.0--66.5] \\
+Crops with false acceptance & 13 & 0 & 39 & 0 \\
+False acceptance (m/km) & 0.0 [0.0--0.0] & 0$^{a}$ & 34.6 [0.0--89.1] & 0$^{a}$ \\
+Wrong rejection (m/km) & 0.0 [0.0--11.9] & 0.0 [0.0--11.9] & 55.0 [0.0--89.2] & 97.3 [4.1--140.9] \\
+Retention (\%) & 42.8 [3.9--57.9] & 32.0 [3.9--41.2] & 67.0 [36.0--83.6] & 45.7 [24.0--66.5] \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 
 \vspace{1mm}{\footnotesize $^{a}$EC-DP cannot accept failing line under this query: its record is the minimum over every replaced edge, so a span passes only if all its edges pass. The zero follows from the rule and is not a measured uncertainty.}
 \end{center}
