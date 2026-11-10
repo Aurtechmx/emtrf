@@ -1,0 +1,1515 @@
+{
+ "frameSha256": "8d11cf33fe0418b69cef4a14e795f53e3a931f998313a5c91b58fdd4a350ee08",
+ "frameUnits": 2283,
+ "seed": 20261109,
+ "units": [
+  {
+   "rank": 0,
+   "unit": "TX_Victoria_2006",
+   "sortedIndex": 1262,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -97.0958779,
+     "lat": 28.9697776,
+     "epsg": 32614,
+     "originX": 685483,
+     "originY": 3206080,
+     "groundReturns": 5808,
+     "medianZAsStored": 58.3,
+     "epqsM": 55.695350647,
+     "verticalUnit": "metre",
+     "id": "u000",
+     "file": "u000.f32",
+     "sha256": "75cecd639185bf2524eeaafcd94a20f0185db3e67f94f319b4a2b73ce0988c37"
+    }
+   ]
+  },
+  {
+   "rank": 1,
+   "unit": "USGS_LPC_MN_Phase1_LeSueurCO_2010_LAS_2016",
+   "sortedIndex": 1697,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -93.9112487,
+     "lat": 44.5543035,
+     "epsg": 32615,
+     "originX": 427574,
+     "originY": 4933794,
+     "groundReturns": 5223,
+     "medianZAsStored": 221.67,
+     "epqsM": 221.739517212,
+     "verticalUnit": "metre",
+     "id": "u001",
+     "file": "u001.f32",
+     "sha256": "728d08b230307009f2361301649db0edb9552103340a07cbdc0f7525fe4c917f"
+    }
+   ]
+  },
+  {
+   "rank": 2,
+   "unit": "USGS_LPC_WY_Casper_Natrona_2015_LAS_2017",
+   "sortedIndex": 2083,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -106.4559767,
+     "lat": 42.8928634,
+     "epsg": 32613,
+     "originX": 381068,
+     "originY": 4749895,
+     "groundReturns": 36801,
+     "medianZAsStored": 1617.49,
+     "epqsM": 1617.333129883,
+     "verticalUnit": "metre",
+     "id": "u002",
+     "file": "u002.f32",
+     "sha256": "4921dc467fd16fa84e5838eb37c3d4682c019de7020824e31c2242ed01ea3949"
+    }
+   ]
+  },
+  {
+   "rank": 3,
+   "unit": "KS_Osage_2010",
+   "sortedIndex": 608,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -95.8807195,
+     "lat": 38.8583983,
+     "epsg": 32615,
+     "originX": 249984,
+     "originY": 4304957,
+     "groundReturns": 4874,
+     "medianZAsStored": 369.97,
+     "epqsM": 369.573791504,
+     "verticalUnit": "metre",
+     "id": "u003",
+     "file": "u003.f32",
+     "sha256": "c3b003fdbfed5b1c6163f4cb2d89083f0710c488d130f506846b75e4c4292ff2"
+    }
+   ]
+  },
+  {
+   "rank": 4,
+   "unit": "WI_Oshkosh_3Rivers_FondDuLac_TL_2018",
+   "sortedIndex": 2221,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -92.2897002,
+     "lat": 46.2849779,
+     "epsg": 32615,
+     "originX": 554667,
+     "originY": 5125906,
+     "groundReturns": 36051,
+     "medianZAsStored": 371.91,
+     "epqsM": 370.822296143,
+     "verticalUnit": "metre",
+     "id": "u004",
+     "file": "u004.f32",
+     "sha256": "5df15afbe23c9ec9d97605cf453d0e2914781109b9def04fa24239fb84e229ce"
+    }
+   ]
+  },
+  {
+   "rank": 5,
+   "unit": "KS_MiamiCo_2009",
+   "sortedIndex": 604,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -94.8094731,
+     "lat": 38.7166529,
+     "epsg": 32615,
+     "originX": 342635,
+     "originY": 4286838,
+     "groundReturns": 4763,
+     "medianZAsStored": 298.6,
+     "epqsM": 298.490814209,
+     "verticalUnit": "metre",
+     "id": "u005",
+     "file": "u005.f32",
+     "sha256": "80af3e83d1d4e8de13935333a3969314acc3c691dc7b3d7127d40c7879939ba9"
+    }
+   ]
+  },
+  {
+   "rank": 6,
+   "unit": "WV_FEMAR3_Southcentral_B1_2018",
+   "sortedIndex": 2242,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -80.7871098,
+     "lat": 39.4712927,
+     "epsg": 32617,
+     "originX": 518261,
+     "originY": 4369050,
+     "groundReturns": 77036,
+     "medianZAsStored": 264.7,
+     "epqsM": 266.645050049,
+     "verticalUnit": "metre",
+     "id": "u006",
+     "file": "u006.f32",
+     "sha256": "468bd6cde168814a4d12464da5012a62705b097cda78ef1219b42a984ea53b58"
+    }
+   ]
+  },
+  {
+   "rank": 7,
+   "unit": "MO_LivingstonCounty_2011",
+   "sortedIndex": 779,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -93.6223469,
+     "lat": 39.765888,
+     "epsg": 32615,
+     "originX": 446645,
+     "originY": 4401908,
+     "groundReturns": 9061,
+     "medianZAsStored": 211.1,
+     "epqsM": 211.243530273,
+     "verticalUnit": "metre",
+     "id": "u007",
+     "file": "u007.f32",
+     "sha256": "9213def788b64b7a9916d2c3b25daa14d95751e00d9b056e70797eed1d9dc7ed"
+    }
+   ]
+  },
+  {
+   "rank": 8,
+   "unit": "AL_SWCentral_1_B22",
+   "sortedIndex": 60,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -87.7995802,
+     "lat": 33.1199936,
+     "epsg": 32616,
+     "originX": 425356,
+     "originY": 3664823,
+     "groundReturns": 14991,
+     "medianZAsStored": 78.44,
+     "epqsM": 77.78691864,
+     "verticalUnit": "metre",
+     "id": "u008",
+     "file": "u008.f32",
+     "sha256": "391970869a7fdd25476c327cdd79af40bf249422600c68e637f33a52fd536362"
+    }
+   ]
+  },
+  {
+   "rank": 9,
+   "unit": "USGS_LPC_IL_District4_Tazewell_2014_LAS_2016",
+   "sortedIndex": 1455,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -89.3141622,
+     "lat": 40.6012105,
+     "epsg": 32616,
+     "originX": 304148,
+     "originY": 4497013,
+     "groundReturns": 9588,
+     "medianZAsStored": 211.83,
+     "epqsM": 211.433059692,
+     "verticalUnit": "metre",
+     "id": "u009",
+     "file": "u009.f32",
+     "sha256": "1cf5f576c6e8f946a734334e297bc745224919d720c1a102a81cfcf11e0a79c1"
+    }
+   ]
+  },
+  {
+   "rank": 10,
+   "unit": "ID_DryCreek_2007",
+   "sortedIndex": 476,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -116.1030978,
+     "lat": 43.7387194,
+     "epsg": 32611,
+     "originX": 572173,
+     "originY": 4843194,
+     "groundReturns": 14129,
+     "medianZAsStored": 1763.16,
+     "epqsM": 1757.083129883,
+     "verticalUnit": "metre",
+     "id": "u010",
+     "file": "u010.f32",
+     "sha256": "9b8bc18018f4110e0158bb6b4403e299a1173b378a17c0458bd70b00dcc3c2e7"
+    }
+   ]
+  },
+  {
+   "rank": 11,
+   "unit": "USGS_LPC_MI_31Co_Jackson_2016_LAS_2019",
+   "sortedIndex": 1639,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -84.2452968,
+     "lat": 42.3295123,
+     "epsg": 32616,
+     "originX": 726915,
+     "originY": 4689988,
+     "groundReturns": 22954,
+     "medianZAsStored": 294.56,
+     "epqsM": 294.541687012,
+     "verticalUnit": "metre",
+     "id": "u011",
+     "file": "u011.f32",
+     "sha256": "8d96a7bab0e7ec62a79634c9c5ba0bff855312d6c9944f72a5add5c7739e3627"
+    }
+   ]
+  },
+  {
+   "rank": 12,
+   "unit": "USGS_LPC_CA_SanDiegoQL1_2014_LAS_2016",
+   "sortedIndex": 1360,
+   "status": "not used",
+   "attempts": [
+    {
+     "lon": -117.1241721,
+     "lat": 32.6215717,
+     "epsg": 32611,
+     "originX": 488301,
+     "originY": 3609292,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -117.0722432,
+     "lat": 32.5279297,
+     "epsg": 32611,
+     "originX": 493165,
+     "originY": 3598907,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -117.1037974,
+     "lat": 32.6503199,
+     "epsg": 32611,
+     "originX": 490215,
+     "originY": 3612477,
+     "groundReturns": 51818,
+     "medianZAsStored": 5.29,
+     "epqsM": 5.964104176,
+     "reason": "vertical unit undetermined"
+    }
+   ]
+  },
+  {
+   "rank": 13,
+   "unit": "AL_19Co_1_B24",
+   "sortedIndex": 52,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -86.6036098,
+     "lat": 34.7671421,
+     "epsg": 32616,
+     "originX": 536223,
+     "originY": 3847242,
+     "groundReturns": 70493,
+     "medianZAsStored": 210.18,
+     "epqsM": 210.086730957,
+     "verticalUnit": "metre",
+     "id": "u013",
+     "file": "u013.f32",
+     "sha256": "f21ac70fe6789963cc8deba4fd9f54ba684ed0a534451107b917c19fb345c77e"
+    }
+   ]
+  },
+  {
+   "rank": 14,
+   "unit": "TX_MillsCo_2006",
+   "sortedIndex": 1255,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -98.8331019,
+     "lat": 31.4782543,
+     "epsg": 32614,
+     "originX": 515803,
+     "originY": 3482568,
+     "groundReturns": 3731,
+     "medianZAsStored": 442.84,
+     "epqsM": 442.680786133,
+     "verticalUnit": "metre",
+     "id": "u014",
+     "file": "u014.f32",
+     "sha256": "03635e5297c5d6380d5116e8f29885aa7b70f9f794405c6b3a65522541c1c794"
+    }
+   ]
+  },
+  {
+   "rank": 15,
+   "unit": "CA_Scripps-Mar_2003",
+   "sortedIndex": 247,
+   "status": "not used",
+   "attempts": [
+    {
+     "lon": -117.6329233,
+     "lat": 33.4382809,
+     "epsg": 32611,
+     "originX": 441118,
+     "originY": 3700005,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -117.6946819,
+     "lat": 33.4676497,
+     "epsg": 32611,
+     "originX": 435399,
+     "originY": 3703298,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -117.2968674,
+     "lat": 33.0446679,
+     "epsg": 32611,
+     "originX": 472231,
+     "originY": 3656228,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    }
+   ]
+  },
+  {
+   "rank": 16,
+   "unit": "SC_Berkeley_2016",
+   "sortedIndex": 1129,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -80.0242532,
+     "lat": 33.4308368,
+     "epsg": 32617,
+     "originX": 590656,
+     "originY": 3699426,
+     "groundReturns": 32436,
+     "medianZAsStored": 24.44,
+     "epqsM": 24.266435623,
+     "verticalUnit": "metre",
+     "id": "u016",
+     "file": "u016.f32",
+     "sha256": "89ffffc730d44b506ee05eaf23e8a180d94c08b5d464b130a92376264be0e961"
+    }
+   ]
+  },
+  {
+   "rank": 17,
+   "unit": "USGS_LPC_TX_West_Central_B7_2018_LAS_2019",
+   "sortedIndex": 1997,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -101.8770895,
+     "lat": 31.7934634,
+     "epsg": 32614,
+     "originX": 227534,
+     "originY": 3521098,
+     "groundReturns": 33590,
+     "medianZAsStored": 821.71,
+     "epqsM": 821.743225098,
+     "verticalUnit": "metre",
+     "id": "u017",
+     "file": "u017.f32",
+     "sha256": "ef4d91d334aad2e2da4f53df595c8686486dc89ad837c04c35e8c53d3a6671ed"
+    }
+   ]
+  },
+  {
+   "rank": 18,
+   "unit": "USGS_LPC_IN_Central_MarionCo_2016_LAS_2018",
+   "sortedIndex": 1493,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -86.2053107,
+     "lat": 39.9062279,
+     "epsg": 32616,
+     "originX": 567877,
+     "originY": 4417601,
+     "groundReturns": 12673,
+     "medianZAsStored": 256.75,
+     "epqsM": 257.402160645,
+     "verticalUnit": "metre",
+     "id": "u018",
+     "file": "u018.f32",
+     "sha256": "286585cfd0b700a3cd5d2c41e27f50c79f878a5c618e5ff5164015d89eac3b42"
+    }
+   ]
+  },
+  {
+   "rank": 19,
+   "unit": "USGS_LPC_IN_ET_B6_Jay_2012_LAS_2016",
+   "sortedIndex": 1507,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -84.8888203,
+     "lat": 40.3337297,
+     "epsg": 32616,
+     "originX": 679285,
+     "originY": 4466888,
+     "groundReturns": 5921,
+     "medianZAsStored": 322.88,
+     "epqsM": 322.865844727,
+     "verticalUnit": "metre",
+     "id": "u019",
+     "file": "u019.f32",
+     "sha256": "b3bd1748007f1cbc5e612d8daa7a245293736c9fe7aa3e6f4df4b9048ed84d00"
+    }
+   ]
+  },
+  {
+   "rank": 20,
+   "unit": "FL_LeonCo_2009",
+   "sortedIndex": 346,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -84.3293475,
+     "lat": 30.591136,
+     "epsg": 32616,
+     "originX": 756033,
+     "originY": 3387279,
+     "groundReturns": 10522,
+     "medianZAsStored": 50.72,
+     "epqsM": 51.326717377,
+     "verticalUnit": "metre",
+     "id": "u020",
+     "file": "u020.f32",
+     "sha256": "3efb84763086ac561fc72beb5f0592bdc56e69b4ad51c1eec78fff77c1e1eb52"
+    }
+   ]
+  },
+  {
+   "rank": 21,
+   "unit": "USGS_LPC_AZ_BrawleyRillito_NRCS_2018",
+   "sortedIndex": 1323,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -109.6439987,
+     "lat": 32.25637,
+     "epsg": 32612,
+     "originX": 627679,
+     "originY": 3569609,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -109.3505548,
+     "lat": 32.3243513,
+     "epsg": 32612,
+     "originX": 655207,
+     "originY": 3577533,
+     "groundReturns": 53665,
+     "medianZAsStored": 1089.9,
+     "epqsM": 1089.919067383,
+     "verticalUnit": "metre",
+     "id": "u021",
+     "file": "u021.f32",
+     "sha256": "9b41e5f4775ecdeecfa6a91cf74dbe0d88edd84f3e707be28e2b29d8e8987cbd"
+    }
+   ]
+  },
+  {
+   "rank": 22,
+   "unit": "USGS_LPC_MI_Wexford_2016_LAS_2017",
+   "sortedIndex": 1681,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -85.4708489,
+     "lat": 44.2223829,
+     "epsg": 32616,
+     "originX": 622089,
+     "originY": 4897659,
+     "reason": "read error: CalledProcessError"
+    },
+    {
+     "lon": -85.3258351,
+     "lat": 44.3313083,
+     "epsg": 32616,
+     "originX": 633425,
+     "originY": 4909984,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -85.6864884,
+     "lat": 44.427966,
+     "epsg": 32616,
+     "originX": 604499,
+     "originY": 4920196,
+     "groundReturns": 19058,
+     "medianZAsStored": 277.82,
+     "epqsM": 277.70010376,
+     "verticalUnit": "metre",
+     "id": "u022",
+     "file": "u022.f32",
+     "sha256": "f4151c3b14e76ac5bc4f90e8168a61856278bef105238852309820646a6c25dd"
+    }
+   ]
+  },
+  {
+   "rank": 23,
+   "unit": "NE_Southwest_1_2020",
+   "sortedIndex": 933,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -103.8629656,
+     "lat": 41.9952883,
+     "epsg": 32613,
+     "originX": 594124,
+     "originY": 4649828,
+     "groundReturns": 52918,
+     "medianZAsStored": 1241.59,
+     "epqsM": 1242.041381836,
+     "verticalUnit": "metre",
+     "id": "u023",
+     "file": "u023.f32",
+     "sha256": "02078ef26cff58c78e8b49bd080dff9ea45840ccfa4d767f8fdb65c2785d12a1"
+    }
+   ]
+  },
+  {
+   "rank": 24,
+   "unit": "WA_EasternCascades_3_2019",
+   "sortedIndex": 2158,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -119.9101244,
+     "lat": 46.0601803,
+     "epsg": 32611,
+     "originX": 274860,
+     "originY": 5104801,
+     "groundReturns": 135377,
+     "medianZAsStored": 391.95,
+     "epqsM": 391.85244751,
+     "verticalUnit": "metre",
+     "id": "u024",
+     "file": "u024.f32",
+     "sha256": "3ea941e315aa4ff58258f3fdf13500cdc8217251fd72b188b9cccd340a88a3b5"
+    }
+   ]
+  },
+  {
+   "rank": 25,
+   "unit": "ID_CityofRocks_2011",
+   "sortedIndex": 474,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -113.7773116,
+     "lat": 42.1297326,
+     "epsg": 32612,
+     "originX": 270398,
+     "originY": 4667864,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -113.7490814,
+     "lat": 42.1491532,
+     "epsg": 32612,
+     "originX": 272801,
+     "originY": 4669945,
+     "groundReturns": 22114,
+     "medianZAsStored": 2323.72,
+     "epqsM": 2323.773681641,
+     "verticalUnit": "metre",
+     "id": "u025",
+     "file": "u025.f32",
+     "sha256": "3163ebd0b9fd3046debceaec9cfdb128a60e057401c26bebe82a6a3357fed80d"
+    }
+   ]
+  },
+  {
+   "rank": 26,
+   "unit": "USGS_LPC_OK_DamRehab3_7_2011_LAS_2018",
+   "sortedIndex": 1862,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -99.1438513,
+     "lat": 34.3446501,
+     "epsg": 32614,
+     "originX": 486719,
+     "originY": 3800330,
+     "groundReturns": 4267,
+     "medianZAsStored": 384.32,
+     "epqsM": 384.274688721,
+     "verticalUnit": "metre",
+     "id": "u026",
+     "file": "u026.f32",
+     "sha256": "4733591e827bc892410c26435afd119306efe18f7b454aef23244281ea92a097"
+    }
+   ]
+  },
+  {
+   "rank": 27,
+   "unit": "SD_MO_River_Dewberry_B2_2016",
+   "sortedIndex": 1192,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -99.7574911,
+     "lat": 45.3806482,
+     "epsg": 32614,
+     "originX": 440644,
+     "originY": 5025466,
+     "groundReturns": 109649,
+     "medianZAsStored": 582.19,
+     "epqsM": 582.120178223,
+     "verticalUnit": "metre",
+     "id": "u027",
+     "file": "u027.f32",
+     "sha256": "e5dbe5ae971ba91748e344dad13bfd981fe2cb7ed53ca7f8840f78588defb18d"
+    }
+   ]
+  },
+  {
+   "rank": 28,
+   "unit": "CA_OrangeCo_2011",
+   "sortedIndex": 220,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -117.7599362,
+     "lat": 33.7259397,
+     "epsg": 32611,
+     "originX": 429546,
+     "originY": 3731978,
+     "groundReturns": 14633,
+     "medianZAsStored": 67.94,
+     "epqsM": 68.186233521,
+     "verticalUnit": "metre",
+     "id": "u028",
+     "file": "u028.f32",
+     "sha256": "c112f5d19e755ef0ffc5e223b17d1395f6a1128b0103fc57924b94f59fddf06e"
+    }
+   ]
+  },
+  {
+   "rank": 29,
+   "unit": "MO_StLouis_2012",
+   "sortedIndex": 796,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -90.3835349,
+     "lat": 38.4543635,
+     "epsg": 32615,
+     "originX": 728262,
+     "originY": 4259422,
+     "groundReturns": 8105,
+     "medianZAsStored": 123.08,
+     "epqsM": 123.008155823,
+     "verticalUnit": "metre",
+     "id": "u029",
+     "file": "u029.f32",
+     "sha256": "da77a7a8b21f74e5c4535f85dea6d0ddf5d4b9da04ca37dd44066dce027f4c98"
+    }
+   ]
+  },
+  {
+   "rank": 30,
+   "unit": "NE_SouthernNE_B4B_2018",
+   "sortedIndex": 931,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -96.4137788,
+     "lat": 40.9297525,
+     "epsg": 32614,
+     "originX": 717696,
+     "originY": 4534129,
+     "groundReturns": 57460,
+     "medianZAsStored": 362.15,
+     "epqsM": 362.47543335,
+     "verticalUnit": "metre",
+     "id": "u030",
+     "file": "u030.f32",
+     "sha256": "5c12a0000726d43982ca3ef7bb9d7e0543b3ab01b7597330b8dfbab07c29117d"
+    }
+   ]
+  },
+  {
+   "rank": 31,
+   "unit": "ARRA-FL_Charlotte-W_2010",
+   "sortedIndex": 75,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -81.5579444,
+     "lat": 26.8917473,
+     "epsg": 32617,
+     "originX": 444540,
+     "originY": 2974517,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -81.5952698,
+     "lat": 26.8735926,
+     "epsg": 32617,
+     "originX": 440823,
+     "originY": 2972523,
+     "groundReturns": 8841,
+     "medianZAsStored": 23.33,
+     "epqsM": 14.64081955,
+     "reason": "vertical unit undetermined"
+    },
+    {
+     "lon": -81.6424039,
+     "lat": 26.91012,
+     "epsg": 32617,
+     "originX": 436162,
+     "originY": 2976592,
+     "groundReturns": 11975,
+     "medianZAsStored": 32.92,
+     "epqsM": 17.63407135,
+     "verticalUnit": "foot",
+     "id": "u031",
+     "file": "u031.f32",
+     "sha256": "4cb7d44c4aff6d78a6c5bd7cda05e8780917a798a5a2973254a9a558f9adcb37"
+    }
+   ]
+  },
+  {
+   "rank": 32,
+   "unit": "FL_Peninsular_FDEM_Okeechobee_2018",
+   "sortedIndex": 380,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -80.962802,
+     "lat": 27.3031995,
+     "epsg": 32617,
+     "originX": 503630,
+     "originY": 3019968,
+     "groundReturns": 83998,
+     "medianZAsStored": 9.41,
+     "epqsM": 9.425712585,
+     "verticalUnit": "metre",
+     "id": "u032",
+     "file": "u032.f32",
+     "sha256": "aaa9a9fa2ef3cf03073858ba2b3071a8ea5667b48226e72887a3d9e1ed70e461"
+    }
+   ]
+  },
+  {
+   "rank": 33,
+   "unit": "WY_Southwest_4_2020",
+   "sortedIndex": 2277,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -110.4421569,
+     "lat": 41.1174879,
+     "epsg": 32612,
+     "originX": 546782,
+     "originY": 4551899,
+     "groundReturns": 37742,
+     "medianZAsStored": 2367.01,
+     "epqsM": 2367.739990234,
+     "verticalUnit": "metre",
+     "id": "u033",
+     "file": "u033.f32",
+     "sha256": "982393350aeb787c62450fcd2788483928d12d3de38045e496ef6b537d36af2a"
+    }
+   ]
+  },
+  {
+   "rank": 34,
+   "unit": "AR_UpperWhiteVillage-FEMA_2012",
+   "sortedIndex": 131,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -91.1940126,
+     "lat": 35.5954264,
+     "epsg": 32615,
+     "originX": 663555,
+     "originY": 3940527,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -91.3523413,
+     "lat": 35.6358587,
+     "epsg": 32615,
+     "originX": 649135,
+     "originY": 3944761,
+     "groundReturns": 4078,
+     "medianZAsStored": 65.77,
+     "epqsM": 65.530921936,
+     "verticalUnit": "metre",
+     "id": "u034",
+     "file": "u034.f32",
+     "sha256": "4bcfe27561743ba4435d22ef7ac3925a54edb518228ba1e8807bc5c632e8525c"
+    }
+   ]
+  },
+  {
+   "rank": 35,
+   "unit": "USGS_LPC_TX_South_B2_2018_LAS_2019",
+   "sortedIndex": 1976,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -97.3554613,
+     "lat": 27.197811,
+     "epsg": 32614,
+     "originX": 662839,
+     "originY": 3009363,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -98.525322,
+     "lat": 27.2040205,
+     "epsg": 32614,
+     "originX": 546960,
+     "originY": 3009071,
+     "groundReturns": 28947,
+     "medianZAsStored": 134.4,
+     "epqsM": 134.45111084,
+     "verticalUnit": "metre",
+     "id": "u035",
+     "file": "u035.f32",
+     "sha256": "264530f0dc8818347cce41296d31803feefcfed00aa4b7f9725f7fed8b73856f"
+    }
+   ]
+  },
+  {
+   "rank": 36,
+   "unit": "ME_SouthCoastal_2_2020",
+   "sortedIndex": 698,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -70.6910315,
+     "lat": 43.2301433,
+     "epsg": 32619,
+     "originX": 362631,
+     "originY": 4787710,
+     "groundReturns": 60293,
+     "medianZAsStored": 85.86,
+     "epqsM": 85.286575317,
+     "verticalUnit": "metre",
+     "id": "u036",
+     "file": "u036.f32",
+     "sha256": "e9e4b5997defcd856d612864f89361102fc31a31fe29ac337f4f3fb592a1da3a"
+    }
+   ]
+  },
+  {
+   "rank": 37,
+   "unit": "AK_EMRI_2_D24",
+   "sortedIndex": 4,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -147.5096171,
+     "lat": 63.1749445,
+     "epsg": 32606,
+     "originX": 474291,
+     "originY": 7005133,
+     "groundReturns": 27010,
+     "medianZAsStored": 754.97,
+     "epqsM": 751.719970703,
+     "verticalUnit": "metre",
+     "id": "u037",
+     "file": "u037.f32",
+     "sha256": "51077b5af8858fdf49d22ea8aa3c6977728c0d07fef3d0c12f224934af7f070e"
+    }
+   ]
+  },
+  {
+   "rank": 38,
+   "unit": "NM_SouthCentral_Acoma_TL_2018",
+   "sortedIndex": 975,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -107.886939,
+     "lat": 34.7234372,
+     "epsg": 32613,
+     "originX": 235589,
+     "originY": 3846119,
+     "groundReturns": 17834,
+     "medianZAsStored": 2347.31,
+     "epqsM": 2351.645507812,
+     "verticalUnit": "metre",
+     "id": "u038",
+     "file": "u038.f32",
+     "sha256": "cafaf9c9363c554b1c8fb3acf4d0a0a31dec5af928f187ea0453fbf4cd898d7f"
+    }
+   ]
+  },
+  {
+   "rank": 39,
+   "unit": "USGS_LPC_OK_Woodward_UTM15_B5_2016__LAS_2018",
+   "sortedIndex": 1870,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -95.0421595,
+     "lat": 34.5259979,
+     "epsg": 32615,
+     "originX": 312517,
+     "originY": 3822323,
+     "groundReturns": 53443,
+     "medianZAsStored": 245.51,
+     "epqsM": 245.276062012,
+     "verticalUnit": "metre",
+     "id": "u039",
+     "file": "u039.f32",
+     "sha256": "883aad8534cfd27052677b74dffcee6bff5c91fa57f86031aa7188549e29cbbf"
+    }
+   ]
+  },
+  {
+   "rank": 40,
+   "unit": "KY_FluorsparDistrict_2019",
+   "sortedIndex": 638,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -87.7936835,
+     "lat": 37.4825472,
+     "epsg": 32616,
+     "originX": 429779,
+     "originY": 4148650,
+     "groundReturns": 44139,
+     "medianZAsStored": 113.57,
+     "epqsM": 113.49936676,
+     "verticalUnit": "metre",
+     "id": "u040",
+     "file": "u040.f32",
+     "sha256": "173e172ab16b1c78fca0a2c348c8e40732bc8d4fc22de9ea9b8baefb1ecd1fbc"
+    }
+   ]
+  },
+  {
+   "rank": 41,
+   "unit": "CA_SanJoaquin_6_2021",
+   "sortedIndex": 238,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -119.4714875,
+     "lat": 35.6923941,
+     "epsg": 32611,
+     "originX": 276316,
+     "originY": 3952596,
+     "groundReturns": 144663,
+     "medianZAsStored": 68.17,
+     "epqsM": 68.135627747,
+     "verticalUnit": "metre",
+     "id": "u041",
+     "file": "u041.f32",
+     "sha256": "ee208811e2232490a1e54254e4c02affa05546affc5d12464bde619bbf29b24e"
+    }
+   ]
+  },
+  {
+   "rank": 42,
+   "unit": "USGS_LPC_MI_31Co_Sanilac_2017_LAS_2019",
+   "sortedIndex": 1651,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -82.8798432,
+     "lat": 43.6589713,
+     "epsg": 32617,
+     "originX": 348373,
+     "originY": 4835663,
+     "groundReturns": 16019,
+     "medianZAsStored": 239.25,
+     "epqsM": 239.331634521,
+     "verticalUnit": "metre",
+     "id": "u042",
+     "file": "u042.f32",
+     "sha256": "170b3343318413cc0f15286a446f8f7fa93f7cda9ccaab81ea75d2d2c52b9513"
+    }
+   ]
+  },
+  {
+   "rank": 43,
+   "unit": "MI_FEMA_Cheboygan_2019",
+   "sortedIndex": 710,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -84.4679668,
+     "lat": 45.316671,
+     "epsg": 32616,
+     "originX": 698409,
+     "originY": 5021198,
+     "groundReturns": 23868,
+     "medianZAsStored": 264.79,
+     "epqsM": 265.169708252,
+     "verticalUnit": "metre",
+     "id": "u043",
+     "file": "u043.f32",
+     "sha256": "0bb86dd3905ea2b49b138e1642c1c45131eccb4a1bb479d89684ac2777754311"
+    }
+   ]
+  },
+  {
+   "rank": 44,
+   "unit": "WY_YellowstoneNP_1_2020",
+   "sortedIndex": 2279,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -110.8291966,
+     "lat": 45.3110278,
+     "epsg": 32612,
+     "originX": 513338,
+     "originY": 5017466,
+     "groundReturns": 20944,
+     "medianZAsStored": 1504.47,
+     "epqsM": 1504.549926758,
+     "verticalUnit": "metre",
+     "id": "u044",
+     "file": "u044.f32",
+     "sha256": "c4f161c9c17517c54fce017ff0f6f5094118eeb9a4a8a9cd2fb6e84568176141"
+    }
+   ]
+  },
+  {
+   "rank": 45,
+   "unit": "USGS_LPC_MO_FEMAR7_North_A2_2017_LAS_2019",
+   "sortedIndex": 1744,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -92.0164205,
+     "lat": 37.8433295,
+     "epsg": 32615,
+     "originX": 586490,
+     "originY": 4188838,
+     "groundReturns": 46219,
+     "medianZAsStored": 293.38,
+     "epqsM": 293.66784668,
+     "verticalUnit": "metre",
+     "id": "u045",
+     "file": "u045.f32",
+     "sha256": "11dad0c6644497c68a441809cfa675516f4cf3befda6804b70c39a0f726889ff"
+    }
+   ]
+  },
+  {
+   "rank": 46,
+   "unit": "USGS_LPC_TN_3County_2015_LAS_2017",
+   "sortedIndex": 1912,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -88.7789351,
+     "lat": 35.0837597,
+     "epsg": 32616,
+     "originX": 337775,
+     "originY": 3883729,
+     "groundReturns": 28315,
+     "medianZAsStored": 128.11,
+     "epqsM": 129.177093506,
+     "verticalUnit": "metre",
+     "id": "u046",
+     "file": "u046.f32",
+     "sha256": "88d3d2e3852ab8f683d6d7fc2fecf257f1e0bccbd7f607d852cc85cd9c1f6cd6"
+    }
+   ]
+  },
+  {
+   "rank": 47,
+   "unit": "WV_FEMAHQ_B2_2018",
+   "sortedIndex": 2240,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -81.3002688,
+     "lat": 39.0764849,
+     "epsg": 32617,
+     "originX": 473977,
+     "originY": 4325257,
+     "reason": "read error: CalledProcessError"
+    },
+    {
+     "lon": -81.1402508,
+     "lat": 38.6410711,
+     "epsg": 32617,
+     "originX": 487744,
+     "originY": 4276906,
+     "groundReturns": 31009,
+     "medianZAsStored": 338.72,
+     "epqsM": 336.587280273,
+     "verticalUnit": "metre",
+     "id": "u047",
+     "file": "u047.f32",
+     "sha256": "03bdb516a719e8f9d25c4a7c92bcf9274f1f9f79f447a25fef7ebf466c9b3e3c"
+    }
+   ]
+  },
+  {
+   "rank": 48,
+   "unit": "USGS_LPC_TX_West_Central_B11_2018_LAS_2019",
+   "sortedIndex": 1985,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -100.7795464,
+     "lat": 32.9458205,
+     "epsg": 32614,
+     "originX": 333599,
+     "originY": 3646635,
+     "groundReturns": 49942,
+     "medianZAsStored": 654.36,
+     "epqsM": 655.674926758,
+     "verticalUnit": "metre",
+     "id": "u048",
+     "file": "u048.f32",
+     "sha256": "2285bab715c62ba977bb84c878e5db26972c12e3fab66660a2f457e4a2cdc686"
+    }
+   ]
+  },
+  {
+   "rank": 49,
+   "unit": "USGS_LPC_IN_WT_B10_Benton_2013_LAS_2016",
+   "sortedIndex": 1533,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -87.176065,
+     "lat": 40.6053905,
+     "epsg": 32616,
+     "originX": 485054,
+     "originY": 4494918,
+     "groundReturns": 4972,
+     "medianZAsStored": 219.41,
+     "epqsM": 219.582290649,
+     "verticalUnit": "metre",
+     "id": "u049",
+     "file": "u049.f32",
+     "sha256": "6200f03ec867863feb181978770baf41eb2e49618b6a75851eebb988f9723a28"
+    }
+   ]
+  },
+  {
+   "rank": 50,
+   "unit": "USGS_LPC_MI_31Co_Midland_2016_LAS_2019",
+   "sortedIndex": 1645,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -84.6097221,
+     "lat": 43.4985396,
+     "epsg": 32616,
+     "originX": 693198,
+     "originY": 4818904,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -84.4538602,
+     "lat": 43.5340835,
+     "epsg": 32616,
+     "originX": 705678,
+     "originY": 4823226,
+     "groundReturns": 18248,
+     "medianZAsStored": 205.59,
+     "epqsM": 205.529434204,
+     "verticalUnit": "metre",
+     "id": "u050",
+     "file": "u050.f32",
+     "sha256": "17981053af20de886881bea3cb7c3328fc8ebc78c67e803adc47c20be0eaf7b0"
+    }
+   ]
+  },
+  {
+   "rank": 51,
+   "unit": "GA_Statewide_B2_2018",
+   "sortedIndex": 443,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -84.457306,
+     "lat": 34.1851792,
+     "epsg": 32616,
+     "originX": 734280,
+     "originY": 3785561,
+     "groundReturns": 8312,
+     "medianZAsStored": 326.15,
+     "epqsM": 324.44418335,
+     "verticalUnit": "metre",
+     "id": "u051",
+     "file": "u051.f32",
+     "sha256": "58696277547cfdc7174227d9c9e064b06358465828a3154d62d099eef8dc518b"
+    }
+   ]
+  },
+  {
+   "rank": 52,
+   "unit": "ND_3DEPProcessing_4_D22",
+   "sortedIndex": 907,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -102.9875922,
+     "lat": 48.1727319,
+     "epsg": 32613,
+     "originX": 649561,
+     "originY": 5337407,
+     "groundReturns": 21158,
+     "medianZAsStored": 563.65,
+     "epqsM": 563.716003418,
+     "verticalUnit": "metre",
+     "id": "u052",
+     "file": "u052.f32",
+     "sha256": "f68857a3d9ec863edb4d022ec878b29eb42fde3dcfa1bff8fcbb46856fa0b46f"
+    }
+   ]
+  },
+  {
+   "rank": 53,
+   "unit": "USGS_LPC_MO_AR_Miss_Laud_UTM16_2014_LAS_2016",
+   "sortedIndex": 1726,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -89.8201992,
+     "lat": 35.5839515,
+     "epsg": 32616,
+     "originX": 244410,
+     "originY": 3941415,
+     "groundReturns": 18269,
+     "medianZAsStored": 77.44,
+     "epqsM": 77.382698059,
+     "verticalUnit": "metre",
+     "id": "u053",
+     "file": "u053.f32",
+     "sha256": "bbe6f7b75615b81be66ca8e3d0aba7548eceddda6252f666d038ad58613c1053"
+    }
+   ]
+  },
+  {
+   "rank": 54,
+   "unit": "TN_OSMRE-GPSC_2011",
+   "sortedIndex": 1220,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -84.2948649,
+     "lat": 36.4173544,
+     "epsg": 32616,
+     "originX": 742493,
+     "originY": 4033591,
+     "groundReturns": 10648,
+     "medianZAsStored": 601.81,
+     "epqsM": 600.636962891,
+     "verticalUnit": "metre",
+     "id": "u054",
+     "file": "u054.f32",
+     "sha256": "763e1b25f17a6ae325c0d480d2b398f36f0d7a999da79058d9eb59b55a491e30"
+    }
+   ]
+  },
+  {
+   "rank": 55,
+   "unit": "NM_HermitsPeak_1_D23",
+   "sortedIndex": 951,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -105.402523,
+     "lat": 36.0031298,
+     "epsg": 32613,
+     "originX": 463672,
+     "originY": 3984320,
+     "reason": "read error: CalledProcessError"
+    },
+    {
+     "lon": -105.3015723,
+     "lat": 36.1628033,
+     "epsg": 32613,
+     "originX": 472825,
+     "originY": 4001998,
+     "groundReturns": 143699,
+     "medianZAsStored": 3001.84,
+     "epqsM": 3002.177734375,
+     "verticalUnit": "metre",
+     "id": "u055",
+     "file": "u055.f32",
+     "sha256": "8b0031295f7ec074314b052158c7b35246e6ef3906658fdcb7bf90ffbc820e59"
+    }
+   ]
+  },
+  {
+   "rank": 56,
+   "unit": "USGS_LPC_MO_AR_Mercer_Grundy_2014_LAS_2016",
+   "sortedIndex": 1724,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -93.715732,
+     "lat": 40.3848675,
+     "epsg": 32615,
+     "originX": 439199,
+     "originY": 4470671,
+     "groundReturns": 12396,
+     "medianZAsStored": 299.88,
+     "epqsM": 300.430175781,
+     "verticalUnit": "metre",
+     "id": "u056",
+     "file": "u056.f32",
+     "sha256": "b58b515ca81c16fe988bc9f45461d06c6c554dbfbe5d5be8fad177f668f12548"
+    }
+   ]
+  },
+  {
+   "rank": 57,
+   "unit": "ME_CrownofMaine_B2_2018",
+   "sortedIndex": 689,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -69.0377697,
+     "lat": 46.8093088,
+     "epsg": 32619,
+     "originX": 497068,
+     "originY": 5183924,
+     "groundReturns": 21805,
+     "medianZAsStored": 493.47,
+     "epqsM": 493.771575928,
+     "verticalUnit": "metre",
+     "id": "u057",
+     "file": "u057.f32",
+     "sha256": "33788324b738bc655a518e5111d78347aaaf73168e8f4827e881f0b5d2ca1088"
+    }
+   ]
+  },
+  {
+   "rank": 58,
+   "unit": "USGS_LPC_LA_Barataria_2013_LAS_2015",
+   "sortedIndex": 1592,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -90.1341375,
+     "lat": 29.1635312,
+     "epsg": 32615,
+     "originX": 778705,
+     "originY": 3229452,
+     "groundReturns": 308,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -89.9034243,
+     "lat": 29.5200282,
+     "epsg": 32616,
+     "originX": 218521,
+     "originY": 3269067,
+     "groundReturns": 0,
+     "reason": "fewer than 1,000 ground returns"
+    },
+    {
+     "lon": -89.9959136,
+     "lat": 29.6869669,
+     "epsg": 32616,
+     "originX": 210030,
+     "originY": 3287805,
+     "groundReturns": 2206,
+     "medianZAsStored": -26.5,
+     "epqsM": -1.1630795,
+     "verticalUnit": "foot",
+     "id": "u058",
+     "file": "u058.f32",
+     "sha256": "372d8b5cecb5d049691570a8c4f41c06d68b34c55c7e7b74a4eb6bed0d6603fc"
+    }
+   ]
+  },
+  {
+   "rank": 59,
+   "unit": "CT_Statewide_B5_2016",
+   "sortedIndex": 315,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -73.0710792,
+     "lat": 41.7252275,
+     "epsg": 32618,
+     "originX": 660387,
+     "originY": 4621017,
+     "groundReturns": 23208,
+     "medianZAsStored": 250.3,
+     "epqsM": 251.853012085,
+     "verticalUnit": "metre",
+     "id": "u059",
+     "file": "u059.f32",
+     "sha256": "054bf0321e8bd3a4fc5838d4e3318a8a1e3491c9e30f9850ddac758fd9214a57"
+    }
+   ]
+  },
+  {
+   "rank": 60,
+   "unit": "GA_Central_4_2018",
+   "sortedIndex": 424,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -84.4671882,
+     "lat": 31.0153332,
+     "epsg": 32616,
+     "originX": 741746,
+     "originY": 3434006,
+     "groundReturns": 20643,
+     "medianZAsStored": 42.53,
+     "epqsM": 42.160575867,
+     "verticalUnit": "metre",
+     "id": "u060",
+     "file": "u060.f32",
+     "sha256": "94903b54494b422589bb1af9b40247b6b794fe27b98ca6bef8f54269366886a1"
+    }
+   ]
+  },
+  {
+   "rank": 61,
+   "unit": "OK_Panhandle_B1C_2018",
+   "sortedIndex": 1070,
+   "status": "valid",
+   "attempts": [
+    {
+     "lon": -94.7756488,
+     "lat": 36.9121954,
+     "epsg": 32615,
+     "originX": 341771,
+     "originY": 4086554,
+     "groundReturns": 33250,
+     "medianZAsStored": 274.52,
+     "epqsM": 274.91885376,
+     "verticalUnit": "metre",
+     "id": "u061",
+     "file": "u061.f32",
+     "sha256": "a1ff530efa41b998d3cb16f71a8ce11990548c2788827a05c5d186716249caab"
+    }
+   ]
+  }
+ ]
+}

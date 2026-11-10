@@ -1,0 +1,540 @@
+{
+ "driver": "held-out ground check on half-density terrain",
+ "seeds": 20,
+ "split": "mulberry32(seed), build if draw < 0.5",
+ "thresholds": {
+  "solid": 66,
+  "dashed": 33
+ },
+ "sites": [
+  {
+   "site": "White Sands",
+   "buildReturns": {
+    "median": 23220,
+    "min": 23010,
+    "max": 23385,
+    "seeds": 20
+   },
+   "heldReturns": {
+    "median": 23231,
+    "min": 23066,
+    "max": 23441,
+    "seeds": 20
+   },
+   "cellsScored": {
+    "median": 3499,
+    "min": 3489,
+    "max": 3507,
+    "seeds": 20
+   },
+   "rmseMeasuredSolid": {
+    "median": 0.0208,
+    "min": 0.0198,
+    "max": 0.0219,
+    "seeds": 20
+   },
+   "rmseMeasuredDashed": {
+    "median": 0.0219,
+    "min": 0.0199,
+    "max": 0.0235,
+    "seeds": 20
+   },
+   "rmseMeasuredGap": {
+    "median": 0.0261,
+    "min": 0.0248,
+    "max": 0.0301,
+    "seeds": 20
+   },
+   "rmseInterpolated": {
+    "median": 0.0615,
+    "min": 0.0388,
+    "max": 0.0966,
+    "seeds": 20
+   },
+   "nMeasuredSolid": {
+    "median": 2159,
+    "min": 2100,
+    "max": 2202,
+    "seeds": 20
+   },
+   "nMeasuredDashed": {
+    "median": 899,
+    "min": 844,
+    "max": 940,
+    "seeds": 20
+   },
+   "nMeasuredGap": {
+    "median": 432.5,
+    "min": 394,
+    "max": 467,
+    "seeds": 20
+   },
+   "nInterpolated": {
+    "median": 17.5,
+    "min": 11,
+    "max": 25,
+    "seeds": 20
+   },
+   "spearmanSupportError": {
+    "median": -0.0396,
+    "min": -0.0812,
+    "max": -0.0157,
+    "seeds": 20
+   },
+   "spans": {
+    "median": 100,
+    "min": 91,
+    "max": 108,
+    "seeds": 20
+   },
+   "promotedSpansWithInteriorHidden": {
+    "median": 26,
+    "min": 21,
+    "max": 35,
+    "seeds": 20
+   },
+   "q2Spans": {
+    "median": 25.5,
+    "min": 21,
+    "max": 34,
+    "seeds": 20
+   },
+   "q2ShareHiddenWorsePct": {
+    "median": 57.7381,
+    "min": 44.4444,
+    "max": 70,
+    "seeds": 20
+   },
+   "q2MedianDiffM": {
+    "median": 0.0013,
+    "min": -0.0016,
+    "max": 0.0039,
+    "seeds": 20
+   },
+   "q2MedianRatio": {
+    "median": 1.073,
+    "min": 0.9393,
+    "max": 1.3108,
+    "seeds": 20
+   },
+   "q3SolidKept": {
+    "median": 9,
+    "min": 4,
+    "max": 17,
+    "seeds": 20
+   },
+   "q3SolidDowngraded": {
+    "median": 5,
+    "min": 2,
+    "max": 7,
+    "seeds": 20
+   },
+   "q3MedianErrKeptM": {
+    "median": 0.023,
+    "min": 0.0136,
+    "max": 0.0278,
+    "seeds": 20
+   },
+   "q3MedianErrDowngradedM": {
+    "median": 0.0293,
+    "min": 0.0153,
+    "max": 0.0436,
+    "seeds": 20
+   },
+   "q3Ratio": {
+    "median": 1.3259,
+    "min": 0.7814,
+    "max": 2.31,
+    "seeds": 20
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "buildReturns": {
+    "median": 6298,
+    "min": 6188,
+    "max": 6429,
+    "seeds": 20
+   },
+   "heldReturns": {
+    "median": 6273,
+    "min": 6142,
+    "max": 6383,
+    "seeds": 20
+   },
+   "cellsScored": {
+    "median": 4890.5,
+    "min": 4832,
+    "max": 4977,
+    "seeds": 20
+   },
+   "rmseMeasuredSolid": null,
+   "rmseMeasuredDashed": {
+    "median": 0.0472,
+    "min": 0.0424,
+    "max": 0.0516,
+    "seeds": 20
+   },
+   "rmseMeasuredGap": {
+    "median": 0.0507,
+    "min": 0.0497,
+    "max": 0.0517,
+    "seeds": 20
+   },
+   "rmseInterpolated": {
+    "median": 0.0481,
+    "min": 0.0464,
+    "max": 0.0499,
+    "seeds": 20
+   },
+   "nMeasuredSolid": {
+    "median": 0,
+    "min": 0,
+    "max": 0,
+    "seeds": 20
+   },
+   "nMeasuredDashed": {
+    "median": 380.5,
+    "min": 363,
+    "max": 413,
+    "seeds": 20
+   },
+   "nMeasuredGap": {
+    "median": 1791,
+    "min": 1743,
+    "max": 1870,
+    "seeds": 20
+   },
+   "nInterpolated": {
+    "median": 2715.5,
+    "min": 2611,
+    "max": 2823,
+    "seeds": 20
+   },
+   "spearmanSupportError": {
+    "median": 0.0055,
+    "min": -0.0132,
+    "max": 0.0239,
+    "seeds": 20
+   },
+   "spans": {
+    "median": 132,
+    "min": 120,
+    "max": 151,
+    "seeds": 20
+   },
+   "promotedSpansWithInteriorHidden": {
+    "median": 10,
+    "min": 7,
+    "max": 16,
+    "seeds": 20
+   },
+   "q2Spans": {
+    "median": 9.5,
+    "min": 6,
+    "max": 13,
+    "seeds": 20
+   },
+   "q2ShareHiddenWorsePct": {
+    "median": 50,
+    "min": 22.2222,
+    "max": 90.9091,
+    "seeds": 20
+   },
+   "q2MedianDiffM": {
+    "median": -0.0004,
+    "min": -0.0069,
+    "max": 0.012,
+    "seeds": 20
+   },
+   "q2MedianRatio": {
+    "median": 0.99,
+    "min": 0.8614,
+    "max": 1.4001,
+    "seeds": 20
+   },
+   "q3SolidKept": {
+    "median": 0,
+    "min": 0,
+    "max": 0,
+    "seeds": 20
+   },
+   "q3SolidDowngraded": {
+    "median": 0,
+    "min": 0,
+    "max": 0,
+    "seeds": 20
+   },
+   "q3MedianErrKeptM": null,
+   "q3MedianErrDowngradedM": null,
+   "q3Ratio": null
+  },
+  {
+   "site": "StREAM",
+   "buildReturns": {
+    "median": 1295.5,
+    "min": 1238,
+    "max": 1365,
+    "seeds": 20
+   },
+   "heldReturns": {
+    "median": 1299.5,
+    "min": 1230,
+    "max": 1357,
+    "seeds": 20
+   },
+   "cellsScored": {
+    "median": 778,
+    "min": 749,
+    "max": 797,
+    "seeds": 20
+   },
+   "rmseMeasuredSolid": {
+    "median": 0.0264,
+    "min": 0.0091,
+    "max": 0.0969,
+    "seeds": 20
+   },
+   "rmseMeasuredDashed": {
+    "median": 0.0605,
+    "min": 0.0513,
+    "max": 0.0715,
+    "seeds": 20
+   },
+   "rmseMeasuredGap": {
+    "median": 0.0871,
+    "min": 0.0695,
+    "max": 0.0982,
+    "seeds": 20
+   },
+   "rmseInterpolated": {
+    "median": 0.1738,
+    "min": 0.1514,
+    "max": 0.1906,
+    "seeds": 20
+   },
+   "nMeasuredSolid": {
+    "median": 5,
+    "min": 3,
+    "max": 8,
+    "seeds": 20
+   },
+   "nMeasuredDashed": {
+    "median": 219,
+    "min": 193,
+    "max": 251,
+    "seeds": 20
+   },
+   "nMeasuredGap": {
+    "median": 254,
+    "min": 235,
+    "max": 282,
+    "seeds": 20
+   },
+   "nInterpolated": {
+    "median": 297.5,
+    "min": 273,
+    "max": 314,
+    "seeds": 20
+   },
+   "spearmanSupportError": {
+    "median": -0.0502,
+    "min": -0.0961,
+    "max": 0.0079,
+    "seeds": 20
+   },
+   "spans": {
+    "median": 47,
+    "min": 39,
+    "max": 50,
+    "seeds": 20
+   },
+   "promotedSpansWithInteriorHidden": {
+    "median": 6.5,
+    "min": 2,
+    "max": 12,
+    "seeds": 20
+   },
+   "q2Spans": {
+    "median": 6,
+    "min": 2,
+    "max": 11,
+    "seeds": 20
+   },
+   "q2ShareHiddenWorsePct": {
+    "median": 50,
+    "min": 16.6667,
+    "max": 100,
+    "seeds": 20
+   },
+   "q2MedianDiffM": {
+    "median": 0.0086,
+    "min": -0.0761,
+    "max": 0.0989,
+    "seeds": 20
+   },
+   "q2MedianRatio": {
+    "median": 1.0305,
+    "min": 0.5222,
+    "max": 2.0344,
+    "seeds": 20
+   },
+   "q3SolidKept": {
+    "median": 0,
+    "min": 0,
+    "max": 0,
+    "seeds": 20
+   },
+   "q3SolidDowngraded": {
+    "median": 0,
+    "min": 0,
+    "max": 0,
+    "seeds": 20
+   },
+   "q3MedianErrKeptM": null,
+   "q3MedianErrDowngradedM": null,
+   "q3Ratio": null
+  },
+  {
+   "site": "Marsh Island",
+   "buildReturns": {
+    "median": 35308.5,
+    "min": 35121,
+    "max": 35562,
+    "seeds": 20
+   },
+   "heldReturns": {
+    "median": 35383.5,
+    "min": 35130,
+    "max": 35571,
+    "seeds": 20
+   },
+   "cellsScored": {
+    "median": 1542,
+    "min": 1530,
+    "max": 1549,
+    "seeds": 20
+   },
+   "rmseMeasuredSolid": {
+    "median": 0.0047,
+    "min": 0.0042,
+    "max": 0.0058,
+    "seeds": 20
+   },
+   "rmseMeasuredDashed": {
+    "median": 0.009,
+    "min": 0.0068,
+    "max": 0.0175,
+    "seeds": 20
+   },
+   "rmseMeasuredGap": {
+    "median": 0.013,
+    "min": 0.0123,
+    "max": 0.0153,
+    "seeds": 20
+   },
+   "rmseInterpolated": {
+    "median": 0.0184,
+    "min": 0.0111,
+    "max": 0.2263,
+    "seeds": 20
+   },
+   "nMeasuredSolid": {
+    "median": 896,
+    "min": 887,
+    "max": 918,
+    "seeds": 20
+   },
+   "nMeasuredDashed": {
+    "median": 231,
+    "min": 208,
+    "max": 239,
+    "seeds": 20
+   },
+   "nMeasuredGap": {
+    "median": 386,
+    "min": 348,
+    "max": 403,
+    "seeds": 20
+   },
+   "nInterpolated": {
+    "median": 32,
+    "min": 26,
+    "max": 38,
+    "seeds": 20
+   },
+   "spearmanSupportError": {
+    "median": -0.4194,
+    "min": -0.469,
+    "max": -0.4011,
+    "seeds": 20
+   },
+   "spans": {
+    "median": 177.5,
+    "min": 150,
+    "max": 211,
+    "seeds": 20
+   },
+   "promotedSpansWithInteriorHidden": {
+    "median": 13,
+    "min": 8,
+    "max": 16,
+    "seeds": 20
+   },
+   "q2Spans": {
+    "median": 6.5,
+    "min": 4,
+    "max": 10,
+    "seeds": 20
+   },
+   "q2ShareHiddenWorsePct": {
+    "median": 63.3333,
+    "min": 33.3333,
+    "max": 87.5,
+    "seeds": 20
+   },
+   "q2MedianDiffM": {
+    "median": 0.0012,
+    "min": -0.0018,
+    "max": 0.0066,
+    "seeds": 20
+   },
+   "q2MedianRatio": {
+    "median": 1.2273,
+    "min": 0.8496,
+    "max": 2.3068,
+    "seeds": 20
+   },
+   "q3SolidKept": {
+    "median": 2,
+    "min": 0,
+    "max": 4,
+    "seeds": 20
+   },
+   "q3SolidDowngraded": {
+    "median": 0,
+    "min": 0,
+    "max": 1,
+    "seeds": 20
+   },
+   "q3MedianErrKeptM": {
+    "median": 0.0043,
+    "min": 0.0028,
+    "max": 0.0241,
+    "seeds": 16
+   },
+   "q3MedianErrDowngradedM": {
+    "median": 0.0174,
+    "min": 0.0049,
+    "max": 0.0299,
+    "seeds": 2
+   },
+   "q3Ratio": {
+    "median": 6.9328,
+    "min": 6.9328,
+    "max": 6.9328,
+    "seeds": 1
+   }
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "driver": "EC-wrap on a non-DP simplifier",
+ "sites": [
+  {
+   "site": "White Sands",
+   "simplifier": "Visvalingam-Whyatt (simplification package)",
+   "areaM2": 1,
+   "lines": 43,
+   "linesNotSubsequence": 0,
+   "sourceVertices": 433,
+   "retainedVertices": 150,
+   "vertexReductionPct": 65.4,
+   "spans": 107,
+   "endpointPromotion": 18,
+   "endpointPromotionPct": 16.8,
+   "endpointProvenanceLoss": 1,
+   "endpointProvenanceLossPct": 0.9,
+   "ecwrapPromotion": 0,
+   "ecwrapProvenanceLoss": 0
+  },
+  {
+   "site": "Estonia Tava",
+   "simplifier": "Visvalingam-Whyatt (simplification package)",
+   "areaM2": 1,
+   "lines": 89,
+   "linesNotSubsequence": 0,
+   "sourceVertices": 700,
+   "retainedVertices": 262,
+   "vertexReductionPct": 62.6,
+   "spans": 173,
+   "endpointPromotion": 11,
+   "endpointPromotionPct": 6.4,
+   "endpointProvenanceLoss": 11,
+   "endpointProvenanceLossPct": 6.4,
+   "ecwrapPromotion": 0,
+   "ecwrapProvenanceLoss": 0
+  },
+  {
+   "site": "StREAM",
+   "simplifier": "Visvalingam-Whyatt (simplification package)",
+   "areaM2": 1,
+   "lines": 33,
+   "linesNotSubsequence": 0,
+   "sourceVertices": 267,
+   "retainedVertices": 97,
+   "vertexReductionPct": 63.7,
+   "spans": 64,
+   "endpointPromotion": 11,
+   "endpointPromotionPct": 17.2,
+   "endpointProvenanceLoss": 0,
+   "endpointProvenanceLossPct": 0.0,
+   "ecwrapPromotion": 0,
+   "ecwrapProvenanceLoss": 0
+  },
+  {
+   "site": "Marsh Island",
+   "simplifier": "Visvalingam-Whyatt (simplification package)",
+   "areaM2": 0.25,
+   "lines": 72,
+   "linesNotSubsequence": 0,
+   "sourceVertices": 2052,
+   "retainedVertices": 349,
+   "vertexReductionPct": 83.0,
+   "spans": 277,
+   "endpointPromotion": 11,
+   "endpointPromotionPct": 4.0,
+   "endpointProvenanceLoss": 0,
+   "endpointProvenanceLossPct": 0.0,
+   "ecwrapPromotion": 0,
+   "ecwrapProvenanceLoss": 0
+  }
+ ]
+}

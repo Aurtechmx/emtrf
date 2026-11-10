@@ -1,0 +1,201 @@
+{
+ "driver": "support-profile record (length accounting, composition, scalar bound)",
+ "thresholds": [
+  66,
+  33
+ ],
+ "sites": [
+  {
+   "site": "White Sands",
+   "contourLengthM": 289.39,
+   "channels": {
+    "M>=66": {
+     "trueLengthM": 52.13,
+     "statedEndpointM": 43.56,
+     "statedMinimumM": 6.16,
+     "statedProfileM": 52.13,
+     "endpointOverstatedM": 15.83,
+     "endpointUnderstatedM": 24.4,
+     "minimumUnderstatedM": 45.97,
+     "profileErrorM": 0
+    },
+    "M>=33": {
+     "trueLengthM": 241.52,
+     "statedEndpointM": 248.65,
+     "statedMinimumM": 227.74,
+     "statedProfileM": 241.52,
+     "endpointOverstatedM": 11.45,
+     "endpointUnderstatedM": 4.32,
+     "minimumUnderstatedM": 13.78,
+     "profileErrorM": 0
+    },
+    "I>=66": {
+     "trueLengthM": 0,
+     "statedEndpointM": 0,
+     "statedMinimumM": 0,
+     "statedProfileM": 0,
+     "endpointOverstatedM": 0,
+     "endpointUnderstatedM": 0,
+     "minimumUnderstatedM": 0,
+     "profileErrorM": 0
+    },
+    "I>=33": {
+     "trueLengthM": 5.1,
+     "statedEndpointM": 3.57,
+     "statedMinimumM": 3.57,
+     "statedProfileM": 5.1,
+     "endpointOverstatedM": 0,
+     "endpointUnderstatedM": 1.53,
+     "minimumUnderstatedM": 1.53,
+     "profileErrorM": 0
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "contourLengthM": 445.13,
+   "channels": {
+    "M>=66": {
+     "trueLengthM": 0,
+     "statedEndpointM": 0,
+     "statedMinimumM": 0,
+     "statedProfileM": 0,
+     "endpointOverstatedM": 0,
+     "endpointUnderstatedM": 0,
+     "minimumUnderstatedM": 0,
+     "profileErrorM": 0
+    },
+    "M>=33": {
+     "trueLengthM": 74.4,
+     "statedEndpointM": 48.76,
+     "statedMinimumM": 28.49,
+     "statedProfileM": 74.4,
+     "endpointOverstatedM": 12.76,
+     "endpointUnderstatedM": 38.4,
+     "minimumUnderstatedM": 45.91,
+     "profileErrorM": 0
+    },
+    "I>=66": {
+     "trueLengthM": 0,
+     "statedEndpointM": 15.38,
+     "statedMinimumM": 0,
+     "statedProfileM": 0,
+     "endpointOverstatedM": 15.38,
+     "endpointUnderstatedM": 0,
+     "minimumUnderstatedM": 0,
+     "profileErrorM": 0
+    },
+    "I>=33": {
+     "trueLengthM": 201.99,
+     "statedEndpointM": 201.99,
+     "statedMinimumM": 201.99,
+     "statedProfileM": 201.99,
+     "endpointOverstatedM": 0,
+     "endpointUnderstatedM": 0,
+     "minimumUnderstatedM": 0,
+     "profileErrorM": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "contourLengthM": 161.48,
+   "channels": {
+    "M>=66": {
+     "trueLengthM": 0,
+     "statedEndpointM": 0,
+     "statedMinimumM": 0,
+     "statedProfileM": 0,
+     "endpointOverstatedM": 0,
+     "endpointUnderstatedM": 0,
+     "minimumUnderstatedM": 0,
+     "profileErrorM": 0
+    },
+    "M>=33": {
+     "trueLengthM": 43.72,
+     "statedEndpointM": 38.86,
+     "statedMinimumM": 11.3,
+     "statedProfileM": 43.72,
+     "endpointOverstatedM": 16.28,
+     "endpointUnderstatedM": 21.14,
+     "minimumUnderstatedM": 32.42,
+     "profileErrorM": 0
+    },
+    "I>=66": {
+     "trueLengthM": 0,
+     "statedEndpointM": 5.26,
+     "statedMinimumM": 0,
+     "statedProfileM": 0,
+     "endpointOverstatedM": 5.26,
+     "endpointUnderstatedM": 0,
+     "minimumUnderstatedM": 0,
+     "profileErrorM": 0
+    },
+    "I>=33": {
+     "trueLengthM": 88.5,
+     "statedEndpointM": 94.25,
+     "statedMinimumM": 79,
+     "statedProfileM": 88.5,
+     "endpointOverstatedM": 9.39,
+     "endpointUnderstatedM": 3.63,
+     "minimumUnderstatedM": 9.5,
+     "profileErrorM": 0
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "contourLengthM": 738.15,
+   "channels": {
+    "M>=66": {
+     "trueLengthM": 13.38,
+     "statedEndpointM": 10.81,
+     "statedMinimumM": 8.1,
+     "statedProfileM": 13.38,
+     "endpointOverstatedM": 1.22,
+     "endpointUnderstatedM": 3.8,
+     "minimumUnderstatedM": 5.28,
+     "profileErrorM": 0
+    },
+    "M>=33": {
+     "trueLengthM": 19.12,
+     "statedEndpointM": 19.11,
+     "statedMinimumM": 15.34,
+     "statedProfileM": 19.12,
+     "endpointOverstatedM": 1.5,
+     "endpointUnderstatedM": 1.51,
+     "minimumUnderstatedM": 3.79,
+     "profileErrorM": 0
+    },
+    "I>=66": {
+     "trueLengthM": 0,
+     "statedEndpointM": 0,
+     "statedMinimumM": 0,
+     "statedProfileM": 0,
+     "endpointOverstatedM": 0,
+     "endpointUnderstatedM": 0,
+     "minimumUnderstatedM": 0,
+     "profileErrorM": 0
+    },
+    "I>=33": {
+     "trueLengthM": 22.03,
+     "statedEndpointM": 14.59,
+     "statedMinimumM": 14.59,
+     "statedProfileM": 22.03,
+     "endpointOverstatedM": 0,
+     "endpointUnderstatedM": 7.44,
+     "minimumUnderstatedM": 7.44,
+     "profileErrorM": 0
+    }
+   }
+  }
+ ],
+ "scalarBound": {
+  "spansWithEndpointAboveMinimum": 67,
+  "spansWhereNoUnsafeThresholdExists": 0
+ },
+ "composition": {
+  "spanChannelChecks": 708,
+  "mismatches": 0
+ }
+}

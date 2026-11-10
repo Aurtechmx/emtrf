@@ -1,0 +1,82 @@
+{
+ "driver": "exact vertex bounds for geometry-only fixes (min-# shortest path)",
+ "tolerance": "one source cell",
+ "sites": [
+  {
+   "site": "White Sands",
+   "runs": 43,
+   "sourceVertices": 433,
+   "retained": {
+    "DP": 125,
+    "OPT": 118,
+    "OPT-SAFE": 129,
+    "OPT-EXACT": 288,
+    "SPLIT-0": 288
+   },
+   "multipleOfDP": {
+    "OPT": 0.94,
+    "OPT-SAFE": 1.03,
+    "OPT-EXACT": 2.3,
+    "SPLIT-0": 2.3,
+    "EC-DP": 1
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "runs": 89,
+   "sourceVertices": 700,
+   "retained": {
+    "DP": 261,
+    "OPT": 250,
+    "OPT-SAFE": 268,
+    "OPT-EXACT": 462,
+    "SPLIT-0": 462
+   },
+   "multipleOfDP": {
+    "OPT": 0.96,
+    "OPT-SAFE": 1.03,
+    "OPT-EXACT": 1.77,
+    "SPLIT-0": 1.77,
+    "EC-DP": 1
+   }
+  },
+  {
+   "site": "StREAM",
+   "runs": 33,
+   "sourceVertices": 267,
+   "retained": {
+    "DP": 87,
+    "OPT": 85,
+    "OPT-SAFE": 95,
+    "OPT-EXACT": 207,
+    "SPLIT-0": 207
+   },
+   "multipleOfDP": {
+    "OPT": 0.98,
+    "OPT-SAFE": 1.09,
+    "OPT-EXACT": 2.38,
+    "SPLIT-0": 2.38,
+    "EC-DP": 1
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "runs": 72,
+   "sourceVertices": 2052,
+   "retained": {
+    "DP": 258,
+    "OPT": 242,
+    "OPT-SAFE": 248,
+    "OPT-EXACT": 605,
+    "SPLIT-0": 609
+   },
+   "multipleOfDP": {
+    "OPT": 0.94,
+    "OPT-SAFE": 0.96,
+    "OPT-EXACT": 2.34,
+    "SPLIT-0": 2.36,
+    "EC-DP": 1
+   }
+  }
+ ]
+}

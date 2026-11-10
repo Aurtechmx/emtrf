@@ -1,6 +1,6 @@
-# Figure 8 derivation chain
+# Figure 6 derivation chain (directory keeps its earlier name)
 
-Intermediate artifacts from the reconstructed StREAM Figure 8 pipeline (crop to typed contour
+Intermediate artifacts from the reconstructed StREAM Figure 6 pipeline (crop to typed contour
 overlay), provided so each transformation is inspectable:
 
 - `stream_dtm_full.json` - confidence-aware DTM (heights, confidence, coverage) from the crop.

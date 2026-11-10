@@ -1,0 +1,9 @@
+site,threshold,contour_length_m,reference_accepted_m,dp_accepted_m,dp_false_accept_m,dp_false_accept_pct,dp_over_reject_m,ecdp_accepted_m,ecdp_false_accept_m,ecdp_over_reject_m,ecdp_over_reject_pct
+White Sands,66,289.39,52.13,40.49,13.77,4.76,25.41,6.16,0,45.97,15.88
+White Sands,33,289.39,237.46,233.68,9.39,3.25,13.17,215.84,0,21.61,7.47
+Estonia Tava,66,445.13,0,0,0,0,0,0,0,0,0
+Estonia Tava,33,445.13,48.03,41.65,12.33,2.77,18.71,22.31,0,25.73,5.78
+StREAM,66,161.48,0,0,0,0,0,0,0,0,0
+StREAM,33,161.48,15.05,12.57,6.38,3.95,8.86,1.69,0,13.36,8.28
+Marsh Island,66,738.15,7.42,1.23,0,0,6.19,1.23,0,6.19,0.84
+Marsh Island,33,738.15,10.53,2.8,0.27,0.04,8,1.73,0,8.79,1.19

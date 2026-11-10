@@ -1,0 +1,17 @@
+profile,site,lines,spans,endpointSupportPromotionPct,gradeProvenanceLossPct,typedEndpointProvenanceLossPct,ecdpSupportPromotionPct,ecdpProvenanceLossPct,measuredCellsBelowSolidPct,interpolatedCellsSolidPct
+REFERENCE,White Sands,43,82,24.4,93.9,0,0,0,34.9,0
+REFERENCE,Estonia Tava,89,172,6.4,100,7.6,0,0,100,0
+REFERENCE,StREAM,33,54,22.2,100,1.9,0,0,94.3,0
+REFERENCE,Marsh Island,72,186,4.3,98.4,0,0,0,39.4,0
+EXPONENTIAL,White Sands,29,73,20.5,13.7,1.4,0,0,1.1,0
+EXPONENTIAL,Estonia Tava,68,154,1.3,100,8.4,0,0,87.5,0
+EXPONENTIAL,StREAM,19,45,6.7,100,4.4,0,0,63.0,0
+EXPONENTIAL,Marsh Island,80,193,1.0,96.4,0,0,0,4.6,0
+KRIGING,White Sands,23,70,14.3,12.9,0,0,0,0,0.1
+KRIGING,Estonia Tava,106,175,17.1,72.6,8.6,0,0,0,34.5
+KRIGING,StREAM,39,59,35.6,86.4,3.4,0,0,0,21.0
+KRIGING,Marsh Island,79,192,1.0,96.4,0,0,0,0,0.0
+SURVEY,White Sands,23,70,17.1,14.3,0,0,0,0.0,3.4
+SURVEY,Estonia Tava,72,157,10.2,75.8,8.9,0,0,0.3,98.7
+SURVEY,StREAM,44,60,31.7,90,3.3,0,0,2.4,93.0
+SURVEY,Marsh Island,80,191,2.6,88.0,0,0,0,0,7.6

@@ -1,0 +1,62 @@
+{
+ "driver": "horizontal position uncertainty understated by endpoint records",
+ "rules": {
+  "verticalSE": "standard-error profile",
+  "slopeFloor": 0.05,
+  "u": "max cell se in block / max(slope, floor)"
+ },
+ "sites": [
+  {
+   "site": "White Sands",
+   "contourLengthM": 289.39,
+   "understatedLengthM": 161.93,
+   "understatedLengthPct": 56,
+   "spansUnderstated": 32,
+   "medianFactor": 1.26,
+   "maxFactor": 4.16,
+   "medianUnderstatementM": 0.053,
+   "maxUnderstatementM": 0.355,
+   "lengthAboveSlopeFloorM": 136.42,
+   "understatedAboveSlopeFloorPct": 50.3
+  },
+  {
+   "site": "Estonia Tava",
+   "contourLengthM": 445.13,
+   "understatedLengthM": 143.29,
+   "understatedLengthPct": 32.2,
+   "spansUnderstated": 42,
+   "medianFactor": 1.41,
+   "maxFactor": 2.65,
+   "medianUnderstatementM": 0.414,
+   "maxUnderstatementM": 0.866,
+   "lengthAboveSlopeFloorM": 101.85,
+   "understatedAboveSlopeFloorPct": 24.3
+  },
+  {
+   "site": "StREAM",
+   "contourLengthM": 161.48,
+   "understatedLengthM": 65.45,
+   "understatedLengthPct": 40.5,
+   "spansUnderstated": 13,
+   "medianFactor": 1.65,
+   "maxFactor": 6.37,
+   "medianUnderstatementM": 0.201,
+   "maxUnderstatementM": 1.442,
+   "lengthAboveSlopeFloorM": 131.65,
+   "understatedAboveSlopeFloorPct": 32.6
+  },
+  {
+   "site": "Marsh Island",
+   "contourLengthM": 738.15,
+   "understatedLengthM": 212.43,
+   "understatedLengthPct": 28.8,
+   "spansUnderstated": 30,
+   "medianFactor": 1.2,
+   "maxFactor": 2.46,
+   "medianUnderstatementM": 1.198,
+   "maxUnderstatementM": 5.732,
+   "lengthAboveSlopeFloorM": 258.37,
+   "understatedAboveSlopeFloorPct": 35.2
+  }
+ ]
+}

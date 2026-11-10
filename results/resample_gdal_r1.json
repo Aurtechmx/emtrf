@@ -1,0 +1,1261 @@
+{
+ "driver": "raster resampling with gdalwarp scored against the block of source cells",
+ "gdalVersion": "GDAL 3.13.3 \"Iowa City\", released 2026/08/13",
+ "rules": {
+  "factors": [
+   2,
+   4
+  ],
+  "alignment": "-tr factor*cell, -te from the grid origin, whole coarse cells",
+  "resampling": {
+   "near": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "average": [
+    "m_sup",
+    "i_sup"
+   ],
+   "mode": [
+    "prov"
+   ],
+   "min": [
+    "m_sup",
+    "i_sup"
+   ]
+  },
+  "promotionTolerance": 1e-06,
+  "supportPromotion": "resampled support > minimum of the band over the block's cells that carry it + 1e-6",
+  "provenanceLoss": "resampled prov code omits a provenance type present in the block",
+  "valueOverUnsupported": "resampled raster carries a value where the block contains an unsupported cell",
+  "notScored": "coarse cells whose block has no supported cell",
+  "share": "percent of coarse cells scored",
+  "choices": [
+   "grid extended to whole coarse cells on north and east edges; partial blocks scored on the cells they contain",
+   "a failure counts once per coarse cell per resampling if it occurs in any raster that resampling is applied to",
+   "a coarse prov cell without a value loses every provenance type present in its block"
+  ]
+ },
+ "blockAlignmentCheck": [
+  {
+   "site": "White Sands",
+   "factor": 2,
+   "coarseCols": 50,
+   "coarseRows": 50,
+   "partialBlocks": 0,
+   "minMatchesBlockMin": true,
+   "maxMatchesBlockMax": true,
+   "averageMatchesBlockMeanOnFullBlocks": true,
+   "averageWithinBlockRangeOnPartialBlocks": true,
+   "partialBlocksWhereAverageDiffersFromBlockMean": 0,
+   "nearPicksCellInsideBlockOrNoValueOnPartialBlock": true,
+   "partialBlocksWhereNearHasNoValue": 0,
+   "nearCellOffsetFromBlockSouthWest": [
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "site": "White Sands",
+   "factor": 4,
+   "coarseCols": 25,
+   "coarseRows": 25,
+   "partialBlocks": 0,
+   "minMatchesBlockMin": true,
+   "maxMatchesBlockMax": true,
+   "averageMatchesBlockMeanOnFullBlocks": true,
+   "averageWithinBlockRangeOnPartialBlocks": true,
+   "partialBlocksWhereAverageDiffersFromBlockMean": 0,
+   "nearPicksCellInsideBlockOrNoValueOnPartialBlock": true,
+   "partialBlocksWhereNearHasNoValue": 0,
+   "nearCellOffsetFromBlockSouthWest": [
+    [
+     1,
+     2
+    ]
+   ]
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 2,
+   "coarseCols": 50,
+   "coarseRows": 50,
+   "partialBlocks": 0,
+   "minMatchesBlockMin": true,
+   "maxMatchesBlockMax": true,
+   "averageMatchesBlockMeanOnFullBlocks": true,
+   "averageWithinBlockRangeOnPartialBlocks": true,
+   "partialBlocksWhereAverageDiffersFromBlockMean": 0,
+   "nearPicksCellInsideBlockOrNoValueOnPartialBlock": true,
+   "partialBlocksWhereNearHasNoValue": 0,
+   "nearCellOffsetFromBlockSouthWest": [
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 4,
+   "coarseCols": 25,
+   "coarseRows": 25,
+   "partialBlocks": 0,
+   "minMatchesBlockMin": true,
+   "maxMatchesBlockMax": true,
+   "averageMatchesBlockMeanOnFullBlocks": true,
+   "averageWithinBlockRangeOnPartialBlocks": true,
+   "partialBlocksWhereAverageDiffersFromBlockMean": 0,
+   "nearPicksCellInsideBlockOrNoValueOnPartialBlock": true,
+   "partialBlocksWhereNearHasNoValue": 0,
+   "nearCellOffsetFromBlockSouthWest": [
+    [
+     1,
+     2
+    ]
+   ]
+  },
+  {
+   "site": "StREAM",
+   "factor": 2,
+   "coarseCols": 20,
+   "coarseRows": 20,
+   "partialBlocks": 0,
+   "minMatchesBlockMin": true,
+   "maxMatchesBlockMax": true,
+   "averageMatchesBlockMeanOnFullBlocks": true,
+   "averageWithinBlockRangeOnPartialBlocks": true,
+   "partialBlocksWhereAverageDiffersFromBlockMean": 0,
+   "nearPicksCellInsideBlockOrNoValueOnPartialBlock": true,
+   "partialBlocksWhereNearHasNoValue": 0,
+   "nearCellOffsetFromBlockSouthWest": [
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "site": "StREAM",
+   "factor": 4,
+   "coarseCols": 10,
+   "coarseRows": 10,
+   "partialBlocks": 0,
+   "minMatchesBlockMin": true,
+   "maxMatchesBlockMax": true,
+   "averageMatchesBlockMeanOnFullBlocks": true,
+   "averageWithinBlockRangeOnPartialBlocks": true,
+   "partialBlocksWhereAverageDiffersFromBlockMean": 0,
+   "nearPicksCellInsideBlockOrNoValueOnPartialBlock": true,
+   "partialBlocksWhereNearHasNoValue": 0,
+   "nearCellOffsetFromBlockSouthWest": [
+    [
+     1,
+     2
+    ]
+   ]
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 2,
+   "coarseCols": 305,
+   "coarseRows": 162,
+   "partialBlocks": 466,
+   "minMatchesBlockMin": true,
+   "maxMatchesBlockMax": true,
+   "averageMatchesBlockMeanOnFullBlocks": true,
+   "averageWithinBlockRangeOnPartialBlocks": true,
+   "partialBlocksWhereAverageDiffersFromBlockMean": 0,
+   "nearPicksCellInsideBlockOrNoValueOnPartialBlock": true,
+   "partialBlocksWhereNearHasNoValue": 162,
+   "nearCellOffsetFromBlockSouthWest": [
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 4,
+   "coarseCols": 153,
+   "coarseRows": 81,
+   "partialBlocks": 233,
+   "minMatchesBlockMin": true,
+   "maxMatchesBlockMax": true,
+   "averageMatchesBlockMeanOnFullBlocks": true,
+   "averageWithinBlockRangeOnPartialBlocks": true,
+   "partialBlocksWhereAverageDiffersFromBlockMean": 153,
+   "nearPicksCellInsideBlockOrNoValueOnPartialBlock": true,
+   "partialBlocksWhereNearHasNoValue": 81,
+   "nearCellOffsetFromBlockSouthWest": [
+    [
+     1,
+     2
+    ]
+   ]
+  }
+ ],
+ "minShowsNoSupportPromotion": true,
+ "rows": [
+  {
+   "site": "White Sands",
+   "factor": 2,
+   "resampling": "near",
+   "rasters": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "coarseCellsScored": 1721,
+   "coarseCellsNotScored": 779,
+   "supportPromotion": 954,
+   "supportPromotionPct": 55.43,
+   "provenanceLoss": 40,
+   "provenanceLossPct": 2.32,
+   "valueOverUnsupported": 41,
+   "valueOverUnsupportedPct": 2.38,
+   "blocksWithMixedProvenance": 40,
+   "blocksWithUnsupportedCell": 41,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 900,
+     "cellsWithValue": 898,
+     "supportPromotion": 582,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 861,
+     "cellsWithValue": 823,
+     "supportPromotion": 372,
+     "valueOverUnsupported": 41
+    },
+    "prov": {
+     "cellsWithValue": 1721,
+     "provenanceLoss": 40,
+     "valueOverUnsupported": 41,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "White Sands",
+   "factor": 2,
+   "resampling": "average",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 1721,
+   "coarseCellsNotScored": 779,
+   "supportPromotion": 1261,
+   "supportPromotionPct": 73.27,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 41,
+   "valueOverUnsupportedPct": 2.38,
+   "blocksWithMixedProvenance": 40,
+   "blocksWithUnsupportedCell": 41,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 900,
+     "cellsWithValue": 900,
+     "supportPromotion": 878,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 861,
+     "cellsWithValue": 861,
+     "supportPromotion": 389,
+     "valueOverUnsupported": 41
+    }
+   }
+  },
+  {
+   "site": "White Sands",
+   "factor": 2,
+   "resampling": "mode",
+   "rasters": [
+    "prov"
+   ],
+   "coarseCellsScored": 1721,
+   "coarseCellsNotScored": 779,
+   "supportPromotion": null,
+   "supportPromotionPct": null,
+   "provenanceLoss": 40,
+   "provenanceLossPct": 2.32,
+   "valueOverUnsupported": 41,
+   "valueOverUnsupportedPct": 2.38,
+   "blocksWithMixedProvenance": 40,
+   "blocksWithUnsupportedCell": 41,
+   "perRaster": {
+    "prov": {
+     "cellsWithValue": 1721,
+     "provenanceLoss": 40,
+     "valueOverUnsupported": 41,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "White Sands",
+   "factor": 2,
+   "resampling": "min",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 1721,
+   "coarseCellsNotScored": 779,
+   "supportPromotion": 0,
+   "supportPromotionPct": 0.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 41,
+   "valueOverUnsupportedPct": 2.38,
+   "blocksWithMixedProvenance": 40,
+   "blocksWithUnsupportedCell": 41,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 900,
+     "cellsWithValue": 900,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 861,
+     "cellsWithValue": 861,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 41
+    }
+   }
+  },
+  {
+   "site": "White Sands",
+   "factor": 4,
+   "resampling": "near",
+   "rasters": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "coarseCellsScored": 436,
+   "coarseCellsNotScored": 189,
+   "supportPromotion": 313,
+   "supportPromotionPct": 71.79,
+   "provenanceLoss": 36,
+   "provenanceLossPct": 8.26,
+   "valueOverUnsupported": 10,
+   "valueOverUnsupportedPct": 2.29,
+   "blocksWithMixedProvenance": 25,
+   "blocksWithUnsupportedCell": 21,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 228,
+     "cellsWithValue": 224,
+     "supportPromotion": 201,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 233,
+     "cellsWithValue": 201,
+     "supportPromotion": 112,
+     "valueOverUnsupported": 10
+    },
+    "prov": {
+     "cellsWithValue": 425,
+     "provenanceLoss": 36,
+     "valueOverUnsupported": 10,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "White Sands",
+   "factor": 4,
+   "resampling": "average",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 436,
+   "coarseCellsNotScored": 189,
+   "supportPromotion": 359,
+   "supportPromotionPct": 82.34,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 21,
+   "valueOverUnsupportedPct": 4.82,
+   "blocksWithMixedProvenance": 25,
+   "blocksWithUnsupportedCell": 21,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 228,
+     "cellsWithValue": 228,
+     "supportPromotion": 227,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 233,
+     "cellsWithValue": 233,
+     "supportPromotion": 148,
+     "valueOverUnsupported": 21
+    }
+   }
+  },
+  {
+   "site": "White Sands",
+   "factor": 4,
+   "resampling": "mode",
+   "rasters": [
+    "prov"
+   ],
+   "coarseCellsScored": 436,
+   "coarseCellsNotScored": 189,
+   "supportPromotion": null,
+   "supportPromotionPct": null,
+   "provenanceLoss": 25,
+   "provenanceLossPct": 5.73,
+   "valueOverUnsupported": 21,
+   "valueOverUnsupportedPct": 4.82,
+   "blocksWithMixedProvenance": 25,
+   "blocksWithUnsupportedCell": 21,
+   "perRaster": {
+    "prov": {
+     "cellsWithValue": 436,
+     "provenanceLoss": 25,
+     "valueOverUnsupported": 21,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "White Sands",
+   "factor": 4,
+   "resampling": "min",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 436,
+   "coarseCellsNotScored": 189,
+   "supportPromotion": 0,
+   "supportPromotionPct": 0.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 21,
+   "valueOverUnsupportedPct": 4.82,
+   "blocksWithMixedProvenance": 25,
+   "blocksWithUnsupportedCell": 21,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 228,
+     "cellsWithValue": 228,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 233,
+     "cellsWithValue": 233,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 21
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 2,
+   "resampling": "near",
+   "rasters": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "coarseCellsScored": 2500,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 855,
+   "supportPromotionPct": 34.2,
+   "provenanceLoss": 1383,
+   "provenanceLossPct": 55.32,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 1383,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 2442,
+     "cellsWithValue": 1905,
+     "supportPromotion": 737,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 1441,
+     "cellsWithValue": 595,
+     "supportPromotion": 118,
+     "valueOverUnsupported": 0
+    },
+    "prov": {
+     "cellsWithValue": 2500,
+     "provenanceLoss": 1383,
+     "valueOverUnsupported": 0,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 2,
+   "resampling": "average",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 2500,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 2053,
+   "supportPromotionPct": 82.12,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 1383,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 2442,
+     "cellsWithValue": 2442,
+     "supportPromotion": 1816,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 1441,
+     "cellsWithValue": 1441,
+     "supportPromotion": 348,
+     "valueOverUnsupported": 0
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 2,
+   "resampling": "mode",
+   "rasters": [
+    "prov"
+   ],
+   "coarseCellsScored": 2500,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": null,
+   "supportPromotionPct": null,
+   "provenanceLoss": 1383,
+   "provenanceLossPct": 55.32,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 1383,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "prov": {
+     "cellsWithValue": 2500,
+     "provenanceLoss": 1383,
+     "valueOverUnsupported": 0,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 2,
+   "resampling": "min",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 2500,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 0,
+   "supportPromotionPct": 0.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 1383,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 2442,
+     "cellsWithValue": 2442,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 1441,
+     "cellsWithValue": 1441,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 4,
+   "resampling": "near",
+   "rasters": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "coarseCellsScored": 625,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 321,
+   "supportPromotionPct": 51.36,
+   "provenanceLoss": 584,
+   "provenanceLossPct": 93.44,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 584,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 625,
+     "cellsWithValue": 481,
+     "supportPromotion": 252,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 584,
+     "cellsWithValue": 144,
+     "supportPromotion": 69,
+     "valueOverUnsupported": 0
+    },
+    "prov": {
+     "cellsWithValue": 625,
+     "provenanceLoss": 584,
+     "valueOverUnsupported": 0,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 4,
+   "resampling": "average",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 625,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 625,
+   "supportPromotionPct": 100.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 584,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 625,
+     "cellsWithValue": 625,
+     "supportPromotion": 623,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 584,
+     "cellsWithValue": 584,
+     "supportPromotion": 406,
+     "valueOverUnsupported": 0
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 4,
+   "resampling": "mode",
+   "rasters": [
+    "prov"
+   ],
+   "coarseCellsScored": 625,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": null,
+   "supportPromotionPct": null,
+   "provenanceLoss": 584,
+   "provenanceLossPct": 93.44,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 584,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "prov": {
+     "cellsWithValue": 625,
+     "provenanceLoss": 584,
+     "valueOverUnsupported": 0,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "Estonia Tava",
+   "factor": 4,
+   "resampling": "min",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 625,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 0,
+   "supportPromotionPct": 0.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 584,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 625,
+     "cellsWithValue": 625,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 584,
+     "cellsWithValue": 584,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "factor": 2,
+   "resampling": "near",
+   "rasters": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "coarseCellsScored": 400,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 179,
+   "supportPromotionPct": 44.75,
+   "provenanceLoss": 223,
+   "provenanceLossPct": 55.75,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 223,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 365,
+     "cellsWithValue": 279,
+     "supportPromotion": 136,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 258,
+     "cellsWithValue": 121,
+     "supportPromotion": 43,
+     "valueOverUnsupported": 0
+    },
+    "prov": {
+     "cellsWithValue": 400,
+     "provenanceLoss": 223,
+     "valueOverUnsupported": 0,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "factor": 2,
+   "resampling": "average",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 400,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 370,
+   "supportPromotionPct": 92.5,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 223,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 365,
+     "cellsWithValue": 365,
+     "supportPromotion": 278,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 258,
+     "cellsWithValue": 258,
+     "supportPromotion": 114,
+     "valueOverUnsupported": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "factor": 2,
+   "resampling": "mode",
+   "rasters": [
+    "prov"
+   ],
+   "coarseCellsScored": 400,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": null,
+   "supportPromotionPct": null,
+   "provenanceLoss": 223,
+   "provenanceLossPct": 55.75,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 223,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "prov": {
+     "cellsWithValue": 400,
+     "provenanceLoss": 223,
+     "valueOverUnsupported": 0,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "factor": 2,
+   "resampling": "min",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 400,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 0,
+   "supportPromotionPct": 0.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 223,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 365,
+     "cellsWithValue": 365,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 258,
+     "cellsWithValue": 258,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "factor": 4,
+   "resampling": "near",
+   "rasters": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "coarseCellsScored": 100,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 71,
+   "supportPromotionPct": 71.0,
+   "provenanceLoss": 95,
+   "provenanceLossPct": 95.0,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 95,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 100,
+     "cellsWithValue": 70,
+     "supportPromotion": 48,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 95,
+     "cellsWithValue": 30,
+     "supportPromotion": 23,
+     "valueOverUnsupported": 0
+    },
+    "prov": {
+     "cellsWithValue": 100,
+     "provenanceLoss": 95,
+     "valueOverUnsupported": 0,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "factor": 4,
+   "resampling": "average",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 100,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 100,
+   "supportPromotionPct": 100.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 95,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 100,
+     "cellsWithValue": 100,
+     "supportPromotion": 94,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 95,
+     "cellsWithValue": 95,
+     "supportPromotion": 72,
+     "valueOverUnsupported": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "factor": 4,
+   "resampling": "mode",
+   "rasters": [
+    "prov"
+   ],
+   "coarseCellsScored": 100,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": null,
+   "supportPromotionPct": null,
+   "provenanceLoss": 95,
+   "provenanceLossPct": 95.0,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 95,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "prov": {
+     "cellsWithValue": 100,
+     "provenanceLoss": 95,
+     "valueOverUnsupported": 0,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "StREAM",
+   "factor": 4,
+   "resampling": "min",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 100,
+   "coarseCellsNotScored": 0,
+   "supportPromotion": 0,
+   "supportPromotionPct": 0.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 0,
+   "valueOverUnsupportedPct": 0.0,
+   "blocksWithMixedProvenance": 95,
+   "blocksWithUnsupportedCell": 0,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 100,
+     "cellsWithValue": 100,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 95,
+     "cellsWithValue": 95,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 2,
+   "resampling": "near",
+   "rasters": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "coarseCellsScored": 25646,
+   "coarseCellsNotScored": 23764,
+   "supportPromotion": 6636,
+   "supportPromotionPct": 25.88,
+   "provenanceLoss": 770,
+   "provenanceLossPct": 3.0,
+   "valueOverUnsupported": 376,
+   "valueOverUnsupportedPct": 1.47,
+   "blocksWithMixedProvenance": 388,
+   "blocksWithUnsupportedCell": 653,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 614,
+     "cellsWithValue": 396,
+     "supportPromotion": 202,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 25420,
+     "cellsWithValue": 24866,
+     "supportPromotion": 6434,
+     "valueOverUnsupported": 376
+    },
+    "prov": {
+     "cellsWithValue": 25262,
+     "provenanceLoss": 770,
+     "valueOverUnsupported": 376,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 2,
+   "resampling": "average",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 25646,
+   "coarseCellsNotScored": 23764,
+   "supportPromotion": 13055,
+   "supportPromotionPct": 50.9,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 653,
+   "valueOverUnsupportedPct": 2.55,
+   "blocksWithMixedProvenance": 388,
+   "blocksWithUnsupportedCell": 653,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 614,
+     "cellsWithValue": 614,
+     "supportPromotion": 457,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 25420,
+     "cellsWithValue": 25420,
+     "supportPromotion": 12635,
+     "valueOverUnsupported": 653
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 2,
+   "resampling": "mode",
+   "rasters": [
+    "prov"
+   ],
+   "coarseCellsScored": 25646,
+   "coarseCellsNotScored": 23764,
+   "supportPromotion": null,
+   "supportPromotionPct": null,
+   "provenanceLoss": 388,
+   "provenanceLossPct": 1.51,
+   "valueOverUnsupported": 653,
+   "valueOverUnsupportedPct": 2.55,
+   "blocksWithMixedProvenance": 388,
+   "blocksWithUnsupportedCell": 653,
+   "perRaster": {
+    "prov": {
+     "cellsWithValue": 25646,
+     "provenanceLoss": 388,
+     "valueOverUnsupported": 653,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 2,
+   "resampling": "min",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 25646,
+   "coarseCellsNotScored": 23764,
+   "supportPromotion": 0,
+   "supportPromotionPct": 0.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 653,
+   "valueOverUnsupportedPct": 2.55,
+   "blocksWithMixedProvenance": 388,
+   "blocksWithUnsupportedCell": 653,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 614,
+     "cellsWithValue": 614,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 25420,
+     "cellsWithValue": 25420,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 653
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 4,
+   "resampling": "near",
+   "rasters": [
+    "m_sup",
+    "i_sup",
+    "prov"
+   ],
+   "coarseCellsScored": 6612,
+   "coarseCellsNotScored": 5781,
+   "supportPromotion": 3768,
+   "supportPromotionPct": 56.99,
+   "provenanceLoss": 601,
+   "provenanceLossPct": 9.09,
+   "valueOverUnsupported": 296,
+   "valueOverUnsupportedPct": 4.48,
+   "blocksWithMixedProvenance": 306,
+   "blocksWithUnsupportedCell": 541,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 310,
+     "cellsWithValue": 99,
+     "supportPromotion": 71,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 6608,
+     "cellsWithValue": 6216,
+     "supportPromotion": 3697,
+     "valueOverUnsupported": 296
+    },
+    "prov": {
+     "cellsWithValue": 6315,
+     "provenanceLoss": 601,
+     "valueOverUnsupported": 296,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 4,
+   "resampling": "average",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 6612,
+   "coarseCellsNotScored": 5781,
+   "supportPromotion": 5092,
+   "supportPromotionPct": 77.01,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 541,
+   "valueOverUnsupportedPct": 8.18,
+   "blocksWithMixedProvenance": 306,
+   "blocksWithUnsupportedCell": 541,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 310,
+     "cellsWithValue": 310,
+     "supportPromotion": 275,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 6608,
+     "cellsWithValue": 6608,
+     "supportPromotion": 5059,
+     "valueOverUnsupported": 541
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 4,
+   "resampling": "mode",
+   "rasters": [
+    "prov"
+   ],
+   "coarseCellsScored": 6612,
+   "coarseCellsNotScored": 5781,
+   "supportPromotion": null,
+   "supportPromotionPct": null,
+   "provenanceLoss": 306,
+   "provenanceLossPct": 4.63,
+   "valueOverUnsupported": 541,
+   "valueOverUnsupportedPct": 8.18,
+   "blocksWithMixedProvenance": 306,
+   "blocksWithUnsupportedCell": 541,
+   "perRaster": {
+    "prov": {
+     "cellsWithValue": 6612,
+     "provenanceLoss": 306,
+     "valueOverUnsupported": 541,
+     "valueInUnscoredCell": 0
+    }
+   }
+  },
+  {
+   "site": "Marsh Island",
+   "factor": 4,
+   "resampling": "min",
+   "rasters": [
+    "m_sup",
+    "i_sup"
+   ],
+   "coarseCellsScored": 6612,
+   "coarseCellsNotScored": 5781,
+   "supportPromotion": 0,
+   "supportPromotionPct": 0.0,
+   "provenanceLoss": null,
+   "provenanceLossPct": null,
+   "valueOverUnsupported": 541,
+   "valueOverUnsupportedPct": 8.18,
+   "blocksWithMixedProvenance": 306,
+   "blocksWithUnsupportedCell": 541,
+   "perRaster": {
+    "m_sup": {
+     "blocksCarryingBand": 310,
+     "cellsWithValue": 310,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 0
+    },
+    "i_sup": {
+     "blocksCarryingBand": 6608,
+     "cellsWithValue": 6608,
+     "supportPromotion": 0,
+     "valueOverUnsupported": 541
+    }
+   }
+  }
+ ]
+}

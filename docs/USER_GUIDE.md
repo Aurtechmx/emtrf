@@ -9,10 +9,10 @@ its evidence-constrained Douglas-Peucker variant.
 - `js-study/` - standalone operator-contract study (typed operators, typed EC-DP, adversarial
   source-arc stress, gap and closed-ring fixtures, timing). Entry point: `js-study/reproduce.sh`.
 - `oracles/` - two independent Python oracles (typed-evidence algebra; DP/EC-DP differential).
-- `real-data-audit/` - Node harness over four committed public contour crops (Table 3),
+- `real-data-audit/` - Node harness over four committed public contour crops (Table 2),
   self-checksummed. Entry point: `real-data-audit/reproduce.sh`.
 - `gdal-audit/` - third-party generalizer audit on `gdal_contour` geometry.
-- `ablation/` - frozen P0-P3 evidence-ablation results (Table 4 / Supplementary Table S2).
+- `ablation/` - frozen P0-P3 evidence-ablation results (Table 3 / Supplementary Table S2).
 - `benchmarks/` - EC-DP overhead microbenchmark (runnable) and reported timing values.
 - `figures/` - figure-generation scripts (repo-root-relative paths).
 - `data/` - `make_stream_features.cjs` regenerates the StREAM DTM coverage from the crop.
@@ -25,9 +25,9 @@ external data is required except GDAL for the GDAL audit.
 
 ## Figures
 `make_figures_restyle.py` and `make_figures_contour_example.py` are self-contained.
-`make_figures_nextlevel.py` draws the StREAM map (Figure 8) from `data/stream_features.json`;
+`make_figures_nextlevel.py` draws the StREAM map (Figure 6) from `data/stream_features.json`;
 run `node data/make_stream_features.cjs` first to rebuild it from the crop. That step merges the
 real DTM coverage with the committed feature-level contour overlay
 (`data/stream_feature_level_export.json`, a reconstructed derived export; see
-`RECONSTRUCTED_DRIVERS.md`), so Figure 8 regenerates completely, both the background and the
+`RECONSTRUCTED_DRIVERS.md`), so Figure 6 regenerates completely, both the background and the
 typed-contour overlay.

@@ -1,0 +1,257 @@
+{
+ "driver": "sensitivity of positional-uncertainty understatement to instrument precision and slope floor",
+ "rows": [
+  {
+   "site": "White Sands",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 46.9,
+   "medianFactor": 1.43
+  },
+  {
+   "site": "White Sands",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 52.3,
+   "medianFactor": 1.43
+  },
+  {
+   "site": "White Sands",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 54.6,
+   "medianFactor": 1.34
+  },
+  {
+   "site": "White Sands",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 44.5,
+   "medianFactor": 1.32
+  },
+  {
+   "site": "White Sands",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 56,
+   "medianFactor": 1.26
+  },
+  {
+   "site": "White Sands",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 60,
+   "medianFactor": 1.23
+  },
+  {
+   "site": "White Sands",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 43.8,
+   "medianFactor": 1.39
+  },
+  {
+   "site": "White Sands",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 43.8,
+   "medianFactor": 1.38
+  },
+  {
+   "site": "White Sands",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 54.4,
+   "medianFactor": 1.23
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 44.6,
+   "medianFactor": 1.95
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 32.8,
+   "medianFactor": 1.47
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 23.7,
+   "medianFactor": 1.54
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 46.1,
+   "medianFactor": 1.83
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 32.2,
+   "medianFactor": 1.41
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 25,
+   "medianFactor": 1.3
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 44.3,
+   "medianFactor": 1.79
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 28.8,
+   "medianFactor": 1.37
+  },
+  {
+   "site": "Estonia Tava",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 19.1,
+   "medianFactor": 1.11
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 37.9,
+   "medianFactor": 1.69
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 37.6,
+   "medianFactor": 1.89
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 37.6,
+   "medianFactor": 1.64
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 40.8,
+   "medianFactor": 1.65
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 40.5,
+   "medianFactor": 1.65
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 39.3,
+   "medianFactor": 1.65
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 37.3,
+   "medianFactor": 1.68
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 40.6,
+   "medianFactor": 1.68
+  },
+  {
+   "site": "StREAM",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 39.4,
+   "medianFactor": 1.44
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 37.7,
+   "medianFactor": 1.23
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 28.6,
+   "medianFactor": 1.15
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.02,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 12.2,
+   "medianFactor": 1.12
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 37.9,
+   "medianFactor": 1.23
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 28.8,
+   "medianFactor": 1.2
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.05,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 12.2,
+   "medianFactor": 1.12
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.02,
+   "understatedLengthPct": 38,
+   "medianFactor": 1.23
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.05,
+   "understatedLengthPct": 28.9,
+   "medianFactor": 1.15
+  },
+  {
+   "site": "Marsh Island",
+   "instrumentM": 0.1,
+   "slopeFloor": 0.1,
+   "understatedLengthPct": 12.4,
+   "medianFactor": 1.08
+  }
+ ]
+}

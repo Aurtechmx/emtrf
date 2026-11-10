@@ -8,6 +8,8 @@ LiDAR-derived crops under `real-data-audit/crops/` are third-party data under th
 | StREAM (`sl-field.bin`) | Virginia Tech StREAM Lab, OpenTopography DOI 10.5069/G9NZ85W7 | **CC BY 4.0**, attribution required (Hession et al., 2026) |
 | Marsh Island (`marsh-island__ground.f32`) | USGS, DOI 10.5066/P19TLXVG | CC0 / U.S. public domain (Over et al., 2024) |
 | White Sands (`whitesands-dune__ground.f32`) | USGS 3DEP | U.S. Government public domain |
+| External audit (`external-audit/data/contour.csv.gz`, `lidar_xyz.csv.gz`) | You and Lee (2024), Zenodo 10.5281/zenodo.12771247 | **CC0 1.0** |
+| 3DEP probability sample (`prevalence/`, crops fetched by `draw_sample.py`) | USGS 3D Elevation Program point clouds, public Entwine Point Tile resources (index: github.com/hobuinc/usgs-lidar) | U.S. Government public domain |
 | Estonia Tava (`estonia-tava__ground.f32`) | Estonian Land and Spatial Development Board (2020 elevation/LiDAR), via Zenodo 10.5281/zenodo.19232743 | Estonian Land and Spatial Development Board Open Data License; derivatives and redistribution permitted with attribution |
 
 Attribution for CC BY 4.0 data (StREAM) is required in any downstream use. The MIT license

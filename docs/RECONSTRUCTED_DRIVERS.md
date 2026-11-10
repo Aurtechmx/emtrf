@@ -14,7 +14,7 @@ explicitly provenance-labeled rather than back-dated or represented as original 
 ## Reconstruction anchors
 
 1. The exact four public crop files and the preserved terrain/contour modules.
-2. `real-data-audit/run_table6.cjs`, which reproduces the paper's four-crop Table 3
+2. `real-data-audit/run_table6.cjs`, which reproduces the paper's four-crop Table 2
    source-arc audit and exposes the per-polyline cluster records.
 3. The frozen manuscript definitions of P0, P1, P2, P3.
 4. The production `contourFeatureModel` single-grade run split.
@@ -52,7 +52,7 @@ Only Marsh Island moves (184 -> 186 spans, 87.5/87.6% -> 87.4% reduction).
 
 ### Bootstrap
 The input clusters, observed numerators, and denominators come directly from the preserved
-Table 3 audit. The original bootstrap RNG seed was not archived. A disclosed xorshift32
+Table 2 audit. The original bootstrap RNG seed was not archived. A disclosed xorshift32
 seed of `208` reproduces all four published one-decimal intervals exactly with 10,000
 whole-polyline resamples. Because that seed was chosen to match published values, the driver
 also runs six independent seeds and writes every interval to the output. Across all seven

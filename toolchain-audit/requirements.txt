@@ -1,0 +1,9 @@
+# Python packages for the toolchain audit (Python 3.11). Install into a virtual environment and
+# point EMTRF_TOOLCHAIN_PY at its interpreter.
+numpy==2.4.6
+scipy==1.17.1
+scikit-image==0.26.0
+whitebox==2.3.6
+tifffile==2026.3.3
+pyshp==3.1.8
+simplification==2.0.0

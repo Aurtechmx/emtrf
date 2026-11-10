@@ -1,0 +1,11061 @@
+{
+ "driver": "held-out ground check on the scale-test crops",
+ "rules": "docs/RULES_ADDITIONAL_TESTS.md, section D2",
+ "rulesSummary": {
+  "crops": "status \"scored\" in results/scale_test_r1.json; grid 100 x 100 cells of 1 m",
+  "definitions": "split, build, cell error, edge error, hidden edges, end edges and questions 1-3 as in ablation/heldout_check.cjs",
+  "split": "mulberry32(seed), build if draw < 0.5",
+  "primary": "question 2: d = mean hidden-edge error - mean end-edge error per promoted span with held-out data on both; spans pooled over crops within a seed; S = share with d > 0",
+  "bootstrap": "2000 replicates resampling whole crops, xorshift32 seed 20261109 (restarted per split seed and crop set), 2.5 and 97.5 percentiles by linear interpolation",
+  "reading": "interval wholly above 50 %: hidden larger; contains 50 %: no difference shown; wholly below 50 %: hidden smaller",
+  "question1": "crops with at least 30 measured cells in each class; rise is strict; Spearman rho between support and cell error per crop",
+  "question3": "share of endpoint-solid spans EC-DP downgrades whose largest edge error exceeds the pooled median of those it keeps (median recomputed in each replicate)",
+  "reported": "median over seeds of each per-seed value",
+  "sensitivity": "the same without surveys white-sands-parent and estonia-parent"
+ },
+ "seeds": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "thresholds": {
+  "solid": 66,
+  "dashed": 33
+ },
+ "cropsUsed": [
+  "t00_c0",
+  "t00_c1",
+  "t00_c2",
+  "t00_c3",
+  "t00_c4",
+  "t00_c5",
+  "t00_c6",
+  "t00_c7",
+  "t00_c8",
+  "t01_c0",
+  "t01_c1",
+  "t01_c2",
+  "t01_c3",
+  "t01_c4",
+  "t01_c5",
+  "t01_c6",
+  "t01_c7",
+  "t01_c8",
+  "t02_c0",
+  "t02_c1",
+  "t02_c2",
+  "t02_c3",
+  "t02_c4",
+  "t02_c5",
+  "t02_c6",
+  "t02_c7",
+  "t02_c8",
+  "t03_c0",
+  "t03_c1",
+  "t03_c2",
+  "t03_c3",
+  "t03_c4",
+  "t03_c5",
+  "t03_c6",
+  "t03_c7",
+  "t03_c8",
+  "t04_c0",
+  "t04_c1",
+  "t04_c2",
+  "t04_c3",
+  "t04_c4",
+  "t04_c5",
+  "t04_c6",
+  "t04_c7",
+  "t04_c8",
+  "t05_c0",
+  "t05_c1",
+  "t05_c2",
+  "t05_c3",
+  "t05_c4",
+  "t05_c5",
+  "t05_c6",
+  "t05_c7",
+  "t05_c8",
+  "t06_c0",
+  "t06_c1",
+  "t06_c2",
+  "t06_c3",
+  "t06_c4",
+  "t06_c5",
+  "t06_c6",
+  "t06_c7",
+  "t06_c8",
+  "t07_c0",
+  "t07_c1",
+  "t07_c2",
+  "t07_c3",
+  "t07_c4",
+  "t07_c5",
+  "t07_c6",
+  "t07_c7",
+  "t07_c8",
+  "t08_c0",
+  "t08_c1",
+  "t08_c2",
+  "t08_c3",
+  "t08_c4",
+  "t08_c5",
+  "t08_c6",
+  "t08_c7",
+  "t08_c8",
+  "t09_c0",
+  "t09_c1",
+  "t09_c2",
+  "t09_c3",
+  "t09_c4",
+  "t09_c5",
+  "t09_c6",
+  "t09_c7",
+  "t09_c8",
+  "t12_c0",
+  "t12_c1",
+  "t12_c2",
+  "t12_c3",
+  "t12_c4",
+  "t12_c5",
+  "t12_c6",
+  "t12_c7",
+  "t12_c8",
+  "t13_c0",
+  "t13_c1",
+  "t13_c2",
+  "t14_c0",
+  "t14_c6",
+  "t15_c0",
+  "t15_c1",
+  "t15_c2",
+  "t15_c3",
+  "t15_c4",
+  "t15_c5",
+  "t15_c6",
+  "t15_c7",
+  "t15_c8",
+  "t16_c1",
+  "t16_c2",
+  "t16_c4",
+  "t16_c5",
+  "t16_c6",
+  "t16_c7",
+  "t16_c8",
+  "t17_c0",
+  "t17_c1",
+  "t17_c2",
+  "t17_c3",
+  "t17_c4",
+  "t17_c5",
+  "t17_c6",
+  "t17_c7",
+  "t17_c8"
+ ],
+ "all": {
+  "crops": 129,
+  "medianOverSeeds": {
+   "q2": {
+    "sharePct": 58.3071,
+    "ciLowPct": 56.9386,
+    "ciHighPct": 59.6283,
+    "spans": 7048,
+    "cropsWithSpans": 125,
+    "medianDiffM": 0.0029,
+    "medianRatio": 1.0898,
+    "reading": "hidden segments have larger held-out error than the end segments the record reads"
+   },
+   "q1": {
+    "cropsEligible": 119,
+    "cropsRmseRises": 90,
+    "cropsWithRho": 129,
+    "rhoMedian": -0.1303,
+    "rhoQ1": -0.1914,
+    "rhoQ3": -0.0654,
+    "cropsRhoNegative": 121
+   },
+   "q3": {
+    "sharePct": 73.9726,
+    "ciLowPct": 62.5,
+    "ciHighPct": 88.4615,
+    "solidKept": 232,
+    "solidDowngraded": 80,
+    "medianErrKeptM": 0.018881,
+    "medianErrDowngradedM": 0.026519,
+    "ratioOfMedians": 1.4219
+   }
+  },
+  "perSeed": [
+   {
+    "seed": 1,
+    "q2": {
+     "spans": 7048,
+     "cropsWithSpans": 125,
+     "spansHiddenWorse": 4130,
+     "sharePct": 58.5982,
+     "ciLowPct": 57.3101,
+     "ciHighPct": 59.8126,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.003109,
+     "medianRatio": 1.0909,
+     "promotedSpansWithInteriorHidden": 7206,
+     "dpSpans": 29122,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 232,
+     "solidDowngraded": 88,
+     "medianErrKeptM": 0.020696,
+     "medianErrDowngradedM": 0.029427,
+     "ratioOfMedians": 1.4219,
+     "downgradedAboveKeptMedian": 63,
+     "sharePct": 71.5909,
+     "ciLowPct": 59.5716,
+     "ciHighPct": 88.5731,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 119,
+     "cropsRmseRises": 91,
+     "cropsWithRho": 129,
+     "rhoMedian": -0.1303,
+     "rhoQ1": -0.1939,
+     "rhoQ3": -0.0679,
+     "cropsRhoNegative": 124
+    }
+   },
+   {
+    "seed": 2,
+    "q2": {
+     "spans": 7177,
+     "cropsWithSpans": 125,
+     "spansHiddenWorse": 4158,
+     "sharePct": 57.9351,
+     "ciLowPct": 56.4333,
+     "ciHighPct": 59.3899,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.002461,
+     "medianRatio": 1.0756,
+     "promotedSpansWithInteriorHidden": 7319,
+     "dpSpans": 28999,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 241,
+     "solidDowngraded": 73,
+     "medianErrKeptM": 0.018881,
+     "medianErrDowngradedM": 0.026648,
+     "ratioOfMedians": 1.4114,
+     "downgradedAboveKeptMedian": 54,
+     "sharePct": 73.9726,
+     "ciLowPct": 63.1579,
+     "ciHighPct": 85.967,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 119,
+     "cropsRmseRises": 90,
+     "cropsWithRho": 129,
+     "rhoMedian": -0.1281,
+     "rhoQ1": -0.1956,
+     "rhoQ3": -0.063,
+     "cropsRhoNegative": 120
+    }
+   },
+   {
+    "seed": 3,
+    "q2": {
+     "spans": 6983,
+     "cropsWithSpans": 125,
+     "spansHiddenWorse": 4088,
+     "sharePct": 58.5422,
+     "ciLowPct": 57.2337,
+     "ciHighPct": 59.8279,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.003082,
+     "medianRatio": 1.0913,
+     "promotedSpansWithInteriorHidden": 7151,
+     "dpSpans": 29001,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 232,
+     "solidDowngraded": 80,
+     "medianErrKeptM": 0.01889,
+     "medianErrDowngradedM": 0.02578,
+     "ratioOfMedians": 1.3647,
+     "downgradedAboveKeptMedian": 54,
+     "sharePct": 67.5,
+     "ciLowPct": 57.6923,
+     "ciHighPct": 81.8209,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 119,
+     "cropsRmseRises": 90,
+     "cropsWithRho": 129,
+     "rhoMedian": -0.1311,
+     "rhoQ1": -0.1853,
+     "rhoQ3": -0.0658,
+     "cropsRhoNegative": 122
+    }
+   },
+   {
+    "seed": 4,
+    "q2": {
+     "spans": 7114,
+     "cropsWithSpans": 125,
+     "spansHiddenWorse": 4134,
+     "sharePct": 58.1108,
+     "ciLowPct": 56.6916,
+     "ciHighPct": 59.4977,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.0029,
+     "medianRatio": 1.0898,
+     "promotedSpansWithInteriorHidden": 7286,
+     "dpSpans": 28827,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 232,
+     "solidDowngraded": 89,
+     "medianErrKeptM": 0.016,
+     "medianErrDowngradedM": 0.026519,
+     "ratioOfMedians": 1.6574,
+     "downgradedAboveKeptMedian": 76,
+     "sharePct": 85.3933,
+     "ciLowPct": 75.8607,
+     "ciHighPct": 93.0568,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 119,
+     "cropsRmseRises": 86,
+     "cropsWithRho": 129,
+     "rhoMedian": -0.1356,
+     "rhoQ1": -0.1914,
+     "rhoQ3": -0.0615,
+     "cropsRhoNegative": 121
+    }
+   },
+   {
+    "seed": 5,
+    "q2": {
+     "spans": 6994,
+     "cropsWithSpans": 124,
+     "spansHiddenWorse": 4078,
+     "sharePct": 58.3071,
+     "ciLowPct": 56.9386,
+     "ciHighPct": 59.6283,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.002868,
+     "medianRatio": 1.0881,
+     "promotedSpansWithInteriorHidden": 7165,
+     "dpSpans": 28659,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 208,
+     "solidDowngraded": 61,
+     "medianErrKeptM": 0.017668,
+     "medianErrDowngradedM": 0.026233,
+     "ratioOfMedians": 1.4847,
+     "downgradedAboveKeptMedian": 46,
+     "sharePct": 75.4098,
+     "ciLowPct": 62.5,
+     "ciHighPct": 88.4615,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 119,
+     "cropsRmseRises": 87,
+     "cropsWithRho": 129,
+     "rhoMedian": -0.1295,
+     "rhoQ1": -0.1845,
+     "rhoQ3": -0.0654,
+     "cropsRhoNegative": 121
+    }
+   }
+  ]
+ },
+ "withoutParentTiles": {
+  "crops": 113,
+  "medianOverSeeds": {
+   "q2": {
+    "sharePct": 58.7036,
+    "ciLowPct": 57.1885,
+    "ciHighPct": 60.0862,
+    "spans": 6377,
+    "cropsWithSpans": 109,
+    "medianDiffM": 0.003114,
+    "medianRatio": 1.0938,
+    "reading": "hidden segments have larger held-out error than the end segments the record reads"
+   },
+   "q1": {
+    "cropsEligible": 112,
+    "cropsRmseRises": 86,
+    "cropsWithRho": 113,
+    "rhoMedian": -0.1414,
+    "rhoQ1": -0.2012,
+    "rhoQ3": -0.0932,
+    "cropsRhoNegative": 113
+   },
+   "q3": {
+    "sharePct": 79.0323,
+    "ciLowPct": 59.5666,
+    "ciHighPct": 92.5023,
+    "solidKept": 156,
+    "solidDowngraded": 54,
+    "medianErrKeptM": 0.017595,
+    "medianErrDowngradedM": 0.026441,
+    "ratioOfMedians": 1.4357
+   }
+  },
+  "perSeed": [
+   {
+    "seed": 1,
+    "q2": {
+     "spans": 6377,
+     "cropsWithSpans": 109,
+     "spansHiddenWorse": 3761,
+     "sharePct": 58.9776,
+     "ciLowPct": 57.6654,
+     "ciHighPct": 60.2329,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.003215,
+     "medianRatio": 1.0938,
+     "promotedSpansWithInteriorHidden": 6521,
+     "dpSpans": 25394,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 154,
+     "solidDowngraded": 62,
+     "medianErrKeptM": 0.019991,
+     "medianErrDowngradedM": 0.027572,
+     "ratioOfMedians": 1.3792,
+     "downgradedAboveKeptMedian": 49,
+     "sharePct": 79.0323,
+     "ciLowPct": 59.9904,
+     "ciHighPct": 91.8041,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 112,
+     "cropsRmseRises": 88,
+     "cropsWithRho": 113,
+     "rhoMedian": -0.1378,
+     "rhoQ1": -0.1993,
+     "rhoQ3": -0.0894,
+     "cropsRhoNegative": 113
+    }
+   },
+   {
+    "seed": 2,
+    "q2": {
+     "spans": 6483,
+     "cropsWithSpans": 109,
+     "spansHiddenWorse": 3766,
+     "sharePct": 58.0904,
+     "ciLowPct": 56.5075,
+     "ciHighPct": 59.624,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.002543,
+     "medianRatio": 1.0783,
+     "promotedSpansWithInteriorHidden": 6606,
+     "dpSpans": 25256,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 165,
+     "solidDowngraded": 51,
+     "medianErrKeptM": 0.017217,
+     "medianErrDowngradedM": 0.026932,
+     "ratioOfMedians": 1.5642,
+     "downgradedAboveKeptMedian": 40,
+     "sharePct": 78.4314,
+     "ciLowPct": 57.131,
+     "ciHighPct": 92.5023,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 112,
+     "cropsRmseRises": 86,
+     "cropsWithRho": 113,
+     "rhoMedian": -0.1414,
+     "rhoQ1": -0.2066,
+     "rhoQ3": -0.0869,
+     "cropsRhoNegative": 113
+    }
+   },
+   {
+    "seed": 3,
+    "q2": {
+     "spans": 6343,
+     "cropsWithSpans": 109,
+     "spansHiddenWorse": 3753,
+     "sharePct": 59.1676,
+     "ciLowPct": 57.7773,
+     "ciHighPct": 60.4626,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.003377,
+     "medianRatio": 1.0988,
+     "promotedSpansWithInteriorHidden": 6499,
+     "dpSpans": 25272,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 156,
+     "solidDowngraded": 54,
+     "medianErrKeptM": 0.018496,
+     "medianErrDowngradedM": 0.023165,
+     "ratioOfMedians": 1.2524,
+     "downgradedAboveKeptMedian": 33,
+     "sharePct": 61.1111,
+     "ciLowPct": 52.1739,
+     "ciHighPct": 83.3333,
+     "bootstrapReplicatesUsed": 1999
+    },
+    "q1": {
+     "cropsEligible": 112,
+     "cropsRmseRises": 86,
+     "cropsWithRho": 113,
+     "rhoMedian": -0.1416,
+     "rhoQ1": -0.2032,
+     "rhoQ3": -0.0995,
+     "cropsRhoNegative": 113
+    }
+   },
+   {
+    "seed": 4,
+    "q2": {
+     "spans": 6438,
+     "cropsWithSpans": 109,
+     "spansHiddenWorse": 3768,
+     "sharePct": 58.5275,
+     "ciLowPct": 57.0384,
+     "ciHighPct": 60.0862,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.003114,
+     "medianRatio": 1.0954,
+     "promotedSpansWithInteriorHidden": 6592,
+     "dpSpans": 25172,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 168,
+     "solidDowngraded": 67,
+     "medianErrKeptM": 0.015575,
+     "medianErrDowngradedM": 0.026441,
+     "ratioOfMedians": 1.6977,
+     "downgradedAboveKeptMedian": 58,
+     "sharePct": 86.5672,
+     "ciLowPct": 75.9259,
+     "ciHighPct": 95.3497,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 112,
+     "cropsRmseRises": 84,
+     "cropsWithRho": 113,
+     "rhoMedian": -0.1401,
+     "rhoQ1": -0.2012,
+     "rhoQ3": -0.0993,
+     "cropsRhoNegative": 113
+    }
+   },
+   {
+    "seed": 5,
+    "q2": {
+     "spans": 6325,
+     "cropsWithSpans": 108,
+     "spansHiddenWorse": 3713,
+     "sharePct": 58.7036,
+     "ciLowPct": 57.1885,
+     "ciHighPct": 60.0701,
+     "bootstrapReplicatesUsed": 2000,
+     "medianDiffM": 0.003081,
+     "medianRatio": 1.092,
+     "promotedSpansWithInteriorHidden": 6483,
+     "dpSpans": 25001,
+     "reading": "hidden segments have larger held-out error than the end segments the record reads"
+    },
+    "q3": {
+     "solidKept": 143,
+     "solidDowngraded": 43,
+     "medianErrKeptM": 0.017595,
+     "medianErrDowngradedM": 0.025261,
+     "ratioOfMedians": 1.4357,
+     "downgradedAboveKeptMedian": 34,
+     "sharePct": 79.0698,
+     "ciLowPct": 59.5666,
+     "ciHighPct": 93.75,
+     "bootstrapReplicatesUsed": 2000
+    },
+    "q1": {
+     "cropsEligible": 112,
+     "cropsRmseRises": 82,
+     "cropsWithRho": 113,
+     "rhoMedian": -0.1439,
+     "rhoQ1": -0.193,
+     "rhoQ3": -0.0932,
+     "cropsRhoNegative": 113
+    }
+   }
+  ]
+ },
+ "perCrop": [
+  {
+   "id": "t00_c0",
+   "survey": "coconino",
+   "q2Spans": [
+    54,
+    48,
+    58,
+    50,
+    54
+   ],
+   "q2HiddenWorse": [
+    28,
+    32,
+    39,
+    34,
+    38
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1357,
+    -0.1269,
+    -0.1387,
+    -0.133,
+    -0.13
+   ],
+   "nSolid": [
+    134,
+    137,
+    128,
+    136,
+    120
+   ],
+   "nDashed": [
+    5233,
+    5281,
+    5245,
+    5240,
+    5173
+   ],
+   "nGap": [
+    1837,
+    1814,
+    1862,
+    1794,
+    1846
+   ],
+   "rmseSolid": [
+    0.0292,
+    0.0351,
+    0.0297,
+    0.0248,
+    0.0308
+   ],
+   "rmseDashed": [
+    0.0364,
+    0.0357,
+    0.0358,
+    0.0359,
+    0.0349
+   ],
+   "rmseGap": [
+    0.0485,
+    0.0484,
+    0.0521,
+    0.0488,
+    0.0474
+   ]
+  },
+  {
+   "id": "t00_c1",
+   "survey": "coconino",
+   "q2Spans": [
+    65,
+    65,
+    57,
+    63,
+    74
+   ],
+   "q2HiddenWorse": [
+    35,
+    43,
+    36,
+    36,
+    44
+   ],
+   "q3Kept": [
+    1,
+    2,
+    1,
+    1,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1729,
+    -0.1775,
+    -0.1573,
+    -0.1546,
+    -0.1615
+   ],
+   "nSolid": [
+    386,
+    375,
+    383,
+    386,
+    362
+   ],
+   "nDashed": [
+    3823,
+    3826,
+    3770,
+    3809,
+    3873
+   ],
+   "nGap": [
+    2119,
+    2113,
+    2129,
+    2141,
+    2062
+   ],
+   "rmseSolid": [
+    0.0232,
+    0.0258,
+    0.0261,
+    0.0249,
+    0.0271
+   ],
+   "rmseDashed": [
+    0.0444,
+    0.0446,
+    0.0448,
+    0.0449,
+    0.0442
+   ],
+   "rmseGap": [
+    0.0582,
+    0.0584,
+    0.0559,
+    0.0562,
+    0.0564
+   ]
+  },
+  {
+   "id": "t00_c2",
+   "survey": "coconino",
+   "q2Spans": [
+    77,
+    73,
+    81,
+    73,
+    72
+   ],
+   "q2HiddenWorse": [
+    56,
+    48,
+    50,
+    40,
+    42
+   ],
+   "q3Kept": [
+    10,
+    12,
+    14,
+    10,
+    9
+   ],
+   "q3Downgraded": [
+    3,
+    4,
+    2,
+    7,
+    2
+   ],
+   "rho": [
+    -0.2349,
+    -0.2306,
+    -0.2477,
+    -0.2456,
+    -0.2432
+   ],
+   "nSolid": [
+    2833,
+    2870,
+    2848,
+    2832,
+    2809
+   ],
+   "nDashed": [
+    3812,
+    3715,
+    3744,
+    3808,
+    3771
+   ],
+   "nGap": [
+    2076,
+    2115,
+    2119,
+    2093,
+    2139
+   ],
+   "rmseSolid": [
+    0.0271,
+    0.0268,
+    0.0272,
+    0.0274,
+    0.027
+   ],
+   "rmseDashed": [
+    0.0351,
+    0.0371,
+    0.0378,
+    0.0382,
+    0.0391
+   ],
+   "rmseGap": [
+    0.0546,
+    0.0545,
+    0.0561,
+    0.0555,
+    0.0542
+   ]
+  },
+  {
+   "id": "t00_c3",
+   "survey": "coconino",
+   "q2Spans": [
+    69,
+    73,
+    66,
+    87,
+    71
+   ],
+   "q2HiddenWorse": [
+    48,
+    49,
+    42,
+    51,
+    43
+   ],
+   "q3Kept": [
+    4,
+    2,
+    2,
+    6,
+    2
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    3,
+    1
+   ],
+   "rho": [
+    -0.1939,
+    -0.1796,
+    -0.2101,
+    -0.1694,
+    -0.173
+   ],
+   "nSolid": [
+    1765,
+    1757,
+    1729,
+    1719,
+    1729
+   ],
+   "nDashed": [
+    4395,
+    4447,
+    4378,
+    4491,
+    4462
+   ],
+   "nGap": [
+    2467,
+    2405,
+    2474,
+    2431,
+    2416
+   ],
+   "rmseSolid": [
+    0.0293,
+    0.0328,
+    0.0311,
+    0.0317,
+    0.0323
+   ],
+   "rmseDashed": [
+    0.038,
+    0.0387,
+    0.0382,
+    0.0373,
+    0.0378
+   ],
+   "rmseGap": [
+    0.0567,
+    0.0532,
+    0.0522,
+    0.0535,
+    0.0558
+   ]
+  },
+  {
+   "id": "t00_c4",
+   "survey": "coconino",
+   "q2Spans": [
+    69,
+    53,
+    69,
+    50,
+    65
+   ],
+   "q2HiddenWorse": [
+    42,
+    37,
+    41,
+    27,
+    46
+   ],
+   "q3Kept": [
+    7,
+    5,
+    3,
+    4,
+    4
+   ],
+   "q3Downgraded": [
+    1,
+    0,
+    1,
+    4,
+    1
+   ],
+   "rho": [
+    -0.1944,
+    -0.2003,
+    -0.1796,
+    -0.1972,
+    -0.1877
+   ],
+   "nSolid": [
+    1185,
+    1125,
+    1123,
+    1137,
+    1092
+   ],
+   "nDashed": [
+    3849,
+    3880,
+    3880,
+    3836,
+    3917
+   ],
+   "nGap": [
+    2992,
+    2948,
+    2935,
+    3006,
+    3004
+   ],
+   "rmseSolid": [
+    0.0326,
+    0.0302,
+    0.0326,
+    0.0324,
+    0.032
+   ],
+   "rmseDashed": [
+    0.038,
+    0.0383,
+    0.0387,
+    0.0387,
+    0.0396
+   ],
+   "rmseGap": [
+    0.0556,
+    0.0547,
+    0.0536,
+    0.0545,
+    0.0552
+   ]
+  },
+  {
+   "id": "t00_c5",
+   "survey": "coconino",
+   "q2Spans": [
+    43,
+    48,
+    39,
+    45,
+    39
+   ],
+   "q2HiddenWorse": [
+    27,
+    33,
+    23,
+    32,
+    16
+   ],
+   "q3Kept": [
+    1,
+    2,
+    0,
+    2,
+    4
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "rho": [
+    -0.2312,
+    -0.218,
+    -0.2243,
+    -0.24,
+    -0.219
+   ],
+   "nSolid": [
+    968,
+    976,
+    961,
+    978,
+    906
+   ],
+   "nDashed": [
+    3539,
+    3534,
+    3525,
+    3504,
+    3615
+   ],
+   "nGap": [
+    3430,
+    3402,
+    3421,
+    3412,
+    3355
+   ],
+   "rmseSolid": [
+    0.0224,
+    0.0227,
+    0.0239,
+    0.0222,
+    0.0236
+   ],
+   "rmseDashed": [
+    0.0336,
+    0.0339,
+    0.0338,
+    0.0342,
+    0.0347
+   ],
+   "rmseGap": [
+    0.0478,
+    0.0475,
+    0.0475,
+    0.0483,
+    0.0464
+   ]
+  },
+  {
+   "id": "t00_c6",
+   "survey": "coconino",
+   "q2Spans": [
+    209,
+    197,
+    180,
+    187,
+    192
+   ],
+   "q2HiddenWorse": [
+    118,
+    113,
+    120,
+    117,
+    128
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0932,
+    -0.0862,
+    -0.1167,
+    -0.1002,
+    -0.0952
+   ],
+   "nSolid": [
+    282,
+    301,
+    299,
+    279,
+    289
+   ],
+   "nDashed": [
+    5120,
+    5092,
+    5053,
+    5095,
+    5018
+   ],
+   "nGap": [
+    1756,
+    1671,
+    1801,
+    1745,
+    1798
+   ],
+   "rmseSolid": [
+    0.0849,
+    0.0845,
+    0.0765,
+    0.0783,
+    0.0832
+   ],
+   "rmseDashed": [
+    0.0819,
+    0.0805,
+    0.0821,
+    0.0816,
+    0.0826
+   ],
+   "rmseGap": [
+    0.1038,
+    0.0982,
+    0.1055,
+    0.1034,
+    0.1028
+   ]
+  },
+  {
+   "id": "t00_c7",
+   "survey": "coconino",
+   "q2Spans": [
+    58,
+    58,
+    62,
+    62,
+    67
+   ],
+   "q2HiddenWorse": [
+    35,
+    30,
+    36,
+    34,
+    40
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1234,
+    -0.1279,
+    -0.1352,
+    -0.1291,
+    -0.1199
+   ],
+   "nSolid": [
+    193,
+    185,
+    161,
+    182,
+    157
+   ],
+   "nDashed": [
+    5102,
+    5116,
+    5092,
+    5099,
+    5108
+   ],
+   "nGap": [
+    1880,
+    1896,
+    1907,
+    1898,
+    1960
+   ],
+   "rmseSolid": [
+    0.0315,
+    0.0371,
+    0.0356,
+    0.0374,
+    0.0337
+   ],
+   "rmseDashed": [
+    0.0429,
+    0.0423,
+    0.0464,
+    0.0517,
+    0.0457
+   ],
+   "rmseGap": [
+    0.0649,
+    0.065,
+    0.0711,
+    0.0635,
+    0.062
+   ]
+  },
+  {
+   "id": "t00_c8",
+   "survey": "coconino",
+   "q2Spans": [
+    19,
+    13,
+    22,
+    31,
+    27
+   ],
+   "q2HiddenWorse": [
+    11,
+    9,
+    14,
+    21,
+    17
+   ],
+   "q3Kept": [
+    1,
+    1,
+    2,
+    1,
+    1
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "rho": [
+    -0.2072,
+    -0.2219,
+    -0.241,
+    -0.2454,
+    -0.2262
+   ],
+   "nSolid": [
+    759,
+    765,
+    762,
+    728,
+    751
+   ],
+   "nDashed": [
+    4812,
+    4755,
+    4777,
+    4803,
+    4728
+   ],
+   "nGap": [
+    1953,
+    1957,
+    1889,
+    1979,
+    2045
+   ],
+   "rmseSolid": [
+    0.0153,
+    0.0147,
+    0.0147,
+    0.0145,
+    0.0153
+   ],
+   "rmseDashed": [
+    0.0275,
+    0.0274,
+    0.0265,
+    0.027,
+    0.0281
+   ],
+   "rmseGap": [
+    0.0376,
+    0.0379,
+    0.0375,
+    0.0387,
+    0.0368
+   ]
+  },
+  {
+   "id": "t01_c0",
+   "survey": "coconino",
+   "q2Spans": [
+    5,
+    10,
+    7,
+    6,
+    8
+   ],
+   "q2HiddenWorse": [
+    3,
+    2,
+    4,
+    2,
+    5
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1569,
+    -0.1536,
+    -0.1288,
+    -0.1504,
+    -0.1748
+   ],
+   "nSolid": [
+    882,
+    945,
+    876,
+    900,
+    884
+   ],
+   "nDashed": [
+    5179,
+    5159,
+    5194,
+    5199,
+    5213
+   ],
+   "nGap": [
+    2950,
+    2921,
+    2959,
+    2936,
+    2933
+   ],
+   "rmseSolid": [
+    0.0135,
+    0.0138,
+    0.0146,
+    0.0142,
+    0.0137
+   ],
+   "rmseDashed": [
+    0.0148,
+    0.0149,
+    0.0153,
+    0.0149,
+    0.0147
+   ],
+   "rmseGap": [
+    0.02,
+    0.0205,
+    0.0202,
+    0.0204,
+    0.0214
+   ]
+  },
+  {
+   "id": "t01_c1",
+   "survey": "coconino",
+   "q2Spans": [
+    49,
+    46,
+    38,
+    53,
+    51
+   ],
+   "q2HiddenWorse": [
+    35,
+    23,
+    20,
+    30,
+    29
+   ],
+   "q3Kept": [
+    5,
+    6,
+    2,
+    4,
+    9
+   ],
+   "q3Downgraded": [
+    2,
+    2,
+    0,
+    1,
+    2
+   ],
+   "rho": [
+    -0.1281,
+    -0.1281,
+    -0.1332,
+    -0.1303,
+    -0.1236
+   ],
+   "nSolid": [
+    1686,
+    1684,
+    1652,
+    1674,
+    1647
+   ],
+   "nDashed": [
+    4438,
+    4470,
+    4446,
+    4495,
+    4439
+   ],
+   "nGap": [
+    2949,
+    2918,
+    2965,
+    2875,
+    2982
+   ],
+   "rmseSolid": [
+    0.0376,
+    0.0467,
+    0.0471,
+    0.043,
+    0.0514
+   ],
+   "rmseDashed": [
+    0.046,
+    0.0424,
+    0.0456,
+    0.044,
+    0.0415
+   ],
+   "rmseGap": [
+    0.0627,
+    0.061,
+    0.0612,
+    0.0633,
+    0.0631
+   ]
+  },
+  {
+   "id": "t01_c2",
+   "survey": "coconino",
+   "q2Spans": [
+    27,
+    34,
+    30,
+    33,
+    36
+   ],
+   "q2HiddenWorse": [
+    14,
+    22,
+    21,
+    25,
+    20
+   ],
+   "q3Kept": [
+    5,
+    4,
+    4,
+    4,
+    3
+   ],
+   "q3Downgraded": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "rho": [
+    -0.22,
+    -0.2265,
+    -0.2199,
+    -0.2095,
+    -0.2289
+   ],
+   "nSolid": [
+    1427,
+    1428,
+    1389,
+    1395,
+    1406
+   ],
+   "nDashed": [
+    4669,
+    4638,
+    4650,
+    4699,
+    4675
+   ],
+   "nGap": [
+    2793,
+    2801,
+    2878,
+    2811,
+    2785
+   ],
+   "rmseSolid": [
+    0.018,
+    0.0178,
+    0.0175,
+    0.0176,
+    0.0183
+   ],
+   "rmseDashed": [
+    0.0225,
+    0.0227,
+    0.0224,
+    0.0228,
+    0.0229
+   ],
+   "rmseGap": [
+    0.0336,
+    0.0337,
+    0.0323,
+    0.0338,
+    0.033
+   ]
+  },
+  {
+   "id": "t01_c3",
+   "survey": "coconino",
+   "q2Spans": [
+    9,
+    8,
+    5,
+    9,
+    13
+   ],
+   "q2HiddenWorse": [
+    5,
+    6,
+    3,
+    9,
+    7
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.173,
+    -0.1546,
+    -0.1741,
+    -0.1618,
+    -0.1845
+   ],
+   "nSolid": [
+    507,
+    536,
+    478,
+    492,
+    487
+   ],
+   "nDashed": [
+    4777,
+    4744,
+    4790,
+    4804,
+    4773
+   ],
+   "nGap": [
+    3561,
+    3554,
+    3603,
+    3576,
+    3580
+   ],
+   "rmseSolid": [
+    0.0149,
+    0.0136,
+    0.0145,
+    0.0135,
+    0.0146
+   ],
+   "rmseDashed": [
+    0.0166,
+    0.017,
+    0.0162,
+    0.0161,
+    0.0162
+   ],
+   "rmseGap": [
+    0.0234,
+    0.0223,
+    0.023,
+    0.0227,
+    0.0232
+   ]
+  },
+  {
+   "id": "t01_c4",
+   "survey": "coconino",
+   "q2Spans": [
+    16,
+    21,
+    13,
+    14,
+    15
+   ],
+   "q2HiddenWorse": [
+    11,
+    15,
+    7,
+    9,
+    10
+   ],
+   "q3Kept": [
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1253,
+    -0.1359,
+    -0.1056,
+    -0.1298,
+    -0.1126
+   ],
+   "nSolid": [
+    1607,
+    1661,
+    1650,
+    1621,
+    1612
+   ],
+   "nDashed": [
+    5222,
+    5160,
+    5055,
+    5181,
+    5211
+   ],
+   "nGap": [
+    2559,
+    2597,
+    2665,
+    2611,
+    2577
+   ],
+   "rmseSolid": [
+    0.0131,
+    0.014,
+    0.0122,
+    0.0126,
+    0.0105
+   ],
+   "rmseDashed": [
+    0.016,
+    0.0157,
+    0.0162,
+    0.0165,
+    0.0163
+   ],
+   "rmseGap": [
+    0.0182,
+    0.0194,
+    0.0174,
+    0.0179,
+    0.0183
+   ]
+  },
+  {
+   "id": "t01_c5",
+   "survey": "coconino",
+   "q2Spans": [
+    27,
+    28,
+    31,
+    28,
+    21
+   ],
+   "q2HiddenWorse": [
+    19,
+    17,
+    16,
+    16,
+    14
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2208,
+    -0.2322,
+    -0.2291,
+    -0.2145,
+    -0.221
+   ],
+   "nSolid": [
+    1046,
+    1084,
+    1033,
+    1042,
+    1047
+   ],
+   "nDashed": [
+    5074,
+    5065,
+    5086,
+    5073,
+    5030
+   ],
+   "nGap": [
+    2861,
+    2768,
+    2836,
+    2825,
+    2886
+   ],
+   "rmseSolid": [
+    0.0167,
+    0.0167,
+    0.0162,
+    0.0169,
+    0.0161
+   ],
+   "rmseDashed": [
+    0.0206,
+    0.0206,
+    0.021,
+    0.0211,
+    0.0212
+   ],
+   "rmseGap": [
+    0.0324,
+    0.0313,
+    0.032,
+    0.0325,
+    0.033
+   ]
+  },
+  {
+   "id": "t01_c6",
+   "survey": "coconino",
+   "q2Spans": [
+    24,
+    17,
+    19,
+    16,
+    21
+   ],
+   "q2HiddenWorse": [
+    14,
+    8,
+    11,
+    10,
+    14
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2311,
+    -0.2181,
+    -0.2538,
+    -0.2216,
+    -0.2125
+   ],
+   "nSolid": [
+    1044,
+    1061,
+    1006,
+    1037,
+    987
+   ],
+   "nDashed": [
+    4896,
+    4958,
+    4926,
+    4901,
+    5016
+   ],
+   "nGap": [
+    2865,
+    2777,
+    2832,
+    2824,
+    2759
+   ],
+   "rmseSolid": [
+    0.0147,
+    0.014,
+    0.0134,
+    0.0153,
+    0.0151
+   ],
+   "rmseDashed": [
+    0.0183,
+    0.0182,
+    0.0184,
+    0.0186,
+    0.0186
+   ],
+   "rmseGap": [
+    0.0284,
+    0.0276,
+    0.0286,
+    0.0276,
+    0.028
+   ]
+  },
+  {
+   "id": "t01_c7",
+   "survey": "coconino",
+   "q2Spans": [
+    75,
+    71,
+    74,
+    68,
+    79
+   ],
+   "q2HiddenWorse": [
+    50,
+    45,
+    45,
+    41,
+    43
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2158,
+    -0.207,
+    -0.21,
+    -0.192,
+    -0.193
+   ],
+   "nSolid": [
+    833,
+    857,
+    800,
+    821,
+    804
+   ],
+   "nDashed": [
+    4314,
+    4241,
+    4312,
+    4284,
+    4314
+   ],
+   "nGap": [
+    3204,
+    3230,
+    3180,
+    3233,
+    3212
+   ],
+   "rmseSolid": [
+    0.0361,
+    0.0543,
+    0.0358,
+    0.0405,
+    0.0361
+   ],
+   "rmseDashed": [
+    0.0467,
+    0.0454,
+    0.0485,
+    0.0439,
+    0.0513
+   ],
+   "rmseGap": [
+    0.0863,
+    0.0818,
+    0.0883,
+    0.0822,
+    0.0813
+   ]
+  },
+  {
+   "id": "t01_c8",
+   "survey": "coconino",
+   "q2Spans": [
+    20,
+    28,
+    16,
+    23,
+    22
+   ],
+   "q2HiddenWorse": [
+    16,
+    17,
+    8,
+    9,
+    11
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2486,
+    -0.2491,
+    -0.237,
+    -0.23,
+    -0.2456
+   ],
+   "nSolid": [
+    750,
+    729,
+    731,
+    746,
+    709
+   ],
+   "nDashed": [
+    4594,
+    4625,
+    4591,
+    4569,
+    4633
+   ],
+   "nGap": [
+    3280,
+    3293,
+    3290,
+    3332,
+    3248
+   ],
+   "rmseSolid": [
+    0.0171,
+    0.0194,
+    0.0184,
+    0.0169,
+    0.0174
+   ],
+   "rmseDashed": [
+    0.0241,
+    0.0249,
+    0.0257,
+    0.0258,
+    0.025
+   ],
+   "rmseGap": [
+    0.04,
+    0.0379,
+    0.0393,
+    0.0401,
+    0.0392
+   ]
+  },
+  {
+   "id": "t02_c0",
+   "survey": "coconino",
+   "q2Spans": [
+    42,
+    44,
+    54,
+    59,
+    54
+   ],
+   "q2HiddenWorse": [
+    24,
+    23,
+    36,
+    34,
+    30
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1241,
+    -0.0893,
+    -0.1281,
+    -0.1109,
+    -0.0925
+   ],
+   "nSolid": [
+    443,
+    448,
+    413,
+    449,
+    416
+   ],
+   "nDashed": [
+    4338,
+    4355,
+    4280,
+    4310,
+    4289
+   ],
+   "nGap": [
+    3476,
+    3508,
+    3567,
+    3567,
+    3590
+   ],
+   "rmseSolid": [
+    0.0414,
+    0.0396,
+    0.0399,
+    0.0421,
+    0.044
+   ],
+   "rmseDashed": [
+    0.0385,
+    0.0428,
+    0.0397,
+    0.0389,
+    0.0407
+   ],
+   "rmseGap": [
+    0.0498,
+    0.0501,
+    0.0505,
+    0.0517,
+    0.0501
+   ]
+  },
+  {
+   "id": "t02_c1",
+   "survey": "coconino",
+   "q2Spans": [
+    51,
+    53,
+    52,
+    47,
+    39
+   ],
+   "q2HiddenWorse": [
+    32,
+    35,
+    35,
+    29,
+    30
+   ],
+   "q3Kept": [
+    0,
+    2,
+    0,
+    2,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2117,
+    -0.2195,
+    -0.195,
+    -0.2056,
+    -0.2013
+   ],
+   "nSolid": [
+    1441,
+    1460,
+    1428,
+    1473,
+    1433
+   ],
+   "nDashed": [
+    4586,
+    4517,
+    4515,
+    4483,
+    4567
+   ],
+   "nGap": [
+    2622,
+    2672,
+    2709,
+    2683,
+    2658
+   ],
+   "rmseSolid": [
+    0.0282,
+    0.0255,
+    0.0263,
+    0.0262,
+    0.0254
+   ],
+   "rmseDashed": [
+    0.0327,
+    0.0314,
+    0.0331,
+    0.0319,
+    0.0315
+   ],
+   "rmseGap": [
+    0.0461,
+    0.047,
+    0.0464,
+    0.0466,
+    0.0456
+   ]
+  },
+  {
+   "id": "t02_c2",
+   "survey": "coconino",
+   "q2Spans": [
+    15,
+    12,
+    14,
+    8,
+    14
+   ],
+   "q2HiddenWorse": [
+    9,
+    6,
+    9,
+    4,
+    10
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1735,
+    -0.1915,
+    -0.1804,
+    -0.1746,
+    -0.1858
+   ],
+   "nSolid": [
+    789,
+    782,
+    768,
+    828,
+    792
+   ],
+   "nDashed": [
+    4543,
+    4600,
+    4573,
+    4478,
+    4516
+   ],
+   "nGap": [
+    3456,
+    3389,
+    3481,
+    3506,
+    3501
+   ],
+   "rmseSolid": [
+    0.0181,
+    0.0161,
+    0.0156,
+    0.0165,
+    0.0156
+   ],
+   "rmseDashed": [
+    0.02,
+    0.0203,
+    0.0203,
+    0.02,
+    0.0197
+   ],
+   "rmseGap": [
+    0.0272,
+    0.0278,
+    0.0274,
+    0.028,
+    0.0269
+   ]
+  },
+  {
+   "id": "t02_c3",
+   "survey": "coconino",
+   "q2Spans": [
+    30,
+    43,
+    27,
+    37,
+    24
+   ],
+   "q2HiddenWorse": [
+    20,
+    27,
+    14,
+    18,
+    16
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1378,
+    -0.1606,
+    -0.1478,
+    -0.1668,
+    -0.1673
+   ],
+   "nSolid": [
+    644,
+    687,
+    624,
+    631,
+    618
+   ],
+   "nDashed": [
+    5064,
+    5024,
+    5103,
+    5129,
+    5015
+   ],
+   "nGap": [
+    3240,
+    3241,
+    3233,
+    3211,
+    3313
+   ],
+   "rmseSolid": [
+    0.0249,
+    0.0256,
+    0.0239,
+    0.0246,
+    0.0254
+   ],
+   "rmseDashed": [
+    0.0279,
+    0.0276,
+    0.0269,
+    0.0276,
+    0.0275
+   ],
+   "rmseGap": [
+    0.0393,
+    0.039,
+    0.0378,
+    0.0384,
+    0.0398
+   ]
+  },
+  {
+   "id": "t02_c4",
+   "survey": "coconino",
+   "q2Spans": [
+    56,
+    59,
+    54,
+    54,
+    60
+   ],
+   "q2HiddenWorse": [
+    25,
+    31,
+    34,
+    38,
+    38
+   ],
+   "q3Kept": [
+    5,
+    7,
+    2,
+    2,
+    4
+   ],
+   "q3Downgraded": [
+    1,
+    2,
+    0,
+    2,
+    2
+   ],
+   "rho": [
+    -0.2407,
+    -0.237,
+    -0.2403,
+    -0.2502,
+    -0.2459
+   ],
+   "nSolid": [
+    1447,
+    1479,
+    1423,
+    1436,
+    1428
+   ],
+   "nDashed": [
+    3866,
+    3804,
+    3820,
+    3829,
+    3882
+   ],
+   "nGap": [
+    3076,
+    3093,
+    3074,
+    3026,
+    3084
+   ],
+   "rmseSolid": [
+    0.0265,
+    0.0272,
+    0.0249,
+    0.0253,
+    0.026
+   ],
+   "rmseDashed": [
+    0.038,
+    0.0385,
+    0.0394,
+    0.0386,
+    0.0364
+   ],
+   "rmseGap": [
+    0.0576,
+    0.0579,
+    0.0629,
+    0.0552,
+    0.0617
+   ]
+  },
+  {
+   "id": "t02_c5",
+   "survey": "coconino",
+   "q2Spans": [
+    19,
+    17,
+    14,
+    18,
+    17
+   ],
+   "q2HiddenWorse": [
+    13,
+    9,
+    8,
+    11,
+    12
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2268,
+    -0.2279,
+    -0.2238,
+    -0.2307,
+    -0.2257
+   ],
+   "nSolid": [
+    728,
+    755,
+    688,
+    711,
+    740
+   ],
+   "nDashed": [
+    4559,
+    4549,
+    4589,
+    4556,
+    4504
+   ],
+   "nGap": [
+    3222,
+    3202,
+    3192,
+    3223,
+    3222
+   ],
+   "rmseSolid": [
+    0.0173,
+    0.0183,
+    0.019,
+    0.0168,
+    0.0192
+   ],
+   "rmseDashed": [
+    0.0206,
+    0.02,
+    0.0197,
+    0.02,
+    0.0201
+   ],
+   "rmseGap": [
+    0.0277,
+    0.028,
+    0.028,
+    0.0281,
+    0.0284
+   ]
+  },
+  {
+   "id": "t02_c6",
+   "survey": "coconino",
+   "q2Spans": [
+    13,
+    18,
+    19,
+    20,
+    20
+   ],
+   "q2HiddenWorse": [
+    5,
+    12,
+    13,
+    12,
+    12
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1422,
+    -0.1253,
+    -0.1296,
+    -0.1398,
+    -0.1205
+   ],
+   "nSolid": [
+    420,
+    432,
+    421,
+    404,
+    392
+   ],
+   "nDashed": [
+    4907,
+    4918,
+    4858,
+    4947,
+    4898
+   ],
+   "nGap": [
+    3608,
+    3547,
+    3640,
+    3528,
+    3596
+   ],
+   "rmseSolid": [
+    0.0177,
+    0.0173,
+    0.0182,
+    0.0195,
+    0.0169
+   ],
+   "rmseDashed": [
+    0.0193,
+    0.0204,
+    0.0194,
+    0.0193,
+    0.0195
+   ],
+   "rmseGap": [
+    0.0257,
+    0.0258,
+    0.0255,
+    0.0261,
+    0.0254
+   ]
+  },
+  {
+   "id": "t02_c7",
+   "survey": "coconino",
+   "q2Spans": [
+    42,
+    43,
+    37,
+    28,
+    47
+   ],
+   "q2HiddenWorse": [
+    22,
+    30,
+    26,
+    18,
+    26
+   ],
+   "q3Kept": [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   "q3Downgraded": [
+    1,
+    0,
+    0,
+    1,
+    0
+   ],
+   "rho": [
+    -0.1303,
+    -0.1174,
+    -0.1175,
+    -0.1198,
+    -0.1141
+   ],
+   "nSolid": [
+    1211,
+    1251,
+    1207,
+    1221,
+    1226
+   ],
+   "nDashed": [
+    3918,
+    3951,
+    3919,
+    3979,
+    3845
+   ],
+   "nGap": [
+    3172,
+    3195,
+    3253,
+    3214,
+    3338
+   ],
+   "rmseSolid": [
+    0.0233,
+    0.0234,
+    0.0228,
+    0.0248,
+    0.0247
+   ],
+   "rmseDashed": [
+    0.0295,
+    0.0298,
+    0.0292,
+    0.0305,
+    0.0306
+   ],
+   "rmseGap": [
+    0.0386,
+    0.0396,
+    0.0403,
+    0.0411,
+    0.0394
+   ]
+  },
+  {
+   "id": "t02_c8",
+   "survey": "coconino",
+   "q2Spans": [
+    19,
+    25,
+    26,
+    18,
+    24
+   ],
+   "q2HiddenWorse": [
+    13,
+    13,
+    15,
+    8,
+    19
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1952,
+    -0.2076,
+    -0.1869,
+    -0.1914,
+    -0.1775
+   ],
+   "nSolid": [
+    1246,
+    1269,
+    1190,
+    1208,
+    1173
+   ],
+   "nDashed": [
+    5114,
+    5094,
+    5129,
+    5169,
+    5160
+   ],
+   "nGap": [
+    2547,
+    2556,
+    2568,
+    2516,
+    2542
+   ],
+   "rmseSolid": [
+    0.0162,
+    0.015,
+    0.0157,
+    0.0163,
+    0.016
+   ],
+   "rmseDashed": [
+    0.0171,
+    0.0168,
+    0.0168,
+    0.017,
+    0.0162
+   ],
+   "rmseGap": [
+    0.0246,
+    0.0251,
+    0.024,
+    0.0248,
+    0.025
+   ]
+  },
+  {
+   "id": "t03_c0",
+   "survey": "coconino",
+   "q2Spans": [
+    50,
+    54,
+    53,
+    55,
+    70
+   ],
+   "q2HiddenWorse": [
+    37,
+    32,
+    27,
+    32,
+    51
+   ],
+   "q3Kept": [
+    3,
+    5,
+    5,
+    7,
+    0
+   ],
+   "q3Downgraded": [
+    3,
+    3,
+    2,
+    3,
+    0
+   ],
+   "rho": [
+    -0.2419,
+    -0.2257,
+    -0.2408,
+    -0.2308,
+    -0.2334
+   ],
+   "nSolid": [
+    1464,
+    1451,
+    1451,
+    1448,
+    1401
+   ],
+   "nDashed": [
+    3703,
+    3725,
+    3693,
+    3651,
+    3822
+   ],
+   "nGap": [
+    3005,
+    2990,
+    3051,
+    3110,
+    2969
+   ],
+   "rmseSolid": [
+    0.0284,
+    0.0297,
+    0.0288,
+    0.0301,
+    0.0297
+   ],
+   "rmseDashed": [
+    0.0394,
+    0.038,
+    0.0377,
+    0.0397,
+    0.0392
+   ],
+   "rmseGap": [
+    0.0519,
+    0.05,
+    0.0522,
+    0.0527,
+    0.0521
+   ]
+  },
+  {
+   "id": "t03_c1",
+   "survey": "coconino",
+   "q2Spans": [
+    77,
+    64,
+    69,
+    69,
+    64
+   ],
+   "q2HiddenWorse": [
+    50,
+    39,
+    34,
+    42,
+    39
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1344,
+    -0.1449,
+    -0.1513,
+    -0.1413,
+    -0.1502
+   ],
+   "nSolid": [
+    369,
+    402,
+    379,
+    360,
+    364
+   ],
+   "nDashed": [
+    5140,
+    5119,
+    5091,
+    5161,
+    5127
+   ],
+   "nGap": [
+    1891,
+    1918,
+    1932,
+    1947,
+    1910
+   ],
+   "rmseSolid": [
+    0.0306,
+    0.0312,
+    0.0285,
+    0.0311,
+    0.0299
+   ],
+   "rmseDashed": [
+    0.039,
+    0.0408,
+    0.04,
+    0.0396,
+    0.0405
+   ],
+   "rmseGap": [
+    0.0509,
+    0.0517,
+    0.0499,
+    0.0507,
+    0.0506
+   ]
+  },
+  {
+   "id": "t03_c2",
+   "survey": "coconino",
+   "q2Spans": [
+    62,
+    57,
+    76,
+    53,
+    66
+   ],
+   "q2HiddenWorse": [
+    27,
+    28,
+    41,
+    27,
+    36
+   ],
+   "q3Kept": [
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1993,
+    -0.1956,
+    -0.2039,
+    -0.213,
+    -0.1866
+   ],
+   "nSolid": [
+    822,
+    854,
+    805,
+    797,
+    767
+   ],
+   "nDashed": [
+    3849,
+    3871,
+    3899,
+    3879,
+    3955
+   ],
+   "nGap": [
+    3012,
+    2932,
+    3010,
+    3015,
+    2992
+   ],
+   "rmseSolid": [
+    0.0363,
+    0.0385,
+    0.0375,
+    0.0375,
+    0.0375
+   ],
+   "rmseDashed": [
+    0.0444,
+    0.0452,
+    0.0459,
+    0.044,
+    0.0449
+   ],
+   "rmseGap": [
+    0.0639,
+    0.0629,
+    0.0627,
+    0.0669,
+    0.0651
+   ]
+  },
+  {
+   "id": "t03_c3",
+   "survey": "coconino",
+   "q2Spans": [
+    54,
+    63,
+    56,
+    63,
+    62
+   ],
+   "q2HiddenWorse": [
+    34,
+    35,
+    35,
+    35,
+    33
+   ],
+   "q3Kept": [
+    0,
+    2,
+    1,
+    1,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1649,
+    -0.1526,
+    -0.1647,
+    -0.1516,
+    -0.1561
+   ],
+   "nSolid": [
+    1211,
+    1293,
+    1265,
+    1219,
+    1199
+   ],
+   "nDashed": [
+    4821,
+    4725,
+    4757,
+    4789,
+    4782
+   ],
+   "nGap": [
+    2761,
+    2763,
+    2794,
+    2791,
+    2812
+   ],
+   "rmseSolid": [
+    0.0295,
+    0.0297,
+    0.031,
+    0.0297,
+    0.0303
+   ],
+   "rmseDashed": [
+    0.034,
+    0.0336,
+    0.0337,
+    0.0339,
+    0.0342
+   ],
+   "rmseGap": [
+    0.0434,
+    0.0428,
+    0.0443,
+    0.0435,
+    0.0438
+   ]
+  },
+  {
+   "id": "t03_c4",
+   "survey": "coconino",
+   "q2Spans": [
+    44,
+    38,
+    33,
+    29,
+    43
+   ],
+   "q2HiddenWorse": [
+    27,
+    23,
+    16,
+    13,
+    30
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1442,
+    -0.1564,
+    -0.1545,
+    -0.1439,
+    -0.1443
+   ],
+   "nSolid": [
+    457,
+    491,
+    457,
+    469,
+    462
+   ],
+   "nDashed": [
+    3876,
+    3852,
+    3856,
+    3853,
+    3730
+   ],
+   "nGap": [
+    3597,
+    3617,
+    3670,
+    3634,
+    3705
+   ],
+   "rmseSolid": [
+    0.0346,
+    0.0353,
+    0.0334,
+    0.0333,
+    0.0354
+   ],
+   "rmseDashed": [
+    0.0359,
+    0.0363,
+    0.0366,
+    0.0363,
+    0.0364
+   ],
+   "rmseGap": [
+    0.0468,
+    0.047,
+    0.047,
+    0.0467,
+    0.0468
+   ]
+  },
+  {
+   "id": "t03_c5",
+   "survey": "coconino",
+   "q2Spans": [
+    138,
+    134,
+    141,
+    138,
+    131
+   ],
+   "q2HiddenWorse": [
+    83,
+    89,
+    90,
+    64,
+    86
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1524,
+    -0.165,
+    -0.1644,
+    -0.1433,
+    -0.1599
+   ],
+   "nSolid": [
+    263,
+    281,
+    262,
+    248,
+    225
+   ],
+   "nDashed": [
+    4572,
+    4550,
+    4474,
+    4569,
+    4622
+   ],
+   "nGap": [
+    1708,
+    1746,
+    1790,
+    1728,
+    1715
+   ],
+   "rmseSolid": [
+    0.0786,
+    0.0661,
+    0.0661,
+    0.0748,
+    0.0739
+   ],
+   "rmseDashed": [
+    0.0947,
+    0.092,
+    0.0923,
+    0.0906,
+    0.0927
+   ],
+   "rmseGap": [
+    0.1141,
+    0.1159,
+    0.1183,
+    0.1142,
+    0.1178
+   ]
+  },
+  {
+   "id": "t03_c6",
+   "survey": "coconino",
+   "q2Spans": [
+    61,
+    70,
+    82,
+    72,
+    66
+   ],
+   "q2HiddenWorse": [
+    35,
+    41,
+    40,
+    45,
+    39
+   ],
+   "q3Kept": [
+    0,
+    0,
+    2,
+    2,
+    1
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1995,
+    -0.2036,
+    -0.2032,
+    -0.2012,
+    -0.2104
+   ],
+   "nSolid": [
+    357,
+    350,
+    342,
+    368,
+    360
+   ],
+   "nDashed": [
+    4636,
+    4682,
+    4640,
+    4621,
+    4664
+   ],
+   "nGap": [
+    2035,
+    1993,
+    2025,
+    2034,
+    2036
+   ],
+   "rmseSolid": [
+    0.0297,
+    0.03,
+    0.0313,
+    0.0284,
+    0.0303
+   ],
+   "rmseDashed": [
+    0.0417,
+    0.0428,
+    0.0428,
+    0.0428,
+    0.0419
+   ],
+   "rmseGap": [
+    0.0555,
+    0.0546,
+    0.054,
+    0.0547,
+    0.0552
+   ]
+  },
+  {
+   "id": "t03_c7",
+   "survey": "coconino",
+   "q2Spans": [
+    53,
+    53,
+    58,
+    66,
+    62
+   ],
+   "q2HiddenWorse": [
+    33,
+    35,
+    40,
+    46,
+    36
+   ],
+   "q3Kept": [
+    4,
+    6,
+    3,
+    4,
+    6
+   ],
+   "q3Downgraded": [
+    1,
+    0,
+    1,
+    2,
+    1
+   ],
+   "rho": [
+    -0.2738,
+    -0.2744,
+    -0.2734,
+    -0.2671,
+    -0.2748
+   ],
+   "nSolid": [
+    1888,
+    1949,
+    1943,
+    1943,
+    1936
+   ],
+   "nDashed": [
+    3249,
+    3271,
+    3218,
+    3195,
+    3185
+   ],
+   "nGap": [
+    2943,
+    2859,
+    2923,
+    2949,
+    2935
+   ],
+   "rmseSolid": [
+    0.0244,
+    0.026,
+    0.0255,
+    0.0252,
+    0.0255
+   ],
+   "rmseDashed": [
+    0.0359,
+    0.0354,
+    0.0362,
+    0.0351,
+    0.0364
+   ],
+   "rmseGap": [
+    0.0476,
+    0.0473,
+    0.0478,
+    0.047,
+    0.0473
+   ]
+  },
+  {
+   "id": "t03_c8",
+   "survey": "coconino",
+   "q2Spans": [
+    138,
+    151,
+    136,
+    144,
+    137
+   ],
+   "q2HiddenWorse": [
+    96,
+    111,
+    87,
+    98,
+    83
+   ],
+   "q3Kept": [
+    1,
+    0,
+    0,
+    1,
+    1
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "rho": [
+    -0.1656,
+    -0.1687,
+    -0.1684,
+    -0.167,
+    -0.1604
+   ],
+   "nSolid": [
+    1758,
+    1695,
+    1740,
+    1740,
+    1696
+   ],
+   "nDashed": [
+    4760,
+    4857,
+    4757,
+    4761,
+    4805
+   ],
+   "nGap": [
+    2401,
+    2340,
+    2395,
+    2414,
+    2372
+   ],
+   "rmseSolid": [
+    0.0544,
+    0.0521,
+    0.0541,
+    0.0523,
+    0.0581
+   ],
+   "rmseDashed": [
+    0.0624,
+    0.0627,
+    0.0638,
+    0.0643,
+    0.0631
+   ],
+   "rmseGap": [
+    0.0904,
+    0.0896,
+    0.0882,
+    0.091,
+    0.0899
+   ]
+  },
+  {
+   "id": "t04_c0",
+   "survey": "coconino",
+   "q2Spans": [
+    56,
+    48,
+    50,
+    55,
+    50
+   ],
+   "q2HiddenWorse": [
+    29,
+    29,
+    36,
+    27,
+    21
+   ],
+   "q3Kept": [
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1704,
+    -0.1634,
+    -0.178,
+    -0.173,
+    -0.1627
+   ],
+   "nSolid": [
+    950,
+    933,
+    899,
+    913,
+    917
+   ],
+   "nDashed": [
+    4719,
+    4767,
+    4805,
+    4797,
+    4739
+   ],
+   "nGap": [
+    2960,
+    2895,
+    2918,
+    2895,
+    2962
+   ],
+   "rmseSolid": [
+    0.0298,
+    0.0305,
+    0.0295,
+    0.0293,
+    0.0313
+   ],
+   "rmseDashed": [
+    0.0314,
+    0.0315,
+    0.0314,
+    0.0312,
+    0.0315
+   ],
+   "rmseGap": [
+    0.0444,
+    0.0444,
+    0.0429,
+    0.0436,
+    0.0433
+   ]
+  },
+  {
+   "id": "t04_c1",
+   "survey": "coconino",
+   "q2Spans": [
+    113,
+    116,
+    101,
+    103,
+    106
+   ],
+   "q2HiddenWorse": [
+    67,
+    63,
+    68,
+    67,
+    72
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0824,
+    -0.0869,
+    -0.1059,
+    -0.0993,
+    -0.1034
+   ],
+   "nSolid": [
+    1520,
+    1527,
+    1476,
+    1495,
+    1470
+   ],
+   "nDashed": [
+    5670,
+    5684,
+    5683,
+    5699,
+    5684
+   ],
+   "nGap": [
+    1957,
+    1933,
+    2006,
+    1987,
+    1990
+   ],
+   "rmseSolid": [
+    0.039,
+    0.0384,
+    0.038,
+    0.0385,
+    0.0383
+   ],
+   "rmseDashed": [
+    0.0382,
+    0.038,
+    0.0377,
+    0.0381,
+    0.0378
+   ],
+   "rmseGap": [
+    0.0504,
+    0.0494,
+    0.0514,
+    0.0518,
+    0.0512
+   ]
+  },
+  {
+   "id": "t04_c2",
+   "survey": "coconino",
+   "q2Spans": [
+    95,
+    91,
+    95,
+    93,
+    104
+   ],
+   "q2HiddenWorse": [
+    52,
+    60,
+    50,
+    59,
+    63
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2275,
+    -0.2241,
+    -0.2291,
+    -0.2294,
+    -0.2271
+   ],
+   "nSolid": [
+    949,
+    960,
+    932,
+    974,
+    967
+   ],
+   "nDashed": [
+    4010,
+    4025,
+    4003,
+    3960,
+    3958
+   ],
+   "nGap": [
+    2882,
+    2878,
+    2919,
+    2876,
+    2929
+   ],
+   "rmseSolid": [
+    0.0457,
+    0.0436,
+    0.0404,
+    0.0407,
+    0.0424
+   ],
+   "rmseDashed": [
+    0.0575,
+    0.0575,
+    0.0538,
+    0.0569,
+    0.0551
+   ],
+   "rmseGap": [
+    0.0812,
+    0.081,
+    0.0797,
+    0.078,
+    0.0794
+   ]
+  },
+  {
+   "id": "t04_c3",
+   "survey": "coconino",
+   "q2Spans": [
+    77,
+    76,
+    69,
+    83,
+    58
+   ],
+   "q2HiddenWorse": [
+    46,
+    42,
+    41,
+    50,
+    38
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0873,
+    -0.1088,
+    -0.1209,
+    -0.1193,
+    -0.1295
+   ],
+   "nSolid": [
+    1174,
+    1224,
+    1186,
+    1147,
+    1172
+   ],
+   "nDashed": [
+    5612,
+    5634,
+    5606,
+    5689,
+    5661
+   ],
+   "nGap": [
+    2473,
+    2401,
+    2505,
+    2425,
+    2461
+   ],
+   "rmseSolid": [
+    0.034,
+    0.0342,
+    0.0336,
+    0.0346,
+    0.0315
+   ],
+   "rmseDashed": [
+    0.0334,
+    0.0337,
+    0.0328,
+    0.0335,
+    0.0336
+   ],
+   "rmseGap": [
+    0.0451,
+    0.0466,
+    0.0469,
+    0.0478,
+    0.0482
+   ]
+  },
+  {
+   "id": "t04_c4",
+   "survey": "coconino",
+   "q2Spans": [
+    113,
+    110,
+    109,
+    93,
+    104
+   ],
+   "q2HiddenWorse": [
+    63,
+    65,
+    70,
+    50,
+    62
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1098,
+    -0.0976,
+    -0.0961,
+    -0.0774,
+    -0.0845
+   ],
+   "nSolid": [
+    1821,
+    1842,
+    1778,
+    1774,
+    1793
+   ],
+   "nDashed": [
+    5918,
+    5978,
+    5986,
+    6018,
+    5944
+   ],
+   "nGap": [
+    1915,
+    1831,
+    1881,
+    1862,
+    1904
+   ],
+   "rmseSolid": [
+    0.0334,
+    0.0341,
+    0.0345,
+    0.0344,
+    0.0355
+   ],
+   "rmseDashed": [
+    0.0345,
+    0.0358,
+    0.0353,
+    0.035,
+    0.0348
+   ],
+   "rmseGap": [
+    0.0485,
+    0.0501,
+    0.047,
+    0.0508,
+    0.0486
+   ]
+  },
+  {
+   "id": "t04_c5",
+   "survey": "coconino",
+   "q2Spans": [
+    59,
+    57,
+    50,
+    51,
+    56
+   ],
+   "q2HiddenWorse": [
+    32,
+    29,
+    32,
+    26,
+    37
+   ],
+   "q3Kept": [
+    2,
+    3,
+    4,
+    2,
+    2
+   ],
+   "q3Downgraded": [
+    2,
+    1,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.268,
+    -0.2659,
+    -0.2696,
+    -0.2529,
+    -0.2571
+   ],
+   "nSolid": [
+    1226,
+    1217,
+    1220,
+    1242,
+    1234
+   ],
+   "nDashed": [
+    2901,
+    2872,
+    2834,
+    2821,
+    2805
+   ],
+   "nGap": [
+    3636,
+    3655,
+    3684,
+    3728,
+    3701
+   ],
+   "rmseSolid": [
+    0.0261,
+    0.026,
+    0.0247,
+    0.0251,
+    0.0254
+   ],
+   "rmseDashed": [
+    0.0415,
+    0.0409,
+    0.0405,
+    0.0411,
+    0.0426
+   ],
+   "rmseGap": [
+    0.0561,
+    0.0562,
+    0.0559,
+    0.0564,
+    0.0571
+   ]
+  },
+  {
+   "id": "t04_c6",
+   "survey": "coconino",
+   "q2Spans": [
+    93,
+    87,
+    93,
+    95,
+    101
+   ],
+   "q2HiddenWorse": [
+    55,
+    46,
+    53,
+    62,
+    57
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2584,
+    -0.2583,
+    -0.2548,
+    -0.2803,
+    -0.279
+   ],
+   "nSolid": [
+    415,
+    390,
+    374,
+    374,
+    368
+   ],
+   "nDashed": [
+    5237,
+    5344,
+    5384,
+    5418,
+    5317
+   ],
+   "nGap": [
+    2281,
+    2188,
+    2220,
+    2178,
+    2256
+   ],
+   "rmseSolid": [
+    0.0434,
+    0.0458,
+    0.0435,
+    0.0386,
+    0.0412
+   ],
+   "rmseDashed": [
+    0.0729,
+    0.0717,
+    0.0721,
+    0.0707,
+    0.0702
+   ],
+   "rmseGap": [
+    0.101,
+    0.1,
+    0.0989,
+    0.1036,
+    0.103
+   ]
+  },
+  {
+   "id": "t04_c7",
+   "survey": "coconino",
+   "q2Spans": [
+    106,
+    110,
+    115,
+    111,
+    100
+   ],
+   "q2HiddenWorse": [
+    65,
+    68,
+    65,
+    71,
+    61
+   ],
+   "q3Kept": [
+    5,
+    4,
+    8,
+    8,
+    4
+   ],
+   "q3Downgraded": [
+    0,
+    1,
+    0,
+    1,
+    1
+   ],
+   "rho": [
+    -0.125,
+    -0.118,
+    -0.1223,
+    -0.1217,
+    -0.1141
+   ],
+   "nSolid": [
+    2653,
+    2628,
+    2596,
+    2645,
+    2634
+   ],
+   "nDashed": [
+    5517,
+    5535,
+    5580,
+    5506,
+    5533
+   ],
+   "nGap": [
+    1592,
+    1587,
+    1591,
+    1611,
+    1575
+   ],
+   "rmseSolid": [
+    0.0279,
+    0.0273,
+    0.0276,
+    0.0279,
+    0.0282
+   ],
+   "rmseDashed": [
+    0.0301,
+    0.0312,
+    0.031,
+    0.0305,
+    0.0305
+   ],
+   "rmseGap": [
+    0.0412,
+    0.04,
+    0.0409,
+    0.0417,
+    0.0399
+   ]
+  },
+  {
+   "id": "t04_c8",
+   "survey": "coconino",
+   "q2Spans": [
+    112,
+    107,
+    116,
+    116,
+    111
+   ],
+   "q2HiddenWorse": [
+    75,
+    73,
+    67,
+    79,
+    62
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.092,
+    -0.1014,
+    -0.0995,
+    -0.1037,
+    -0.1123
+   ],
+   "nSolid": [
+    960,
+    1002,
+    910,
+    948,
+    889
+   ],
+   "nDashed": [
+    6072,
+    5950,
+    6023,
+    5973,
+    6060
+   ],
+   "nGap": [
+    2551,
+    2608,
+    2672,
+    2626,
+    2636
+   ],
+   "rmseSolid": [
+    0.0611,
+    0.0593,
+    0.06,
+    0.0559,
+    0.0557
+   ],
+   "rmseDashed": [
+    0.0606,
+    0.06,
+    0.0608,
+    0.0618,
+    0.0592
+   ],
+   "rmseGap": [
+    0.0814,
+    0.0811,
+    0.0827,
+    0.0804,
+    0.082
+   ]
+  },
+  {
+   "id": "t05_c0",
+   "survey": "coconino",
+   "q2Spans": [
+    68,
+    83,
+    67,
+    63,
+    68
+   ],
+   "q2HiddenWorse": [
+    46,
+    44,
+    38,
+    35,
+    38
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1211,
+    -0.1164,
+    -0.1237,
+    -0.1259,
+    -0.1046
+   ],
+   "nSolid": [
+    1173,
+    1159,
+    1156,
+    1162,
+    1151
+   ],
+   "nDashed": [
+    5624,
+    5702,
+    5642,
+    5628,
+    5635
+   ],
+   "nGap": [
+    2161,
+    2109,
+    2166,
+    2185,
+    2175
+   ],
+   "rmseSolid": [
+    0.033,
+    0.0307,
+    0.031,
+    0.0332,
+    0.0334
+   ],
+   "rmseDashed": [
+    0.0323,
+    0.0329,
+    0.0337,
+    0.0324,
+    0.0335
+   ],
+   "rmseGap": [
+    0.0485,
+    0.0502,
+    0.0454,
+    0.048,
+    0.0477
+   ]
+  },
+  {
+   "id": "t05_c1",
+   "survey": "coconino",
+   "q2Spans": [
+    44,
+    47,
+    47,
+    42,
+    50
+   ],
+   "q2HiddenWorse": [
+    25,
+    27,
+    29,
+    26,
+    30
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1614,
+    -0.1553,
+    -0.1621,
+    -0.1359,
+    -0.1576
+   ],
+   "nSolid": [
+    505,
+    506,
+    535,
+    477,
+    510
+   ],
+   "nDashed": [
+    4805,
+    4823,
+    4730,
+    4800,
+    4747
+   ],
+   "nGap": [
+    3567,
+    3493,
+    3577,
+    3581,
+    3587
+   ],
+   "rmseSolid": [
+    0.0355,
+    0.0365,
+    0.0375,
+    0.0381,
+    0.0344
+   ],
+   "rmseDashed": [
+    0.0417,
+    0.0423,
+    0.0418,
+    0.0415,
+    0.0413
+   ],
+   "rmseGap": [
+    0.0531,
+    0.0537,
+    0.0537,
+    0.0521,
+    0.0528
+   ]
+  },
+  {
+   "id": "t05_c2",
+   "survey": "coconino",
+   "q2Spans": [
+    73,
+    85,
+    80,
+    85,
+    74
+   ],
+   "q2HiddenWorse": [
+    42,
+    56,
+    44,
+    52,
+    47
+   ],
+   "q3Kept": [
+    1,
+    1,
+    0,
+    0,
+    1
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1131,
+    -0.1281,
+    -0.1311,
+    -0.1397,
+    -0.1137
+   ],
+   "nSolid": [
+    1088,
+    1109,
+    1061,
+    1082,
+    1072
+   ],
+   "nDashed": [
+    5643,
+    5636,
+    5660,
+    5614,
+    5632
+   ],
+   "nGap": [
+    2476,
+    2497,
+    2485,
+    2496,
+    2540
+   ],
+   "rmseSolid": [
+    0.0376,
+    0.0381,
+    0.0375,
+    0.0381,
+    0.0396
+   ],
+   "rmseDashed": [
+    0.0387,
+    0.0384,
+    0.038,
+    0.0383,
+    0.0382
+   ],
+   "rmseGap": [
+    0.0539,
+    0.0536,
+    0.054,
+    0.0533,
+    0.0527
+   ]
+  },
+  {
+   "id": "t05_c3",
+   "survey": "coconino",
+   "q2Spans": [
+    12,
+    10,
+    14,
+    15,
+    14
+   ],
+   "q2HiddenWorse": [
+    9,
+    7,
+    8,
+    7,
+    12
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1573,
+    -0.1475,
+    -0.1502,
+    -0.1554,
+    -0.1439
+   ],
+   "nSolid": [
+    1119,
+    1110,
+    1076,
+    1080,
+    1085
+   ],
+   "nDashed": [
+    5723,
+    5759,
+    5768,
+    5804,
+    5745
+   ],
+   "nGap": [
+    2337,
+    2306,
+    2331,
+    2328,
+    2315
+   ],
+   "rmseSolid": [
+    0.0134,
+    0.0149,
+    0.0139,
+    0.0142,
+    0.0144
+   ],
+   "rmseDashed": [
+    0.0157,
+    0.0154,
+    0.0155,
+    0.0151,
+    0.0158
+   ],
+   "rmseGap": [
+    0.0253,
+    0.0255,
+    0.0254,
+    0.0262,
+    0.0244
+   ]
+  },
+  {
+   "id": "t05_c4",
+   "survey": "coconino",
+   "q2Spans": [
+    68,
+    73,
+    78,
+    64,
+    68
+   ],
+   "q2HiddenWorse": [
+    38,
+    44,
+    46,
+    40,
+    41
+   ],
+   "q3Kept": [
+    31,
+    29,
+    34,
+    25,
+    24
+   ],
+   "q3Downgraded": [
+    15,
+    14,
+    24,
+    12,
+    14
+   ],
+   "rho": [
+    -0.254,
+    -0.2551,
+    -0.2763,
+    -0.2644,
+    -0.2683
+   ],
+   "nSolid": [
+    3725,
+    3715,
+    3711,
+    3687,
+    3660
+   ],
+   "nDashed": [
+    3186,
+    3173,
+    3159,
+    3167,
+    3163
+   ],
+   "nGap": [
+    2717,
+    2763,
+    2779,
+    2769,
+    2800
+   ],
+   "rmseSolid": [
+    0.0239,
+    0.024,
+    0.0227,
+    0.0234,
+    0.0233
+   ],
+   "rmseDashed": [
+    0.0317,
+    0.0313,
+    0.0317,
+    0.0316,
+    0.0311
+   ],
+   "rmseGap": [
+    0.0397,
+    0.04,
+    0.0401,
+    0.039,
+    0.0395
+   ]
+  },
+  {
+   "id": "t05_c5",
+   "survey": "coconino",
+   "q2Spans": [
+    136,
+    137,
+    146,
+    141,
+    123
+   ],
+   "q2HiddenWorse": [
+    83,
+    88,
+    96,
+    95,
+    72
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1318,
+    -0.1223,
+    -0.151,
+    -0.1281,
+    -0.1296
+   ],
+   "nSolid": [
+    1225,
+    1198,
+    1179,
+    1174,
+    1171
+   ],
+   "nDashed": [
+    5519,
+    5594,
+    5578,
+    5639,
+    5567
+   ],
+   "nGap": [
+    2381,
+    2317,
+    2393,
+    2288,
+    2403
+   ],
+   "rmseSolid": [
+    0.0529,
+    0.0529,
+    0.0515,
+    0.0541,
+    0.0545
+   ],
+   "rmseDashed": [
+    0.0537,
+    0.0531,
+    0.0524,
+    0.0519,
+    0.0514
+   ],
+   "rmseGap": [
+    0.0759,
+    0.0738,
+    0.0759,
+    0.0721,
+    0.0757
+   ]
+  },
+  {
+   "id": "t05_c6",
+   "survey": "coconino",
+   "q2Spans": [
+    24,
+    27,
+    22,
+    28,
+    23
+   ],
+   "q2HiddenWorse": [
+    10,
+    13,
+    8,
+    16,
+    17
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0894,
+    -0.0818,
+    -0.0974,
+    -0.0837,
+    -0.099
+   ],
+   "nSolid": [
+    1130,
+    1172,
+    1101,
+    1130,
+    1137
+   ],
+   "nDashed": [
+    6278,
+    6216,
+    6262,
+    6267,
+    6196
+   ],
+   "nGap": [
+    2132,
+    2140,
+    2156,
+    2119,
+    2170
+   ],
+   "rmseSolid": [
+    0.0168,
+    0.0183,
+    0.0179,
+    0.0178,
+    0.0172
+   ],
+   "rmseDashed": [
+    0.0168,
+    0.0165,
+    0.0167,
+    0.0168,
+    0.017
+   ],
+   "rmseGap": [
+    0.0239,
+    0.0239,
+    0.0243,
+    0.024,
+    0.0246
+   ]
+  },
+  {
+   "id": "t05_c7",
+   "survey": "coconino",
+   "q2Spans": [
+    109,
+    100,
+    98,
+    109,
+    84
+   ],
+   "q2HiddenWorse": [
+    78,
+    60,
+    63,
+    72,
+    56
+   ],
+   "q3Kept": [
+    35,
+    40,
+    34,
+    36,
+    31
+   ],
+   "q3Downgraded": [
+    24,
+    15,
+    14,
+    18,
+    11
+   ],
+   "rho": [
+    -0.2217,
+    -0.2174,
+    -0.2235,
+    -0.2275,
+    -0.2296
+   ],
+   "nSolid": [
+    4054,
+    4088,
+    3995,
+    4080,
+    4078
+   ],
+   "nDashed": [
+    2759,
+    2706,
+    2799,
+    2700,
+    2669
+   ],
+   "nGap": [
+    2610,
+    2632,
+    2630,
+    2637,
+    2688
+   ],
+   "rmseSolid": [
+    0.0247,
+    0.0252,
+    0.0248,
+    0.0243,
+    0.026
+   ],
+   "rmseDashed": [
+    0.0309,
+    0.0314,
+    0.0312,
+    0.0315,
+    0.0315
+   ],
+   "rmseGap": [
+    0.045,
+    0.0438,
+    0.0454,
+    0.0461,
+    0.0454
+   ]
+  },
+  {
+   "id": "t05_c8",
+   "survey": "coconino",
+   "q2Spans": [
+    106,
+    121,
+    112,
+    118,
+    98
+   ],
+   "q2HiddenWorse": [
+    59,
+    79,
+    66,
+    71,
+    54
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1514,
+    -0.1531,
+    -0.1608,
+    -0.147,
+    -0.1591
+   ],
+   "nSolid": [
+    512,
+    464,
+    455,
+    463,
+    453
+   ],
+   "nDashed": [
+    4347,
+    4465,
+    4461,
+    4458,
+    4386
+   ],
+   "nGap": [
+    3305,
+    3210,
+    3193,
+    3208,
+    3288
+   ],
+   "rmseSolid": [
+    0.0691,
+    0.0758,
+    0.0805,
+    0.075,
+    0.0715
+   ],
+   "rmseDashed": [
+    0.0712,
+    0.0713,
+    0.0713,
+    0.0716,
+    0.0738
+   ],
+   "rmseGap": [
+    0.0966,
+    0.0973,
+    0.0985,
+    0.0947,
+    0.0986
+   ]
+  },
+  {
+   "id": "t06_c0",
+   "survey": "coconino",
+   "q2Spans": [
+    42,
+    43,
+    42,
+    49,
+    39
+   ],
+   "q2HiddenWorse": [
+    27,
+    23,
+    27,
+    24,
+    25
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "rho": [
+    -0.1751,
+    -0.161,
+    -0.164,
+    -0.1704,
+    -0.1756
+   ],
+   "nSolid": [
+    576,
+    564,
+    566,
+    586,
+    579
+   ],
+   "nDashed": [
+    3934,
+    3991,
+    3997,
+    3953,
+    3940
+   ],
+   "nGap": [
+    3939,
+    3894,
+    3920,
+    4006,
+    3961
+   ],
+   "rmseSolid": [
+    0.0308,
+    0.0297,
+    0.029,
+    0.0283,
+    0.028
+   ],
+   "rmseDashed": [
+    0.0359,
+    0.0364,
+    0.0363,
+    0.0369,
+    0.0355
+   ],
+   "rmseGap": [
+    0.0445,
+    0.0465,
+    0.0462,
+    0.0455,
+    0.0458
+   ]
+  },
+  {
+   "id": "t06_c1",
+   "survey": "coconino",
+   "q2Spans": [
+    30,
+    36,
+    41,
+    50,
+    37
+   ],
+   "q2HiddenWorse": [
+    19,
+    16,
+    21,
+    26,
+    13
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.159,
+    -0.1361,
+    -0.1373,
+    -0.1412,
+    -0.1547
+   ],
+   "nSolid": [
+    455,
+    440,
+    405,
+    457,
+    435
+   ],
+   "nDashed": [
+    4616,
+    4664,
+    4687,
+    4679,
+    4666
+   ],
+   "nGap": [
+    3373,
+    3357,
+    3327,
+    3344,
+    3335
+   ],
+   "rmseSolid": [
+    0.0269,
+    0.0308,
+    0.0279,
+    0.0287,
+    0.03
+   ],
+   "rmseDashed": [
+    0.03,
+    0.0299,
+    0.0294,
+    0.0292,
+    0.0297
+   ],
+   "rmseGap": [
+    0.0401,
+    0.0399,
+    0.0397,
+    0.0397,
+    0.0403
+   ]
+  },
+  {
+   "id": "t06_c2",
+   "survey": "coconino",
+   "q2Spans": [
+    56,
+    61,
+    59,
+    61,
+    64
+   ],
+   "q2HiddenWorse": [
+    27,
+    32,
+    36,
+    41,
+    41
+   ],
+   "q3Kept": [
+    8,
+    7,
+    11,
+    11,
+    12
+   ],
+   "q3Downgraded": [
+    5,
+    3,
+    6,
+    6,
+    4
+   ],
+   "rho": [
+    -0.1977,
+    -0.2027,
+    -0.1951,
+    -0.2071,
+    -0.2017
+   ],
+   "nSolid": [
+    2030,
+    2079,
+    2013,
+    2021,
+    2008
+   ],
+   "nDashed": [
+    5263,
+    5213,
+    5249,
+    5265,
+    5264
+   ],
+   "nGap": [
+    2235,
+    2233,
+    2250,
+    2230,
+    2262
+   ],
+   "rmseSolid": [
+    0.0209,
+    0.0208,
+    0.0201,
+    0.0205,
+    0.0203
+   ],
+   "rmseDashed": [
+    0.0258,
+    0.0258,
+    0.0253,
+    0.0246,
+    0.0252
+   ],
+   "rmseGap": [
+    0.036,
+    0.0354,
+    0.0348,
+    0.0359,
+    0.0353
+   ]
+  },
+  {
+   "id": "t06_c3",
+   "survey": "coconino",
+   "q2Spans": [
+    52,
+    55,
+    46,
+    60,
+    59
+   ],
+   "q2HiddenWorse": [
+    26,
+    33,
+    23,
+    35,
+    39
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0163,
+    -0.0295,
+    -0.0158,
+    -0.0317,
+    -0.0378
+   ],
+   "nSolid": [
+    877,
+    908,
+    861,
+    873,
+    810
+   ],
+   "nDashed": [
+    5388,
+    5357,
+    5382,
+    5445,
+    5445
+   ],
+   "nGap": [
+    2980,
+    2980,
+    2985,
+    2934,
+    2981
+   ],
+   "rmseSolid": [
+    0.0409,
+    0.0401,
+    0.0399,
+    0.0389,
+    0.0368
+   ],
+   "rmseDashed": [
+    0.0333,
+    0.0333,
+    0.0335,
+    0.0335,
+    0.034
+   ],
+   "rmseGap": [
+    0.0358,
+    0.0352,
+    0.0358,
+    0.0354,
+    0.0359
+   ]
+  },
+  {
+   "id": "t06_c4",
+   "survey": "coconino",
+   "q2Spans": [
+    53,
+    40,
+    49,
+    46,
+    35
+   ],
+   "q2HiddenWorse": [
+    34,
+    22,
+    25,
+    27,
+    14
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1371,
+    -0.1176,
+    -0.1293,
+    -0.1395,
+    -0.1252
+   ],
+   "nSolid": [
+    691,
+    704,
+    680,
+    678,
+    691
+   ],
+   "nDashed": [
+    5194,
+    5144,
+    5095,
+    5129,
+    5097
+   ],
+   "nGap": [
+    2950,
+    3019,
+    3066,
+    3029,
+    3055
+   ],
+   "rmseSolid": [
+    0.0266,
+    0.0281,
+    0.0272,
+    0.0261,
+    0.0258
+   ],
+   "rmseDashed": [
+    0.0273,
+    0.0284,
+    0.0259,
+    0.0278,
+    0.0266
+   ],
+   "rmseGap": [
+    0.0368,
+    0.0363,
+    0.036,
+    0.0363,
+    0.038
+   ]
+  },
+  {
+   "id": "t06_c5",
+   "survey": "coconino",
+   "q2Spans": [
+    65,
+    71,
+    64,
+    65,
+    72
+   ],
+   "q2HiddenWorse": [
+    40,
+    35,
+    40,
+    39,
+    37
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1061,
+    -0.0898,
+    -0.1073,
+    -0.0837,
+    -0.0932
+   ],
+   "nSolid": [
+    1190,
+    1169,
+    1156,
+    1132,
+    1095
+   ],
+   "nDashed": [
+    5622,
+    5661,
+    5623,
+    5674,
+    5696
+   ],
+   "nGap": [
+    2629,
+    2568,
+    2604,
+    2574,
+    2608
+   ],
+   "rmseSolid": [
+    0.0309,
+    0.0295,
+    0.03,
+    0.032,
+    0.0332
+   ],
+   "rmseDashed": [
+    0.0305,
+    0.0314,
+    0.0317,
+    0.0325,
+    0.0308
+   ],
+   "rmseGap": [
+    0.0425,
+    0.0415,
+    0.0428,
+    0.042,
+    0.0418
+   ]
+  },
+  {
+   "id": "t06_c6",
+   "survey": "coconino",
+   "q2Spans": [
+    64,
+    50,
+    68,
+    62,
+    69
+   ],
+   "q2HiddenWorse": [
+    42,
+    33,
+    40,
+    42,
+    46
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.054,
+    -0.0567,
+    -0.0542,
+    -0.0618,
+    -0.0499
+   ],
+   "nSolid": [
+    694,
+    674,
+    679,
+    712,
+    699
+   ],
+   "nDashed": [
+    5810,
+    5864,
+    5770,
+    5731,
+    5746
+   ],
+   "nGap": [
+    3022,
+    2962,
+    3023,
+    3008,
+    3004
+   ],
+   "rmseSolid": [
+    0.0473,
+    0.0492,
+    0.0492,
+    0.0502,
+    0.0511
+   ],
+   "rmseDashed": [
+    0.0485,
+    0.048,
+    0.0482,
+    0.0486,
+    0.0474
+   ],
+   "rmseGap": [
+    0.058,
+    0.0595,
+    0.0557,
+    0.0609,
+    0.0561
+   ]
+  },
+  {
+   "id": "t06_c7",
+   "survey": "coconino",
+   "q2Spans": [
+    32,
+    39,
+    34,
+    32,
+    29
+   ],
+   "q2HiddenWorse": [
+    14,
+    24,
+    18,
+    23,
+    15
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1787,
+    -0.2066,
+    -0.175,
+    -0.1929,
+    -0.1841
+   ],
+   "nSolid": [
+    597,
+    646,
+    568,
+    601,
+    585
+   ],
+   "nDashed": [
+    4943,
+    4849,
+    4963,
+    4923,
+    4949
+   ],
+   "nGap": [
+    3165,
+    3262,
+    3243,
+    3284,
+    3286
+   ],
+   "rmseSolid": [
+    0.0212,
+    0.0197,
+    0.0222,
+    0.022,
+    0.0206
+   ],
+   "rmseDashed": [
+    0.0257,
+    0.0259,
+    0.0262,
+    0.0272,
+    0.0268
+   ],
+   "rmseGap": [
+    0.0378,
+    0.0377,
+    0.038,
+    0.0388,
+    0.0385
+   ]
+  },
+  {
+   "id": "t06_c8",
+   "survey": "coconino",
+   "q2Spans": [
+    81,
+    90,
+    87,
+    88,
+    79
+   ],
+   "q2HiddenWorse": [
+    49,
+    45,
+    48,
+    48,
+    55
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1108,
+    -0.107,
+    -0.1115,
+    -0.1191,
+    -0.112
+   ],
+   "nSolid": [
+    1364,
+    1351,
+    1378,
+    1365,
+    1304
+   ],
+   "nDashed": [
+    5606,
+    5627,
+    5585,
+    5594,
+    5650
+   ],
+   "nGap": [
+    2129,
+    2137,
+    2168,
+    2154,
+    2186
+   ],
+   "rmseSolid": [
+    0.0298,
+    0.0287,
+    0.0287,
+    0.0296,
+    0.0305
+   ],
+   "rmseDashed": [
+    0.0293,
+    0.0304,
+    0.0306,
+    0.0294,
+    0.03
+   ],
+   "rmseGap": [
+    0.0404,
+    0.0426,
+    0.0419,
+    0.0416,
+    0.041
+   ]
+  },
+  {
+   "id": "t07_c0",
+   "survey": "coconino",
+   "q2Spans": [
+    20,
+    25,
+    26,
+    25,
+    26
+   ],
+   "q2HiddenWorse": [
+    10,
+    11,
+    15,
+    12,
+    13
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1824,
+    -0.1511,
+    -0.1603,
+    -0.1574,
+    -0.1635
+   ],
+   "nSolid": [
+    1382,
+    1394,
+    1375,
+    1366,
+    1362
+   ],
+   "nDashed": [
+    5548,
+    5474,
+    5572,
+    5560,
+    5477
+   ],
+   "nGap": [
+    2072,
+    2109,
+    2039,
+    2080,
+    2154
+   ],
+   "rmseSolid": [
+    0.0114,
+    0.0113,
+    0.0119,
+    0.0123,
+    0.0123
+   ],
+   "rmseDashed": [
+    0.0138,
+    0.0139,
+    0.014,
+    0.0136,
+    0.0138
+   ],
+   "rmseGap": [
+    0.022,
+    0.0213,
+    0.0221,
+    0.0221,
+    0.0215
+   ]
+  },
+  {
+   "id": "t07_c1",
+   "survey": "coconino",
+   "q2Spans": [
+    6,
+    10,
+    14,
+    17,
+    14
+   ],
+   "q2HiddenWorse": [
+    3,
+    6,
+    10,
+    6,
+    6
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0765,
+    -0.063,
+    -0.0522,
+    -0.0559,
+    -0.0591
+   ],
+   "nSolid": [
+    1387,
+    1354,
+    1357,
+    1320,
+    1347
+   ],
+   "nDashed": [
+    6376,
+    6420,
+    6408,
+    6438,
+    6362
+   ],
+   "nGap": [
+    2051,
+    2010,
+    2029,
+    2059,
+    2094
+   ],
+   "rmseSolid": [
+    0.0086,
+    0.0085,
+    0.009,
+    0.0095,
+    0.0087
+   ],
+   "rmseDashed": [
+    0.0091,
+    0.0089,
+    0.009,
+    0.0088,
+    0.0087
+   ],
+   "rmseGap": [
+    0.0107,
+    0.0109,
+    0.0108,
+    0.011,
+    0.0111
+   ]
+  },
+  {
+   "id": "t07_c2",
+   "survey": "coconino",
+   "q2Spans": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q2HiddenWorse": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0555,
+    -0.0403,
+    -0.0688,
+    -0.0353,
+    -0.0633
+   ],
+   "nSolid": [
+    2492,
+    2501,
+    2444,
+    2441,
+    2464
+   ],
+   "nDashed": [
+    6228,
+    6184,
+    6238,
+    6250,
+    6213
+   ],
+   "nGap": [
+    1195,
+    1232,
+    1238,
+    1235,
+    1246
+   ],
+   "rmseSolid": [
+    0.0063,
+    0.0068,
+    0.0063,
+    0.0066,
+    0.0065
+   ],
+   "rmseDashed": [
+    0.0063,
+    0.0063,
+    0.0063,
+    0.0062,
+    0.0064
+   ],
+   "rmseGap": [
+    0.0077,
+    0.0076,
+    0.008,
+    0.008,
+    0.0078
+   ]
+  },
+  {
+   "id": "t07_c3",
+   "survey": "coconino",
+   "q2Spans": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q2HiddenWorse": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0788,
+    -0.0902,
+    -0.0826,
+    -0.1023,
+    -0.0868
+   ],
+   "nSolid": [
+    4887,
+    4879,
+    4889,
+    4928,
+    4899
+   ],
+   "nDashed": [
+    3172,
+    3199,
+    3151,
+    3114,
+    3182
+   ],
+   "nGap": [
+    1885,
+    1861,
+    1903,
+    1914,
+    1857
+   ],
+   "rmseSolid": [
+    0.0078,
+    0.0079,
+    0.0082,
+    0.008,
+    0.0078
+   ],
+   "rmseDashed": [
+    0.0089,
+    0.0085,
+    0.0087,
+    0.0086,
+    0.0086
+   ],
+   "rmseGap": [
+    0.0102,
+    0.0102,
+    0.0099,
+    0.0104,
+    0.0101
+   ]
+  },
+  {
+   "id": "t07_c4",
+   "survey": "coconino",
+   "q2Spans": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q2HiddenWorse": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1231,
+    -0.1218,
+    -0.1215,
+    -0.1357,
+    -0.1369
+   ],
+   "nSolid": [
+    5220,
+    5232,
+    5190,
+    5240,
+    5172
+   ],
+   "nDashed": [
+    3043,
+    2984,
+    3009,
+    3000,
+    3020
+   ],
+   "nGap": [
+    1685,
+    1742,
+    1757,
+    1711,
+    1758
+   ],
+   "rmseSolid": [
+    0.0072,
+    0.0072,
+    0.0071,
+    0.0072,
+    0.0071
+   ],
+   "rmseDashed": [
+    0.0076,
+    0.0079,
+    0.0081,
+    0.008,
+    0.008
+   ],
+   "rmseGap": [
+    0.0092,
+    0.0091,
+    0.009,
+    0.0091,
+    0.0093
+   ]
+  },
+  {
+   "id": "t07_c5",
+   "survey": "coconino",
+   "q2Spans": [
+    16,
+    18,
+    17,
+    22,
+    14
+   ],
+   "q2HiddenWorse": [
+    9,
+    12,
+    8,
+    15,
+    8
+   ],
+   "q3Kept": [
+    23,
+    22,
+    20,
+    28,
+    20
+   ],
+   "q3Downgraded": [
+    3,
+    5,
+    2,
+    4,
+    1
+   ],
+   "rho": [
+    -0.1005,
+    -0.0849,
+    -0.1032,
+    -0.1239,
+    -0.0998
+   ],
+   "nSolid": [
+    5301,
+    5282,
+    5296,
+    5340,
+    5403
+   ],
+   "nDashed": [
+    2925,
+    2999,
+    2957,
+    2906,
+    2839
+   ],
+   "nGap": [
+    1720,
+    1672,
+    1706,
+    1699,
+    1698
+   ],
+   "rmseSolid": [
+    0.0064,
+    0.0063,
+    0.0062,
+    0.0062,
+    0.0062
+   ],
+   "rmseDashed": [
+    0.0065,
+    0.0067,
+    0.0065,
+    0.0068,
+    0.0066
+   ],
+   "rmseGap": [
+    0.0077,
+    0.0076,
+    0.0079,
+    0.0076,
+    0.0076
+   ]
+  },
+  {
+   "id": "t07_c6",
+   "survey": "coconino",
+   "q2Spans": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q2HiddenWorse": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.048,
+    -0.042,
+    -0.0472,
+    -0.0434,
+    -0.0524
+   ],
+   "nSolid": [
+    2255,
+    2344,
+    2260,
+    2241,
+    2245
+   ],
+   "nDashed": [
+    6410,
+    6335,
+    6379,
+    6423,
+    6386
+   ],
+   "nGap": [
+    1256,
+    1233,
+    1272,
+    1257,
+    1291
+   ],
+   "rmseSolid": [
+    0.0087,
+    0.0089,
+    0.0086,
+    0.0086,
+    0.0088
+   ],
+   "rmseDashed": [
+    0.0083,
+    0.0083,
+    0.0081,
+    0.0083,
+    0.0083
+   ],
+   "rmseGap": [
+    0.0104,
+    0.0104,
+    0.01,
+    0.0104,
+    0.0102
+   ]
+  },
+  {
+   "id": "t07_c7",
+   "survey": "coconino",
+   "q2Spans": [
+    39,
+    47,
+    43,
+    39,
+    37
+   ],
+   "q2HiddenWorse": [
+    22,
+    28,
+    24,
+    20,
+    18
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0554,
+    -0.0594,
+    -0.0463,
+    -0.0541,
+    -0.0363
+   ],
+   "nSolid": [
+    1770,
+    1815,
+    1744,
+    1679,
+    1764
+   ],
+   "nDashed": [
+    6505,
+    6490,
+    6512,
+    6637,
+    6446
+   ],
+   "nGap": [
+    1615,
+    1591,
+    1603,
+    1569,
+    1664
+   ],
+   "rmseSolid": [
+    0.0094,
+    0.0084,
+    0.0088,
+    0.0101,
+    0.0097
+   ],
+   "rmseDashed": [
+    0.0084,
+    0.0087,
+    0.0086,
+    0.0088,
+    0.0084
+   ],
+   "rmseGap": [
+    0.0101,
+    0.011,
+    0.0103,
+    0.0107,
+    0.011
+   ]
+  },
+  {
+   "id": "t07_c8",
+   "survey": "coconino",
+   "q2Spans": [
+    16,
+    20,
+    26,
+    19,
+    20
+   ],
+   "q2HiddenWorse": [
+    9,
+    15,
+    19,
+    11,
+    13
+   ],
+   "q3Kept": [
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0764,
+    -0.0744,
+    -0.0862,
+    -0.0893,
+    -0.0747
+   ],
+   "nSolid": [
+    2174,
+    2190,
+    2209,
+    2178,
+    2144
+   ],
+   "nDashed": [
+    6194,
+    6218,
+    6119,
+    6192,
+    6262
+   ],
+   "nGap": [
+    1498,
+    1471,
+    1539,
+    1491,
+    1448
+   ],
+   "rmseSolid": [
+    0.0078,
+    0.008,
+    0.0079,
+    0.0074,
+    0.0081
+   ],
+   "rmseDashed": [
+    0.008,
+    0.008,
+    0.008,
+    0.008,
+    0.0078
+   ],
+   "rmseGap": [
+    0.0101,
+    0.0105,
+    0.0101,
+    0.0099,
+    0.0103
+   ]
+  },
+  {
+   "id": "t08_c0",
+   "survey": "wisconsin",
+   "q2Spans": [
+    57,
+    63,
+    60,
+    49,
+    57
+   ],
+   "q2HiddenWorse": [
+    27,
+    29,
+    34,
+    24,
+    32
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0503,
+    -0.0226,
+    -0.0455,
+    -0.0332,
+    -0.0227
+   ],
+   "nSolid": [
+    2067,
+    2035,
+    2054,
+    2045,
+    2033
+   ],
+   "nDashed": [
+    6228,
+    6308,
+    6221,
+    6260,
+    6232
+   ],
+   "nGap": [
+    1521,
+    1497,
+    1591,
+    1539,
+    1577
+   ],
+   "rmseSolid": [
+    0.0213,
+    0.0234,
+    0.0214,
+    0.0223,
+    0.022
+   ],
+   "rmseDashed": [
+    0.0214,
+    0.0216,
+    0.0208,
+    0.0211,
+    0.0217
+   ],
+   "rmseGap": [
+    0.0273,
+    0.0236,
+    0.0263,
+    0.026,
+    0.0244
+   ]
+  },
+  {
+   "id": "t08_c1",
+   "survey": "wisconsin",
+   "q2Spans": [
+    40,
+    47,
+    35,
+    40,
+    42
+   ],
+   "q2HiddenWorse": [
+    28,
+    27,
+    24,
+    20,
+    19
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0456,
+    -0.041,
+    -0.0517,
+    -0.0404,
+    -0.0494
+   ],
+   "nSolid": [
+    2107,
+    2081,
+    2077,
+    1998,
+    2014
+   ],
+   "nDashed": [
+    6213,
+    6350,
+    6323,
+    6358,
+    6336
+   ],
+   "nGap": [
+    1552,
+    1446,
+    1486,
+    1522,
+    1546
+   ],
+   "rmseSolid": [
+    0.0157,
+    0.0162,
+    0.0152,
+    0.0163,
+    0.0154
+   ],
+   "rmseDashed": [
+    0.0148,
+    0.0153,
+    0.0153,
+    0.015,
+    0.0149
+   ],
+   "rmseGap": [
+    0.0189,
+    0.0177,
+    0.0179,
+    0.0183,
+    0.0177
+   ]
+  },
+  {
+   "id": "t08_c2",
+   "survey": "wisconsin",
+   "q2Spans": [
+    14,
+    15,
+    15,
+    13,
+    18
+   ],
+   "q2HiddenWorse": [
+    10,
+    10,
+    8,
+    6,
+    13
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.156,
+    -0.1646,
+    -0.1501,
+    -0.1538,
+    -0.1463
+   ],
+   "nSolid": [
+    1077,
+    1043,
+    1007,
+    1050,
+    1050
+   ],
+   "nDashed": [
+    4778,
+    4833,
+    4827,
+    4827,
+    4841
+   ],
+   "nGap": [
+    2414,
+    2422,
+    2445,
+    2404,
+    2365
+   ],
+   "rmseSolid": [
+    0.0263,
+    0.0244,
+    0.0274,
+    0.0277,
+    0.0266
+   ],
+   "rmseDashed": [
+    0.0276,
+    0.0277,
+    0.0282,
+    0.0274,
+    0.0277
+   ],
+   "rmseGap": [
+    0.038,
+    0.0369,
+    0.0379,
+    0.0376,
+    0.0388
+   ]
+  },
+  {
+   "id": "t08_c3",
+   "survey": "wisconsin",
+   "q2Spans": [
+    45,
+    49,
+    45,
+    45,
+    44
+   ],
+   "q2HiddenWorse": [
+    28,
+    29,
+    22,
+    25,
+    16
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0671,
+    -0.0536,
+    -0.047,
+    -0.0427,
+    -0.0611
+   ],
+   "nSolid": [
+    2014,
+    2062,
+    2014,
+    2005,
+    1977
+   ],
+   "nDashed": [
+    6229,
+    6280,
+    6241,
+    6329,
+    6297
+   ],
+   "nGap": [
+    1599,
+    1522,
+    1610,
+    1540,
+    1606
+   ],
+   "rmseSolid": [
+    0.0197,
+    0.0187,
+    0.0197,
+    0.0189,
+    0.0194
+   ],
+   "rmseDashed": [
+    0.0191,
+    0.0194,
+    0.0193,
+    0.0194,
+    0.019
+   ],
+   "rmseGap": [
+    0.0237,
+    0.0238,
+    0.0248,
+    0.0232,
+    0.0238
+   ]
+  },
+  {
+   "id": "t08_c4",
+   "survey": "wisconsin",
+   "q2Spans": [
+    3,
+    3,
+    2,
+    4,
+    2
+   ],
+   "q2HiddenWorse": [
+    0,
+    1,
+    0,
+    2,
+    0
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0437,
+    -0.0636,
+    -0.0679,
+    -0.0726,
+    -0.0688
+   ],
+   "nSolid": [
+    2169,
+    2126,
+    2094,
+    2104,
+    2078
+   ],
+   "nDashed": [
+    6208,
+    6290,
+    6240,
+    6256,
+    6244
+   ],
+   "nGap": [
+    1534,
+    1460,
+    1539,
+    1529,
+    1550
+   ],
+   "rmseSolid": [
+    0.0095,
+    0.0092,
+    0.0091,
+    0.0088,
+    0.0093
+   ],
+   "rmseDashed": [
+    0.009,
+    0.0089,
+    0.0093,
+    0.0091,
+    0.0089
+   ],
+   "rmseGap": [
+    0.0109,
+    0.0112,
+    0.0109,
+    0.0111,
+    0.011
+   ]
+  },
+  {
+   "id": "t08_c5",
+   "survey": "wisconsin",
+   "q2Spans": [
+    1,
+    2,
+    2,
+    2,
+    0
+   ],
+   "q2HiddenWorse": [
+    1,
+    2,
+    2,
+    2,
+    0
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0839,
+    -0.0756,
+    -0.089,
+    -0.0909,
+    -0.0799
+   ],
+   "nSolid": [
+    1632,
+    1658,
+    1566,
+    1645,
+    1621
+   ],
+   "nDashed": [
+    6221,
+    6141,
+    6154,
+    6148,
+    6129
+   ],
+   "nGap": [
+    1856,
+    1901,
+    1952,
+    1924,
+    1964
+   ],
+   "rmseSolid": [
+    0.024,
+    0.0247,
+    0.0234,
+    0.0241,
+    0.024
+   ],
+   "rmseDashed": [
+    0.024,
+    0.0237,
+    0.0242,
+    0.0243,
+    0.0237
+   ],
+   "rmseGap": [
+    0.0299,
+    0.0292,
+    0.0301,
+    0.0301,
+    0.0306
+   ]
+  },
+  {
+   "id": "t08_c6",
+   "survey": "wisconsin",
+   "q2Spans": [
+    65,
+    64,
+    63,
+    73,
+    55
+   ],
+   "q2HiddenWorse": [
+    27,
+    35,
+    35,
+    43,
+    28
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0468,
+    -0.0303,
+    -0.0364,
+    -0.0355,
+    -0.045
+   ],
+   "nSolid": [
+    2054,
+    2152,
+    2050,
+    2078,
+    2082
+   ],
+   "nDashed": [
+    6353,
+    6205,
+    6267,
+    6250,
+    6190
+   ],
+   "nGap": [
+    1472,
+    1518,
+    1551,
+    1556,
+    1625
+   ],
+   "rmseSolid": [
+    0.0221,
+    0.0213,
+    0.0222,
+    0.0216,
+    0.0214
+   ],
+   "rmseDashed": [
+    0.0203,
+    0.0204,
+    0.0203,
+    0.0201,
+    0.0207
+   ],
+   "rmseGap": [
+    0.0253,
+    0.0247,
+    0.0246,
+    0.0243,
+    0.0256
+   ]
+  },
+  {
+   "id": "t08_c7",
+   "survey": "wisconsin",
+   "q2Spans": [
+    42,
+    41,
+    40,
+    40,
+    38
+   ],
+   "q2HiddenWorse": [
+    23,
+    19,
+    23,
+    21,
+    26
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0462,
+    -0.0362,
+    -0.0333,
+    -0.057,
+    -0.0408
+   ],
+   "nSolid": [
+    2109,
+    2172,
+    2089,
+    2039,
+    2091
+   ],
+   "nDashed": [
+    6237,
+    6223,
+    6227,
+    6317,
+    6306
+   ],
+   "nGap": [
+    1529,
+    1480,
+    1556,
+    1512,
+    1486
+   ],
+   "rmseSolid": [
+    0.0219,
+    0.0226,
+    0.0227,
+    0.021,
+    0.0207
+   ],
+   "rmseDashed": [
+    0.0212,
+    0.0214,
+    0.0214,
+    0.0216,
+    0.0233
+   ],
+   "rmseGap": [
+    0.0251,
+    0.0256,
+    0.0231,
+    0.0279,
+    0.0271
+   ]
+  },
+  {
+   "id": "t08_c8",
+   "survey": "wisconsin",
+   "q2Spans": [
+    16,
+    18,
+    17,
+    9,
+    12
+   ],
+   "q2HiddenWorse": [
+    11,
+    10,
+    12,
+    5,
+    8
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0635,
+    -0.0736,
+    -0.0658,
+    -0.064,
+    -0.0721
+   ],
+   "nSolid": [
+    2051,
+    2061,
+    2030,
+    1972,
+    1980
+   ],
+   "nDashed": [
+    6283,
+    6269,
+    6226,
+    6290,
+    6319
+   ],
+   "nGap": [
+    1517,
+    1530,
+    1609,
+    1622,
+    1578
+   ],
+   "rmseSolid": [
+    0.013,
+    0.013,
+    0.0135,
+    0.0134,
+    0.013
+   ],
+   "rmseDashed": [
+    0.0134,
+    0.0133,
+    0.0132,
+    0.0137,
+    0.0133
+   ],
+   "rmseGap": [
+    0.017,
+    0.0175,
+    0.0176,
+    0.0171,
+    0.0174
+   ]
+  },
+  {
+   "id": "t09_c0",
+   "survey": "wisconsin",
+   "q2Spans": [
+    33,
+    25,
+    26,
+    30,
+    25
+   ],
+   "q2HiddenWorse": [
+    21,
+    17,
+    12,
+    16,
+    18
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.053,
+    -0.0483,
+    -0.0451,
+    -0.0399,
+    -0.0414
+   ],
+   "nSolid": [
+    2122,
+    2108,
+    2093,
+    2042,
+    2060
+   ],
+   "nDashed": [
+    6255,
+    6244,
+    6218,
+    6348,
+    6230
+   ],
+   "nGap": [
+    1493,
+    1526,
+    1579,
+    1499,
+    1570
+   ],
+   "rmseSolid": [
+    0.0196,
+    0.0201,
+    0.0196,
+    0.0199,
+    0.0191
+   ],
+   "rmseDashed": [
+    0.0187,
+    0.0187,
+    0.0185,
+    0.0191,
+    0.0189
+   ],
+   "rmseGap": [
+    0.023,
+    0.0226,
+    0.0239,
+    0.0227,
+    0.0225
+   ]
+  },
+  {
+   "id": "t09_c1",
+   "survey": "wisconsin",
+   "q2Spans": [
+    88,
+    109,
+    105,
+    105,
+    90
+   ],
+   "q2HiddenWorse": [
+    51,
+    65,
+    61,
+    60,
+    46
+   ],
+   "q3Kept": [
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0712,
+    -0.0455,
+    -0.0486,
+    -0.0525,
+    -0.0749
+   ],
+   "nSolid": [
+    2042,
+    2024,
+    2002,
+    2030,
+    1988
+   ],
+   "nDashed": [
+    6294,
+    6365,
+    6275,
+    6258,
+    6307
+   ],
+   "nGap": [
+    1536,
+    1492,
+    1586,
+    1583,
+    1585
+   ],
+   "rmseSolid": [
+    0.0193,
+    0.0212,
+    0.0204,
+    0.0198,
+    0.0208
+   ],
+   "rmseDashed": [
+    0.0202,
+    0.0195,
+    0.0201,
+    0.0195,
+    0.0197
+   ],
+   "rmseGap": [
+    0.0252,
+    0.0246,
+    0.0238,
+    0.0244,
+    0.0252
+   ]
+  },
+  {
+   "id": "t09_c2",
+   "survey": "wisconsin",
+   "q2Spans": [
+    5,
+    5,
+    4,
+    7,
+    4
+   ],
+   "q2HiddenWorse": [
+    3,
+    3,
+    3,
+    3,
+    2
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0638,
+    -0.0721,
+    -0.0763,
+    -0.0749,
+    -0.0613
+   ],
+   "nSolid": [
+    1934,
+    1952,
+    1896,
+    1941,
+    1932
+   ],
+   "nDashed": [
+    6157,
+    6196,
+    6247,
+    6173,
+    6135
+   ],
+   "nGap": [
+    1598,
+    1565,
+    1549,
+    1567,
+    1630
+   ],
+   "rmseSolid": [
+    0.0199,
+    0.0193,
+    0.0188,
+    0.0191,
+    0.0207
+   ],
+   "rmseDashed": [
+    0.0197,
+    0.0191,
+    0.0191,
+    0.0191,
+    0.0194
+   ],
+   "rmseGap": [
+    0.0249,
+    0.0253,
+    0.0253,
+    0.0258,
+    0.0249
+   ]
+  },
+  {
+   "id": "t09_c3",
+   "survey": "wisconsin",
+   "q2Spans": [
+    33,
+    33,
+    36,
+    32,
+    30
+   ],
+   "q2HiddenWorse": [
+    17,
+    24,
+    18,
+    18,
+    17
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0517,
+    -0.0563,
+    -0.0637,
+    -0.0522,
+    -0.0372
+   ],
+   "nSolid": [
+    2119,
+    2111,
+    2041,
+    2064,
+    2016
+   ],
+   "nDashed": [
+    6182,
+    6243,
+    6333,
+    6283,
+    6253
+   ],
+   "nGap": [
+    1575,
+    1534,
+    1506,
+    1540,
+    1616
+   ],
+   "rmseSolid": [
+    0.0171,
+    0.0172,
+    0.0169,
+    0.0172,
+    0.0172
+   ],
+   "rmseDashed": [
+    0.0165,
+    0.0167,
+    0.0167,
+    0.0167,
+    0.0169
+   ],
+   "rmseGap": [
+    0.0205,
+    0.0203,
+    0.0205,
+    0.0204,
+    0.0203
+   ]
+  },
+  {
+   "id": "t09_c4",
+   "survey": "wisconsin",
+   "q2Spans": [
+    20,
+    17,
+    13,
+    18,
+    15
+   ],
+   "q2HiddenWorse": [
+    10,
+    11,
+    6,
+    8,
+    7
+   ],
+   "q3Kept": [
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0683,
+    -0.0644,
+    -0.0812,
+    -0.0615,
+    -0.0645
+   ],
+   "nSolid": [
+    1892,
+    1940,
+    1868,
+    1855,
+    1912
+   ],
+   "nDashed": [
+    6219,
+    6185,
+    6221,
+    6204,
+    6117
+   ],
+   "nGap": [
+    1543,
+    1529,
+    1558,
+    1561,
+    1637
+   ],
+   "rmseSolid": [
+    0.0203,
+    0.0219,
+    0.0212,
+    0.0232,
+    0.0206
+   ],
+   "rmseDashed": [
+    0.0219,
+    0.0217,
+    0.0215,
+    0.0222,
+    0.0222
+   ],
+   "rmseGap": [
+    0.0288,
+    0.0285,
+    0.0324,
+    0.028,
+    0.0277
+   ]
+  },
+  {
+   "id": "t09_c5",
+   "survey": "wisconsin",
+   "q2Spans": [
+    51,
+    50,
+    46,
+    53,
+    50
+   ],
+   "q2HiddenWorse": [
+    29,
+    28,
+    29,
+    25,
+    24
+   ],
+   "q3Kept": [
+    0,
+    0,
+    1,
+    1,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0672,
+    -0.0588,
+    -0.0607,
+    -0.061,
+    -0.0669
+   ],
+   "nSolid": [
+    1763,
+    1796,
+    1739,
+    1736,
+    1705
+   ],
+   "nDashed": [
+    5666,
+    5620,
+    5693,
+    5669,
+    5735
+   ],
+   "nGap": [
+    1447,
+    1483,
+    1438,
+    1493,
+    1460
+   ],
+   "rmseSolid": [
+    0.0229,
+    0.0226,
+    0.0225,
+    0.0234,
+    0.0222
+   ],
+   "rmseDashed": [
+    0.0218,
+    0.022,
+    0.0219,
+    0.0221,
+    0.0227
+   ],
+   "rmseGap": [
+    0.0282,
+    0.0274,
+    0.0276,
+    0.0274,
+    0.028
+   ]
+  },
+  {
+   "id": "t09_c6",
+   "survey": "wisconsin",
+   "q2Spans": [
+    23,
+    19,
+    21,
+    19,
+    19
+   ],
+   "q2HiddenWorse": [
+    13,
+    9,
+    15,
+    11,
+    12
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0346,
+    -0.046,
+    -0.0405,
+    -0.0434,
+    -0.0575
+   ],
+   "nSolid": [
+    2109,
+    2138,
+    2099,
+    2040,
+    2076
+   ],
+   "nDashed": [
+    6253,
+    6200,
+    6223,
+    6347,
+    6266
+   ],
+   "nGap": [
+    1507,
+    1537,
+    1546,
+    1496,
+    1528
+   ],
+   "rmseSolid": [
+    0.0088,
+    0.0093,
+    0.0096,
+    0.0096,
+    0.0093
+   ],
+   "rmseDashed": [
+    0.0092,
+    0.0089,
+    0.0089,
+    0.0091,
+    0.0094
+   ],
+   "rmseGap": [
+    0.0109,
+    0.0117,
+    0.0118,
+    0.0109,
+    0.0116
+   ]
+  },
+  {
+   "id": "t09_c7",
+   "survey": "wisconsin",
+   "q2Spans": [
+    47,
+    56,
+    52,
+    46,
+    41
+   ],
+   "q2HiddenWorse": [
+    27,
+    28,
+    28,
+    30,
+    23
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0779,
+    -0.0486,
+    -0.0595,
+    -0.0425,
+    -0.04
+   ],
+   "nSolid": [
+    2075,
+    2113,
+    2032,
+    2024,
+    1974
+   ],
+   "nDashed": [
+    6185,
+    6176,
+    6223,
+    6310,
+    6364
+   ],
+   "nGap": [
+    1575,
+    1543,
+    1585,
+    1496,
+    1524
+   ],
+   "rmseSolid": [
+    0.0188,
+    0.0179,
+    0.0188,
+    0.0179,
+    0.018
+   ],
+   "rmseDashed": [
+    0.0178,
+    0.0183,
+    0.0183,
+    0.0182,
+    0.0185
+   ],
+   "rmseGap": [
+    0.0248,
+    0.0225,
+    0.0231,
+    0.0235,
+    0.023
+   ]
+  },
+  {
+   "id": "t09_c8",
+   "survey": "wisconsin",
+   "q2Spans": [
+    36,
+    39,
+    41,
+    39,
+    39
+   ],
+   "q2HiddenWorse": [
+    17,
+    22,
+    23,
+    23,
+    24
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0679,
+    -0.0526,
+    -0.0493,
+    -0.0499,
+    -0.0434
+   ],
+   "nSolid": [
+    1988,
+    1994,
+    1943,
+    1976,
+    1936
+   ],
+   "nDashed": [
+    6256,
+    6260,
+    6248,
+    6204,
+    6256
+   ],
+   "nGap": [
+    1530,
+    1512,
+    1557,
+    1586,
+    1592
+   ],
+   "rmseSolid": [
+    0.032,
+    0.0263,
+    0.0281,
+    0.0283,
+    0.0267
+   ],
+   "rmseDashed": [
+    0.0255,
+    0.0265,
+    0.0274,
+    0.0259,
+    0.0263
+   ],
+   "rmseGap": [
+    0.0344,
+    0.037,
+    0.0318,
+    0.0385,
+    0.0336
+   ]
+  },
+  {
+   "id": "t12_c0",
+   "survey": "hawaii",
+   "q2Spans": [
+    95,
+    101,
+    103,
+    109,
+    103
+   ],
+   "q2HiddenWorse": [
+    51,
+    59,
+    62,
+    56,
+    63
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1426,
+    -0.1458,
+    -0.1477,
+    -0.1228,
+    -0.1241
+   ],
+   "nSolid": [
+    270,
+    287,
+    278,
+    295,
+    286
+   ],
+   "nDashed": [
+    5438,
+    5377,
+    5361,
+    5338,
+    5356
+   ],
+   "nGap": [
+    1863,
+    1953,
+    1968,
+    1949,
+    1927
+   ],
+   "rmseSolid": [
+    0.0565,
+    0.0592,
+    0.0584,
+    0.0622,
+    0.0608
+   ],
+   "rmseDashed": [
+    0.0728,
+    0.0726,
+    0.0712,
+    0.0719,
+    0.074
+   ],
+   "rmseGap": [
+    0.0948,
+    0.094,
+    0.0999,
+    0.0913,
+    0.0933
+   ]
+  },
+  {
+   "id": "t12_c1",
+   "survey": "hawaii",
+   "q2Spans": [
+    124,
+    122,
+    124,
+    108,
+    141
+   ],
+   "q2HiddenWorse": [
+    72,
+    62,
+    68,
+    51,
+    78
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1107,
+    -0.1287,
+    -0.1173,
+    -0.1221,
+    -0.1187
+   ],
+   "nSolid": [
+    223,
+    244,
+    199,
+    230,
+    230
+   ],
+   "nDashed": [
+    5065,
+    5079,
+    5089,
+    5077,
+    4992
+   ],
+   "nGap": [
+    1997,
+    2076,
+    2045,
+    2056,
+    2116
+   ],
+   "rmseSolid": [
+    0.0747,
+    0.0828,
+    0.0943,
+    0.0751,
+    0.0698
+   ],
+   "rmseDashed": [
+    0.0891,
+    0.0874,
+    0.0876,
+    0.0886,
+    0.0885
+   ],
+   "rmseGap": [
+    0.1114,
+    0.1158,
+    0.1131,
+    0.1181,
+    0.114
+   ]
+  },
+  {
+   "id": "t12_c2",
+   "survey": "hawaii",
+   "q2Spans": [
+    124,
+    128,
+    117,
+    135,
+    111
+   ],
+   "q2HiddenWorse": [
+    66,
+    66,
+    72,
+    86,
+    54
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1261,
+    -0.1183,
+    -0.1215,
+    -0.1356,
+    -0.1264
+   ],
+   "nSolid": [
+    293,
+    290,
+    271,
+    298,
+    293
+   ],
+   "nDashed": [
+    5331,
+    5355,
+    5371,
+    5327,
+    5287
+   ],
+   "nGap": [
+    1946,
+    1863,
+    1962,
+    1896,
+    2001
+   ],
+   "rmseSolid": [
+    0.0732,
+    0.0727,
+    0.0754,
+    0.0792,
+    0.0769
+   ],
+   "rmseDashed": [
+    0.0844,
+    0.0858,
+    0.0823,
+    0.0847,
+    0.0834
+   ],
+   "rmseGap": [
+    0.1093,
+    0.1116,
+    0.1115,
+    0.1127,
+    0.1089
+   ]
+  },
+  {
+   "id": "t12_c3",
+   "survey": "hawaii",
+   "q2Spans": [
+    130,
+    121,
+    102,
+    131,
+    120
+   ],
+   "q2HiddenWorse": [
+    72,
+    74,
+    58,
+    73,
+    71
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1541,
+    -0.1441,
+    -0.1416,
+    -0.1308,
+    -0.1542
+   ],
+   "nSolid": [
+    214,
+    245,
+    222,
+    225,
+    225
+   ],
+   "nDashed": [
+    5156,
+    5153,
+    5124,
+    5135,
+    5142
+   ],
+   "nGap": [
+    1971,
+    1983,
+    2021,
+    1959,
+    1999
+   ],
+   "rmseSolid": [
+    0.0778,
+    0.0672,
+    0.0694,
+    0.067,
+    0.065
+   ],
+   "rmseDashed": [
+    0.095,
+    0.0805,
+    0.0823,
+    0.0858,
+    0.0822
+   ],
+   "rmseGap": [
+    0.1087,
+    0.1102,
+    0.1313,
+    0.1076,
+    0.1179
+   ]
+  },
+  {
+   "id": "t12_c4",
+   "survey": "hawaii",
+   "q2Spans": [
+    92,
+    106,
+    88,
+    103,
+    106
+   ],
+   "q2HiddenWorse": [
+    46,
+    59,
+    54,
+    56,
+    61
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1236,
+    -0.1407,
+    -0.1219,
+    -0.1413,
+    -0.1343
+   ],
+   "nSolid": [
+    267,
+    268,
+    266,
+    266,
+    272
+   ],
+   "nDashed": [
+    5155,
+    5227,
+    5194,
+    5153,
+    5174
+   ],
+   "nGap": [
+    2022,
+    1915,
+    1997,
+    2033,
+    2014
+   ],
+   "rmseSolid": [
+    0.0586,
+    0.0642,
+    0.0679,
+    0.064,
+    0.0645
+   ],
+   "rmseDashed": [
+    0.0741,
+    0.074,
+    0.0758,
+    0.0744,
+    0.0727
+   ],
+   "rmseGap": [
+    0.0973,
+    0.1013,
+    0.0967,
+    0.0985,
+    0.0976
+   ]
+  },
+  {
+   "id": "t12_c5",
+   "survey": "hawaii",
+   "q2Spans": [
+    109,
+    119,
+    104,
+    124,
+    111
+   ],
+   "q2HiddenWorse": [
+    61,
+    56,
+    71,
+    73,
+    63
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1374,
+    -0.1407,
+    -0.1352,
+    -0.1376,
+    -0.149
+   ],
+   "nSolid": [
+    290,
+    304,
+    254,
+    311,
+    297
+   ],
+   "nDashed": [
+    5177,
+    5218,
+    5221,
+    5108,
+    5170
+   ],
+   "nGap": [
+    1987,
+    1906,
+    1988,
+    2032,
+    1961
+   ],
+   "rmseSolid": [
+    0.0743,
+    0.0633,
+    0.0627,
+    0.0689,
+    0.07
+   ],
+   "rmseDashed": [
+    0.0817,
+    0.0802,
+    0.0819,
+    0.0846,
+    0.0799
+   ],
+   "rmseGap": [
+    0.1141,
+    0.1078,
+    0.1006,
+    0.111,
+    0.1039
+   ]
+  },
+  {
+   "id": "t12_c6",
+   "survey": "hawaii",
+   "q2Spans": [
+    135,
+    132,
+    126,
+    128,
+    130
+   ],
+   "q2HiddenWorse": [
+    81,
+    73,
+    71,
+    66,
+    65
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1217,
+    -0.1344,
+    -0.138,
+    -0.1337,
+    -0.13
+   ],
+   "nSolid": [
+    185,
+    220,
+    213,
+    208,
+    234
+   ],
+   "nDashed": [
+    5265,
+    5279,
+    5245,
+    5257,
+    5222
+   ],
+   "nGap": [
+    2025,
+    1927,
+    1968,
+    1891,
+    1957
+   ],
+   "rmseSolid": [
+    0.0746,
+    0.0732,
+    0.0709,
+    0.0769,
+    0.0666
+   ],
+   "rmseDashed": [
+    0.0832,
+    0.0824,
+    0.0841,
+    0.0831,
+    0.0826
+   ],
+   "rmseGap": [
+    0.1144,
+    0.1081,
+    0.1115,
+    0.1088,
+    0.1045
+   ]
+  },
+  {
+   "id": "t12_c7",
+   "survey": "hawaii",
+   "q2Spans": [
+    117,
+    130,
+    101,
+    121,
+    131
+   ],
+   "q2HiddenWorse": [
+    70,
+    77,
+    47,
+    69,
+    72
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1513,
+    -0.1464,
+    -0.1502,
+    -0.1419,
+    -0.1414
+   ],
+   "nSolid": [
+    193,
+    227,
+    172,
+    221,
+    204
+   ],
+   "nDashed": [
+    5278,
+    5279,
+    5375,
+    5232,
+    5293
+   ],
+   "nGap": [
+    1935,
+    1972,
+    1937,
+    1989,
+    1990
+   ],
+   "rmseSolid": [
+    0.0727,
+    0.0793,
+    0.0722,
+    0.0658,
+    0.0815
+   ],
+   "rmseDashed": [
+    0.0885,
+    0.1005,
+    0.0861,
+    0.0859,
+    0.0851
+   ],
+   "rmseGap": [
+    0.146,
+    0.1443,
+    0.1167,
+    0.148,
+    0.1544
+   ]
+  },
+  {
+   "id": "t12_c8",
+   "survey": "hawaii",
+   "q2Spans": [
+    98,
+    115,
+    115,
+    106,
+    103
+   ],
+   "q2HiddenWorse": [
+    55,
+    63,
+    65,
+    51,
+    57
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1181,
+    -0.0988,
+    -0.1067,
+    -0.113,
+    -0.1216
+   ],
+   "nSolid": [
+    199,
+    203,
+    207,
+    222,
+    198
+   ],
+   "nDashed": [
+    5310,
+    5319,
+    5250,
+    5237,
+    5232
+   ],
+   "nGap": [
+    1970,
+    1969,
+    2004,
+    2051,
+    2062
+   ],
+   "rmseSolid": [
+    0.0742,
+    0.0731,
+    0.0717,
+    0.0729,
+    0.0735
+   ],
+   "rmseDashed": [
+    0.0779,
+    0.0794,
+    0.0786,
+    0.0768,
+    0.0771
+   ],
+   "rmseGap": [
+    0.1016,
+    0.1008,
+    0.1009,
+    0.0988,
+    0.1048
+   ]
+  },
+  {
+   "id": "t13_c0",
+   "survey": "hawaii",
+   "q2Spans": [
+    31,
+    26,
+    28,
+    25,
+    25
+   ],
+   "q2HiddenWorse": [
+    17,
+    14,
+    12,
+    19,
+    13
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1638,
+    -0.1421,
+    -0.1602,
+    -0.1543,
+    -0.1572
+   ],
+   "nSolid": [
+    92,
+    97,
+    99,
+    100,
+    81
+   ],
+   "nDashed": [
+    1821,
+    1811,
+    1782,
+    1819,
+    1815
+   ],
+   "nGap": [
+    617,
+    649,
+    640,
+    642,
+    650
+   ],
+   "rmseSolid": [
+    0.046,
+    0.0561,
+    0.0566,
+    0.0531,
+    0.0435
+   ],
+   "rmseDashed": [
+    0.0632,
+    0.0628,
+    0.064,
+    0.0638,
+    0.062
+   ],
+   "rmseGap": [
+    0.0894,
+    0.0797,
+    0.086,
+    0.0861,
+    0.0813
+   ]
+  },
+  {
+   "id": "t13_c1",
+   "survey": "hawaii",
+   "q2Spans": [
+    58,
+    62,
+    59,
+    76,
+    56
+   ],
+   "q2HiddenWorse": [
+    36,
+    37,
+    43,
+    42,
+    36
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1909,
+    -0.1936,
+    -0.1853,
+    -0.163,
+    -0.1742
+   ],
+   "nSolid": [
+    138,
+    143,
+    125,
+    109,
+    123
+   ],
+   "nDashed": [
+    2557,
+    2544,
+    2570,
+    2578,
+    2605
+   ],
+   "nGap": [
+    1009,
+    1003,
+    1059,
+    1009,
+    1022
+   ],
+   "rmseSolid": [
+    0.0697,
+    0.0643,
+    0.073,
+    0.0708,
+    0.0676
+   ],
+   "rmseDashed": [
+    0.1018,
+    0.0972,
+    0.0936,
+    0.0956,
+    0.0965
+   ],
+   "rmseGap": [
+    0.1393,
+    0.1406,
+    0.1423,
+    0.1468,
+    0.1363
+   ]
+  },
+  {
+   "id": "t13_c2",
+   "survey": "hawaii",
+   "q2Spans": [
+    86,
+    73,
+    76,
+    79,
+    84
+   ],
+   "q2HiddenWorse": [
+    51,
+    30,
+    39,
+    49,
+    40
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1118,
+    -0.1217,
+    -0.1288,
+    -0.1555,
+    -0.0992
+   ],
+   "nSolid": [
+    158,
+    136,
+    143,
+    135,
+    115
+   ],
+   "nDashed": [
+    3307,
+    3263,
+    3261,
+    3285,
+    3301
+   ],
+   "nGap": [
+    1324,
+    1386,
+    1349,
+    1382,
+    1346
+   ],
+   "rmseSolid": [
+    0.0729,
+    0.065,
+    0.0614,
+    0.0569,
+    0.075
+   ],
+   "rmseDashed": [
+    0.0878,
+    0.0841,
+    0.0829,
+    0.0853,
+    0.0844
+   ],
+   "rmseGap": [
+    0.1223,
+    0.112,
+    0.1126,
+    0.1114,
+    0.109
+   ]
+  },
+  {
+   "id": "t14_c0",
+   "survey": "hawaii",
+   "q2Spans": [
+    11,
+    6,
+    13,
+    18,
+    13
+   ],
+   "q2HiddenWorse": [
+    7,
+    5,
+    8,
+    14,
+    8
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0555,
+    -0.0222,
+    -0.0322,
+    -0.0546,
+    -0.03
+   ],
+   "nSolid": [
+    11,
+    5,
+    11,
+    5,
+    13
+   ],
+   "nDashed": [
+    215,
+    245,
+    220,
+    234,
+    232
+   ],
+   "nGap": [
+    152,
+    137,
+    158,
+    152,
+    146
+   ],
+   "rmseSolid": [
+    0.087,
+    0.0667,
+    0.1065,
+    0.0507,
+    0.1195
+   ],
+   "rmseDashed": [
+    0.1136,
+    0.1301,
+    0.1258,
+    0.1233,
+    0.1357
+   ],
+   "rmseGap": [
+    0.1518,
+    0.1367,
+    0.1292,
+    0.1302,
+    0.1127
+   ]
+  },
+  {
+   "id": "t14_c6",
+   "survey": "hawaii",
+   "q2Spans": [
+    53,
+    60,
+    65,
+    54,
+    51
+   ],
+   "q2HiddenWorse": [
+    34,
+    37,
+    33,
+    30,
+    30
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.1338,
+    -0.1414,
+    -0.1552,
+    -0.1401,
+    -0.1648
+   ],
+   "nSolid": [
+    131,
+    123,
+    115,
+    127,
+    129
+   ],
+   "nDashed": [
+    2134,
+    2164,
+    2148,
+    2131,
+    2108
+   ],
+   "nGap": [
+    702,
+    706,
+    719,
+    759,
+    768
+   ],
+   "rmseSolid": [
+    0.086,
+    0.0772,
+    0.0777,
+    0.0798,
+    0.0839
+   ],
+   "rmseDashed": [
+    0.0908,
+    0.0912,
+    0.0902,
+    0.089,
+    0.0887
+   ],
+   "rmseGap": [
+    0.1249,
+    0.1117,
+    0.1164,
+    0.1189,
+    0.127
+   ]
+  },
+  {
+   "id": "t15_c0",
+   "survey": "hawaii",
+   "q2Spans": [
+    55,
+    63,
+    56,
+    41,
+    53
+   ],
+   "q2HiddenWorse": [
+    31,
+    34,
+    29,
+    24,
+    33
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2674,
+    -0.2635,
+    -0.2608,
+    -0.2646,
+    -0.2518
+   ],
+   "nSolid": [
+    322,
+    350,
+    306,
+    287,
+    306
+   ],
+   "nDashed": [
+    3262,
+    3239,
+    3284,
+    3309,
+    3295
+   ],
+   "nGap": [
+    1297,
+    1286,
+    1269,
+    1259,
+    1226
+   ],
+   "rmseSolid": [
+    0.0322,
+    0.0335,
+    0.0294,
+    0.0317,
+    0.0358
+   ],
+   "rmseDashed": [
+    0.049,
+    0.049,
+    0.048,
+    0.0494,
+    0.0475
+   ],
+   "rmseGap": [
+    0.0871,
+    0.0892,
+    0.0882,
+    0.0901,
+    0.0831
+   ]
+  },
+  {
+   "id": "t15_c1",
+   "survey": "hawaii",
+   "q2Spans": [
+    61,
+    60,
+    52,
+    46,
+    58
+   ],
+   "q2HiddenWorse": [
+    30,
+    27,
+    29,
+    26,
+    36
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2859,
+    -0.2803,
+    -0.2635,
+    -0.284,
+    -0.2622
+   ],
+   "nSolid": [
+    389,
+    435,
+    401,
+    388,
+    382
+   ],
+   "nDashed": [
+    3009,
+    3000,
+    2971,
+    3004,
+    3045
+   ],
+   "nGap": [
+    1110,
+    1067,
+    1129,
+    1093,
+    1076
+   ],
+   "rmseSolid": [
+    0.0428,
+    0.0386,
+    0.0372,
+    0.0405,
+    0.0359
+   ],
+   "rmseDashed": [
+    0.0529,
+    0.0547,
+    0.0537,
+    0.0566,
+    0.0549
+   ],
+   "rmseGap": [
+    0.0961,
+    0.094,
+    0.0901,
+    0.0868,
+    0.0985
+   ]
+  },
+  {
+   "id": "t15_c2",
+   "survey": "hawaii",
+   "q2Spans": [
+    57,
+    64,
+    60,
+    65,
+    63
+   ],
+   "q2HiddenWorse": [
+    35,
+    29,
+    34,
+    35,
+    35
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2602,
+    -0.2721,
+    -0.2612,
+    -0.2566,
+    -0.2707
+   ],
+   "nSolid": [
+    552,
+    577,
+    538,
+    541,
+    497
+   ],
+   "nDashed": [
+    2682,
+    2646,
+    2657,
+    2645,
+    2733
+   ],
+   "nGap": [
+    2213,
+    2234,
+    2250,
+    2280,
+    2223
+   ],
+   "rmseSolid": [
+    0.0303,
+    0.0309,
+    0.039,
+    0.0347,
+    0.0301
+   ],
+   "rmseDashed": [
+    0.0498,
+    0.0433,
+    0.0426,
+    0.0407,
+    0.0445
+   ],
+   "rmseGap": [
+    0.078,
+    0.0816,
+    0.0777,
+    0.0743,
+    0.0836
+   ]
+  },
+  {
+   "id": "t15_c3",
+   "survey": "hawaii",
+   "q2Spans": [
+    74,
+    58,
+    67,
+    62,
+    70
+   ],
+   "q2HiddenWorse": [
+    44,
+    31,
+    36,
+    26,
+    36
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2848,
+    -0.2866,
+    -0.2927,
+    -0.2821,
+    -0.262
+   ],
+   "nSolid": [
+    529,
+    564,
+    528,
+    523,
+    532
+   ],
+   "nDashed": [
+    2704,
+    2703,
+    2744,
+    2747,
+    2699
+   ],
+   "nGap": [
+    2652,
+    2631,
+    2587,
+    2643,
+    2641
+   ],
+   "rmseSolid": [
+    0.0555,
+    0.0443,
+    0.0288,
+    0.0388,
+    0.0635
+   ],
+   "rmseDashed": [
+    0.0445,
+    0.0494,
+    0.0474,
+    0.0446,
+    0.0491
+   ],
+   "rmseGap": [
+    0.0787,
+    0.0751,
+    0.0823,
+    0.0784,
+    0.0748
+   ]
+  },
+  {
+   "id": "t15_c4",
+   "survey": "hawaii",
+   "q2Spans": [
+    43,
+    42,
+    46,
+    30,
+    39
+   ],
+   "q2HiddenWorse": [
+    26,
+    24,
+    24,
+    18,
+    20
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2152,
+    -0.2359,
+    -0.2366,
+    -0.2159,
+    -0.2241
+   ],
+   "nSolid": [
+    493,
+    540,
+    501,
+    503,
+    476
+   ],
+   "nDashed": [
+    2835,
+    2791,
+    2757,
+    2767,
+    2803
+   ],
+   "nGap": [
+    2410,
+    2471,
+    2483,
+    2482,
+    2507
+   ],
+   "rmseSolid": [
+    0.0358,
+    0.0337,
+    0.0329,
+    0.034,
+    0.0331
+   ],
+   "rmseDashed": [
+    0.0422,
+    0.0455,
+    0.0425,
+    0.0409,
+    0.0421
+   ],
+   "rmseGap": [
+    0.067,
+    0.0665,
+    0.0657,
+    0.0664,
+    0.0671
+   ]
+  },
+  {
+   "id": "t15_c5",
+   "survey": "hawaii",
+   "q2Spans": [
+    74,
+    68,
+    62,
+    77,
+    70
+   ],
+   "q2HiddenWorse": [
+    42,
+    37,
+    41,
+    44,
+    40
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.3238,
+    -0.3078,
+    -0.3235,
+    -0.3337,
+    -0.3195
+   ],
+   "nSolid": [
+    565,
+    564,
+    531,
+    552,
+    524
+   ],
+   "nDashed": [
+    2610,
+    2612,
+    3948,
+    3889,
+    2650
+   ],
+   "nGap": [
+    2502,
+    2489,
+    1224,
+    1250,
+    2517
+   ],
+   "rmseSolid": [
+    0.0283,
+    0.0266,
+    0.0274,
+    0.0282,
+    0.028
+   ],
+   "rmseDashed": [
+    0.0391,
+    0.0415,
+    0.0566,
+    0.0497,
+    0.043
+   ],
+   "rmseGap": [
+    0.0836,
+    0.0789,
+    0.0921,
+    0.1017,
+    0.0819
+   ]
+  },
+  {
+   "id": "t15_c6",
+   "survey": "hawaii",
+   "q2Spans": [
+    70,
+    55,
+    67,
+    59,
+    67
+   ],
+   "q2HiddenWorse": [
+    43,
+    30,
+    43,
+    40,
+    42
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2377,
+    -0.2327,
+    -0.2497,
+    -0.2643,
+    -0.2568
+   ],
+   "nSolid": [
+    306,
+    294,
+    303,
+    283,
+    281
+   ],
+   "nDashed": [
+    2916,
+    2930,
+    2852,
+    2910,
+    2887
+   ],
+   "nGap": [
+    1019,
+    1003,
+    1086,
+    1054,
+    1055
+   ],
+   "rmseSolid": [
+    0.0348,
+    0.0411,
+    0.0336,
+    0.0567,
+    0.0333
+   ],
+   "rmseDashed": [
+    0.0522,
+    0.0523,
+    0.0513,
+    0.0513,
+    0.0531
+   ],
+   "rmseGap": [
+    0.0793,
+    0.0812,
+    0.0902,
+    0.0865,
+    0.0867
+   ]
+  },
+  {
+   "id": "t15_c7",
+   "survey": "hawaii",
+   "q2Spans": [
+    86,
+    85,
+    85,
+    79,
+    70
+   ],
+   "q2HiddenWorse": [
+    53,
+    42,
+    59,
+    51,
+    37
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.2584,
+    -0.2571,
+    -0.2382,
+    -0.2389,
+    -0.2469
+   ],
+   "nSolid": [
+    222,
+    211,
+    222,
+    215,
+    200
+   ],
+   "nDashed": [
+    2672,
+    2693,
+    2622,
+    2661,
+    2639
+   ],
+   "nGap": [
+    1164,
+    1155,
+    1215,
+    1189,
+    1204
+   ],
+   "rmseSolid": [
+    0.0307,
+    0.0391,
+    0.0296,
+    0.0359,
+    0.0574
+   ],
+   "rmseDashed": [
+    0.0616,
+    0.0649,
+    0.0625,
+    0.0664,
+    0.0608
+   ],
+   "rmseGap": [
+    0.0941,
+    0.0981,
+    0.093,
+    0.0951,
+    0.0942
+   ]
+  },
+  {
+   "id": "t15_c8",
+   "survey": "hawaii",
+   "q2Spans": [
+    60,
+    53,
+    58,
+    62,
+    56
+   ],
+   "q2HiddenWorse": [
+    38,
+    35,
+    30,
+    36,
+    32
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.272,
+    -0.2868,
+    -0.2822,
+    -0.2765,
+    -0.2495
+   ],
+   "nSolid": [
+    677,
+    669,
+    651,
+    668,
+    629
+   ],
+   "nDashed": [
+    3038,
+    3142,
+    3127,
+    3088,
+    3106
+   ],
+   "nGap": [
+    2471,
+    2412,
+    2370,
+    2448,
+    2467
+   ],
+   "rmseSolid": [
+    0.0289,
+    0.0316,
+    0.0318,
+    0.0278,
+    0.0306
+   ],
+   "rmseDashed": [
+    0.0355,
+    0.0374,
+    0.0344,
+    0.0369,
+    0.0345
+   ],
+   "rmseGap": [
+    0.0659,
+    0.0625,
+    0.0631,
+    0.0619,
+    0.063
+   ]
+  },
+  {
+   "id": "t16_c1",
+   "survey": "white-sands-parent",
+   "q2Spans": [
+    55,
+    53,
+    46,
+    59,
+    40
+   ],
+   "q2HiddenWorse": [
+    33,
+    29,
+    23,
+    32,
+    19
+   ],
+   "q3Kept": [
+    2,
+    2,
+    1,
+    3,
+    1
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "rho": [
+    -0.0587,
+    -0.0549,
+    -0.0535,
+    -0.0333,
+    -0.0654
+   ],
+   "nSolid": [
+    2783,
+    2859,
+    2751,
+    2793,
+    2743
+   ],
+   "nDashed": [
+    3487,
+    3436,
+    3562,
+    3466,
+    3509
+   ],
+   "nGap": [
+    2342,
+    2305,
+    2305,
+    2348,
+    2368
+   ],
+   "rmseSolid": [
+    0.0262,
+    0.027,
+    0.0272,
+    0.0273,
+    0.0253
+   ],
+   "rmseDashed": [
+    0.0268,
+    0.028,
+    0.0287,
+    0.0266,
+    0.0282
+   ],
+   "rmseGap": [
+    0.035,
+    0.0373,
+    0.0348,
+    0.035,
+    0.0342
+   ]
+  },
+  {
+   "id": "t16_c2",
+   "survey": "white-sands-parent",
+   "q2Spans": [
+    64,
+    61,
+    62,
+    61,
+    64
+   ],
+   "q2HiddenWorse": [
+    35,
+    38,
+    28,
+    35,
+    40
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0272,
+    -0.0017,
+    -0.0071,
+    -0.0029,
+    0.0053
+   ],
+   "nSolid": [
+    1126,
+    1117,
+    1075,
+    1089,
+    1047
+   ],
+   "nDashed": [
+    6426,
+    6502,
+    6505,
+    6494,
+    6521
+   ],
+   "nGap": [
+    2237,
+    2184,
+    2234,
+    2215,
+    2218
+   ],
+   "rmseSolid": [
+    0.0343,
+    0.0361,
+    0.0355,
+    0.0355,
+    0.0373
+   ],
+   "rmseDashed": [
+    0.0308,
+    0.0323,
+    0.0311,
+    0.0319,
+    0.0311
+   ],
+   "rmseGap": [
+    0.0372,
+    0.0365,
+    0.0356,
+    0.0359,
+    0.0365
+   ]
+  },
+  {
+   "id": "t16_c4",
+   "survey": "white-sands-parent",
+   "q2Spans": [
+    40,
+    59,
+    31,
+    37,
+    46
+   ],
+   "q2HiddenWorse": [
+    25,
+    37,
+    16,
+    19,
+    23
+   ],
+   "q3Kept": [
+    1,
+    5,
+    5,
+    3,
+    5
+   ],
+   "q3Downgraded": [
+    1,
+    2,
+    3,
+    0,
+    1
+   ],
+   "rho": [
+    -0.0303,
+    -0.0471,
+    -0.0495,
+    -0.0561,
+    -0.0506
+   ],
+   "nSolid": [
+    3374,
+    3372,
+    3316,
+    3294,
+    3276
+   ],
+   "nDashed": [
+    2952,
+    2982,
+    2975,
+    3002,
+    3018
+   ],
+   "nGap": [
+    1935,
+    1926,
+    1981,
+    1978,
+    1979
+   ],
+   "rmseSolid": [
+    0.0233,
+    0.0225,
+    0.0223,
+    0.0229,
+    0.023
+   ],
+   "rmseDashed": [
+    0.0227,
+    0.0235,
+    0.0235,
+    0.0224,
+    0.0242
+   ],
+   "rmseGap": [
+    0.0282,
+    0.0284,
+    0.0263,
+    0.0279,
+    0.0269
+   ]
+  },
+  {
+   "id": "t16_c5",
+   "survey": "white-sands-parent",
+   "q2Spans": [
+    23,
+    44,
+    37,
+    38,
+    40
+   ],
+   "q2HiddenWorse": [
+    10,
+    24,
+    17,
+    17,
+    21
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0058,
+    -0.0142,
+    -0.0099,
+    -0.0314,
+    -0.0185
+   ],
+   "nSolid": [
+    834,
+    829,
+    828,
+    868,
+    866
+   ],
+   "nDashed": [
+    6512,
+    6553,
+    6551,
+    6452,
+    6449
+   ],
+   "nGap": [
+    2415,
+    2388,
+    2396,
+    2452,
+    2442
+   ],
+   "rmseSolid": [
+    0.0317,
+    0.0256,
+    0.0289,
+    0.0255,
+    0.0246
+   ],
+   "rmseDashed": [
+    0.0252,
+    0.0238,
+    0.0241,
+    0.024,
+    0.0249
+   ],
+   "rmseGap": [
+    0.0268,
+    0.0284,
+    0.0263,
+    0.0294,
+    0.0266
+   ]
+  },
+  {
+   "id": "t16_c6",
+   "survey": "white-sands-parent",
+   "q2Spans": [
+    66,
+    60,
+    68,
+    61,
+    66
+   ],
+   "q2HiddenWorse": [
+    35,
+    28,
+    40,
+    31,
+    38
+   ],
+   "q3Kept": [
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0442,
+    -0.0539,
+    -0.0423,
+    -0.0249,
+    -0.0472
+   ],
+   "nSolid": [
+    1985,
+    2031,
+    1945,
+    1969,
+    1946
+   ],
+   "nDashed": [
+    6161,
+    6125,
+    6206,
+    6179,
+    6176
+   ],
+   "nGap": [
+    1685,
+    1682,
+    1675,
+    1680,
+    1708
+   ],
+   "rmseSolid": [
+    0.0324,
+    0.0319,
+    0.0315,
+    0.0323,
+    0.0314
+   ],
+   "rmseDashed": [
+    0.0307,
+    0.0303,
+    0.0304,
+    0.0305,
+    0.0312
+   ],
+   "rmseGap": [
+    0.0368,
+    0.0386,
+    0.0367,
+    0.0387,
+    0.0385
+   ]
+  },
+  {
+   "id": "t16_c7",
+   "survey": "white-sands-parent",
+   "q2Spans": [
+    78,
+    80,
+    72,
+    78,
+    72
+   ],
+   "q2HiddenWorse": [
+    51,
+    47,
+    31,
+    47,
+    48
+   ],
+   "q3Kept": [
+    42,
+    48,
+    40,
+    36,
+    41
+   ],
+   "q3Downgraded": [
+    13,
+    13,
+    13,
+    11,
+    11
+   ],
+   "rho": [
+    -0.1445,
+    -0.1433,
+    -0.1531,
+    -0.1378,
+    -0.1484
+   ],
+   "nSolid": [
+    5921,
+    5943,
+    5933,
+    5904,
+    5933
+   ],
+   "nDashed": [
+    2824,
+    2828,
+    2855,
+    2766,
+    2802
+   ],
+   "nGap": [
+    1239,
+    1210,
+    1181,
+    1303,
+    1240
+   ],
+   "rmseSolid": [
+    0.0187,
+    0.0186,
+    0.0189,
+    0.0182,
+    0.0185
+   ],
+   "rmseDashed": [
+    0.0235,
+    0.0233,
+    0.0225,
+    0.023,
+    0.0233
+   ],
+   "rmseGap": [
+    0.0301,
+    0.031,
+    0.0316,
+    0.0321,
+    0.0282
+   ]
+  },
+  {
+   "id": "t16_c8",
+   "survey": "white-sands-parent",
+   "q2Spans": [
+    76,
+    87,
+    83,
+    91,
+    77
+   ],
+   "q2HiddenWorse": [
+    40,
+    47,
+    51,
+    58,
+    45
+   ],
+   "q3Kept": [
+    33,
+    21,
+    29,
+    22,
+    18
+   ],
+   "q3Downgraded": [
+    12,
+    7,
+    10,
+    10,
+    6
+   ],
+   "rho": [
+    -0.1171,
+    -0.1116,
+    -0.124,
+    -0.1111,
+    -0.1089
+   ],
+   "nSolid": [
+    6502,
+    6528,
+    6493,
+    6491,
+    6508
+   ],
+   "nDashed": [
+    3074,
+    3059,
+    3091,
+    3105,
+    3049
+   ],
+   "nGap": [
+    406,
+    393,
+    394,
+    382,
+    422
+   ],
+   "rmseSolid": [
+    0.0276,
+    0.0286,
+    0.0267,
+    0.028,
+    0.0285
+   ],
+   "rmseDashed": [
+    0.0349,
+    0.0354,
+    0.0347,
+    0.0347,
+    0.0348
+   ],
+   "rmseGap": [
+    0.0536,
+    0.0557,
+    0.0518,
+    0.054,
+    0.0552
+   ]
+  },
+  {
+   "id": "t17_c0",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    34,
+    43,
+    45,
+    33,
+    43
+   ],
+   "q2HiddenWorse": [
+    21,
+    27,
+    22,
+    20,
+    20
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    0.0413,
+    0.0324,
+    0.0181,
+    0.0275,
+    0.0168
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    1071,
+    1068,
+    994,
+    985,
+    1032
+   ],
+   "nGap": [
+    2773,
+    2772,
+    2859,
+    2900,
+    2796
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0758,
+    0.073,
+    0.0752,
+    0.0714,
+    0.0787
+   ],
+   "rmseGap": [
+    0.0749,
+    0.0768,
+    0.0768,
+    0.0806,
+    0.0716
+   ]
+  },
+  {
+   "id": "t17_c1",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    28,
+    30,
+    24,
+    35,
+    23
+   ],
+   "q2HiddenWorse": [
+    9,
+    14,
+    9,
+    15,
+    9
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0144,
+    0.0168,
+    -0.0153,
+    0.0036,
+    -0.0035
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    505,
+    486,
+    463,
+    441,
+    484
+   ],
+   "nGap": [
+    1818,
+    1796,
+    1860,
+    1837,
+    1807
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0847,
+    0.0893,
+    0.091,
+    0.0933,
+    0.0875
+   ],
+   "rmseGap": [
+    0.0841,
+    0.0831,
+    0.0838,
+    0.0843,
+    0.0796
+   ]
+  },
+  {
+   "id": "t17_c2",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    37,
+    29,
+    23,
+    21,
+    29
+   ],
+   "q2HiddenWorse": [
+    17,
+    22,
+    13,
+    11,
+    15
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    0.0243,
+    0.013,
+    0.0154,
+    0.0023,
+    0.0319
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    769,
+    757,
+    730,
+    763,
+    785
+   ],
+   "nGap": [
+    2172,
+    2061,
+    2132,
+    2109,
+    2116
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0669,
+    0.067,
+    0.0664,
+    0.0593,
+    0.0706
+   ],
+   "rmseGap": [
+    0.0568,
+    0.0588,
+    0.0597,
+    0.0588,
+    0.0552
+   ]
+  },
+  {
+   "id": "t17_c3",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    38,
+    33,
+    27,
+    28,
+    35
+   ],
+   "q2HiddenWorse": [
+    17,
+    21,
+    15,
+    9,
+    23
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0021,
+    0.0475,
+    0.0361,
+    0.0248,
+    0.0502
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    808,
+    827,
+    843,
+    835,
+    818
+   ],
+   "nGap": [
+    2749,
+    2753,
+    2767,
+    2779,
+    2774
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0721,
+    0.0717,
+    0.0703,
+    0.0702,
+    0.0731
+   ],
+   "rmseGap": [
+    0.073,
+    0.0699,
+    0.0684,
+    0.0718,
+    0.0691
+   ]
+  },
+  {
+   "id": "t17_c4",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    7,
+    7,
+    11,
+    13,
+    15
+   ],
+   "q2HiddenWorse": [
+    4,
+    3,
+    6,
+    6,
+    9
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    0.0081,
+    0.0117,
+    0.0056,
+    -0.0004,
+    0.0002
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    387,
+    393,
+    369,
+    398,
+    363
+   ],
+   "nGap": [
+    1730,
+    1769,
+    1860,
+    1779,
+    1857
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0455,
+    0.0507,
+    0.0447,
+    0.0443,
+    0.0485
+   ],
+   "rmseGap": [
+    0.0505,
+    0.0504,
+    0.0499,
+    0.0513,
+    0.0517
+   ]
+  },
+  {
+   "id": "t17_c5",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    47,
+    45,
+    41,
+    42,
+    48
+   ],
+   "q2HiddenWorse": [
+    25,
+    19,
+    26,
+    23,
+    20
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.0056,
+    0.0083,
+    -0.0056,
+    0.0146,
+    -0.0122
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    379,
+    372,
+    369,
+    356,
+    394
+   ],
+   "nGap": [
+    1615,
+    1682,
+    1676,
+    1597,
+    1629
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0777,
+    0.0854,
+    0.0818,
+    0.0821,
+    0.0752
+   ],
+   "rmseGap": [
+    0.0833,
+    0.0807,
+    0.083,
+    0.0775,
+    0.0822
+   ]
+  },
+  {
+   "id": "t17_c6",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    15,
+    7,
+    6,
+    6,
+    10
+   ],
+   "q2HiddenWorse": [
+    10,
+    2,
+    4,
+    3,
+    5
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    0.0199,
+    0.0343,
+    0.0092,
+    0.0343,
+    0.0156
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    533,
+    511,
+    537,
+    466,
+    533
+   ],
+   "nGap": [
+    2809,
+    2859,
+    2894,
+    2905,
+    2893
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0528,
+    0.0562,
+    0.0505,
+    0.0521,
+    0.0564
+   ],
+   "rmseGap": [
+    0.0556,
+    0.0555,
+    0.0546,
+    0.0524,
+    0.0559
+   ]
+  },
+  {
+   "id": "t17_c7",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    52,
+    45,
+    51,
+    61,
+    50
+   ],
+   "q2HiddenWorse": [
+    31,
+    28,
+    27,
+    33,
+    26
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    -0.005,
+    0.0237,
+    0.0071,
+    0.0248,
+    0.0007
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    446,
+    428,
+    425,
+    402,
+    402
+   ],
+   "nGap": [
+    2315,
+    2356,
+    2314,
+    2363,
+    2400
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0741,
+    0.0677,
+    0.0674,
+    0.0624,
+    0.069
+   ],
+   "rmseGap": [
+    0.0715,
+    0.0709,
+    0.072,
+    0.0714,
+    0.0704
+   ]
+  },
+  {
+   "id": "t17_c8",
+   "survey": "estonia-parent",
+   "q2Spans": [
+    11,
+    11,
+    13,
+    12,
+    11
+   ],
+   "q2HiddenWorse": [
+    6,
+    6,
+    7,
+    7,
+    4
+   ],
+   "q3Kept": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "q3Downgraded": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "rho": [
+    0.0452,
+    0.0466,
+    0.0264,
+    0.0157,
+    0.0221
+   ],
+   "nSolid": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "nDashed": [
+    217,
+    204,
+    205,
+    221,
+    189
+   ],
+   "nGap": [
+    1393,
+    1413,
+    1362,
+    1411,
+    1401
+   ],
+   "rmseSolid": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "rmseDashed": [
+    0.0465,
+    0.0481,
+    0.0541,
+    0.0466,
+    0.0464
+   ],
+   "rmseGap": [
+    0.0493,
+    0.0485,
+    0.0483,
+    0.0497,
+    0.0482
+   ]
+  }
+ ]
+}

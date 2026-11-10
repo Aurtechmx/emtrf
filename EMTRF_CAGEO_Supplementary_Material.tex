@@ -22,7 +22,7 @@
 
 \begin{table}[h]
 \centering
-\caption*{\textbf{Table S1.} Descriptive DTM support structure used to interpret site heterogeneity (referenced from the main-text ``Interpreting site heterogeneity'' discussion). Cell fractions are over each frozen crop. ``M/I edge'' is the fraction of horizontal/vertical adjacent supported-cell pairs with different measured/interpolated ancestry. These are post-hoc mechanism diagnostics, not causal terrain effects.}
+\caption*{\textbf{Table S1.} Descriptive DTM support structure used to interpret site heterogeneity (referenced from main-text Section~5.3). Cell fractions are over each frozen crop. ``M/I edge'' is the fraction of horizontal/vertical adjacent supported-cell pairs with different measured/interpolated ancestry. ``$M$ dashed'' is the share of measured cells whose support falls in the dashed band (33--66); main-text Table~2 instead counts measured-only contour segments drawn dashed, as a share of all segments. These are post-hoc mechanism diagnostics, not causal terrain effects.}
 \vspace{2mm}
 \small
 \setlength{\tabcolsep}{6pt}
@@ -33,7 +33,7 @@ Site & $M$ cells & $I$ cells & $U$ cells & Median $n_M$ & M/I edge & $M$ dashed 
 White Sands & 35.2\% & 32.8\% & 32.0\% & 12 & 0.94\% & 32.3\% \\
 Estonia Tava & 76.3\% & 23.7\% & 0.0\% & 2 & 29.60\% & 50.6\% \\
 StREAM & 66.9\% & 33.1\% & 0.0\% & 2 & 29.33\% & 59.8\% \\
-Marsh Island & 0.8\% & 50.3\% & 48.9\% & 41 & 0.80\% & 15.5\% \\
+Marsh Island & 0.8\% & 50.3\% & 48.9\% & 41 & 0.80\% & 15.6\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -42,13 +42,13 @@ Marsh Island & 0.8\% & 50.3\% & 48.9\% & 41 & 0.80\% & 15.5\% \\
 
 \begin{table}[h]
 \centering
-\caption*{\textbf{Table S2.} Site-specific four-pipeline ablation and performance diagnostics at one source-cell tolerance (the per-site detail behind the main-text P0--P3 ablation summary table). ``EP promote'' is the endpoint-only rate shared by P0/P1; ``Grade loss'' is the rate shared by P0/P2; ``Typed-EP loss'' is P1. The P3 column reports support-promotion/provenance-loss counts. The EC-DP overhead per kilometre is a secondary microtiming diagnostic; the paired 5,305-vertex benchmark in the main text is the primary runtime estimate. Counts are the strict reconstruction, which retains every eligible span. The 2026 archived record contains 184 Marsh Island spans and 87.5\% reduction, where the strict reconstruction yields 186; the two additional eligible records are one-edge feature runs. Because the original eligibility rule was not preserved, the strict reconstruction is reported here and the archived result is retained in the repository as a historical cross-check.}
+\caption*{\textbf{Table S2.} Site-specific four-pipeline ablation and performance diagnostics at one source-cell tolerance (the per-site detail behind main-text Table~3). ``EP promote'' is the endpoint-only rate shared by P0/P1; ``Grade loss'' is the rate shared by P0/P2; ``Recorded-EP loss'' is P1 (recorded endpoint provenance). The P3 column reports support-promotion/provenance-loss counts. The EC-DP overhead per kilometre is a secondary microtiming diagnostic; the paired 5,305-vertex benchmark in the main text is the primary runtime estimate. Counts are the strict reconstruction, which retains every eligible span. The 2026 archived record contains 184 Marsh Island spans and 87.5\% reduction, where the strict reconstruction yields 186; the two additional eligible records are one-edge feature runs. Because the original eligibility rule was not preserved, the strict reconstruction is reported here and the archived result is retained in the repository as a historical cross-check.}
 \vspace{2mm}
 \small
 \setlength{\tabcolsep}{5pt}
 \begin{tabular}{@{}lrrrrrrr@{}}
 \toprule
-Site & Spans & Red. & EP promote & Grade loss & Typed-EP loss & P3 & +ms/km \\
+Site & Spans & Red. & EP promote & Grade loss & Recorded-EP loss & P3 & +ms/km \\
 \midrule
 White Sands & 82 & 71.1\% & 24.4\% & 93.9\% & 0.0\% & 0/0 & 2.12 \\
 Estonia Tava & 172 & 62.7\% & 6.4\% & 100\% & 7.6\% & 0/0 & 2.43 \\
@@ -69,16 +69,16 @@ Marsh Island & 186 & 87.4\% & 4.3\% & 98.4\% & 0.0\% & 0/0 & 2.78 \\
 \clearpage
 \section*{Supplementary Methods}
 
-\noindent\textbf{S1. Adversarial source-arc fixtures.} For each $\varepsilon\in\{0.02,0.05,0.10,0.20,0.40\}$, 2{,}000 deterministic 64-vertex polylines were generated from a low-amplitude sinusoidal geometry with a fixed mulberry32 seed family (seed \texttt{0xC0FFEE}$+$index). Source supports were sampled from $[0.78,0.98)$; one to four non-endpoint vertices were then replaced by weak support in $[0.08,0.50)$. Ordinary DP and EC-DP used the same geometric recursion. For every simplified span the endpoint-only value was the minimum of its retained endpoints, and the contract value was the minimum across the complete represented source arc; an endpoint-only promotion was counted when the former exceeded the latter, and a geometry mismatch when the retained index sets differed on fully supported fixtures. A separate gap experiment generated 1{,}000 fixtures, marked one interior vertex unsupported, and simplified at $\varepsilon=0.25$; a baseline bridge was a DP segment whose retained endpoints lay on opposite sides of the unsupported vertex, whereas EC-DP split the source at that vertex so any crossing segment would violate the contract. A closed-ring extension used a deterministic 32-vertex ring with one weak interior value: when no semantic boundary supplies a start, the reference rule selects the lexicographically smallest $(x,y)$ vertex, rotates the ring to that anchor, duplicates it to unroll the cycle, applies EC-DP, and re-closes the output, with complete-source evidence including the cyclic interval adjacent to the cut. All 32 cyclic reindexings were required to produce one canonical output signature.
+\noindent\textbf{S1. Adversarial source-arc fixtures.} For each $\varepsilon\in\{0.02,0.05,0.10,0.20,0.40\}$, 2{,}000 deterministic 64-vertex polylines were generated from a low-amplitude sinusoidal geometry (10 units long, amplitude 0.01--0.19 units, so $\varepsilon$ is in the same units) with a fixed mulberry32 seed family (seed \texttt{0xC0FFEE}$+$index). Source supports were sampled from $[0.78,0.98)$; one to four non-endpoint vertices were then replaced by weak support in $[0.08,0.50)$. Ordinary DP and EC-DP used the same geometric recursion. For every simplified span the endpoint-only value was the minimum of its retained endpoints, and the contract value was the minimum across the complete represented source arc; an endpoint-only promotion was counted when the former exceeded the latter, and a geometry mismatch when the retained index sets differed on fully supported fixtures. A separate gap experiment generated 1{,}000 fixtures, marked one interior vertex unsupported, and simplified at $\varepsilon=0.25$; a baseline bridge was a DP segment whose retained endpoints lay on opposite sides of the unsupported vertex, whereas EC-DP split the source at that vertex so any crossing segment would violate the contract. A closed-ring extension used a deterministic 32-vertex ring with one weak interior value: when no semantic boundary supplies a start, the reference rule selects the lexicographically smallest $(x,y)$ vertex, rotates the ring to that anchor, duplicates it to unroll the cycle, applies EC-DP, and re-closes the output, with complete-source evidence including the cyclic interval adjacent to the cut. All 32 cyclic reindexings were required to produce one canonical output signature.
 
 \vspace{4mm}
 \noindent\textbf{S2. Real-data block-recovery audit.} For each executed crop the study called the frozen production rasterization, confidence-aware DTM, and contour modules. Each emitted marching-squares segment lies within one known $2\times2$ DTM-cell block; the audit recovered that producing block geometrically and required its recomputed four-corner minimum confidence to match the emitted segment confidence. Source provenance was reconstructed from the four cell states, stored independently of visual grade: $M$ when all four cells were measured-derived, $I$ when all four were interpolated-derived, and $X$ when both occurred. Unsupported corners cannot produce a segment because the contour extractor already refuses such cells.
 
 \vspace{4mm}
-\noindent\textbf{S3. Standalone study components.} The study is independent of the production application. It contains a JavaScript implementation of the reference support functions, directional classifier, ordinary DP, EC-DP, deterministic fixture generation, unsupported-gap injection, cyclic-ring handling, and timing harness. One independently written Python oracle checks the typed-evidence algebra, including the applicability, scope and lineage clauses: a channel that is not applicable to a source is ignored, whereas a channel applicable to a required source but carrying no value makes the output channel unavailable rather than computed from the remaining sources (a refusal preserved under composition), output scope is the intersection of the applicable sources' scopes, and lineage is the complete union over the source set. The same six clauses are also asserted against the shipped implementation by the exact conformance checks; a second Python program independently reimplements ordinary DP and EC-DP and is evaluated differentially on the same deterministic fixture coordinates and supports rather than by calling JavaScript output. Raw results, environment metadata, and checksums are frozen with the study artifacts.
+\noindent\textbf{S3. Standalone study components.} The study is independent of the production application. It contains a JavaScript implementation of the reference support functions, directional classifier, ordinary DP, EC-DP, deterministic fixture generation, unsupported-gap injection, cyclic-ring handling, and timing harness. One independently written Python program checks the typed-evidence algebra, including the applicability, scope and lineage clauses: a channel that is not applicable to a source is ignored, whereas a channel applicable to a required source but carrying no value makes the output channel unavailable rather than computed from the remaining sources (a refusal preserved under composition), output scope is the intersection of the applicable sources' scopes, and lineage is the complete union over the source set. The same six clauses are also asserted against the shipped implementation by the exact conformance checks; a second Python program independently reimplements ordinary DP and EC-DP and is evaluated differentially on the same deterministic fixture coordinates and supports rather than by calling JavaScript output. Raw results, environment metadata, and checksums are frozen with the study artifacts.
 
 \vspace{4mm}
-\noindent\textbf{S4. Timing protocol.} For the synthetic benchmark, after five warm-ups ordinary DP and EC-DP were timed in 30 paired repetitions with alternating execution order, and retained-geometry checksums were required to match. The four-site real-contour benchmark used a site-normalized tolerance of one source grid cell (1.0 m for White Sands, Estonia Tava, and StREAM; 0.5 m for Marsh Island) over 289 polylines and 5{,}305 source vertices per pass; because one pass is sub-millisecond, each timed repetition batched 100 identical passes with five warm-ups and 30 alternating paired repetitions, then divided by 100. This is a post-contour representation-stage benchmark and excludes point loading, DTM construction, contour extraction, browser rendering, and GPU work.
+\noindent\textbf{S4. Timing protocol.} For the synthetic benchmark, after five warm-ups ordinary DP and EC-DP were timed in 30 paired repetitions with alternating execution order, and retained-geometry checksums were required to match. The four-site real-contour benchmark used a site-normalized tolerance of one source grid cell (1.0 m for White Sands, Estonia Tava, and StREAM; 0.5 m for Marsh Island) over 289 polylines and 5{,}305 source vertices per pass; because one pass is sub-millisecond, each timed repetition batched 100 identical passes with five warm-ups and 30 alternating paired repetitions, then divided by 100. This is a post-contour representation-stage benchmark and excludes point loading, DTM construction, contour extraction, browser rendering, and GPU work. Median kernel time was 45.49 ms for DP and 59.03 ms for EC-DP on the 640{,}000 synthetic vertices (ratio 1.30), and the ratio was 1.032 on the four crops; Node.js timings on one machine.
 
 \vspace{4mm}
 \noindent\textbf{S5. Excluded context crop.} A USGS Coconino 3DEP context crop was executable but yielded only one stitched polyline and seven contour segments, too few for site-level quantitative comparison, and is therefore excluded from the quantitative corpus.
@@ -107,9 +107,326 @@ conformance are therefore separate claims.
 
 
 \vspace{4mm}
-\noindent\textbf{S6. Cross-implementation validation context (E4).} The audited source defines E4 as agreement with a second implementation of the same computation, separate from E5 field ground truth. Two E4 records bear on the upstream geometry used in the main text: the mean 1~m DTM on the Estonia crop against a NumPy point-in-cell mean, and marching-squares isolines against GDAL on an analytic DEM. Both are author-run implementation-agreement cross-checks, not evidence that export provenance is correct, and not field-accuracy validation.
+\noindent\textbf{S6. Cross-implementation validation context (E4).} The audited source defines E4 as agreement with a second implementation of the same computation, separate from E5 field ground truth. Two E4 records bear on the upstream geometry used in the main text: the mean 1~m DTM on the Estonia crop against a SciPy binned point-in-cell mean, and marching-squares isolines against GDAL on an analytic DEM. Both are author-run implementation-agreement cross-checks, not evidence that export provenance is correct, and not field-accuracy validation.
+
+\vspace{4mm}
+\noindent\textbf{S7. Alternative methods.} All methods receive the same input: the strict feature runs of the four crops (contours at one-cell intervals, joined, split at display-grade changes), with per-edge typed evidence, and the production DP distance rule at a one-cell tolerance. \emph{DP}: ordinary DP; each span carries the evidence of its first and last source edge. \emph{Length-weighted mean}: DP geometry; each span carries, per channel, the length-weighted mean support of the edges it replaces that have the channel, and the provenance union of those edges. \emph{Boundary vertices}: a vertex is forced wherever the provenance class ($M$, $I$, $X$) changes between adjacent edges, and DP is applied between forced vertices with endpoint attribution. \emph{Homogeneous splitting ($b$)}: the line is cut wherever provenance or typed support changes, with support compared after integer division by $b$ points on the 0--100 scale ($b=0$ means exact equality; $b=10,25$), and DP is applied to each run with endpoint attribution. \emph{EC-DP}: DP geometry; each span carries the minimum typed support and provenance union of every edge it replaces. For every method a span is promoted when the support it carries exceeds the minimum over its replaced edges in either channel, and loses provenance when its carried provenance misses a class present in those edges. Length-weighted over- and understatement compare the span's carried support with each replaced edge's own value. Driver: \texttt{ablation/baselines.cjs}.
+
+\vspace{4mm}
+\noindent\textbf{S8. Alternative support profiles.} Each profile replaces the per-cell support field (0--100) before contour attribution; geometry is unchanged. Parameters were fixed before any run and not tuned. \emph{Exponential}: measured cells $100(1-e^{-n/2})$; interpolated cells $50\,e^{-(d-1)/1.5}$, with $n$ the return count and $d$ the distance to data in cells. \emph{Kriging}: $100(1-\sigma^2/s)$ with sill $s=1$, where $\sigma^2$ is the simple-kriging (Gaussian-process posterior) variance at the cell from its $k=8$ nearest measured cells within 6 cells, with exponential covariance (sill $s=1$, range 3 cells) and observation noise $\tau^2/n_j$, $\tau^2=0.5$; the computation was checked against an independent NumPy solution on six cells. \emph{Standard error} (named SURVEY in the code; no survey checkpoints are used): $100\exp(-\mathrm{se}^2/(2\cdot0.10^2))$, where se is the standard error of the cell elevation in metres: $\sqrt{(s_z^2+0.05^2)/n}$ for measured cells ($s_z$ the sample standard deviation of the cell's returns, 0.05 m instrument precision) and $\sqrt{\mathrm{se}_{\mathrm{med}}^2+(0.05\,d\,L)^2}$ for interpolated cells ($\mathrm{se}_{\mathrm{med}}$ the median measured se, $L$ the cell size). Results per site are in Table~S7. Driver: \texttt{ablation/support\_profiles.cjs}.
+
+\vspace{4mm}
+\noindent\textbf{S9. Third-party toolchains.} Six chains rebuild the DTM, contours and simplification from the committed returns; no chain runs OLV or PDAL code. GDAL 3.13.3: \texttt{gdal\_rasterize -add} (sum and count), \texttt{gdal raster calc}, \texttt{fill-nodata}, \texttt{proximity}, \texttt{gdal\_contour}, \texttt{gdal vector simplify} (GEOS topology-preserving DP). GRASS 8.5.0: \texttt{r.in.xyz} (mean, n), \texttt{r.fillnulls} (bilinear), \texttt{r.grow.distance}, \texttt{r.contour}, \texttt{v.generalize method=douglas}. SAGA 7.8.2: Shapes to Grid (mean, count), Close Gaps, Proximity Grid, Contour Lines from Grid, Line Simplification. WhiteboxTools 2.4.0: VectorPointsToRaster (sum, number), FillMissingData, EuclideanDistance, ContoursFromRaster (no smoothing or generalization); lines simplified with scikit-image \texttt{approximate\_polygon}, since WhiteboxTools has no line simplifier. R 4.6.1: lidR 4.3.3 \texttt{pixel\_metrics} and \texttt{rasterize\_terrain} (TIN), terra \texttt{distance}, isoband \texttt{isolines}, sf \texttt{st\_simplify}. Python: NumPy binning, SciPy \texttt{griddata} (linear) and \texttt{distance\_transform\_edt}, scikit-image \texttt{find\_contours} and \texttt{approximate\_polygon}. Contour interval and simplification tolerance equal the cell size.
+
+A script then reads each tool's own outputs. Every source edge is assigned the $2\times2$ block of cell centres containing its midpoint, and the script checks that the block brackets the contour level (all 23{,}566 edges did). Provenance is $M$, $I$ or $X$ from the block's return counts; the measured channel is the smallest return count among measured cells and the interpolation channel the largest distance to data among empty cells. Simplified lines are matched to their source lines by level, end vertices and vertex subsequence, with backtracking where a line passes through the same point twice; every simplified line matched. Because only the order of counts and distances is used, the promotion counts hold for any support function increasing in return count and decreasing in distance.
+
+The tools bin returns by four rules, recorded per chain in the output: half-open cells counted from the south (NumPy; the production code also keeps returns lying exactly on the outer grid boundary, which differs from NumPy in 4 cells at White Sands and Estonia); a return exactly on a horizontal cell edge assigned to the cell above (GDAL, GRASS, WhiteboxTools); the same after rounding coordinates to the 0.001 LAS scale and keeping returns on the outer grid boundary (lidR); and half-open cells restricted to the extent between outer cell centres (SAGA). Re-binning the returns with each rule reproduces that tool's cell counts in every cell at every site. Three WhiteboxTools 2.4.0 defects were worked around: \texttt{VectorPointsToRaster} fails with \texttt{assign=mean} or \texttt{--nodata}, so the mean is sum divided by number; its ASCII export writes the lower-left corner one cell too far north, so GeoTIFF outputs are read and their georeference checked; and the Python wrapper reports success when a tool fails, so every output file is checked. Per-chain results are in Table~S8. Driver: \texttt{toolchain-audit/reproduce.sh}.
+
+\vspace{4mm}
+\noindent\textbf{S10. Worked example and attribute query.} The query keeps a span when its exported measured support is at least $t$ and its exported provenance is $\{M\}$, for $t=66$ (solid) and $t=33$ (dashed). The reference answer applies the same test to each source edge. False acceptance is the length of source edges that fail the test inside spans the query accepts; over-rejection is the length of source edges that pass inside spans it rejects. The traced span is selected by a fixed rule: among DP spans whose endpoint-attributed record passes the query at $t=66$ and promotes support, the largest promotion, then the longer span, then site order. Seven spans qualified. The traced span is 4.81 m long. Its weak cell holds 2 returns (site median 12), both near its eastern edge, so its support is $C_M(2;12,3)=0.07$; three of the five source segments, 2.62 m in all, depend on that cell. The map draws the stretch as a gap because display grade comes from a segment's weaker end vertex and every segment here touches the weak cell. The support profile of the span reads 45.5\% of length at or above 66 and 54.5\% below 33. Results per site are in Table~S9: at $t=33$, 4.0--50.8\% of the length DP accepted failed at source level, and EC-DP accepted no failing length. Driver: \texttt{ablation/worked\_example.cjs}.
+
+\vspace{4mm}
+\noindent\textbf{S11. Directional classifier and closed rings.} Directional support is evaluated on eight rays around a cell. A pattern is one-sided when it has a single occupied direction or when the largest angular gap between adjacent occupied rays exceeds four of eight sectors. Because the rule depends on cyclic gaps rather than compass labels, it is invariant under 45-degree rotation; all 256 patterns are verified exhaustively. Closed rings are cut at the lexicographically smallest $(x,y)$ vertex as described in S1.
+
+\vspace{4mm}
+\noindent\textbf{S12. EC-wrap.} Given a source line with one evidence record per edge and a simplifier's output whose vertices are a subsequence of the source vertices with both ends kept, EC-wrap recovers the source indices of the output vertices (in order; with backtracking where a line passes through the same point twice) and assigns each output segment the complete-source minimum per channel, the provenance union and the support profile of the edges between consecutive retained indices. The simplifier is a black box. The matching is the one used for the six toolchains (Methods S9). As a non-Douglas--Peucker demonstration, the strict feature runs of the four crops were simplified by Visvalingam--Whyatt (\texttt{simplification} 2.0.0, Rust implementation) at an effective area of one source cell squared; every output line matched its source. Smoothing is not a subsequence operator, so EC-wrap does not apply to it; the reference smoothing operator gives each new edge the minimum and provenance union of the parent edges it spans (\texttt{smoothEvidence} in \texttt{js-study/reference/typedEvidenceOperators.ts}), and EC-DP then acts on the smoothed line. Simplified vertices are matched to source vertices by coordinates rounded to $10^{-9}$ m. Driver: \texttt{ablation/ecwrap.py} with \texttt{ablation/export\_runs.cjs}.
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Site & Lines & Reduction & Spans & Endpoint promotion & Endpoint prov.\ loss & EC-wrap prom./loss \\
+\midrule
+White Sands & 43 & 65.4\% & 107 & 18 (16.8\%) & 1 (0.9\%) & 0/0 \\
+Estonia Tava & 89 & 62.6\% & 173 & 11 (6.4\%) & 11 (6.4\%) & 0/0 \\
+StREAM & 33 & 63.7\% & 64 & 11 (17.2\%) & 0 (0.0\%) & 0/0 \\
+Marsh Island & 72 & 83.0\% & 277 & 11 (4.0\%) & 0 (0.0\%) & 0/0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{4mm}
+\noindent\emph{Further simplifiers.} Rules fixed before the run (\texttt{external-audit/PREREGISTRATION.md}, part A). The same runs were simplified at a tolerance of one source cell by QGIS 3.40.5 (\texttt{native:simplifygeometries}; its Douglas--Peucker option calls GEOS 3.9.1, its Visvalingam option is QGIS's own code) and by mapshaper 0.6.102 (its own Douglas--Peucker and Visvalingam, planar mode), and scored as above. EC-wrap's records showed no promotion and no provenance loss in any of the 2,117 spans. mapshaper deletes closed lines that collapse at this tolerance (``removed'' below); those lines are not scored. One further mapshaper line was not a vertex subsequence of its source and is left out. Driver: \texttt{ablation/ecwrap\_tools.py}.
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}llrrrrrrr@{}}
+\toprule
+Site & Simplifier & Lines & Removed & Reduction & Spans & Endpoint promotion & Endpoint prov.\ loss & EC-wrap prom./loss \\
+\midrule
+White Sands & QGIS DP & 43 & 0 & 65.8\% & 105 & 20 (19.0\%) & 0 (0.0\%) & 0/0 \\
+White Sands & QGIS VW & 43 & 0 & 64.4\% & 111 & 18 (16.2\%) & 1 (0.9\%) & 0/0 \\
+White Sands & mapshaper DP & 34 & 9 & 73.2\% & 69 & 20 (29.0\%) & 0 (0.0\%) & 0/0 \\
+White Sands & mapshaper VW & 34 & 9 & 73.4\% & 68 & 22 (32.4\%) & 1 (1.5\%) & 0/0 \\
+Estonia Tava & QGIS DP & 89 & 0 & 46.7\% & 284 & 8 (2.8\%) & 9 (3.2\%) & 0/0 \\
+Estonia Tava & QGIS VW & 89 & 0 & 61.4\% & 181 & 11 (6.1\%) & 11 (6.1\%) & 0/0 \\
+Estonia Tava & mapshaper DP & 41 & 47 & 66.7\% & 103 & 7 (6.8\%) & 8 (7.8\%) & 0/0 \\
+Estonia Tava & mapshaper VW & 37 & 52 & 71.6\% & 75 & 8 (10.7\%) & 6 (8.0\%) & 0/0 \\
+StREAM & QGIS DP & 33 & 0 & 60.7\% & 72 & 11 (15.3\%) & 1 (1.4\%) & 0/0 \\
+StREAM & QGIS VW & 33 & 0 & 62.5\% & 67 & 11 (16.4\%) & 0 (0.0\%) & 0/0 \\
+StREAM & mapshaper DP & 26 & 7 & 69.2\% & 43 & 11 (25.6\%) & 1 (2.3\%) & 0/0 \\
+StREAM & mapshaper VW & 25 & 8 & 71.2\% & 37 & 12 (32.4\%) & 0 (0.0\%) & 0/0 \\
+Marsh Island & QGIS DP & 72 & 0 & 83.5\% & 266 & 8 (3.0\%) & 0 (0.0\%) & 0/0 \\
+Marsh Island & QGIS VW & 72 & 0 & 82.7\% & 284 & 11 (3.9\%) & 0 (0.0\%) & 0/0 \\
+Marsh Island & mapshaper DP & 45 & 27 & 89.4\% & 158 & 8 (5.1\%) & 0 (0.0\%) & 0/0 \\
+Marsh Island & mapshaper VW & 45 & 27 & 87.5\% & 194 & 11 (5.7\%) & 0 (0.0\%) & 0/0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{4mm}
+\noindent\textbf{S13. Horizontal position uncertainty.} Rules fixed before the run. Each cell's vertical standard error $\mathrm{se}$ is that of the standard-error profile (Methods S8). For the $2\times2$ block of a contour edge, the horizontal position uncertainty is $u=\max(\mathrm{se})/\max(|\nabla z|,\,0.05)$, with $|\nabla z|$ the magnitude of the block's bilinear gradient and 0.05 m/m a floor that keeps flat ground finite. A DP span's true $u$ is the largest over the edges it replaces; its endpoint record carries the larger of its two end edges. The last column repeats the share for spans whose every block lies above the floor, so the floor does not drive the result. Driver: \texttt{ablation/positional\_uncertainty.cjs}.
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Site & Length understated & Median factor & Max factor & Median (m) & Max (m) & Above floor only \\
+\midrule
+White Sands & 56.0\% & 1.26 & 4.16 & 0.05 & 0.36 & 50.3\% \\
+Estonia Tava & 32.2\% & 1.41 & 2.65 & 0.41 & 0.87 & 24.3\% \\
+StREAM & 40.5\% & 1.65 & 6.37 & 0.20 & 1.44 & 32.6\% \\
+Marsh Island & 28.8\% & 1.20 & 2.46 & 1.20 & 5.73 & 35.2\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{S14. Attribute schemas of national contour products.} A desk study, read on 9 November 2026, of the published attribute schema of the contour-line class in ten national topographic products (Table~S12). Only attributes stored on each contour feature were counted; dataset-level metadata were excluded. Each schema was read from the agency's own specification, feature catalogue or service definition, at the address listed. Four questions were asked of each schema: does a contour carry (a) the kind of source or the way it was generated, (b) a quality flag, (c) an accuracy value, (d) a link to its source dataset. No schema stores any of these below the level of the whole feature, and none stores a support value: each quality flag is a category or yes/no, and each accuracy value is one number for the whole line. Five schemas record a source or generation type, three a quality flag, five an accuracy value and six a source link, in full or in part. Four schemas (United States, Great Britain, Sweden, Japan) carry none of (a)--(c). The national products of France and Estonia were also read; neither publishes a vector contour class, so they are not in the table. The survey describes published schemas, not the content of delivered files, and ten products are not a census.
+
+\vspace{4mm}
+\noindent\textbf{S15. Held-out ground check.} Rules fixed before the run and kept in the driver's header. Each crop's ground returns were split at random into two halves, twenty times (seeds 1--20). Terrain, support, contours and one-cell DP were built from one half; the other half was held out. The terrain therefore has half the paper's return density, and its counts are not mixed with the main tables. For a cell holding held-out returns the error is $e=|\bar z_{\mathrm{held}}-z_{\mathrm{terrain}}|$; the error of a contour edge is the RMS of $e$ over the cells of its $2\times2$ block that hold held-out returns. Three questions were asked. (1) Does support order error? RMSE of $e$ by cell class (measured cells with support $\geq 66$, $33$--$66$ and $<33$; interpolated cells) and Spearman's $\rho$ between support and $e$. (2) On DP spans whose endpoint record is promoted, is the error larger on the replaced edges the record hides than on the two end edges it reads? (3) Among spans the endpoint record grades solid, is the largest edge error greater on those EC-DP downgrades than on those it keeps? Every value is the median over the 20 splits, with the range in brackets.
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}llrl@{}}
+\toprule
+Site & Cell class & Cells & RMSE of $e$ (m) \\
+\midrule
+White Sands & Measured, $\geq 66$ & 2159 & 0.021 [0.020--0.022] \\
+ & Measured, 33--66 & 899 & 0.022 [0.020--0.024] \\
+ & Measured, $<33$ & 432.5 & 0.026 [0.025--0.030] \\
+ & Interpolated & 17.5 & 0.061 [0.039--0.097] \\
+Estonia Tava & Measured, $\geq 66$ & 0 & n/a \\
+ & Measured, 33--66 & 380.5 & 0.047 [0.042--0.052] \\
+ & Measured, $<33$ & 1791 & 0.051 [0.050--0.052] \\
+ & Interpolated & 2715.5 & 0.048 [0.046--0.050] \\
+StREAM & Measured, $\geq 66$ & 5 & 0.026 [0.009--0.097] \\
+ & Measured, 33--66 & 219 & 0.060 [0.051--0.071] \\
+ & Measured, $<33$ & 254 & 0.087 [0.070--0.098] \\
+ & Interpolated & 297.5 & 0.174 [0.151--0.191] \\
+Marsh Island & Measured, $\geq 66$ & 896 & 0.005 [0.004--0.006] \\
+ & Measured, 33--66 & 231 & 0.009 [0.007--0.018] \\
+ & Measured, $<33$ & 386 & 0.013 [0.012--0.015] \\
+ & Interpolated & 32 & 0.018 [0.011--0.226] \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}llrll@{}}
+\toprule
+ & & \multicolumn{3}{c}{Promoted spans with held-out data on hidden and end edges} \\
+\cmidrule(l){3-5}
+Site & Spearman $\rho$ (support, $e$) & Spans & Hidden error larger & Hidden/end error, median ratio \\
+\midrule
+White Sands & $-$0.04 [$-$0.08 to $-$0.02] & 25.5 & 58\% [44\%--70\%] & 1.07 [0.94--1.31] \\
+Estonia Tava & 0.01 [$-$0.01 to 0.02] & 9.5 & 50\% [22\%--91\%] & 0.99 [0.86--1.40] \\
+StREAM & $-$0.05 [$-$0.10 to 0.01] & 6 & 50\% [17\%--100\%] & 1.03 [0.52--2.03] \\
+Marsh Island & $-$0.42 [$-$0.47 to $-$0.40] & 6.5 & 63\% [33\%--88\%] & 1.23 [0.85--2.31] \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent (1) Median RMSE rose from the highest to the lowest support class of measured cells at every site, and interpolated cells had the largest error at three sites; at Estonia Tava, which has no cell at or above 66, they fell between the two measured classes. Cell by cell the relation is weak: $\rho$ was clearly negative only at Marsh Island and within 0.1 of zero elsewhere. (2) Inconclusive. A split left 6--26 promoted spans per site with data on both kinds of edge; the hidden edges had the larger error in 50--63\% of them, and every range of the ratio includes 1. (3) Inconclusive. Only White Sands had spans in both groups on every split (9 kept, 5 downgraded): median error was 0.029 m on the downgraded spans against 0.023 m on the kept ones, a ratio of 1.33 [0.78--2.31]. Marsh Island had a downgraded span on two splits; Estonia Tava and StREAM had no span graded solid. The check supports the ordering of support by cell class. At span level it neither confirms nor refutes a difference in ground error: 100 m crops at half density hold too few promoted spans. Driver: \texttt{ablation/heldout\_check.cjs}.
+
+\vspace{4mm}
+\noindent\emph{The same check on the scale-test crops.} Rules fixed before the run (\texttt{docs/\allowbreak RULES\_\allowbreak ADDITIONAL\_\allowbreak TESTS.md}, D2). The four crops gave too few promoted spans to answer question 2, so the same definitions were applied to the 129 scored crops of Methods S18, with seeds 1--5. For each promoted span with held-out data on a hidden edge and on an end edge, $d$ is the mean hidden-edge error minus the mean end-edge error; spans are pooled over crops and $S$ is the share with $d>0$. The interval is from 2{,}000 bootstrap replicates that resample whole crops. Reading fixed beforehand: an interval wholly above 50\% means the hidden segments have larger held-out error. $S$ was 57.9--58.6\% over the five seeds, each interval above 50\%, so the segments an endpoint record hides had larger held-out error than the segments it reads. The difference is small: a median of about 3 mm, a ratio of 1.09. RMSE rose from one measured class to the next in about three quarters of the eligible crops, and $\rho$ was negative but weak. Among spans the endpoint record grades solid, those EC-DP downgrades had the larger error (question 3). Values are medians over seeds. Driver: \texttt{scale/heldout\_scale.cjs}.
+
+\begin{center}\scriptsize
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Crops & $n$ & Spans & $S$ [95\%] & Median $d$ (mm) & Ratio & RMSE rises & $\rho$ median [quartiles] & Q3 share [95\%] \\
+\midrule
+All scored & 129 & 7,048 & 58.3\% [56.9--59.6] & 2.9 & 1.09 & 90/119 & $-0.13$ [$-0.19$ to $-0.07$] & 74.0\% [62.5--88.5] \\
+Without parent tiles & 113 & 6,377 & 58.7\% [57.2--60.1] & 3.1 & 1.09 & 86/112 & $-0.14$ [$-0.20$ to $-0.09$] & 79.0\% [59.6--92.5] \\
+\bottomrule
+\end{tabular}}
+\end{center}
+
+\vspace{4mm}
+\noindent\textbf{S16. Fewest vertices for a geometry-only fix.} Rules fixed before the run. A geometry-only fix keeps endpoint records and changes only which vertices are retained. On the feature lines used for every baseline (Methods S7), a span between two source vertices is allowed if every source vertex between them lies within one cell of the line through its ends, the distance rule of the production DP. The fewest vertices that can be retained under a condition on spans is the shortest path from a line's first vertex to its last over allowed spans that meet the condition, found exactly by dynamic programming. Three conditions were used: none (the fewest vertices any selection within tolerance can keep); no promotion in any channel and no provenance class lost by the endpoint record; and exact records, where every replaced edge has the provenance and support of the span's record, which is what homogeneous splitting enforces by cutting.
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+ & & & & \multicolumn{3}{c}{Fewest vertices within tolerance} & \\
+\cmidrule(lr){5-7}
+Site & Lines & Source & DP & No condition & No promotion or loss & Exact records & Homogeneous splitting \\
+\midrule
+White Sands & 43 & 433 & 125 & 118 (0.94) & 129 (1.03) & 288 (2.30) & 288 (2.30) \\
+Estonia Tava & 89 & 700 & 261 & 250 (0.96) & 268 (1.03) & 462 (1.77) & 462 (1.77) \\
+StREAM & 33 & 267 & 87 & 85 (0.98) & 95 (1.09) & 207 (2.38) & 207 (2.38) \\
+Marsh Island & 72 & 2052 & 258 & 242 (0.94) & 248 (0.96) & 605 (2.34) & 609 (2.36) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Retained vertices, with the multiple of DP in parentheses. DP kept 2--7\% more vertices than the fewest possible. Homogeneous splitting equalled the exact-record minimum at three sites and kept four more vertices at Marsh Island, so its cost (1.77--2.38 times DP) belongs to the requirement of exact endpoint records, not to the splitting procedure. Avoiding only promotion and provenance loss needs 0.96--1.09 times the DP vertices. Such a selection is a different simplification: its lines differ from DP's wherever DP's endpoint records were promoted, it must read the evidence while it simplifies, and its endpoint records then equal the complete-source records for that geometry. EC-DP reaches complete-source records on the unchanged DP geometry. Driver: \texttt{ablation/optimal\_bound.cjs}.
+
+\vspace{4mm}
+\noindent\textbf{S17. Sensitivity of the position-uncertainty result.} Methods S13 fixes two constants, an instrument precision of 0.05 m and a slope floor of 0.05 m/m. Rule fixed before the run: repeat S13 with each constant at 0.02, 0.05 and 0.10, nine combinations per site.
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Site & Length understated, S13 values & Range over nine combinations & Median factor, range \\
+\midrule
+White Sands & 56.0\% & 43.8--60.0\% & 1.23--1.43 \\
+Estonia Tava & 32.2\% & 19.1--46.1\% & 1.11--1.95 \\
+StREAM & 40.5\% & 37.3--40.8\% & 1.44--1.89 \\
+Marsh Island & 28.8\% & 12.2--38.0\% & 1.08--1.23 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Endpoint records understated the worst horizontal uncertainty on 12.2--60.0\% of contour length over all sites and combinations; no combination removed the effect. Driver: \texttt{ablation/positional\_sensitivity.cjs}.
+
+\vspace{4mm}
+\noindent\textbf{S18. Scale test on public-agency tiles.} Rules written on 9 November 2026 before any crop was cut (\texttt{scale/README.md}). \emph{Tiles}: every airborne LiDAR tile from a public-agency programme on the author's disk on that date, 18 in all: 8 USGS 3DEP tiles (Arizona, Coconino 2019), 4 USGS tiles (Wisconsin, Racine and Kenosha 2017), 4 NOAA/USGS tiles (Hawaii 2020--2023), and the USGS White Sands and Estonian Land Board tiles from which two of the paper's crops were cut. They had been downloaded for other work and are a convenience sample, not a random one. \emph{Crops}: nine per tile, 100 m by 100 m, centred at 1/4, 1/2 and 3/4 of the tile's extent in each axis; ground returns only. \emph{Processing}: as for the White Sands and Estonia crops (1 m grid, 1 m contour interval, one-cell DP), on the feature lines of Methods S7. \emph{Exclusions}: a crop with fewer than 1,000 ground returns is skipped and counted; per-crop rates are given for crops with at least 20 DP spans, and pooled counts include every scored crop.
+
+One amendment was written after the crops were cut and before any was scored. Two Hawaii tiles are small, so some of their nine crops overlap; within a tile, a crop that overlaps one already kept is dropped and counted. Cutting also showed that both Kenosha tiles hold ground returns in one corner only, which no crop reaches, and that two White Sands crops lie outside the data; these fall under the 1,000-return rule, and no crop was moved to find data. Quartiles use linear interpolation between order statistics.
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}lrrrrrrlr@{}}
+\toprule
+ & & \multicolumn{2}{c}{Crops} & \multicolumn{3}{c}{Pooled DP spans, endpoint records} & Promotion per crop & Splitting \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-7}
+Survey & Tiles & Scored & Dropped & Spans & Promoted & Provenance loss & median [quartiles] (range), \% & vertices \\
+\midrule
+Arizona, Coconino & 8 & 72 & 0 & 15,702 & 6,114 (38.9\%) & 1,398 (8.9\%) & 37.2 [31.7--42.7] (14.6--60.9) & $\times$2.56 \\
+Wisconsin & 4 & 18 & 18 & 2,106 & 534 (25.4\%) & 15 (0.7\%) & 24.6 [18.9--41.6] (10.7--50.0) & $\times$2.07 \\
+Hawaii & 4 & 23 & 13 & 10,489 & 2,467 (23.5\%) & 704 (6.7\%) & 23.2 [21.3--25.2] (14.3--27.9) & $\times$2.32 \\
+White Sands tile & 1 & 7 & 2 & 1,686 & 406 (24.1\%) & 2 (0.1\%) & 26.7 [19.2--26.8] (18.1--28.7) & $\times$1.93 \\
+Estonia Tava tile & 1 & 9 & 0 & 2,259 & 346 (15.3\%) & 150 (6.6\%) & 17.1 [12.8--20.6] (5.9--35.0) & $\times$1.94 \\
+\midrule
+All & 18 & 129 & 33 & 32,242 & 9,867 (30.6\%) & 2,269 (7.0\%) & 30.0 [22.9--40.4] (5.9--60.9) & $\times$2.39 \\
+Without paper tiles & 16 & 113 & 31 & 28,297 & 9,115 (32.2\%) & 2,117 (7.5\%) & 31.9 [24.1--41.6] (10.7--60.9) & $\times$2.44 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Of 162 crops, 13 were dropped for overlap and 20 for too few returns; 129 were scored, 123 of them with at least 20 spans. Endpoint attribution promoted support in 125 of the 129 crops and lost provenance in 101. Per-crop provenance loss had a median of 5.9\% (quartiles 1.6--9.0\%, range 0.0--18.2\%). EC-DP showed no promotion and no provenance loss in any crop. Homogeneous splitting showed no promotion and kept 2.39 times the DP vertices (per crop: median 2.31, range 1.58--3.47). All Wisconsin crops that were scored come from the two Racine tiles. The rates describe these tiles; they are not an estimate of prevalence in any national product. The crops are not in the repository because of their size; the SHA-256 digest of each is in the result file. Drivers: \texttt{scale/extract\_crops.py}, \texttt{scale/scale\_test.cjs}.
 
 \clearpage
+\vspace{4mm}
+\noindent\textbf{S19. Contours and points published by other authors.} Rules written on 9 November 2026 before any evidence was computed (\texttt{external-audit/PREREGISTRATION.md}, part B). \emph{Data}: the contour file and the LiDAR point file of You and Lee (2024), Zenodo, doi:10.5281/zenodo.12771247, CC0, used as published: 1,015 contour lines with 139,271 vertices at a 20 m interval and 96,502 points over about 1.4 km by 1.5 km of mountain terrain. The record does not say how the contours were drawn, and no step of this test uses the author's rasterizer or contouring. \emph{Lines}: 20 lines with fewer than three vertices are left out, leaving 995. \emph{Evidence}: the points are binned on a square grid whose cell is the nominal point spacing (4.47 m) rounded up, 5 m. A cell with points is measured and its support is its point count; an empty cell is interpolated and its support falls with the distance to the nearest measured cell. Support is compared by order only, as in Methods S9. Each published contour segment takes the evidence of the cell under its midpoint (55.7\% of segments are measured). \emph{Simplifiers}: Douglas--Peucker and Visvalingam--Whyatt of the Rust library, QGIS and mapshaper (Methods S12), at a tolerance of one cell. \emph{Scoring}: as in Methods S12. \emph{Sensitivity}: cells and tolerance of 2.5 m and 10 m with the Rust Douglas--Peucker.
+
+Endpoint attribution promoted support on 28.0--40.7\% of spans and lost provenance on 24.6--35.7\% under the six simplifiers at 5 m, and on 39.7\% and 43.8\% of spans at 2.5 m and 10 m. EC-wrap's records showed neither in any span. mapshaper removed 359 and 363 closed lines that collapsed. The published contour file has four columns (X, Y, Z, line number) and no evidence field. The evidence rule is the author's, applied to data the author did not produce: the result shows that the mechanism operates on external contour geometry and point distributions, and it is not a measurement of how often published products contain it. Driver: \texttt{external-audit/external\_audit.py}.
+
+\begin{center}\scriptsize
+\begin{tabular}{@{}rlrrrrrrr@{}}
+\toprule
+Cell (m) & Simplifier & Lines & Removed & Reduction & Spans & Endpoint promotion & Endpoint prov.\ loss & EC-wrap prom./loss \\
+\midrule
+5 & Rust DP & 995 & 0 & 96.1\% & 4,474 & 1,732 (38.7\%) & 1,533 (34.3\%) & 0/0 \\
+5 & Rust VW & 995 & 0 & 93.5\% & 8,041 & 2,260 (28.1\%) & 1,982 (24.6\%) & 0/0 \\
+5 & QGIS DP & 995 & 0 & 95.4\% & 5,446 & 1,695 (31.1\%) & 1,488 (27.3\%) & 0/0 \\
+5 & QGIS VW & 995 & 0 & 93.5\% & 8,048 & 2,250 (28.0\%) & 1,977 (24.6\%) & 0/0 \\
+5 & mapshaper DP & 636 & 359 & 96.5\% & 4,179 & 1,699 (40.7\%) & 1,490 (35.7\%) & 0/0 \\
+5 & mapshaper VW & 632 & 363 & 95.8\% & 5,144 & 1,927 (37.5\%) & 1,655 (32.2\%) & 0/0 \\
+2.5 & Rust DP & 995 & 0 & 93.6\% & 7,984 & 3,166 (39.7\%) & 2,600 (32.6\%) & 0/0 \\
+10 & Rust DP & 995 & 0 & 97.4\% & 2,672 & 1,170 (43.8\%) & 593 (22.2\%) & 0/0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{4mm}
+\noindent\textbf{S20. Default attribute handling when segments are dissolved.} Rules fixed before the run (\texttt{docs/\allowbreak RULES\_\allowbreak ADDITIONAL\_\allowbreak TESTS.md}, D1). Each source edge of the production contour runs of the four crops was written as a two-vertex line feature with its evidence (provenance, measured support, interpolation support) and the index of its line. Four tools then joined the features of each line into one feature with their default attribute behaviour: QGIS 3.40.5 \texttt{native:dissolve}, GeoPandas 1.0.1 \texttt{dissolve}, mapshaper 0.6.102 \texttt{-dissolve} with \texttt{copy-fields}, and GDAL/OGR 3.13.3 with an SQLite \texttt{GROUP BY}. The tool writes the record; the script only reads it back. A dissolved line shows support promotion when the tool's value exceeds the minimum over the line's edges in either channel, and provenance loss when a provenance type of its edges is absent from the tool's value. Lines with one edge (23 of 237) are not scored. QGIS, mapshaper and GDAL/OGR wrote the record of the first feature of each line on all 237 lines; GeoPandas wrote, for each field, the first value that is not null. With features in source order the four tools promoted support on 26.2--75.0\% of lines and lost provenance on 5.6--25.0\%; taking the mean of the support fields promoted on 56.2--92.9\%. With features in reverse order the defaults promoted on 22.5--66.7\% and lost provenance on 5.6--46.4\%. No tool dropped the fields. Driver: \texttt{ablation/dissolve\_tools.py}.
+
+\begin{center}\scriptsize\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llrrrrrrr@{}}
+\toprule
+Order & Site & Lines & QGIS & GeoPandas & mapshaper & GDAL/OGR & GeoPandas mean & OGR mean \\
+\midrule
+Source & White Sands & 36 & 22 (61.1\%) / 2 (5.6\%) & 22 (61.1\%) / 2 (5.6\%) & 22 (61.1\%) / 2 (5.6\%) & 22 (61.1\%) / 2 (5.6\%) & 33 (91.7\%) & 33 (91.7\%) \\
+Source & Estonia Tava & 80 & 21 (26.2\%) / 20 (25.0\%) & 25 (31.2\%) / 20 (25.0\%) & 21 (26.2\%) / 20 (25.0\%) & 21 (26.2\%) / 20 (25.0\%) & 45 (56.2\%) & 45 (56.2\%) \\
+Source & StREAM & 28 & 19 (67.9\%) / 6 (21.4\%) & 21 (75.0\%) / 6 (21.4\%) & 19 (67.9\%) / 6 (21.4\%) & 19 (67.9\%) / 6 (21.4\%) & 26 (92.9\%) & 26 (92.9\%) \\
+Source & Marsh Island & 70 & 24 (34.3\%) / 9 (12.9\%) & 25 (35.7\%) / 9 (12.9\%) & 24 (34.3\%) / 9 (12.9\%) & 24 (34.3\%) / 9 (12.9\%) & 54 (77.1\%) & 54 (77.1\%) \\
+Reversed & White Sands & 36 & 24 (66.7\%) / 2 (5.6\%) & 24 (66.7\%) / 2 (5.6\%) & 24 (66.7\%) / 2 (5.6\%) & 24 (66.7\%) / 2 (5.6\%) & 33 (91.7\%) & 33 (91.7\%) \\
+Reversed & Estonia Tava & 80 & 18 (22.5\%) / 30 (37.5\%) & 24 (30.0\%) / 30 (37.5\%) & 18 (22.5\%) / 30 (37.5\%) & 18 (22.5\%) / 30 (37.5\%) & 45 (56.2\%) & 45 (56.2\%) \\
+Reversed & StREAM & 28 & 14 (50.0\%) / 13 (46.4\%) & 17 (60.7\%) / 13 (46.4\%) & 14 (50.0\%) / 13 (46.4\%) & 14 (50.0\%) / 13 (46.4\%) & 26 (92.9\%) & 26 (92.9\%) \\
+Reversed & Marsh Island & 70 & 19 (27.1\%) / 10 (14.3\%) & 21 (30.0\%) / 10 (14.3\%) & 19 (27.1\%) / 10 (14.3\%) & 19 (27.1\%) / 10 (14.3\%) & 54 (77.1\%) & 54 (77.1\%) \\
+\bottomrule
+\end{tabular}}
+
+\vspace{1mm}{\footnotesize Cells: support promotion / provenance loss, count (\% of lines). The mean columns carry no provenance field.}
+\end{center}
+
+\vspace{4mm}
+\noindent\textbf{S21. Raster resampling.} Rules fixed before the run (\texttt{docs/\allowbreak RULES\_\allowbreak ADDITIONAL\_\allowbreak TESTS.md}, D3). The production DTM of each crop was written as three aligned rasters: measured support, interpolation support, and a provenance code (measured, interpolated, unsupported as no-data). GDAL 3.13.3 \texttt{gdalwarp} resampled them to cells two and four times larger, aligned on the grid origin so that every coarse cell is an exact block of source cells, with nearest-neighbour, average and mode resampling, and with the minimum as the contract's rule for the support rasters. A coarse cell shows support promotion when a resampled support value exceeds the minimum of that raster over its block, provenance loss when the resampled code omits a provenance type present in the block, and a value over unsupported cells when it carries a value although its block contains an unsupported cell. Blocks with no supported cell are not scored. Nearest-neighbour promoted support in 25.9--71.8\% of coarse cells and averaging in 50.9--100.0\%; the minimum promoted in none. The provenance code lost a type in 2.3--95.0\% of cells under nearest-neighbour and 1.5--95.0\% under mode, because a single code cannot hold a mixed block. Every resampling, the minimum included, wrote values over blocks that contain unsupported cells at the two sites that have them, so rule (ii) needs a no-data rule that the resampler does not apply by default. Estonia Tava and StREAM have no unsupported cells. Drivers: \texttt{ablation/export\_dtm\_grids.cjs}, \texttt{ablation/resample\_gdal.py}.
+
+\begin{center}\scriptsize\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+ & & & \multicolumn{3}{c}{Support promotion} & \multicolumn{2}{c}{Provenance loss} & Value over \\
+Site & Factor & Cells & Nearest & Average & Minimum & Nearest & Mode & unsupported (average) \\
+\midrule
+White Sands & 2 & 1,721 & 954 (55.4\%) & 1261 (73.3\%) & 0 (0.0\%) & 40 (2.3\%) & 40 (2.3\%) & 41 (2.4\%) \\
+White Sands & 4 & 436 & 313 (71.8\%) & 359 (82.3\%) & 0 (0.0\%) & 36 (8.3\%) & 25 (5.7\%) & 21 (4.8\%) \\
+Estonia Tava & 2 & 2,500 & 855 (34.2\%) & 2053 (82.1\%) & 0 (0.0\%) & 1383 (55.3\%) & 1383 (55.3\%) & 0 (0.0\%) \\
+Estonia Tava & 4 & 625 & 321 (51.4\%) & 625 (100.0\%) & 0 (0.0\%) & 584 (93.4\%) & 584 (93.4\%) & 0 (0.0\%) \\
+StREAM & 2 & 400 & 179 (44.8\%) & 370 (92.5\%) & 0 (0.0\%) & 223 (55.8\%) & 223 (55.8\%) & 0 (0.0\%) \\
+StREAM & 4 & 100 & 71 (71.0\%) & 100 (100.0\%) & 0 (0.0\%) & 95 (95.0\%) & 95 (95.0\%) & 0 (0.0\%) \\
+Marsh Island & 2 & 25,646 & 6636 (25.9\%) & 13055 (50.9\%) & 0 (0.0\%) & 770 (3.0\%) & 388 (1.5\%) & 653 (2.5\%) \\
+Marsh Island & 4 & 6,612 & 3768 (57.0\%) & 5092 (77.0\%) & 0 (0.0\%) & 601 (9.1\%) & 306 (4.6\%) & 541 (8.2\%) \\
+\bottomrule
+\end{tabular}}
+\end{center}
+
+\vspace{4mm}
+\noindent\textbf{S22. Probability sample of USGS 3DEP work units.} Rules written before any sample crop was fetched (\texttt{docs/\allowbreak RULES\_\allowbreak ADDITIONAL\_\allowbreak TESTS.md}, D4). \emph{Frame}: the 2,283 work units of the public index of USGS 3D Elevation Program point clouds (\texttt{boundaries/resources.geojson} of \texttt{github.com/hobuinc/usgs-lidar}, commit \texttt{ba8a11d1}; U.S.\ Government public domain). \emph{Draw}: the units were sorted by name and shuffled once with a seeded generator, and taken in that order until 60 valid crops were obtained. \emph{Crop}: one point drawn uniformly in longitude and latitude inside the unit's boundary; the 100 m square centred on it in the UTM zone of its longitude; class-2 ground returns read from the unit's public Entwine Point Tile resource and reprojected; up to three points per unit. \emph{Valid crop}: at least 1,000 ground returns and a determined vertical unit. The point-tile resources do not state the vertical unit, so the crop's median elevation was compared with the USGS Elevation Point Query Service at the crop centre, read as metres and as feet; the nearer reading was taken when it was nearer by at least 5 m, and the unit was otherwise set aside. \emph{Scoring}: as Methods S18.
+
+62 units were tried for 60 valid crops (58 in metres, 2 in feet, converted). Not used: USGS\_\allowbreak LPC\_\allowbreak CA\_\allowbreak SanDiegoQL1\_\allowbreak 2014\_\allowbreak LAS\_\allowbreak 2016 (vertical unit undetermined); CA\_\allowbreak Scripps-Mar\_\allowbreak 2003 (fewer than 1,000 ground returns). Crop medians agreed with the reference elevation to a median of 0.27 m. Endpoint records promoted support in 59 of 60 crops (98.3\%; Wilson 95\% interval 91.1--99.7\%). Among the 56 crops with at least 20 spans the promotion rate had a median of 20.6\% (quartiles 13.5--33.1\%, range 1.6--55.9\%) and a mean of 23.0\% (bootstrap 95\% interval 19.8--26.3\%); pooled, 3,928 of 14,018 spans (28.0\%). EC-DP promoted none of the 14,058 spans of all valid crops. The one crop without promotion (Barataria, Louisiana) had two spans. The sample speaks for work units with classified ground returns and a determinable vertical unit, with one 100 m crop per unit; the evidence model and the scoring are this study's, and the result is the frequency of the conditions under which endpoint attribution promotes, not of errors in published products. Drivers: \texttt{prevalence/draw\_sample.py}, \texttt{prevalence/score\_sample.cjs}.
+
+\begin{center}\tiny\setlength{\tabcolsep}{2.5pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lrrr@{\hspace{8pt}}lrrr@{}}
+\toprule
+Work unit & Returns & Spans & Promoted & Work unit & Returns & Spans & Promoted \\
+\midrule
+TX\_Victoria\_2006 & 5,808 & 16 & 2 & FL\_Peninsular\_FDEM\_Okeechobee\_2018 & 83,998 & 13 & 2 \\
+USGS\_LPC\_MN\_Phase1\_LeSueurCO\_2010\_LAS\_2016 & 5,223 & 268 & 31 & WY\_Southwest\_4\_2020 & 37,742 & 253 & 51 \\
+USGS\_LPC\_WY\_Casper\_Natrona\_2015\_LAS\_2017 & 36,801 & 103 & 19 & AR\_UpperWhiteVillage-FEMA\_2012 & 4,078 & 187 & 34 \\
+KS\_Osage\_2010 & 4,874 & 92 & 27 & USGS\_LPC\_TX\_South\_B2\_2018\_LAS\_2019 & 28,947 & 74 & 12 \\
+WI\_Oshkosh\_3Rivers\_FondDuLac\_TL\_2018 & 36,051 & 243 & 58 & ME\_SouthCoastal\_2\_2020 & 60,293 & 492 & 181 \\
+KS\_MiamiCo\_2009 & 4,763 & 119 & 23 & AK\_EMRI\_2\_D24 & 27,010 & 363 & 87 \\
+WV\_FEMAR3\_Southcentral\_B1\_2018 & 77,036 & 974 & 451 & NM\_SouthCentral\_Acoma\_TL\_2018 & 17,834 & 512 & 158 \\
+MO\_LivingstonCounty\_2011 & 9,061 & 505 & 19 & USGS\_LPC\_OK\_Woodward\_UTM15\_B5\_2016\_\_LAS\_2018 & 53,443 & 252 & 80 \\
+AL\_SWCentral\_1\_B22 & 14,991 & 183 & 21 & KY\_FluorsparDistrict\_2019 & 44,139 & 75 & 25 \\
+USGS\_LPC\_IL\_District4\_Tazewell\_2014\_LAS\_2016 & 9,588 & 108 & 18 & CA\_SanJoaquin\_6\_2021 & 144,663 & 9 & 3 \\
+ID\_DryCreek\_2007 & 14,129 & 705 & 233 & USGS\_LPC\_MI\_31Co\_Sanilac\_2017\_LAS\_2019 & 16,019 & 70 & 2 \\
+USGS\_LPC\_MI\_31Co\_Jackson\_2016\_LAS\_2019 & 22,954 & 167 & 29 & MI\_FEMA\_Cheboygan\_2019 & 23,868 & 225 & 25 \\
+AL\_19Co\_1\_B24 & 70,493 & 269 & 95 & WY\_YellowstoneNP\_1\_2020 & 20,944 & 145 & 20 \\
+TX\_MillsCo\_2006 & 3,731 & 132 & 16 & USGS\_LPC\_MO\_FEMAR7\_North\_A2\_2017\_LAS\_2019 & 46,219 & 653 & 293 \\
+SC\_Berkeley\_2016 & 32,436 & 90 & 13 & USGS\_LPC\_TN\_3County\_2015\_LAS\_2017 & 28,315 & 278 & 76 \\
+USGS\_LPC\_TX\_West\_Central\_B7\_2018\_LAS\_2019 & 33,590 & 59 & 6 & WV\_FEMAHQ\_B2\_2018 & 31,009 & 567 & 173 \\
+USGS\_LPC\_IN\_Central\_MarionCo\_2016\_LAS\_2018 & 12,673 & 149 & 21 & USGS\_LPC\_TX\_West\_Central\_B11\_2018\_LAS\_2019 & 49,942 & 494 & 183 \\
+USGS\_LPC\_IN\_ET\_B6\_Jay\_2012\_LAS\_2016 & 5,921 & 101 & 11 & USGS\_LPC\_IN\_WT\_B10\_Benton\_2013\_LAS\_2016 & 4,972 & 205 & 37 \\
+FL\_LeonCo\_2009 & 10,522 & 169 & 32 & USGS\_LPC\_MI\_31Co\_Midland\_2016\_LAS\_2019 & 18,248 & 125 & 3 \\
+USGS\_LPC\_AZ\_BrawleyRillito\_NRCS\_2018 & 53,665 & 179 & 33 & GA\_Statewide\_B2\_2018 & 8,312 & 166 & 59 \\
+USGS\_LPC\_MI\_Wexford\_2016\_LAS\_2017 & 19,058 & 164 & 37 & ND\_3DEPProcessing\_4\_D22 & 21,158 & 128 & 2 \\
+NE\_Southwest\_1\_2020 & 52,918 & 133 & 45 & USGS\_LPC\_MO\_AR\_Miss\_Laud\_UTM16\_2014\_LAS\_2016 & 18,269 & 134 & 12 \\
+WA\_EasternCascades\_3\_2019 & 135,377 & 145 & 81 & TN\_OSMRE-GPSC\_2011 & 10,648 & 235 & 99 \\
+ID\_CityofRocks\_2011 & 22,114 & 283 & 95 & NM\_HermitsPeak\_1\_D23 & 143,699 & 781 & 369 \\
+USGS\_LPC\_OK\_DamRehab3\_7\_2011\_LAS\_2018 & 4,267 & 49 & 5 & USGS\_LPC\_MO\_AR\_Mercer\_Grundy\_2014\_LAS\_2016 & 12,396 & 143 & 30 \\
+SD\_MO\_River\_Dewberry\_B2\_2016 & 109,649 & 48 & 6 & ME\_CrownofMaine\_B2\_2018 & 21,805 & 468 & 126 \\
+CA\_OrangeCo\_2011 & 14,633 & 264 & 43 & USGS\_LPC\_LA\_Barataria\_2013\_LAS\_2015 & 2,206 & 2 & 0 \\
+MO\_StLouis\_2012 & 8,105 & 212 & 8 & CT\_Statewide\_B5\_2016 & 23,208 & 261 & 58 \\
+NE\_SouthernNE\_B4B\_2018 & 57,460 & 189 & 78 & GA\_Central\_4\_2018 & 20,643 & 224 & 57 \\
+ARRA-FL\_Charlotte-W\_2010 & 11,975 & 264 & 69 & OK\_Panhandle\_B1C\_2018 & 33,250 & 142 & 53 \\
+\bottomrule
+\end{tabular}}
+\end{center}
+
 \begin{table}[h]
 \centering
 \caption*{\textbf{Table S3.} Notation summary for the EMTRF contract (main-text Section 2).}
@@ -122,15 +439,15 @@ Symbol & Meaning \\
 \midrule
 $e_i=(p_i,S_i,A_i,\ell_i)$ & evidence record for cell $i$ \\
 $p_i\subseteq\{M,I\}$ & provenance: measured-derived $M$, interpolated-derived $I$; mixed $X=\{M,I\}$ \\
-$U$ & unsupported state: no authorized supported elevation (absorbing) \\
-$S_i$ & typed support map, semantic channel $\mapsto[0,1]$ \\
+$U$ & unsupported state: no elevation authorized; a line may not cross it, and no later step can make it supported \\
+$S_i$ & support values, one per channel, in $[0,1]$ \\
 $A_i$ & applicability and scientific scope of each support channel \\
 $\ell_i$ & source lineage \\
-$\mu$ & a semantic support channel (e.g.\ \texttt{measured-support}) \\
+$\mu$ & a support channel (e.g.\ \texttt{measured-support}) \\
 $D_y$; $D_y^{\mu}$ & complete required source set for output $y$; its subset for which $\mu$ is applicable \\
-$S_y(\mu)=\min_{x\in D_y^{\mu}}S_x(\mu)$ & same-channel meet \\
+$S_y(\mu)=\min_{x\in D_y^{\mu}}S_x(\mu)$ & minimum within one channel \\
 $C_M(n;n_t,h)$; $C_I(d,\rho,\gamma)$ & reference measured / interpolated support profiles \\
-$p_j^{\mathrm{EC}}$; $S_j^{\mathrm{EC}}(\mu)$ & EC-DP provenance union and support meet over the complete replaced arc \\
+$p_j^{\mathrm{EC}}$; $S_j^{\mathrm{EC}}(\mu)$ & EC-DP provenance union and support minimum over all replaced segments \\
 $n$; $m$; $\varepsilon$ & source vertices; retained segments; Douglas--Peucker tolerance \\
 \bottomrule
 \end{tabularx}
@@ -140,15 +457,30 @@ $n$; $m$; $\varepsilon$ & source vertices; retained segments; Douglas--Peucker t
 \section*{Supplementary Notes}
 
 \noindent\textbf{N1. Worked substitution of the reference support profile.} The measured and interpolated
-reference support functions (main-text Eqs.~3--4) are conformance profiles, not part of the EMTRF contract, and
+reference support functions (main-text Eqs.~5--6) are conformance profiles, not part of the EMTRF contract, and
 may be replaced by any monotone support model without affecting provenance, applicability, lineage, or EC-DP
 geometry. As a concrete example, suppose an interpolation method supplies a kriging standard error $\sigma_K$ and
-defines a new typed channel $S_K=\sigma_0/(\sigma_0+\sigma_K)$ with $\sigma_0>0$, applicable only to
+defines a new channel $S_K=\sigma_0/(\sigma_0+\sigma_K)$ with $\sigma_0>0$, applicable only to
 interpolated-derived cells. For $\sigma_0=0.25$~m and a source arc with $\sigma_K=\{0.10,0.25,0.40\}$~m, the
-channel values are approximately $\{0.714,0.500,0.385\}$ and the representation-only meet is $0.385$. Replacing the
-cell-level formula changes only how that typed channel is built; the provenance union, unsupported absorption,
+channel values are approximately $\{0.714,0.500,0.385\}$ and the minimum over the arc is $0.385$. Replacing the
+cell-level formula changes only how that channel is built; the provenance union, the rule that unsupported cells cannot be crossed,
 applicability, lineage, and EC-DP geometry are unchanged. This substitutability is why the reported mechanism
 failures do not depend on the particular numerical support scale.
+
+\vspace{4mm}
+\noindent\textbf{N2. Proofs.} \emph{Proposition 1.} For a fixed channel $\mu$ with every applicable source supplying a value, $S_y(\mu)=\min_{x\in D_y^{\mu}}S_x(\mu)$ is bounded above by each $S_x(\mu)$ by definition of the minimum, and commutativity, associativity and idempotence are those of $\min$ on $[0,1]$. Unlike channels are never combined, and a missing applicable value is not skipped: by rule (iv) the channel is unavailable.
+
+\emph{Proposition 2.} EC-DP runs the same recursion and distance test as ordinary DP and attaches evidence only after the retained index set is fixed, so on a fully supported line at fixed tolerance, with no caller-supplied protected indices, the retained sets coincide. The equality is also asserted executably, including across provenance transitions.
+
+\emph{Proposition 3.} For segment $j$ and applicable channel $\mu$ with complete values, EC-DP assigns $\min_{k\in D_j^{\mu}}S_k(\mu)$, which is at most $S_k(\mu)$ for every applicable $k$ on the replaced arc; with an applicable value missing it emits no number.
+
+\emph{Theorem 1.} Consider operators $T_1,\ldots,T_r$, each obeying rules (i)--(vi), and an output $z$ of the chain with ancestor set $D_z^{*}$ (sources of sources, by composition of the per-operator source maps). (i) Union is associative, so the provenance of $z$ is the exact union over $D_z^{*}$; nothing is removed or invented. (ii) If any required ancestor is unsupported, the operator receiving it emits no supported element across it, so no later operator receives one. (iii) For channel $\mu$, each operator emits either no value or a value bounded by every applicable input value; by transitivity the final value is bounded by every applicable ancestor value. Sources for which $\mu$ is not applicable are excluded at the step where they enter and so never bound or contribute. A channel applies to an output exactly when it applies to at least one of its required sources; if it applies to none, the output carries no value and no applicability for $\mu$, so at later steps it neither contributes a value nor blocks one, and any later value is bounded by the applicable ancestors that do carry $\mu$. (iv) An unavailable channel at step $s$ is, for step $s+1$, an applicable source with a missing value, so rule (iv) at step $s+1$ keeps it unavailable; by induction it stays unavailable to the end of the chain and is never replaced by a value computed from other sources. (v) Scope is an intersection at each step, and repeated intersection cannot broaden it. (vi) Lineage at each step identifies the complete source set, so composing the maps identifies $D_z^{*}$.
+
+\vspace{4mm}
+\noindent\textbf{N3. Synthetic-surface GDAL audit.} Contours from GDAL \texttt{gdal\_contour} 3.13.1 were extracted at 0.5 m from a deterministic analytic DEM and scored against a reference support surface that decays with distance from two measurement passes. The output schema carried elevation and identifier fields but no provenance, support, applicability or lineage field. Endpoint-only inheritance promoted 18 of 91 spans (19.8\%); complete-source inheritance promoted none. The audit runs in the reproduction gate (\texttt{gdal-audit/}); the main text reports the six-toolchain audit on the four field crops instead (Methods S9).
+
+\vspace{4mm}
+\noindent\textbf{N4. Support-profile record.} For a span representing source edges with lengths $l_k$ and channel values $v_k$, the profile stores $f_t=\sum_{k:v_k\ge t} l_k/\sum_k l_k$ for each display threshold $t\in\{66,33\}$, beside $\min_k v_k$. Merging spans $j$ with represented source lengths $L_j$ (recoverable from the lineage interval) gives $f_t=\sum_j f_{t,j}L_j/\sum_j L_j$ exactly, so the record is exact under composition and cannot overstate at any step. Scalar bound: a single record $r$ safe for every threshold query must satisfy $r\le\min_k v_k$, otherwise the query at any $t\in(\min_k v_k,\,r]$ accepts the span while the minimum edge fails it. The driver \texttt{ablation/evidence\_profile.cjs} checks all three statements on the four crops: profile length accounting exact in every site and channel (Table~S11); two-cell spans equal to the length-weighted merge of their one-cell spans in 708 of 708 span--channel checks; and an unsafe threshold found for all 67 DP spans whose endpoint record exceeds the arc minimum. The record needs three numeric attribute fields per channel.
 
 
 \clearpage
@@ -173,7 +505,7 @@ Marsh Island & March 2025 campaign; site 2025-009-FA; exact flight day is not fr
 \vspace{6mm}
 \begin{table}[h]
 \centering
-\caption*{\textbf{Table S5.} Claim--evidence boundary used throughout the study. The rows deliberately separate representation conformance, empirical mechanism occurrence, upstream numerical agreement, and terrain accuracy so evidence from one row is not used to authorize another.}
+\caption*{\textbf{Table S5.} Claim--evidence boundary used throughout the study. The rows separate representation conformance, empirical mechanism occurrence, upstream numerical agreement, and terrain accuracy so evidence from one row is not used to authorize another.}
 \vspace{2mm}
 \small
 \scriptsize
@@ -182,11 +514,12 @@ Marsh Island & March 2025 campaign; site 2025-009-FA; exact flight day is not fr
 \toprule
 Claim class & Evidence used here & Not established by that evidence \\
 \midrule
-Operator conformance & Propositions; exhaustive directional states; adversarial source arcs/gaps; JavaScript--Python differential oracle & DTM vertical accuracy; population defect prevalence \\
+Operator conformance & Propositions; exhaustive directional states; adversarial source arcs/gaps; JavaScript--Python differential check & DTM vertical accuracy; population defect prevalence \\
 Mechanism on field geometry & Four public contour crops; complete-source audit; polyline-cluster bootstrap sensitivity summaries; P0--P3 ablation & Balanced terrain/sensor effects; population rates \\
-Upstream numerical implementation & Independent NumPy DTM and GDAL contour E4 records in the audited source & Correct export provenance; field ground truth; EMTRF conformance \\
+Upstream numerical implementation & Independent SciPy DTM and GDAL contour E4 records in the audited source & Correct export provenance; field ground truth; EMTRF conformance \\
 Application counterexample & Frozen source-path audit of grade-derived export evidence & Frequency of the same defect in other GIS packages \\
-Third-party contour geometry & GDAL \code{gdal\_contour} attribute schema; endpoint-only vs.\ complete-arc promotion on GDAL geometry & Independent EC-DP reimplementation; population prevalence across GIS tools \\
+Third-party geometry & Six open-source toolchains (GDAL, GRASS, SAGA, WhiteboxTools, lidR, SciPy/scikit-image) building DTM, contours and simplification on the four crops (Methods S9) & Population prevalence across GIS tools; correctness of the author-written attribution step beyond its recorded checks \\
+Alternative methods and support functions & Boundary-vertex and homogeneous-splitting baselines; exponential, kriging and standard-error support profiles (Methods S7--S8) & Optimality of the minimum rule; calibrated probabilities \\
 Runtime & Paired synthetic and real-contour representation-stage benchmarks & Universal browser/native-GIS or end-to-end pipeline overhead \\
 \bottomrule
 \end{tabularx}
@@ -203,10 +536,212 @@ Runtime & Paired synthetic and real-contour representation-stage benchmarks & Un
 \toprule
 Product & Independent reference & Executed scope & Compared & Max. difference \\
 \midrule
-DTM mean rasterization & NumPy point-in-cell mean & Estonia Tava, 1 m grid; identical data/NODATA mask & 7,627 cells & $2.36\times10^{-6}$ m \\
+DTM mean rasterization & SciPy binned point-in-cell mean (reference stored to 0.1 mm) & Estonia Tava, 1 m grid; identical data/NODATA mask & 7,627 cells & $3.6\times10^{-5}$ m \\
 Contour placement & GDAL 3.13.1 \code{gdal\_contour} & Tilted-plane DEM; 0.5 m interval & 2,222 vertices & $2.90\times10^{-5}$ m \\
 \bottomrule
 \end{tabularx}
 \end{table}
+
+
+\clearpage
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S7.} Support-profile sensitivity (Methods S8), one-cell tolerance. Promotion and loss are \% of DP spans. ``Grade loss'': provenance read from display grade; ``Recorded loss'': recorded endpoint provenance. EC-DP promotion and loss were 0 in every row. The last two columns are \% of measured cells drawn below solid and of interpolated cells drawn solid. Span counts differ by profile because display-grade runs depend on support.}
+\vspace{2mm}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+Profile & Site & Spans & Promotion & Grade loss & Recorded loss & $M$ below solid & $I$ solid \\
+\midrule
+Reference & White Sands & 82 & 24.4 & 93.9 & 0.0 & 34.9 & 0.0 \\
+ & Estonia Tava & 172 & 6.4 & 100.0 & 7.6 & 100.0 & 0.0 \\
+ & StREAM & 54 & 22.2 & 100.0 & 1.9 & 94.3 & 0.0 \\
+ & Marsh Island & 186 & 4.3 & 98.4 & 0.0 & 39.4 & 0.0 \\
+Exponential & White Sands & 73 & 20.5 & 13.7 & 1.4 & 1.1 & 0.0 \\
+ & Estonia Tava & 154 & 1.3 & 100.0 & 8.4 & 87.5 & 0.0 \\
+ & StREAM & 45 & 6.7 & 100.0 & 4.4 & 63.0 & 0.0 \\
+ & Marsh Island & 193 & 1.0 & 96.4 & 0.0 & 4.6 & 0.0 \\
+Kriging & White Sands & 70 & 14.3 & 12.9 & 0.0 & 0.0 & 0.1 \\
+ & Estonia Tava & 175 & 17.1 & 72.6 & 8.6 & 0.0 & 34.5 \\
+ & StREAM & 59 & 35.6 & 86.4 & 3.4 & 0.0 & 21.0 \\
+ & Marsh Island & 192 & 1.0 & 96.4 & 0.0 & 0.0 & 0.0 \\
+Std.\ error & White Sands & 70 & 17.1 & 14.3 & 0.0 & 0.0 & 3.4 \\
+ & Estonia Tava & 157 & 10.2 & 75.8 & 8.9 & 0.3 & 98.7 \\
+ & StREAM & 60 & 31.7 & 90.0 & 3.3 & 2.4 & 93.0 \\
+ & Marsh Island & 191 & 2.6 & 88.0 & 0.0 & 0.0 & 7.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S8.} Third-party toolchains (Methods S9): contour lines, simplified spans, vertex reduction, endpoint promotion and provenance loss (counts), and cells whose return count differs from the production binning; every tool's counts are reproduced exactly by its binning rule (Methods S9).}
+\vspace{2mm}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+Site & Chain & Lines & Spans & Reduction & Promoted & Prov.\ loss & Count diff. \\
+\midrule
+White Sands & GDAL & 19 & 89 & 73.7\% & 15 & 0 & 118 \\
+ & GRASS & 18 & 86 & 73.5\% & 12 & 0 & 118 \\
+ & SAGA & 9 & 62 & 75.8\% & 10 & 0 & 164 \\
+ & WhiteboxTools & 11 & 82 & 91.6\% & 19 & 1 & 118 \\
+ & lidR & 25 & 78 & 77.3\% & 11 & 0 & 112 \\
+ & SciPy/scikit-image & 18 & 64 & 78.1\% & 11 & 0 & 4 \\
+Estonia Tava & GDAL & 60 & 270 & 55.5\% & 3 & 13 & 245 \\
+ & GRASS & 68 & 226 & 57.6\% & 5 & 8 & 245 \\
+ & SAGA & 105 & 373 & 51.2\% & 3 & 6 & 216 \\
+ & WhiteboxTools & 36 & 145 & 88.8\% & 5 & 16 & 245 \\
+ & lidR & 48 & 134 & 71.8\% & 4 & 14 & 240 \\
+ & SciPy/scikit-image & 56 & 157 & 68.3\% & 3 & 14 & 4 \\
+StREAM & GDAL & 14 & 58 & 70.1\% & 2 & 3 & 0 \\
+ & GRASS & 16 & 47 & 73.0\% & 2 & 2 & 0 \\
+ & SAGA & 14 & 46 & 72.7\% & 6 & 2 & 92 \\
+ & WhiteboxTools & 11 & 57 & 89.9\% & 4 & 1 & 0 \\
+ & lidR & 13 & 29 & 79.9\% & 3 & 3 & 2 \\
+ & SciPy/scikit-image & 13 & 35 & 78.8\% & 2 & 2 & 0 \\
+Marsh Island & GDAL & 18 & 55 & 82.4\% & 8 & 1 & 284 \\
+ & GRASS & 16 & 157 & 91.9\% & 46 & 2 & 284 \\
+ & SAGA & 17 & 133 & 91.3\% & 28 & 4 & 7 \\
+ & WhiteboxTools & 34 & 155 & 94.2\% & 14 & 2 & 284 \\
+ & lidR & 51 & 180 & 93.5\% & 40 & 7 & 284 \\
+ & SciPy/scikit-image & 26 & 113 & 95.4\% & 38 & 4 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S9.} Attribute query on exported records (Methods S10). Lengths in metres. ``Reference'': source-edge length that passes the test. ``False acc.'': failing length inside accepted spans; ``Over-rej.'': passing length inside rejected spans.}
+\vspace{2mm}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+ & & & \multicolumn{3}{c}{DP, endpoint records} & \multicolumn{3}{c}{EC-DP} \\
+\cmidrule(lr){4-6}\cmidrule(lr){7-9}
+Site & $t$ & Reference & Accepted & False acc. & Over-rej. & Accepted & False acc. & Over-rej. \\
+\midrule
+White Sands & 66 & 52.13 & 40.49 & 13.77 & 25.41 & 6.16 & 0.00 & 45.97 \\
+White Sands & 33 & 237.46 & 233.68 & 9.39 & 13.17 & 215.84 & 0.00 & 21.61 \\
+Estonia Tava & 66 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+Estonia Tava & 33 & 48.03 & 41.65 & 12.33 & 18.71 & 22.31 & 0.00 & 25.73 \\
+StREAM & 66 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+StREAM & 33 & 15.05 & 12.57 & 6.38 & 8.86 & 1.69 & 0.00 & 13.36 \\
+Marsh Island & 66 & 7.42 & 1.23 & 0.00 & 6.19 & 1.23 & 0.00 & 6.19 \\
+Marsh Island & 33 & 10.53 & 2.80 & 0.27 & 8.00 & 1.73 & 0.00 & 8.79 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S10.} Conformance and adversarial results (main-text Sections 5.1--5.2).}
+\vspace{2mm}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.35\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Check & Result \\
+\midrule
+Measured support, $n=1\ldots40$ & Bounded, monotone; range 0.025--0.930 \\
+Single-return edge case & $C_M(1;1,3)=0.25$ \\
+Interpolation distance sequence & 0.50, 0.333, 0.25, 0.20 \\
+Eight-direction finite state & 256 patterns; 64 one-sided; 0 mismatches \\
+Independent Python check of the evidence rules & 14/14 checks passed \\
+Applicability, scope, lineage & 6/6 passed in both implementations \\
+EC-DP evidence propagation & Arc payload forwarded; unavailability kept, scope intersected \\
+Python DP/EC-DP differential & 2,500/2,500 exact; max support difference 0 \\
+Endpoint-only promotion, $\varepsilon=0.02$ & 14\,687/26\,591 spans (55.2\%) \\
+Endpoint-only promotion, $\varepsilon=0.05$ & 9\,830/13\,004 spans (75.6\%) \\
+Endpoint-only promotion, $\varepsilon=0.10$ & 7,678/9,469 spans (81.1\%) \\
+Endpoint-only promotion, $\varepsilon=0.20$ & 4,650/5,459 spans (85.2\%) \\
+Endpoint-only promotion, $\varepsilon=0.40$ & 2,000/2,000 spans (100\%) \\
+EC-DP promotion & 0 at every tolerance; 0 geometry mismatches, including across provenance transitions \\
+Unsupported-gap bridge & baseline 970/1,000; EC-DP 0/1,000 \\
+Closed-ring extension & 32 reindexings; 1 invariant output; 0 promotions \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S11.} Well-supported contour length (m) that each record states for its DP spans, against the true source length at or above the threshold (Note~N4). Endpoint: ordinary DP; minimum: EC-DP; profile: fraction times span length. Rows with no length at the threshold are omitted.}
+\vspace{2mm}
+\scriptsize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Site & Channel, threshold & True & Endpoint & Minimum & Profile \\
+\midrule
+White Sands & Measured $\ge66$ & 52.13 & 43.56 & 6.16 & 52.13 \\
+ & Measured $\ge33$ & 241.52 & 248.65 & 227.74 & 241.52 \\
+ & Interpolation $\ge33$ & 5.10 & 3.57 & 3.57 & 5.10 \\
+Estonia Tava & Measured $\ge33$ & 74.40 & 48.76 & 28.49 & 74.40 \\
+ & Interpolation $\ge66$ & 0.00 & 15.38 & 0.00 & 0.00 \\
+ & Interpolation $\ge33$ & 201.99 & 201.99 & 201.99 & 201.99 \\
+StREAM & Measured $\ge33$ & 43.72 & 38.86 & 11.30 & 43.72 \\
+ & Interpolation $\ge66$ & 0.00 & 5.26 & 0.00 & 0.00 \\
+ & Interpolation $\ge33$ & 88.50 & 94.25 & 79.00 & 88.50 \\
+Marsh Island & Measured $\ge66$ & 13.38 & 10.81 & 8.10 & 13.38 \\
+ & Measured $\ge33$ & 19.12 & 19.11 & 15.34 & 19.12 \\
+ & Interpolation $\ge33$ & 22.03 & 14.59 & 14.59 & 22.03 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption*{\textbf{Table S12.} Evidence attributes stored on each contour feature in ten national products (Methods S14). (a) source or generation type; (b) quality flag; (c) accuracy value; (d) link to the source dataset. ``Part'': the field exists but answers the question only in part. Field names are as published.}
+\vspace{2mm}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}p{38mm}ccccX@{}}
+\toprule
+Product (agency) & (a) & (b) & (c) & (d) & Fields that answer (a)--(d) \\
+\midrule
+Elevation Contours, large scale (USGS, United States) & No & No & No & Yes & \texttt{source\_featureid}, \texttt{source\_datasetid}, \texttt{source\_datadesc}, \texttt{source\_originator} \\
+OS Terrain 50 and OS Terrain 5 (Ordnance Survey, Great Britain) & No & No & No & No & None; height and line type only \\
+CanVec contour, catalogue 1.0.2 (Natural Resources Canada) & Yes & Part & Yes & Part & Contour generation (collected, derived); geometric representation qualifier (definite, approximate); altimetric and planimetric accuracy; provider \\
+NTDB contours 100K and 250K (Geoscience Australia) & Yes & No & Yes & Yes & Type ``Interpolated Contour''; \texttt{FEATURESOURCE}; \texttt{PLANIMETRICACCURACY}, \texttt{ELEVATIONACCURACY}; \texttt{ATTRIBUTESOURCE} \\
+Topo50 contour (LINZ, New Zealand) & No & Part & No & No & \texttt{contour\_definition} = indefinite \\
+FKB-H{\o}ydekurve 5.0.3 (Kartverket, Norway) & Yes & Yes & Yes & Part & \texttt{datakilde}, \texttt{datafangstmetode}; \texttt{sikkerTerrenggjengivelse} (yes/no); \texttt{n{\o}yaktighet}, \texttt{n{\o}yaktighetH{\o}yde} \\
+N50 Kartdata (Kartverket, Norway) & Part & No & Yes & No & \texttt{M{\aa}LEMETODE}; \texttt{N{\O}YAKTIGHET} \\
+Topografi 50 (Lantm\"ateriet, Sweden) & No & No & No & No & None; height, type and index flag only \\
+Maastotietokanta contour (National Land Survey of Finland) & Part & No & Yes & Part & \texttt{Korkeustarkkuus} (codes KM10, KM25 when height is from an elevation model); \texttt{Sijaintitarkkuus}; \texttt{Aineistol\"ahde} \\
+Fundamental Geospatial Data contour (GSI, Japan) & No & No & No & Yes & \texttt{orgMDId}, \texttt{orgGILvl} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{2mm}
+\raggedright\tiny Sources, in row order:
+\url{https://carto.nationalmap.gov/arcgis/rest/services/contours/MapServer};
+\url{https://docs.os.uk/os-downloads/products/land-and-terrain-portfolio/os-terrain-50/os-terrain-50-technical-specification/gml-feature-types};
+\url{https://download-telecharger.services.geo.ca/pub/nrcan_rncan/vector/canvec/doc/archive/CanVec_feature_catalogue_v1_0_2.html};
+\url{https://ga.gov.au/mapspecs/topographic/v6/appendixA_files/Relief.html};
+\url{https://docs.topo.linz.govt.nz/data-dictionary/tdd-class-contour.html};
+\url{https://dokument.geonorge.no/produktspesifikasjoner/fkb-h%C3%B8ydekurve/Versjon%205.0.3/fkb-h%C3%B8ydekurve-503.pdf};
+\url{https://register.geonorge.no/data/documents/Produktspesifikasjoner_N50%20Kartdata_v14_produktspesifikasjon-kartverket-n50kartdata-20170401_.pdf};
+\url{https://geotorget.lantmateriet.se/dokument/projects/topografi-50-nedladdning-vektor/released/2026.05/Tema-H%C3%B6jd.html};
+\url{https://www.maanmittauslaitos.fi/sites/maanmittauslaitos.fi/files/old/maastotietokohteet.pdf};
+\url{https://service.gsi.go.jp/kiban/contents/screen/basismap/documents/FGD_DLFileSpecV5.2.pdf}.
+\end{table}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.86\linewidth]{figures/fig5_real_ancestry.pdf}
+\caption*{\textbf{Figure S2.} Composition of measured-derived ($M$), interpolated-derived ($I$) and mixed ($X$) ancestry in the field contour segments. Mixed ancestry exceeds 50\% in StREAM and Estonia Tava.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/fig4_grade_provenance_counterexample.pdf}
+\caption*{\textbf{Figure S3.} Source-level grade--provenance counterexample (main-text Section~5.6). A measured-derived case has $C_M=0.40$ ($c=100\,C_M$ in the figure) while the audited export helper maps the dashed style to \texttt{interpolatedBacked}. The case stays dashed under 25/75 and 40/60 thresholds. EMTRF keeps provenance, support and display grade as separate fields.}
+\end{figure}
 
 \end{document}
