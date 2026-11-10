@@ -1,8 +1,10 @@
-"""Default attribute handling when line segments are dissolved (rules: docs/RULES_ADDITIONAL_TESTS.md, D1).
+"""Attribute handling when line segments are dissolved (rules: docs/RULES_ADDITIONAL_TESTS.md, D1).
 
 Each source edge of the production contour runs is written as a two-vertex line feature carrying its
 evidence (`prov`, `m_sup`, `i_sup`) and the index of its run (`line_id`). Standard GIS tools then join
-the features of each run into one feature, with their default attribute behaviour. The record each
+the features of each run into one feature. QGIS and GeoPandas run with default settings; mapshaper
+drops other fields unless `copy-fields` names them, so that option is used; the GDAL/OGR query names
+the evidence fields as bare columns of a grouped query. The record each
 tool writes is compared with the complete record of the joined edges: the minimum support per channel
 and the provenance union. The tool writes the record; this script only reads it back and scores it.
 
@@ -109,25 +111,25 @@ def tools():
     if q:
         v = subprocess.run(q + ["--version"], capture_output=True, text=True, env=dict(os.environ, QT_QPA_PLATFORM="offscreen")).stdout
         versions += [l.strip() for l in v.splitlines() if l.startswith(("QGIS 3", "QGIS 4", "GEOS version"))]
-        T.append(("QGIS dissolve", "default", True, lambda s, d: qgis_dissolve(s, f"{d}/q.geojson")))
+        T.append(("QGIS dissolve", "first-value", True, lambda s, d: qgis_dissolve(s, f"{d}/q.geojson")))
     else:
         missing.append("QGIS")
     try:
         import geopandas, shapely
         versions.append(f"GeoPandas {geopandas.__version__} (Shapely {shapely.__version__})")
-        T.append(("GeoPandas dissolve", "default", True, lambda s, d: geopandas_dissolve(s)))
+        T.append(("GeoPandas dissolve", "first-value", True, lambda s, d: geopandas_dissolve(s)))
         T.append(("GeoPandas dissolve, mean", "mean", False, lambda s, d: geopandas_dissolve(s, mean=True)))
     except ImportError:
         missing.append("GeoPandas")
     m = mapshaper_cmd()
     if m:
         versions.append("mapshaper " + (subprocess.run(m + ["--version"], capture_output=True, text=True).stdout.strip() or "?"))
-        T.append(("mapshaper dissolve", "default", True, lambda s, d: mapshaper_dissolve(s, f"{d}/m.geojson")))
+        T.append(("mapshaper dissolve", "first-value", True, lambda s, d: mapshaper_dissolve(s, f"{d}/m.geojson")))
     else:
         missing.append("mapshaper")
     if shutil.which("ogr2ogr"):
         versions.append(subprocess.run(["ogr2ogr", "--version"], capture_output=True, text=True).stdout.strip())
-        T.append(("GDAL/OGR SQL", "default", True, lambda s, d: ogr_sql(s, f"{d}/o.geojson")))
+        T.append(("GDAL/OGR SQL", "first-value", True, lambda s, d: ogr_sql(s, f"{d}/o.geojson")))
         T.append(("GDAL/OGR SQL, mean", "mean", False, lambda s, d: ogr_sql(s, f"{d}/oa.geojson", mean=True)))
     else:
         missing.append("GDAL/OGR")
@@ -150,6 +152,6 @@ if __name__ == "__main__":
                     print(f"{order:8s} {s['label']:13s} {label:26s} lines {r['linesScored']:3d} promotion {r['supportPromotion']:3d} ({r['supportPromotionPct']}%)"
                           + (f" provenance loss {r['provenanceLoss']} ({r['provenanceLossPct']}%)" if has_prov else "")
                           + (f" missing {r['linesMissingOrRecordDropped']}" if r['linesMissingOrRecordDropped'] else ""))
-    out_json.write_text(json.dumps({"driver": "default attribute handling when line segments are dissolved",
+    out_json.write_text(json.dumps({"driver": "attribute handling when line segments are dissolved",
                                     "rules": "docs/RULES_ADDITIONAL_TESTS.md, D1", "versions": versions,
                                     "toolsNotInstalled": missing, "rows": rows}, indent=1) + "\n")

@@ -42,6 +42,12 @@ features written in reverse order.
 
 Reported per site and tool: lines scored, promotions (count, %), provenance losses (count, %).
 
+Note added on 9 November 2026 after the run; the rules above are unchanged. "Default attribute
+behaviour" is accurate for QGIS and GeoPandas only. mapshaper drops other fields when it dissolves
+unless `copy-fields` names them, and SQLite does not guarantee which row supplies a bare column of a
+grouped query. The four calls were run exactly as written in the table; the reports describe them as
+four dissolve workflows.
+
 ## D2. Held-out ground check on the scale-test crops (`scale/heldout_scale.cjs`)
 
 Question: the held-out check on the four crops (Supplementary Methods S15) could not answer

@@ -1,0 +1,51 @@
+{
+ "driver": "chords over unsupported cells",
+ "test": "exact segment-cell intersection; interior only",
+ "sites": [
+  {
+   "site": "White Sands",
+   "unsupportedCellsPct": 32,
+   "spans": 82,
+   "spansReplacingSeveralSegments": 73,
+   "chordsOverUnsupportedCell": 0,
+   "chordsOverUnsupportedCellPct": 0,
+   "spansWithSourceSegmentOverUnsupportedCell": 0
+  },
+  {
+   "site": "Estonia Tava",
+   "unsupportedCellsPct": 0,
+   "spans": 172,
+   "spansReplacingSeveralSegments": 159,
+   "chordsOverUnsupportedCell": 0,
+   "chordsOverUnsupportedCellPct": 0,
+   "spansWithSourceSegmentOverUnsupportedCell": 0
+  },
+  {
+   "site": "StREAM",
+   "unsupportedCellsPct": 0,
+   "spans": 54,
+   "spansReplacingSeveralSegments": 48,
+   "chordsOverUnsupportedCell": 0,
+   "chordsOverUnsupportedCellPct": 0,
+   "spansWithSourceSegmentOverUnsupportedCell": 0
+  },
+  {
+   "site": "Marsh Island",
+   "unsupportedCellsPct": 48.7,
+   "spans": 186,
+   "spansReplacingSeveralSegments": 182,
+   "chordsOverUnsupportedCell": 0,
+   "chordsOverUnsupportedCellPct": 0,
+   "spansWithSourceSegmentOverUnsupportedCell": 0
+  }
+ ],
+ "sample3dep": {
+  "crops": 60,
+  "cropsWithUnsupportedCells": 0,
+  "spans": 14058,
+  "chordsOverUnsupportedCell": 0,
+  "cropsWithSuchChord": 0,
+  "spansWithSourceSegmentOverUnsupportedCell": 0,
+  "chordsOverUnsupportedCellPct": 0
+ }
+}

@@ -45,7 +45,9 @@ complete-source EC-DP support; P3 typed provenance/support + complete-source EC-
   every scalar above the arc minimum admits a threshold at which the query accepts a partly failing span.
   Support only (no provenance condition), so lengths differ from the worked-example query. Output:
   `results/evidence_profile_r1.json`, `evidence_profile_site_results.csv`.
-- `dissolve_tools.py` - default attribute handling of QGIS, GeoPandas, mapshaper and GDAL/OGR when per-segment
+- `chord_mask.cjs` - counts one-cell DP chords that pass over a cell with no supported elevation; output
+  `results/chord_mask_r1.json`.
+- `dissolve_tools.py` - attribute handling of QGIS, GeoPandas, mapshaper and GDAL/OGR when per-segment
   records are dissolved into lines (rules: `docs/RULES_ADDITIONAL_TESTS.md`, D1); output
   `results/dissolve_tools_r1.json`.
 - `export_dtm_grids.cjs` + `resample_gdal.py` - the contract applied to raster resampling with GDAL (rules: D3);

@@ -1,5 +1,5 @@
 {
- "driver": "default attribute handling when line segments are dissolved",
+ "driver": "attribute handling when line segments are dissolved",
  "rules": "docs/RULES_ADDITIONAL_TESTS.md, D1",
  "versions": [
   "QGIS 3.40.5-Bratislava 'Bratislava' (8d6d1b54486)",
@@ -13,7 +13,7 @@
   {
    "site": "White Sands",
    "tool": "QGIS dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 36,
    "singleEdgeLines": 7,
@@ -26,7 +26,7 @@
   {
    "site": "White Sands",
    "tool": "GeoPandas dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 36,
    "singleEdgeLines": 7,
@@ -50,7 +50,7 @@
   {
    "site": "White Sands",
    "tool": "mapshaper dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 36,
    "singleEdgeLines": 7,
@@ -63,7 +63,7 @@
   {
    "site": "White Sands",
    "tool": "GDAL/OGR SQL",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 36,
    "singleEdgeLines": 7,
@@ -87,7 +87,7 @@
   {
    "site": "Estonia Tava",
    "tool": "QGIS dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 80,
    "singleEdgeLines": 9,
@@ -100,7 +100,7 @@
   {
    "site": "Estonia Tava",
    "tool": "GeoPandas dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 80,
    "singleEdgeLines": 9,
@@ -124,7 +124,7 @@
   {
    "site": "Estonia Tava",
    "tool": "mapshaper dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 80,
    "singleEdgeLines": 9,
@@ -137,7 +137,7 @@
   {
    "site": "Estonia Tava",
    "tool": "GDAL/OGR SQL",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 80,
    "singleEdgeLines": 9,
@@ -161,7 +161,7 @@
   {
    "site": "StREAM",
    "tool": "QGIS dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 28,
    "singleEdgeLines": 5,
@@ -174,7 +174,7 @@
   {
    "site": "StREAM",
    "tool": "GeoPandas dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 28,
    "singleEdgeLines": 5,
@@ -198,7 +198,7 @@
   {
    "site": "StREAM",
    "tool": "mapshaper dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 28,
    "singleEdgeLines": 5,
@@ -211,7 +211,7 @@
   {
    "site": "StREAM",
    "tool": "GDAL/OGR SQL",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 28,
    "singleEdgeLines": 5,
@@ -235,7 +235,7 @@
   {
    "site": "Marsh Island",
    "tool": "QGIS dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 70,
    "singleEdgeLines": 2,
@@ -248,7 +248,7 @@
   {
    "site": "Marsh Island",
    "tool": "GeoPandas dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 70,
    "singleEdgeLines": 2,
@@ -272,7 +272,7 @@
   {
    "site": "Marsh Island",
    "tool": "mapshaper dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 70,
    "singleEdgeLines": 2,
@@ -285,7 +285,7 @@
   {
    "site": "Marsh Island",
    "tool": "GDAL/OGR SQL",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "source",
    "linesScored": 70,
    "singleEdgeLines": 2,
@@ -309,7 +309,7 @@
   {
    "site": "White Sands",
    "tool": "QGIS dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 36,
    "singleEdgeLines": 7,
@@ -322,7 +322,7 @@
   {
    "site": "White Sands",
    "tool": "GeoPandas dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 36,
    "singleEdgeLines": 7,
@@ -346,7 +346,7 @@
   {
    "site": "White Sands",
    "tool": "mapshaper dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 36,
    "singleEdgeLines": 7,
@@ -359,7 +359,7 @@
   {
    "site": "White Sands",
    "tool": "GDAL/OGR SQL",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 36,
    "singleEdgeLines": 7,
@@ -383,7 +383,7 @@
   {
    "site": "Estonia Tava",
    "tool": "QGIS dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 80,
    "singleEdgeLines": 9,
@@ -396,7 +396,7 @@
   {
    "site": "Estonia Tava",
    "tool": "GeoPandas dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 80,
    "singleEdgeLines": 9,
@@ -420,7 +420,7 @@
   {
    "site": "Estonia Tava",
    "tool": "mapshaper dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 80,
    "singleEdgeLines": 9,
@@ -433,7 +433,7 @@
   {
    "site": "Estonia Tava",
    "tool": "GDAL/OGR SQL",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 80,
    "singleEdgeLines": 9,
@@ -457,7 +457,7 @@
   {
    "site": "StREAM",
    "tool": "QGIS dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 28,
    "singleEdgeLines": 5,
@@ -470,7 +470,7 @@
   {
    "site": "StREAM",
    "tool": "GeoPandas dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 28,
    "singleEdgeLines": 5,
@@ -494,7 +494,7 @@
   {
    "site": "StREAM",
    "tool": "mapshaper dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 28,
    "singleEdgeLines": 5,
@@ -507,7 +507,7 @@
   {
    "site": "StREAM",
    "tool": "GDAL/OGR SQL",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 28,
    "singleEdgeLines": 5,
@@ -531,7 +531,7 @@
   {
    "site": "Marsh Island",
    "tool": "QGIS dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 70,
    "singleEdgeLines": 2,
@@ -544,7 +544,7 @@
   {
    "site": "Marsh Island",
    "tool": "GeoPandas dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 70,
    "singleEdgeLines": 2,
@@ -568,7 +568,7 @@
   {
    "site": "Marsh Island",
    "tool": "mapshaper dissolve",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 70,
    "singleEdgeLines": 2,
@@ -581,7 +581,7 @@
   {
    "site": "Marsh Island",
    "tool": "GDAL/OGR SQL",
-   "aggregation": "default",
+   "aggregation": "first-value",
    "featureOrder": "reversed",
    "linesScored": 70,
    "singleEdgeLines": 2,

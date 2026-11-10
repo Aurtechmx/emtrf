@@ -202,7 +202,7 @@ else
   echo "  ecwrap tools / external audit: skipped (install toolchain-audit/requirements.txt and set EMTRF_TOOLCHAIN_PY)"
 fi
 
-echo "   11c default dissolve of GIS tools; raster resampling with GDAL; command-line tool =="
+echo "   11c segment dissolve in GIS tools; raster resampling with GDAL; chords and no-data cells; command-line tool =="
 DISSOLVE_STATUS="NOT RUN (toolchain Python with GeoPandas, QGIS or mapshaper unavailable)"
 RESAMPLE_STATUS="NOT RUN (GDAL command-line tools or toolchain Python unavailable)"
 if "$PY" -c "import geopandas, sys; sys.path.insert(0,'ablation'); import dissolve_tools as d; sys.exit(1 if d.tools()[2] else 0)" 2>/dev/null; then
@@ -211,7 +211,7 @@ if "$PY" -c "import geopandas, sys; sys.path.insert(0,'ablation'); import dissol
 import json,sys
 d=json.load(open("results/dissolve_tools_r1.json"));R=d["rows"];bad=[]
 if len(R)!=48 or d["toolsNotInstalled"]: bad.append("rows")
-D=[r for r in R if r["aggregation"]=="default" and r["featureOrder"]=="source"]
+D=[r for r in R if r["aggregation"]=="first-value" and r["featureOrder"]=="source"]
 M=[r for r in R if r["aggregation"]=="mean" and r["featureOrder"]=="source"]
 if sum(r["linesScored"] for r in D)!=4*214 or any(r["linesMissingOrRecordDropped"] for r in R): bad.append("lines")
 p=[r["supportPromotionPct"] for r in D]; l=[r["provenanceLossPct"] for r in D]; m=[r["supportPromotionPct"] for r in M]
@@ -219,7 +219,7 @@ if (min(p),max(p),min(l),max(l),min(m),max(m))!=(26.2,75.0,5.6,25.0,56.2,92.9): 
 for b in bad: print("  DISSOLVE MISMATCH:",b,file=sys.stderr)
 sys.exit(1 if bad else 0)
 PYCHK
-  DISSOLVE_STATUS="PASS"; echo "  dissolve: four GIS tools promote support on 26.2-75.0 % of lines with default settings"
+  DISSOLVE_STATUS="PASS"; echo "  dissolve: four GIS tools promote support on 26.2-75.0 % of lines"
 else
   echo "  dissolve: skipped (needs GeoPandas in EMTRF_TOOLCHAIN_PY, QGIS and mapshaper)"
 fi
@@ -239,6 +239,15 @@ PYCHK
 else
   echo "  resampling: skipped (needs gdalwarp and numpy)"
 fi
+node ablation/chord_mask.cjs >/dev/null 2>&1 || fail "chords over unsupported cells"
+python3 - <<'PYCHK' || fail "chords over unsupported cells (values)"
+import json,sys
+S=json.load(open("results/chord_mask_r1.json"))["sites"]
+got=(sum(s["spans"] for s in S if s["unsupportedCellsPct"]>0),sum(s["chordsOverUnsupportedCell"] for s in S),sum(s["spansWithSourceSegmentOverUnsupportedCell"] for s in S))
+if got!=(268,0,0): print("  CHORD MASK MISMATCH:",got,file=sys.stderr)
+sys.exit(0 if got==(268,0,0) else 1)
+PYCHK
+echo "  chords: none of 268 one-cell chords passes through an unsupported cell on the two crops that have them"
 T=$(mktemp -d)
 python3 - "$T" <<'PYCHK' || fail "ecwrap_cli (fixture)"
 import json,sys
@@ -418,7 +427,7 @@ POSITIONAL UNCERTAINTY: PASS
 EC-WRAP (VISVALINGAM-WHYATT): ${ECWRAP_STATUS}
 EC-WRAP (QGIS, MAPSHAPER): ${ECTOOLS_STATUS}
 EXTERNAL AUDIT (THIRD-PARTY CONTOURS): ${EXTERNAL_STATUS}
-DISSOLVE (GIS TOOL DEFAULTS): ${DISSOLVE_STATUS}
+DISSOLVE (FOUR GIS TOOLS): ${DISSOLVE_STATUS}
 RASTER RESAMPLING (GDAL): ${RESAMPLE_STATUS}
 EC-WRAP COMMAND-LINE TOOL: PASS
 HELD-OUT GROUND CHECK: PASS
