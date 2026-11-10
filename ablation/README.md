@@ -17,7 +17,7 @@ original: see `../docs/RECONSTRUCTED_DRIVERS.md`. Pipelines: P0 grade-derived pr
 endpoint-only support; P1 typed endpoint provenance/support; P2 grade-derived provenance +
 complete-source EC-DP support; P3 typed provenance/support + complete-source EC-DP.
 
-## Revision analyses
+## Further analyses
 
 - `baselines.cjs` - compares ordinary DP (endpoint attribution), DP with length-weighted mean attribution over the replaced edges, DP with a vertex forced at every provenance-class change,
   DP on runs split to homogeneous evidence (exact, and with support binned at 10 and 25 points),
