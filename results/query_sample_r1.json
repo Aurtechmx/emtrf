@@ -1,0 +1,2509 @@
+{
+ "driver": "attribute query on the probability sample",
+ "rules": "docs/RULES_ADDITIONAL_TESTS.md, D5",
+ "coverage": {
+  "crops": 60,
+  "cropsScored": 60,
+  "sourceEdges": 89071,
+  "spans": 14058,
+  "everyEdgeInExactlyOneSpan": true,
+  "lengthsSum": true,
+  "qualifyingLengthsMatch": true
+ },
+ "summary": {
+  "33": {
+   "crops": 60,
+   "cropsWithQualifyingLength": 47,
+   "cropsRetentionUndefined": 13,
+   "scoredKm": 68.73,
+   "qualifyingKm": 18.71,
+   "pooled": {
+    "endpoint": {
+     "falseAcceptPerKm": 80.11,
+     "falseAccept95": [
+      46.72,
+      117.58
+     ],
+     "wrongRejectPerKm": 53.24,
+     "wrongReject95": [
+      39.18,
+      68.5
+     ],
+     "retentionPct": 80.44,
+     "retention95": [
+      68.84,
+      87.68
+     ]
+    },
+    "ecdp": {
+     "falseAcceptPerKm": 0,
+     "falseAccept95": [
+      0,
+      0
+     ],
+     "wrongRejectPerKm": 100.44,
+     "wrongReject95": [
+      74.88,
+      127.83
+     ],
+     "retentionPct": 63.11,
+     "retention95": [
+      47.94,
+      72.97
+     ]
+    }
+   },
+   "pooledDifferenceEcdpMinusEndpoint": {
+    "falseAcceptPerKm": -80.11,
+    "falseAccept95": [
+     -117.58,
+     -46.72
+    ],
+    "wrongRejectPerKm": 47.19,
+    "wrongReject95": [
+     29.23,
+     66.21
+    ],
+    "retentionPctPoints": -17.34,
+    "retention95": [
+     -23.29,
+     -13.41
+    ]
+   },
+   "typicalCrop": {
+    "endpoint": {
+     "falseAcceptPerKm": {
+      "median": 34.56,
+      "q1": 0,
+      "q3": 89.07,
+      "crops": 60
+     },
+     "wrongRejectPerKm": {
+      "median": 55.05,
+      "q1": 0,
+      "q3": 89.18,
+      "crops": 60
+     },
+     "retentionPct": {
+      "median": 67.01,
+      "q1": 35.98,
+      "q3": 83.64,
+      "crops": 47
+     }
+    },
+    "ecdp": {
+     "falseAcceptPerKm": {
+      "median": 0,
+      "q1": 0,
+      "q3": 0,
+      "crops": 60
+     },
+     "wrongRejectPerKm": {
+      "median": 97.3,
+      "q1": 4.09,
+      "q3": 140.89,
+      "crops": 60
+     },
+     "retentionPct": {
+      "median": 45.72,
+      "q1": 23.97,
+      "q3": 66.5,
+      "crops": 47
+     }
+    }
+   },
+   "cropsWithFalseAcceptance": {
+    "endpoint": 39,
+    "ecdp": 0
+   }
+  },
+  "66": {
+   "crops": 60,
+   "cropsWithQualifyingLength": 21,
+   "cropsRetentionUndefined": 39,
+   "scoredKm": 68.73,
+   "qualifyingKm": 3.93,
+   "pooled": {
+    "endpoint": {
+     "falseAcceptPerKm": 20.94,
+     "falseAccept95": [
+      5.22,
+      43.97
+     ],
+     "wrongRejectPerKm": 19.96,
+     "wrongReject95": [
+      8.51,
+      33.12
+     ],
+     "retentionPct": 65.12,
+     "retention95": [
+      49.95,
+      73.85
+     ]
+    },
+    "ecdp": {
+     "falseAcceptPerKm": 0,
+     "falseAccept95": [
+      0,
+      0
+     ],
+     "wrongRejectPerKm": 31.7,
+     "wrongReject95": [
+      12.54,
+      54.48
+     ],
+     "retentionPct": 44.61,
+     "retention95": [
+      35.05,
+      50.65
+     ]
+    }
+   },
+   "pooledDifferenceEcdpMinusEndpoint": {
+    "falseAcceptPerKm": -20.94,
+    "falseAccept95": [
+     -43.97,
+     -5.22
+    ],
+    "wrongRejectPerKm": 11.74,
+    "wrongReject95": [
+     3.33,
+     23.13
+    ],
+    "retentionPctPoints": -20.51,
+    "retention95": [
+     -24.61,
+     -13.89
+    ]
+   },
+   "typicalCrop": {
+    "endpoint": {
+     "falseAcceptPerKm": {
+      "median": 0,
+      "q1": 0,
+      "q3": 0,
+      "crops": 60
+     },
+     "wrongRejectPerKm": {
+      "median": 0,
+      "q1": 0,
+      "q3": 11.87,
+      "crops": 60
+     },
+     "retentionPct": {
+      "median": 42.8,
+      "q1": 3.93,
+      "q3": 57.9,
+      "crops": 21
+     }
+    },
+    "ecdp": {
+     "falseAcceptPerKm": {
+      "median": 0,
+      "q1": 0,
+      "q3": 0,
+      "crops": 60
+     },
+     "wrongRejectPerKm": {
+      "median": 0,
+      "q1": 0,
+      "q3": 11.87,
+      "crops": 60
+     },
+     "retentionPct": {
+      "median": 31.97,
+      "q1": 3.93,
+      "q3": 41.21,
+      "crops": 21
+     }
+    }
+   },
+   "cropsWithFalseAcceptance": {
+    "endpoint": 13,
+    "ecdp": 0
+   }
+  }
+ },
+ "crops": [
+  {
+   "id": "u000",
+   "unit": "TX_Victoria_2006",
+   "edges": 115,
+   "spans": 16,
+   "t66": {
+    "scoredM": 116.16,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 116.16
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 116.16
+    }
+   },
+   "t33": {
+    "scoredM": 116.16,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 116.16
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 116.16
+    }
+   }
+  },
+  {
+   "id": "u001",
+   "unit": "USGS_LPC_MN_Phase1_LeSueurCO_2010_LAS_2016",
+   "edges": 926,
+   "spans": 268,
+   "t66": {
+    "scoredM": 649.12,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 649.12
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 649.12
+    }
+   },
+   "t33": {
+    "scoredM": 649.12,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 649.12
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 649.12
+    }
+   }
+  },
+  {
+   "id": "u002",
+   "unit": "USGS_LPC_WY_Casper_Natrona_2015_LAS_2017",
+   "edges": 599,
+   "spans": 103,
+   "t66": {
+    "scoredM": 446.38,
+    "qualifyingM": 5.62,
+    "endpoint": {
+     "ca": 1,
+     "fa": 0,
+     "wr": 4.62,
+     "cr": 440.76
+    },
+    "ecdp": {
+     "ca": 1,
+     "fa": 0,
+     "wr": 4.62,
+     "cr": 440.76
+    }
+   },
+   "t33": {
+    "scoredM": 446.38,
+    "qualifyingM": 109.33,
+    "endpoint": {
+     "ca": 60.91,
+     "fa": 16.72,
+     "wr": 48.43,
+     "cr": 320.33
+    },
+    "ecdp": {
+     "ca": 40.35,
+     "fa": 0,
+     "wr": 68.99,
+     "cr": 337.05
+    }
+   }
+  },
+  {
+   "id": "u003",
+   "unit": "KS_Osage_2010",
+   "edges": 995,
+   "spans": 92,
+   "t66": {
+    "scoredM": 768.77,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 768.77
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 768.77
+    }
+   },
+   "t33": {
+    "scoredM": 768.77,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 768.77
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 768.77
+    }
+   }
+  },
+  {
+   "id": "u004",
+   "unit": "WI_Oshkosh_3Rivers_FondDuLac_TL_2018",
+   "edges": 1005,
+   "spans": 243,
+   "t66": {
+    "scoredM": 757.48,
+    "qualifyingM": 1.01,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 1.01,
+     "cr": 756.47
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 1.01,
+     "cr": 756.47
+    }
+   },
+   "t33": {
+    "scoredM": 757.48,
+    "qualifyingM": 363.23,
+    "endpoint": {
+     "ca": 268.12,
+     "fa": 97.53,
+     "wr": 95.11,
+     "cr": 296.72
+    },
+    "ecdp": {
+     "ca": 188.46,
+     "fa": 0,
+     "wr": 174.77,
+     "cr": 394.25
+    }
+   }
+  },
+  {
+   "id": "u005",
+   "unit": "KS_MiamiCo_2009",
+   "edges": 798,
+   "spans": 119,
+   "t66": {
+    "scoredM": 608.16,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 608.16
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 608.16
+    }
+   },
+   "t33": {
+    "scoredM": 608.16,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 608.16
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 608.16
+    }
+   }
+  },
+  {
+   "id": "u006",
+   "unit": "WV_FEMAR3_Southcentral_B1_2018",
+   "edges": 5750,
+   "spans": 974,
+   "t66": {
+    "scoredM": 4706.08,
+    "qualifyingM": 956.18,
+    "endpoint": {
+     "ca": 594.94,
+     "fa": 272.78,
+     "wr": 361.24,
+     "cr": 3477.12
+    },
+    "ecdp": {
+     "ca": 418.68,
+     "fa": 0,
+     "wr": 537.5,
+     "cr": 3749.9
+    }
+   },
+   "t33": {
+    "scoredM": 4706.08,
+    "qualifyingM": 3385.67,
+    "endpoint": {
+     "ca": 3256.54,
+     "fa": 871.07,
+     "wr": 129.13,
+     "cr": 449.34
+    },
+    "ecdp": {
+     "ca": 2751.32,
+     "fa": 0,
+     "wr": 634.35,
+     "cr": 1320.41
+    }
+   }
+  },
+  {
+   "id": "u007",
+   "unit": "MO_LivingstonCounty_2011",
+   "edges": 2339,
+   "spans": 505,
+   "t66": {
+    "scoredM": 1784.93,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1784.93
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1784.93
+    }
+   },
+   "t33": {
+    "scoredM": 1784.93,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1784.93
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1784.93
+    }
+   }
+  },
+  {
+   "id": "u008",
+   "unit": "AL_SWCentral_1_B22",
+   "edges": 1159,
+   "spans": 183,
+   "t66": {
+    "scoredM": 886.34,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 886.34
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 886.34
+    }
+   },
+   "t33": {
+    "scoredM": 886.34,
+    "qualifyingM": 69.97,
+    "endpoint": {
+     "ca": 15.07,
+     "fa": 4.98,
+     "wr": 54.9,
+     "cr": 811.39
+    },
+    "ecdp": {
+     "ca": 11.45,
+     "fa": 0,
+     "wr": 58.52,
+     "cr": 816.37
+    }
+   }
+  },
+  {
+   "id": "u009",
+   "unit": "USGS_LPC_IL_District4_Tazewell_2014_LAS_2016",
+   "edges": 1126,
+   "spans": 108,
+   "t66": {
+    "scoredM": 889.81,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 889.81
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 889.81
+    }
+   },
+   "t33": {
+    "scoredM": 889.81,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 889.81
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 889.81
+    }
+   }
+  },
+  {
+   "id": "u010",
+   "unit": "ID_DryCreek_2007",
+   "edges": 6014,
+   "spans": 705,
+   "t66": {
+    "scoredM": 4673.37,
+    "qualifyingM": 77.7,
+    "endpoint": {
+     "ca": 37.53,
+     "fa": 6.5,
+     "wr": 40.17,
+     "cr": 4589.17
+    },
+    "ecdp": {
+     "ca": 34.25,
+     "fa": 0,
+     "wr": 43.45,
+     "cr": 4595.67
+    }
+   },
+   "t33": {
+    "scoredM": 4673.37,
+    "qualifyingM": 315.74,
+    "endpoint": {
+     "ca": 187.39,
+     "fa": 32.2,
+     "wr": 128.34,
+     "cr": 4325.43
+    },
+    "ecdp": {
+     "ca": 153.86,
+     "fa": 0,
+     "wr": 161.87,
+     "cr": 4357.64
+    }
+   }
+  },
+  {
+   "id": "u011",
+   "unit": "USGS_LPC_MI_31Co_Jackson_2016_LAS_2019",
+   "edges": 648,
+   "spans": 167,
+   "t66": {
+    "scoredM": 475.77,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 475.77
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 475.77
+    }
+   },
+   "t33": {
+    "scoredM": 475.77,
+    "qualifyingM": 131.22,
+    "endpoint": {
+     "ca": 74.81,
+     "fa": 34.18,
+     "wr": 56.41,
+     "cr": 310.37
+    },
+    "ecdp": {
+     "ca": 48.48,
+     "fa": 0,
+     "wr": 82.74,
+     "cr": 344.55
+    }
+   }
+  },
+  {
+   "id": "u013",
+   "unit": "AL_19Co_1_B24",
+   "edges": 1666,
+   "spans": 269,
+   "t66": {
+    "scoredM": 1266.68,
+    "qualifyingM": 146.78,
+    "endpoint": {
+     "ca": 80.43,
+     "fa": 42.57,
+     "wr": 66.35,
+     "cr": 1077.33
+    },
+    "ecdp": {
+     "ca": 51.48,
+     "fa": 0,
+     "wr": 95.3,
+     "cr": 1119.9
+    }
+   },
+   "t33": {
+    "scoredM": 1266.68,
+    "qualifyingM": 467.81,
+    "endpoint": {
+     "ca": 399.44,
+     "fa": 108.91,
+     "wr": 68.37,
+     "cr": 689.96
+    },
+    "ecdp": {
+     "ca": 335.18,
+     "fa": 0,
+     "wr": 132.64,
+     "cr": 798.87
+    }
+   }
+  },
+  {
+   "id": "u014",
+   "unit": "TX_MillsCo_2006",
+   "edges": 577,
+   "spans": 132,
+   "t66": {
+    "scoredM": 418.48,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 418.48
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 418.48
+    }
+   },
+   "t33": {
+    "scoredM": 418.48,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 418.48
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 418.48
+    }
+   }
+  },
+  {
+   "id": "u016",
+   "unit": "SC_Berkeley_2016",
+   "edges": 376,
+   "spans": 90,
+   "t66": {
+    "scoredM": 253.18,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 253.18
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 253.18
+    }
+   },
+   "t33": {
+    "scoredM": 253.18,
+    "qualifyingM": 64.45,
+    "endpoint": {
+     "ca": 43.38,
+     "fa": 27.89,
+     "wr": 21.07,
+     "cr": 160.84
+    },
+    "ecdp": {
+     "ca": 31.52,
+     "fa": 0,
+     "wr": 32.93,
+     "cr": 188.73
+    }
+   }
+  },
+  {
+   "id": "u017",
+   "unit": "USGS_LPC_TX_West_Central_B7_2018_LAS_2019",
+   "edges": 251,
+   "spans": 59,
+   "t66": {
+    "scoredM": 187.91,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 187.91
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 187.91
+    }
+   },
+   "t33": {
+    "scoredM": 187.91,
+    "qualifyingM": 78.83,
+    "endpoint": {
+     "ca": 65.95,
+     "fa": 8.53,
+     "wr": 12.88,
+     "cr": 100.55
+    },
+    "ecdp": {
+     "ca": 54.13,
+     "fa": 0,
+     "wr": 24.7,
+     "cr": 109.08
+    }
+   }
+  },
+  {
+   "id": "u018",
+   "unit": "USGS_LPC_IN_Central_MarionCo_2016_LAS_2018",
+   "edges": 888,
+   "spans": 149,
+   "t66": {
+    "scoredM": 702.14,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 702.14
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 702.14
+    }
+   },
+   "t33": {
+    "scoredM": 702.14,
+    "qualifyingM": 107.22,
+    "endpoint": {
+     "ca": 42.24,
+     "fa": 69.06,
+     "wr": 64.99,
+     "cr": 525.86
+    },
+    "ecdp": {
+     "ca": 26.94,
+     "fa": 0,
+     "wr": 80.28,
+     "cr": 594.92
+    }
+   }
+  },
+  {
+   "id": "u019",
+   "unit": "USGS_LPC_IN_ET_B6_Jay_2012_LAS_2016",
+   "edges": 491,
+   "spans": 101,
+   "t66": {
+    "scoredM": 374.91,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 374.91
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 374.91
+    }
+   },
+   "t33": {
+    "scoredM": 374.91,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 374.91
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 374.91
+    }
+   }
+  },
+  {
+   "id": "u020",
+   "unit": "FL_LeonCo_2009",
+   "edges": 633,
+   "spans": 169,
+   "t66": {
+    "scoredM": 474.13,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 474.13
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 474.13
+    }
+   },
+   "t33": {
+    "scoredM": 474.13,
+    "qualifyingM": 15.89,
+    "endpoint": {
+     "ca": 7.68,
+     "fa": 0,
+     "wr": 8.21,
+     "cr": 458.24
+    },
+    "ecdp": {
+     "ca": 7.68,
+     "fa": 0,
+     "wr": 8.21,
+     "cr": 458.24
+    }
+   }
+  },
+  {
+   "id": "u021",
+   "unit": "USGS_LPC_AZ_BrawleyRillito_NRCS_2018",
+   "edges": 590,
+   "spans": 179,
+   "t66": {
+    "scoredM": 453.88,
+    "qualifyingM": 59.8,
+    "endpoint": {
+     "ca": 24.62,
+     "fa": 7.8,
+     "wr": 35.18,
+     "cr": 386.28
+    },
+    "ecdp": {
+     "ca": 16.83,
+     "fa": 0,
+     "wr": 42.97,
+     "cr": 394.08
+    }
+   },
+   "t33": {
+    "scoredM": 453.88,
+    "qualifyingM": 192.39,
+    "endpoint": {
+     "ca": 160.84,
+     "fa": 28.96,
+     "wr": 31.54,
+     "cr": 232.53
+    },
+    "ecdp": {
+     "ca": 129.41,
+     "fa": 0,
+     "wr": 62.98,
+     "cr": 261.49
+    }
+   }
+  },
+  {
+   "id": "u022",
+   "unit": "USGS_LPC_MI_Wexford_2016_LAS_2017",
+   "edges": 708,
+   "spans": 164,
+   "t66": {
+    "scoredM": 522.29,
+    "qualifyingM": 1.64,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 1.64,
+     "cr": 520.65
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 1.64,
+     "cr": 520.65
+    }
+   },
+   "t33": {
+    "scoredM": 522.29,
+    "qualifyingM": 185.96,
+    "endpoint": {
+     "ca": 134.97,
+     "fa": 26.99,
+     "wr": 50.99,
+     "cr": 309.34
+    },
+    "ecdp": {
+     "ca": 97.68,
+     "fa": 0,
+     "wr": 88.28,
+     "cr": 336.33
+    }
+   }
+  },
+  {
+   "id": "u023",
+   "unit": "NE_Southwest_1_2020",
+   "edges": 735,
+   "spans": 133,
+   "t66": {
+    "scoredM": 629.76,
+    "qualifyingM": 69.13,
+    "endpoint": {
+     "ca": 29.59,
+     "fa": 3.38,
+     "wr": 39.54,
+     "cr": 557.25
+    },
+    "ecdp": {
+     "ca": 28.49,
+     "fa": 0,
+     "wr": 40.64,
+     "cr": 560.63
+    }
+   },
+   "t33": {
+    "scoredM": 629.76,
+    "qualifyingM": 250.62,
+    "endpoint": {
+     "ca": 206.31,
+     "fa": 135.58,
+     "wr": 44.31,
+     "cr": 243.56
+    },
+    "ecdp": {
+     "ca": 154.85,
+     "fa": 0,
+     "wr": 95.77,
+     "cr": 379.14
+    }
+   }
+  },
+  {
+   "id": "u024",
+   "unit": "WA_EasternCascades_3_2019",
+   "edges": 885,
+   "spans": 145,
+   "t66": {
+    "scoredM": 664.45,
+    "qualifyingM": 407.6,
+    "endpoint": {
+     "ca": 393.11,
+     "fa": 217.76,
+     "wr": 14.48,
+     "cr": 39.09
+    },
+    "ecdp": {
+     "ca": 276.61,
+     "fa": 0,
+     "wr": 130.99,
+     "cr": 256.85
+    }
+   },
+   "t33": {
+    "scoredM": 664.45,
+    "qualifyingM": 662.35,
+    "endpoint": {
+     "ca": 662.35,
+     "fa": 2.1,
+     "wr": 0,
+     "cr": 0
+    },
+    "ecdp": {
+     "ca": 660.14,
+     "fa": 0,
+     "wr": 2.21,
+     "cr": 2.1
+    }
+   }
+  },
+  {
+   "id": "u025",
+   "unit": "ID_CityofRocks_2011",
+   "edges": 3845,
+   "spans": 283,
+   "t66": {
+    "scoredM": 2923.52,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 2923.52
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 2923.52
+    }
+   },
+   "t33": {
+    "scoredM": 2923.52,
+    "qualifyingM": 199.48,
+    "endpoint": {
+     "ca": 63.84,
+     "fa": 63.83,
+     "wr": 135.64,
+     "cr": 2660.2
+    },
+    "ecdp": {
+     "ca": 45.5,
+     "fa": 0,
+     "wr": 153.98,
+     "cr": 2724.04
+    }
+   }
+  },
+  {
+   "id": "u026",
+   "unit": "USGS_LPC_OK_DamRehab3_7_2011_LAS_2018",
+   "edges": 212,
+   "spans": 49,
+   "t66": {
+    "scoredM": 162.68,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 162.68
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 162.68
+    }
+   },
+   "t33": {
+    "scoredM": 162.68,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 162.68
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 162.68
+    }
+   }
+  },
+  {
+   "id": "u027",
+   "unit": "SD_MO_River_Dewberry_B2_2016",
+   "edges": 233,
+   "spans": 48,
+   "t66": {
+    "scoredM": 188.86,
+    "qualifyingM": 51.32,
+    "endpoint": {
+     "ca": 29.72,
+     "fa": 30.72,
+     "wr": 21.61,
+     "cr": 106.82
+    },
+    "ecdp": {
+     "ca": 16.72,
+     "fa": 0,
+     "wr": 34.6,
+     "cr": 137.54
+    }
+   },
+   "t33": {
+    "scoredM": 188.86,
+    "qualifyingM": 140.55,
+    "endpoint": {
+     "ca": 140.55,
+     "fa": 0,
+     "wr": 0,
+     "cr": 48.32
+    },
+    "ecdp": {
+     "ca": 140.55,
+     "fa": 0,
+     "wr": 0,
+     "cr": 48.32
+    }
+   }
+  },
+  {
+   "id": "u028",
+   "unit": "CA_OrangeCo_2011",
+   "edges": 1323,
+   "spans": 264,
+   "t66": {
+    "scoredM": 954.86,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 954.86
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 954.86
+    }
+   },
+   "t33": {
+    "scoredM": 954.86,
+    "qualifyingM": 121.09,
+    "endpoint": {
+     "ca": 65.8,
+     "fa": 49.25,
+     "wr": 55.3,
+     "cr": 784.52
+    },
+    "ecdp": {
+     "ca": 35.65,
+     "fa": 0,
+     "wr": 85.45,
+     "cr": 833.76
+    }
+   }
+  },
+  {
+   "id": "u029",
+   "unit": "MO_StLouis_2012",
+   "edges": 1030,
+   "spans": 212,
+   "t66": {
+    "scoredM": 773.33,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 773.33
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 773.33
+    }
+   },
+   "t33": {
+    "scoredM": 773.33,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 773.33
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 773.33
+    }
+   }
+  },
+  {
+   "id": "u030",
+   "unit": "NE_SouthernNE_B4B_2018",
+   "edges": 900,
+   "spans": 189,
+   "t66": {
+    "scoredM": 697.21,
+    "qualifyingM": 162.4,
+    "endpoint": {
+     "ca": 59.03,
+     "fa": 47.68,
+     "wr": 103.37,
+     "cr": 487.13
+    },
+    "ecdp": {
+     "ca": 25.24,
+     "fa": 0,
+     "wr": 137.16,
+     "cr": 534.81
+    }
+   },
+   "t33": {
+    "scoredM": 697.21,
+    "qualifyingM": 504.2,
+    "endpoint": {
+     "ca": 498.25,
+     "fa": 178.94,
+     "wr": 5.95,
+     "cr": 14.07
+    },
+    "ecdp": {
+     "ca": 348.89,
+     "fa": 0,
+     "wr": 155.31,
+     "cr": 193.01
+    }
+   }
+  },
+  {
+   "id": "u031",
+   "unit": "ARRA-FL_Charlotte-W_2010",
+   "edges": 1978,
+   "spans": 264,
+   "t66": {
+    "scoredM": 1560.18,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1560.18
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1560.18
+    }
+   },
+   "t33": {
+    "scoredM": 1560.18,
+    "qualifyingM": 47.69,
+    "endpoint": {
+     "ca": 9.57,
+     "fa": 8.87,
+     "wr": 38.12,
+     "cr": 1503.62
+    },
+    "ecdp": {
+     "ca": 5.94,
+     "fa": 0,
+     "wr": 41.75,
+     "cr": 1512.48
+    }
+   }
+  },
+  {
+   "id": "u032",
+   "unit": "FL_Peninsular_FDEM_Okeechobee_2018",
+   "edges": 51,
+   "spans": 13,
+   "t66": {
+    "scoredM": 41.22,
+    "qualifyingM": 2.33,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 2.33,
+     "cr": 38.89
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 2.33,
+     "cr": 38.89
+    }
+   },
+   "t33": {
+    "scoredM": 41.22,
+    "qualifyingM": 38.79,
+    "endpoint": {
+     "ca": 38.79,
+     "fa": 2.44,
+     "wr": 0,
+     "cr": 0
+    },
+    "ecdp": {
+     "ca": 35.47,
+     "fa": 0,
+     "wr": 3.32,
+     "cr": 2.44
+    }
+   }
+  },
+  {
+   "id": "u033",
+   "unit": "WY_Southwest_4_2020",
+   "edges": 1051,
+   "spans": 253,
+   "t66": {
+    "scoredM": 785.9,
+    "qualifyingM": 8.36,
+    "endpoint": {
+     "ca": 0.33,
+     "fa": 0,
+     "wr": 8.04,
+     "cr": 777.54
+    },
+    "ecdp": {
+     "ca": 0.33,
+     "fa": 0,
+     "wr": 8.04,
+     "cr": 777.54
+    }
+   },
+   "t33": {
+    "scoredM": 785.9,
+    "qualifyingM": 268.23,
+    "endpoint": {
+     "ca": 200.82,
+     "fa": 54.73,
+     "wr": 67.41,
+     "cr": 462.95
+    },
+    "ecdp": {
+     "ca": 162.54,
+     "fa": 0,
+     "wr": 105.68,
+     "cr": 517.67
+    }
+   }
+  },
+  {
+   "id": "u034",
+   "unit": "AR_UpperWhiteVillage-FEMA_2012",
+   "edges": 1096,
+   "spans": 187,
+   "t66": {
+    "scoredM": 841.07,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 841.07
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 841.07
+    }
+   },
+   "t33": {
+    "scoredM": 841.07,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 841.07
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 841.07
+    }
+   }
+  },
+  {
+   "id": "u035",
+   "unit": "USGS_LPC_TX_South_B2_2018_LAS_2019",
+   "edges": 342,
+   "spans": 74,
+   "t66": {
+    "scoredM": 263.5,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 263.5
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 263.5
+    }
+   },
+   "t33": {
+    "scoredM": 263.5,
+    "qualifyingM": 14.27,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 14.27,
+     "cr": 249.22
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 14.27,
+     "cr": 249.22
+    }
+   }
+  },
+  {
+   "id": "u036",
+   "unit": "ME_SouthCoastal_2_2020",
+   "edges": 2727,
+   "spans": 492,
+   "t66": {
+    "scoredM": 2109.39,
+    "qualifyingM": 384.64,
+    "endpoint": {
+     "ca": 237.13,
+     "fa": 70.47,
+     "wr": 147.51,
+     "cr": 1654.27
+    },
+    "ecdp": {
+     "ca": 188.32,
+     "fa": 0,
+     "wr": 196.32,
+     "cr": 1724.74
+    }
+   },
+   "t33": {
+    "scoredM": 2109.39,
+    "qualifyingM": 944.32,
+    "endpoint": {
+     "ca": 797.91,
+     "fa": 444.51,
+     "wr": 146.42,
+     "cr": 720.56
+    },
+    "ecdp": {
+     "ca": 598,
+     "fa": 0,
+     "wr": 346.33,
+     "cr": 1165.06
+    }
+   }
+  },
+  {
+   "id": "u037",
+   "unit": "AK_EMRI_2_D24",
+   "edges": 1758,
+   "spans": 363,
+   "t66": {
+    "scoredM": 994.32,
+    "qualifyingM": 98.69,
+    "endpoint": {
+     "ca": 66.2,
+     "fa": 40.83,
+     "wr": 32.48,
+     "cr": 854.81
+    },
+    "ecdp": {
+     "ca": 39.27,
+     "fa": 0,
+     "wr": 59.41,
+     "cr": 895.64
+    }
+   },
+   "t33": {
+    "scoredM": 994.32,
+    "qualifyingM": 238.06,
+    "endpoint": {
+     "ca": 182.44,
+     "fa": 72.1,
+     "wr": 55.62,
+     "cr": 684.16
+    },
+    "ecdp": {
+     "ca": 121.97,
+     "fa": 0,
+     "wr": 116.09,
+     "cr": 756.26
+    }
+   }
+  },
+  {
+   "id": "u038",
+   "unit": "NM_SouthCentral_Acoma_TL_2018",
+   "edges": 4467,
+   "spans": 512,
+   "t66": {
+    "scoredM": 3439.39,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 3439.39
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 3439.39
+    }
+   },
+   "t33": {
+    "scoredM": 3439.39,
+    "qualifyingM": 481.38,
+    "endpoint": {
+     "ca": 174.85,
+     "fa": 137.32,
+     "wr": 306.53,
+     "cr": 2820.7
+    },
+    "ecdp": {
+     "ca": 101.79,
+     "fa": 0,
+     "wr": 379.59,
+     "cr": 2958.02
+    }
+   }
+  },
+  {
+   "id": "u039",
+   "unit": "USGS_LPC_OK_Woodward_UTM15_B5_2016__LAS_2018",
+   "edges": 1126,
+   "spans": 252,
+   "t66": {
+    "scoredM": 847.78,
+    "qualifyingM": 114.96,
+    "endpoint": {
+     "ca": 54.83,
+     "fa": 11.28,
+     "wr": 60.13,
+     "cr": 721.54
+    },
+    "ecdp": {
+     "ca": 43.29,
+     "fa": 0,
+     "wr": 71.67,
+     "cr": 732.82
+    }
+   },
+   "t33": {
+    "scoredM": 847.78,
+    "qualifyingM": 467.36,
+    "endpoint": {
+     "ca": 395.6,
+     "fa": 119.01,
+     "wr": 71.75,
+     "cr": 261.41
+    },
+    "ecdp": {
+     "ca": 307.17,
+     "fa": 0,
+     "wr": 160.19,
+     "cr": 380.42
+    }
+   }
+  },
+  {
+   "id": "u040",
+   "unit": "KY_FluorsparDistrict_2019",
+   "edges": 408,
+   "spans": 75,
+   "t66": {
+    "scoredM": 314.98,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 314.98
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 314.98
+    }
+   },
+   "t33": {
+    "scoredM": 314.98,
+    "qualifyingM": 255.65,
+    "endpoint": {
+     "ca": 253.66,
+     "fa": 50.84,
+     "wr": 1.99,
+     "cr": 8.49
+    },
+    "ecdp": {
+     "ca": 212.12,
+     "fa": 0,
+     "wr": 43.53,
+     "cr": 59.33
+    }
+   }
+  },
+  {
+   "id": "u041",
+   "unit": "CA_SanJoaquin_6_2021",
+   "edges": 36,
+   "spans": 9,
+   "t66": {
+    "scoredM": 26.01,
+    "qualifyingM": 2,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 2,
+     "cr": 24
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 2,
+     "cr": 24
+    }
+   },
+   "t33": {
+    "scoredM": 26.01,
+    "qualifyingM": 18.21,
+    "endpoint": {
+     "ca": 14.88,
+     "fa": 0,
+     "wr": 3.33,
+     "cr": 7.8
+    },
+    "ecdp": {
+     "ca": 14.88,
+     "fa": 0,
+     "wr": 3.33,
+     "cr": 7.8
+    }
+   }
+  },
+  {
+   "id": "u042",
+   "unit": "USGS_LPC_MI_31Co_Sanilac_2017_LAS_2019",
+   "edges": 317,
+   "spans": 70,
+   "t66": {
+    "scoredM": 235.03,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 235.03
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 235.03
+    }
+   },
+   "t33": {
+    "scoredM": 235.03,
+    "qualifyingM": 12.5,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 12.5,
+     "cr": 222.53
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 12.5,
+     "cr": 222.53
+    }
+   }
+  },
+  {
+   "id": "u043",
+   "unit": "MI_FEMA_Cheboygan_2019",
+   "edges": 950,
+   "spans": 225,
+   "t66": {
+    "scoredM": 719.09,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 719.09
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 719.09
+    }
+   },
+   "t33": {
+    "scoredM": 719.09,
+    "qualifyingM": 186.22,
+    "endpoint": {
+     "ca": 103.28,
+     "fa": 24.99,
+     "wr": 82.94,
+     "cr": 507.88
+    },
+    "ecdp": {
+     "ca": 80.29,
+     "fa": 0,
+     "wr": 105.93,
+     "cr": 532.87
+    }
+   }
+  },
+  {
+   "id": "u044",
+   "unit": "WY_YellowstoneNP_1_2020",
+   "edges": 464,
+   "spans": 145,
+   "t66": {
+    "scoredM": 371.91,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 371.91
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 371.91
+    }
+   },
+   "t33": {
+    "scoredM": 371.91,
+    "qualifyingM": 179.09,
+    "endpoint": {
+     "ca": 120.01,
+     "fa": 38.49,
+     "wr": 59.08,
+     "cr": 154.34
+    },
+    "ecdp": {
+     "ca": 81.87,
+     "fa": 0,
+     "wr": 97.21,
+     "cr": 192.83
+    }
+   }
+  },
+  {
+   "id": "u045",
+   "unit": "USGS_LPC_MO_FEMAR7_North_A2_2017_LAS_2019",
+   "edges": 4612,
+   "spans": 653,
+   "t66": {
+    "scoredM": 3572.9,
+    "qualifyingM": 61.95,
+    "endpoint": {
+     "ca": 3.19,
+     "fa": 0,
+     "wr": 58.76,
+     "cr": 3510.95
+    },
+    "ecdp": {
+     "ca": 3.19,
+     "fa": 0,
+     "wr": 58.76,
+     "cr": 3510.95
+    }
+   },
+   "t33": {
+    "scoredM": 3572.9,
+    "qualifyingM": 1437.52,
+    "endpoint": {
+     "ca": 1118.2,
+     "fa": 1207.52,
+     "wr": 319.32,
+     "cr": 927.86
+    },
+    "ecdp": {
+     "ca": 515.68,
+     "fa": 0,
+     "wr": 921.84,
+     "cr": 2135.38
+    }
+   }
+  },
+  {
+   "id": "u046",
+   "unit": "USGS_LPC_TN_3County_2015_LAS_2017",
+   "edges": 2547,
+   "spans": 278,
+   "t66": {
+    "scoredM": 1994.6,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1994.6
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1994.6
+    }
+   },
+   "t33": {
+    "scoredM": 1994.6,
+    "qualifyingM": 158.26,
+    "endpoint": {
+     "ca": 28.74,
+     "fa": 22.37,
+     "wr": 129.52,
+     "cr": 1813.98
+    },
+    "ecdp": {
+     "ca": 21.38,
+     "fa": 0,
+     "wr": 136.88,
+     "cr": 1836.35
+    }
+   }
+  },
+  {
+   "id": "u047",
+   "unit": "WV_FEMAHQ_B2_2018",
+   "edges": 4760,
+   "spans": 567,
+   "t66": {
+    "scoredM": 3834.46,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 3834.46
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 3834.46
+    }
+   },
+   "t33": {
+    "scoredM": 3834.46,
+    "qualifyingM": 932.01,
+    "endpoint": {
+     "ca": 437.25,
+     "fa": 419.23,
+     "wr": 494.76,
+     "cr": 2483.22
+    },
+    "ecdp": {
+     "ca": 256.04,
+     "fa": 0,
+     "wr": 675.96,
+     "cr": 2902.46
+    }
+   }
+  },
+  {
+   "id": "u048",
+   "unit": "USGS_LPC_TX_West_Central_B11_2018_LAS_2019",
+   "edges": 2835,
+   "spans": 494,
+   "t66": {
+    "scoredM": 2205.42,
+    "qualifyingM": 163.06,
+    "endpoint": {
+     "ca": 74.15,
+     "fa": 28.75,
+     "wr": 88.91,
+     "cr": 2013.61
+    },
+    "ecdp": {
+     "ca": 52.13,
+     "fa": 0,
+     "wr": 110.92,
+     "cr": 2042.36
+    }
+   },
+   "t33": {
+    "scoredM": 2205.42,
+    "qualifyingM": 972.51,
+    "endpoint": {
+     "ca": 760.97,
+     "fa": 317.59,
+     "wr": 211.54,
+     "cr": 915.32
+    },
+    "ecdp": {
+     "ca": 555.93,
+     "fa": 0,
+     "wr": 416.58,
+     "cr": 1232.91
+    }
+   }
+  },
+  {
+   "id": "u049",
+   "unit": "USGS_LPC_IN_WT_B10_Benton_2013_LAS_2016",
+   "edges": 1100,
+   "spans": 205,
+   "t66": {
+    "scoredM": 832.14,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 832.14
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 832.14
+    }
+   },
+   "t33": {
+    "scoredM": 832.14,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 832.14
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 832.14
+    }
+   }
+  },
+  {
+   "id": "u050",
+   "unit": "USGS_LPC_MI_31Co_Midland_2016_LAS_2019",
+   "edges": 512,
+   "spans": 125,
+   "t66": {
+    "scoredM": 375.11,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 375.11
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 375.11
+    }
+   },
+   "t33": {
+    "scoredM": 375.11,
+    "qualifyingM": 63.68,
+    "endpoint": {
+     "ca": 14.49,
+     "fa": 0,
+     "wr": 49.19,
+     "cr": 311.43
+    },
+    "ecdp": {
+     "ca": 14.49,
+     "fa": 0,
+     "wr": 49.19,
+     "cr": 311.43
+    }
+   }
+  },
+  {
+   "id": "u051",
+   "unit": "GA_Statewide_B2_2018",
+   "edges": 1626,
+   "spans": 166,
+   "t66": {
+    "scoredM": 1289.12,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1289.12
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1289.12
+    }
+   },
+   "t33": {
+    "scoredM": 1289.12,
+    "qualifyingM": 12.22,
+    "endpoint": {
+     "ca": 1.09,
+     "fa": 0,
+     "wr": 11.13,
+     "cr": 1276.9
+    },
+    "ecdp": {
+     "ca": 1.09,
+     "fa": 0,
+     "wr": 11.13,
+     "cr": 1276.9
+    }
+   }
+  },
+  {
+   "id": "u052",
+   "unit": "ND_3DEPProcessing_4_D22",
+   "edges": 618,
+   "spans": 128,
+   "t66": {
+    "scoredM": 500.51,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 500.51
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 500.51
+    }
+   },
+   "t33": {
+    "scoredM": 500.51,
+    "qualifyingM": 45.06,
+    "endpoint": {
+     "ca": 15.68,
+     "fa": 2.61,
+     "wr": 29.38,
+     "cr": 452.84
+    },
+    "ecdp": {
+     "ca": 11.75,
+     "fa": 0,
+     "wr": 33.32,
+     "cr": 455.45
+    }
+   }
+  },
+  {
+   "id": "u053",
+   "unit": "USGS_LPC_MO_AR_Miss_Laud_UTM16_2014_LAS_2016",
+   "edges": 1213,
+   "spans": 134,
+   "t66": {
+    "scoredM": 943.17,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 943.17
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 943.17
+    }
+   },
+   "t33": {
+    "scoredM": 943.17,
+    "qualifyingM": 161.16,
+    "endpoint": {
+     "ca": 57.44,
+     "fa": 73.67,
+     "wr": 103.72,
+     "cr": 708.34
+    },
+    "ecdp": {
+     "ca": 35.32,
+     "fa": 0,
+     "wr": 125.84,
+     "cr": 782.01
+    }
+   }
+  },
+  {
+   "id": "u054",
+   "unit": "TN_OSMRE-GPSC_2011",
+   "edges": 4024,
+   "spans": 235,
+   "t66": {
+    "scoredM": 3146.29,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 3146.29
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 3146.29
+    }
+   },
+   "t33": {
+    "scoredM": 3146.29,
+    "qualifyingM": 15.1,
+    "endpoint": {
+     "ca": 1.45,
+     "fa": 0,
+     "wr": 13.65,
+     "cr": 3131.19
+    },
+    "ecdp": {
+     "ca": 1.45,
+     "fa": 0,
+     "wr": 13.65,
+     "cr": 3131.19
+    }
+   }
+  },
+  {
+   "id": "u055",
+   "unit": "NM_HermitsPeak_1_D23",
+   "edges": 4337,
+   "spans": 781,
+   "t66": {
+    "scoredM": 3393.03,
+    "qualifyingM": 1154.98,
+    "endpoint": {
+     "ca": 875.93,
+     "fa": 658.37,
+     "wr": 279.05,
+     "cr": 1579.68
+    },
+    "ecdp": {
+     "ca": 559.07,
+     "fa": 0,
+     "wr": 595.91,
+     "cr": 2238.05
+    }
+   },
+   "t33": {
+    "scoredM": 3393.03,
+    "qualifyingM": 2966.99,
+    "endpoint": {
+     "ca": 2937.58,
+     "fa": 369.7,
+     "wr": 29.41,
+     "cr": 56.34
+    },
+    "ecdp": {
+     "ca": 2661.99,
+     "fa": 0,
+     "wr": 304.99,
+     "cr": 426.04
+    }
+   }
+  },
+  {
+   "id": "u056",
+   "unit": "USGS_LPC_MO_AR_Mercer_Grundy_2014_LAS_2016",
+   "edges": 1304,
+   "spans": 143,
+   "t66": {
+    "scoredM": 1050.03,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1050.03
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1050.03
+    }
+   },
+   "t33": {
+    "scoredM": 1050.03,
+    "qualifyingM": 8.68,
+    "endpoint": {
+     "ca": 2.97,
+     "fa": 7.08,
+     "wr": 5.71,
+     "cr": 1034.28
+    },
+    "ecdp": {
+     "ca": 1.67,
+     "fa": 0,
+     "wr": 7,
+     "cr": 1041.36
+    }
+   }
+  },
+  {
+   "id": "u057",
+   "unit": "ME_CrownofMaine_B2_2018",
+   "edges": 2304,
+   "spans": 468,
+   "t66": {
+    "scoredM": 1731.06,
+    "qualifyingM": 3.5,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 3.5,
+     "cr": 1727.55
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 3.5,
+     "cr": 1727.55
+    }
+   },
+   "t33": {
+    "scoredM": 1731.06,
+    "qualifyingM": 352.15,
+    "endpoint": {
+     "ca": 178.58,
+     "fa": 59.48,
+     "wr": 173.57,
+     "cr": 1319.43
+    },
+    "ecdp": {
+     "ca": 132.47,
+     "fa": 0,
+     "wr": 219.68,
+     "cr": 1378.91
+    }
+   }
+  },
+  {
+   "id": "u058",
+   "unit": "USGS_LPC_LA_Barataria_2013_LAS_2015",
+   "edges": 8,
+   "spans": 2,
+   "t66": {
+    "scoredM": 2.99,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 2.99
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 2.99
+    }
+   },
+   "t33": {
+    "scoredM": 2.99,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 2.99
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 2.99
+    }
+   }
+  },
+  {
+   "id": "u059",
+   "unit": "CT_Statewide_B5_2016",
+   "edges": 1792,
+   "spans": 261,
+   "t66": {
+    "scoredM": 1428.55,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1428.55
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 1428.55
+    }
+   },
+   "t33": {
+    "scoredM": 1428.55,
+    "qualifyingM": 565.9,
+    "endpoint": {
+     "ca": 482.64,
+     "fa": 92.64,
+     "wr": 83.26,
+     "cr": 770.01
+    },
+    "ecdp": {
+     "ca": 398.15,
+     "fa": 0,
+     "wr": 167.75,
+     "cr": 862.65
+    }
+   }
+  },
+  {
+   "id": "u060",
+   "unit": "GA_Central_4_2018",
+   "edges": 984,
+   "spans": 224,
+   "t66": {
+    "scoredM": 743.76,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 743.76
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 743.76
+    }
+   },
+   "t33": {
+    "scoredM": 743.76,
+    "qualifyingM": 216.22,
+    "endpoint": {
+     "ca": 137.3,
+     "fa": 51.28,
+     "wr": 78.92,
+     "cr": 476.25
+    },
+    "ecdp": {
+     "ca": 88.91,
+     "fa": 0,
+     "wr": 127.31,
+     "cr": 527.54
+    }
+   }
+  },
+  {
+   "id": "u061",
+   "unit": "OK_Panhandle_B1C_2018",
+   "edges": 907,
+   "spans": 142,
+   "t66": {
+    "scoredM": 725.45,
+    "qualifyingM": 0,
+    "endpoint": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 725.45
+    },
+    "ecdp": {
+     "ca": 0,
+     "fa": 0,
+     "wr": 0,
+     "cr": 725.45
+    }
+   },
+   "t33": {
+    "scoredM": 725.45,
+    "qualifyingM": 284.34,
+    "endpoint": {
+     "ca": 229.61,
+     "fa": 172.96,
+     "wr": 54.74,
+     "cr": 268.15
+    },
+    "ecdp": {
+     "ca": 126.38,
+     "fa": 0,
+     "wr": 157.96,
+     "cr": 441.1
+    }
+   }
+  }
+ ]
+}

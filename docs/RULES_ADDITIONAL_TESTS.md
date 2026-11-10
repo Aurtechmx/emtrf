@@ -147,3 +147,34 @@ Reported:
 
 Limits fixed now: the sample speaks for work units with classified ground returns and a
 determinable vertical unit; one 100 m crop per unit; evidence and scoring are this study's.
+
+## D5. Attribute query on the probability sample (`prevalence/query_sample.cjs`)
+
+Added on 10 November 2026, before any query result on the sample existed. D1-D4 above are
+unchanged. Extends the four-site query (Supplementary Methods S10, Table S9) to the 60 valid
+crops of D4: one crop per sampled work unit, under this study's evidence model, processing
+settings and eligibility rules. It does not represent national contour length.
+
+Query, as in S10: keep a span when its exported measured support is at or above t and its
+exported provenance is measured only. t = 66 is primary; t = 33 is reported as a check. The
+reference test applies the same query to each source edge's own record. Spans and records are
+those of the scale test (`scale/README.md`): strict feature runs, one-cell Douglas-Peucker;
+endpoint attribution reads the two end edges, EC-DP all replaced edges.
+
+Per crop, per method, per threshold, using source-edge length:
+- correctly accepted (edge passes, span accepted), falsely accepted (edge fails, span accepted),
+  wrongly rejected (edge passes, span rejected), correctly rejected (edge fails, span rejected);
+- false acceptance and wrong rejection in metres per kilometre of scored contour;
+- retention: correctly accepted length / qualifying source length. Undefined when no source
+  length qualifies; such crops are counted and reported, not set to 0 or 100.
+
+Coverage and accounting assertions (the run fails if any is violated): every source edge of
+every run lies in exactly one DP span (no gap, no overlap, spans in order from the first to the
+last vertex); for each method the four lengths sum to the scored length within 1e-6 m; scored
+and qualifying lengths are identical for the two methods.
+
+Reported: the median crop value and quartiles of each measure, over the crops where it is
+defined; the pooled value from summed lengths; and, for the pooled values and the paired
+differences EC-DP minus endpoint, 2,000 bootstrap replicates resampling whole crops
+(xorshift32, seed 20261109), recomputing each ratio from the summed lengths, 2.5 and 97.5
+percentiles. Crops with no false acceptance are kept.

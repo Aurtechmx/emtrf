@@ -350,6 +350,15 @@ if got!=want: print("  PREVALENCE MISMATCH:",got,want,file=sys.stderr)
 sys.exit(0 if got==want else 1)
 PYCHK
   PREVALENCE_STATUS="PASS"; echo "  3DEP sample: promotion in 59 of 60 randomly drawn work units; EC-DP none"
+  node prevalence/query_sample.cjs >/dev/null 2>&1 || fail "query on the 3DEP sample (coverage or accounting)"
+  python3 - <<'PYCHK' || fail "query on the 3DEP sample (values)"
+import json,sys
+d=json.load(open("results/query_sample_r1.json"));c=d["coverage"];s=d["summary"]["66"];P=s["pooled"]
+ok=(c["crops"],c["sourceEdges"],c["spans"],c["everyEdgeInExactlyOneSpan"],c["lengthsSum"],c["qualifyingLengthsMatch"])==(60,89071,14058,True,True,True)
+got=(s["cropsWithQualifyingLength"],P["endpoint"]["falseAcceptPerKm"],P["ecdp"]["falseAcceptPerKm"],P["endpoint"]["retentionPct"],P["ecdp"]["retentionPct"])
+if not ok or got!=(21,20.94,0,65.12,44.61): print("  QUERY SAMPLE MISMATCH:",c,got,file=sys.stderr); sys.exit(1)
+PYCHK
+  echo "  3DEP query: edges covered once; at 66 endpoint records accept 20.9 m/km failing line, EC-DP none"
 else
   echo "  3DEP sample: crops not present, skipped"
 fi
