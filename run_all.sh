@@ -16,10 +16,23 @@ npx --yes tsx js-study/gap_regression.ts || fail "unsupported-gap regression"
 echo "== 3/22 independent oracles: semantic algebra + JS<->Python DP/EC-DP differential (Section 4.1) =="
 python3 oracles/semantic_oracle.py | tail -1 || fail "semantic oracle"
 bash oracles/differential.sh | tail -6 || fail "js<->py differential"
+python3 oracles/composition_property.py > /tmp/emtrf_composition.json || fail "composition on random chains (D11)"
+python3 -c 'import json,sys;d=json.load(open("/tmp/emtrf_composition.json"));sys.exit(0 if (d["cases"],d["mismatches"])==(10000,0) else 1)' || fail "composition on random chains (D11 values)"
+echo "  composition: 10,000 random operator chains, composed record equals direct record in every case"
 
 echo "== 4/22 real-data audit (Table 2) =="
 ( cd real-data-audit && ./reproduce.sh >/dev/null && shasum -a 256 -c SHA256SUMS >/dev/null ) || fail "real-data audit"
 echo "  TABLE 2 + SHA256SUMS: pass"
+node external-check/marsh_checkpoints.cjs >/dev/null || fail "RTK checkpoints (D10)"
+python3 - <<'PYCHK' || fail "RTK checkpoints (D10 values)"
+import json,sys
+d=json.load(open("results/marsh_checkpoints_r1.json"));p=d["primary"];c=d["byChannel"]
+got=(d["scored"],p["spearman"],p["spearman95"],c["measured"]["n"],c["measured"]["medianErrorM"],c["interpolated"]["n"],c["interpolated"]["medianErrorM"])
+if got!=(104,-0.024,[-0.225,0.19],101,0.018,3,0.516): print("  CHECKPOINT MISMATCH:",got,file=sys.stderr); sys.exit(1)
+top=sorted(d["checkpointsScored"],key=lambda r:-r["errorM"])[:3]
+if [r["channel"] for r in top]!=["interpolated"]*3 or max(r["errorM"] for r in d["checkpointsScored"] if r["channel"]=="measured")!=0.082: print("  CHECKPOINT ORDER MISMATCH",file=sys.stderr); sys.exit(1)
+PYCHK
+echo "  RTK checkpoints: support does not rank error (rho -0.02); the three interpolated-cell shots carry the three largest errors"
 
 echo "== 5/22 P0-P3 ablation (reconstructed driver; Table 4 / S2) =="
 # The paper reports STRICT mode: every eligible span retained, no result-defined exclusion.

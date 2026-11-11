@@ -1,0 +1,885 @@
+{
+ "driver": "support against independent RTK checkpoints at Marsh Island",
+ "rules": "docs/RULES_ADDITIONAL_TESTS.md, D10",
+ "checkpoints": 104,
+ "scored": 104,
+ "notScored": {
+  "offGrid": 0,
+  "unsupported": 0
+ },
+ "primary": {
+  "n": 104,
+  "spearman": -0.024,
+  "spearman95": [
+   -0.225,
+   0.19
+  ]
+ },
+ "withoutErrorsAbove1m": {
+  "n": 103,
+  "spearman": 0.007,
+  "spearman95": [
+   -0.193,
+   0.219
+  ]
+ },
+ "byBand": {
+  "66 or above": {
+   "n": 96,
+   "medianErrorM": 0.017
+  },
+  "below 33": {
+   "n": 4,
+   "medianErrorM": 0.392
+  },
+  "33 to below 66": {
+   "n": 4,
+   "medianErrorM": 0.014
+  }
+ },
+ "byChannel": {
+  "measured": {
+   "n": 101,
+   "medianErrorM": 0.018
+  },
+  "interpolated": {
+   "n": 3,
+   "medianErrorM": 0.516
+  }
+ },
+ "medianErrorM": 0.018,
+ "checkpointsScored": [
+  {
+   "id": 1,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.34,
+   "checkpointZ": 2.422,
+   "errorM": 0.082
+  },
+  {
+   "id": 2,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.38,
+   "checkpointZ": 2.445,
+   "errorM": 0.065
+  },
+  {
+   "id": 3,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.372,
+   "checkpointZ": 2.427,
+   "errorM": 0.055
+  },
+  {
+   "id": 4,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.363,
+   "checkpointZ": 2.413,
+   "errorM": 0.05
+  },
+  {
+   "id": 5,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.364,
+   "checkpointZ": 2.392,
+   "errorM": 0.028
+  },
+  {
+   "id": 6,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.336,
+   "checkpointZ": 2.375,
+   "errorM": 0.039
+  },
+  {
+   "id": 7,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.241,
+   "checkpointZ": 2.262,
+   "errorM": 0.021
+  },
+  {
+   "id": 8,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.164,
+   "checkpointZ": 2.174,
+   "errorM": 0.01
+  },
+  {
+   "id": 9,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.137,
+   "checkpointZ": 2.121,
+   "errorM": 0.016
+  },
+  {
+   "id": 10,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.109,
+   "checkpointZ": 2.098,
+   "errorM": 0.011
+  },
+  {
+   "id": 11,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.095,
+   "checkpointZ": 2.081,
+   "errorM": 0.014
+  },
+  {
+   "id": 12,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.095,
+   "checkpointZ": 2.08,
+   "errorM": 0.015
+  },
+  {
+   "id": 13,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.117,
+   "checkpointZ": 2.101,
+   "errorM": 0.016
+  },
+  {
+   "id": 14,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.145,
+   "checkpointZ": 2.128,
+   "errorM": 0.017
+  },
+  {
+   "id": 15,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.139,
+   "checkpointZ": 2.112,
+   "errorM": 0.027
+  },
+  {
+   "id": 16,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.101,
+   "checkpointZ": 2.092,
+   "errorM": 0.009
+  },
+  {
+   "id": 17,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.102,
+   "checkpointZ": 2.077,
+   "errorM": 0.025
+  },
+  {
+   "id": 18,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.053,
+   "checkpointZ": 2.051,
+   "errorM": 0.002
+  },
+  {
+   "id": 19,
+   "channel": "measured",
+   "support": 98,
+   "dtmZ": 2.046,
+   "checkpointZ": 2.068,
+   "errorM": 0.022
+  },
+  {
+   "id": 20,
+   "channel": "measured",
+   "support": 98,
+   "dtmZ": 2.03,
+   "checkpointZ": 2.012,
+   "errorM": 0.018
+  },
+  {
+   "id": 21,
+   "channel": "measured",
+   "support": 98,
+   "dtmZ": 2.082,
+   "checkpointZ": 2.067,
+   "errorM": 0.015
+  },
+  {
+   "id": 22,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.095,
+   "checkpointZ": 2.071,
+   "errorM": 0.024
+  },
+  {
+   "id": 23,
+   "channel": "measured",
+   "support": 98,
+   "dtmZ": 2.106,
+   "checkpointZ": 2.084,
+   "errorM": 0.022
+  },
+  {
+   "id": 24,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.134,
+   "checkpointZ": 2.119,
+   "errorM": 0.015
+  },
+  {
+   "id": 25,
+   "channel": "measured",
+   "support": 98,
+   "dtmZ": 2.109,
+   "checkpointZ": 2.077,
+   "errorM": 0.032
+  },
+  {
+   "id": 26,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.057,
+   "checkpointZ": 2.039,
+   "errorM": 0.018
+  },
+  {
+   "id": 27,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.048,
+   "checkpointZ": 2.025,
+   "errorM": 0.023
+  },
+  {
+   "id": 28,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.046,
+   "checkpointZ": 2.032,
+   "errorM": 0.014
+  },
+  {
+   "id": 29,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.059,
+   "checkpointZ": 2.037,
+   "errorM": 0.022
+  },
+  {
+   "id": 30,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.095,
+   "checkpointZ": 2.087,
+   "errorM": 0.008
+  },
+  {
+   "id": 31,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.089,
+   "checkpointZ": 2.084,
+   "errorM": 0.005
+  },
+  {
+   "id": 32,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.061,
+   "checkpointZ": 2.028,
+   "errorM": 0.033
+  },
+  {
+   "id": 33,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.072,
+   "checkpointZ": 2.082,
+   "errorM": 0.01
+  },
+  {
+   "id": 34,
+   "channel": "measured",
+   "support": 94,
+   "dtmZ": 2.135,
+   "checkpointZ": 2.123,
+   "errorM": 0.012
+  },
+  {
+   "id": 35,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.135,
+   "checkpointZ": 2.142,
+   "errorM": 0.007
+  },
+  {
+   "id": 36,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.153,
+   "checkpointZ": 2.127,
+   "errorM": 0.026
+  },
+  {
+   "id": 37,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.142,
+   "checkpointZ": 2.128,
+   "errorM": 0.014
+  },
+  {
+   "id": 38,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.106,
+   "checkpointZ": 2.072,
+   "errorM": 0.034
+  },
+  {
+   "id": 39,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.104,
+   "checkpointZ": 2.059,
+   "errorM": 0.045
+  },
+  {
+   "id": 40,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.164,
+   "checkpointZ": 2.122,
+   "errorM": 0.042
+  },
+  {
+   "id": 41,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.108,
+   "checkpointZ": 2.075,
+   "errorM": 0.033
+  },
+  {
+   "id": 42,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.117,
+   "checkpointZ": 2.083,
+   "errorM": 0.034
+  },
+  {
+   "id": 43,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.159,
+   "checkpointZ": 2.122,
+   "errorM": 0.037
+  },
+  {
+   "id": 44,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.168,
+   "checkpointZ": 2.157,
+   "errorM": 0.011
+  },
+  {
+   "id": 45,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.176,
+   "checkpointZ": 2.166,
+   "errorM": 0.01
+  },
+  {
+   "id": 46,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.161,
+   "checkpointZ": 2.16,
+   "errorM": 0.001
+  },
+  {
+   "id": 47,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.154,
+   "checkpointZ": 2.166,
+   "errorM": 0.012
+  },
+  {
+   "id": 48,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.192,
+   "checkpointZ": 2.173,
+   "errorM": 0.019
+  },
+  {
+   "id": 49,
+   "channel": "measured",
+   "support": 26,
+   "dtmZ": 2.176,
+   "checkpointZ": 2.207,
+   "errorM": 0.031
+  },
+  {
+   "id": 50,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.304,
+   "checkpointZ": 2.341,
+   "errorM": 0.037
+  },
+  {
+   "id": 51,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.445,
+   "checkpointZ": 2.46,
+   "errorM": 0.015
+  },
+  {
+   "id": 52,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.438,
+   "checkpointZ": 2.454,
+   "errorM": 0.016
+  },
+  {
+   "id": 53,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.449,
+   "checkpointZ": 2.469,
+   "errorM": 0.02
+  },
+  {
+   "id": 54,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.441,
+   "checkpointZ": 2.459,
+   "errorM": 0.018
+  },
+  {
+   "id": 55,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.466,
+   "checkpointZ": 2.488,
+   "errorM": 0.022
+  },
+  {
+   "id": 56,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.48,
+   "checkpointZ": 2.514,
+   "errorM": 0.034
+  },
+  {
+   "id": 57,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.535,
+   "checkpointZ": 2.548,
+   "errorM": 0.013
+  },
+  {
+   "id": 58,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.638,
+   "checkpointZ": 2.636,
+   "errorM": 0.002
+  },
+  {
+   "id": 59,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.794,
+   "checkpointZ": 2.799,
+   "errorM": 0.005
+  },
+  {
+   "id": 60,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.997,
+   "checkpointZ": 3.021,
+   "errorM": 0.024
+  },
+  {
+   "id": 61,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 3.105,
+   "checkpointZ": 3.108,
+   "errorM": 0.003
+  },
+  {
+   "id": 62,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 3.205,
+   "checkpointZ": 3.23,
+   "errorM": 0.025
+  },
+  {
+   "id": 63,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 3.357,
+   "checkpointZ": 3.37,
+   "errorM": 0.013
+  },
+  {
+   "id": 64,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 3.391,
+   "checkpointZ": 3.344,
+   "errorM": 0.047
+  },
+  {
+   "id": 65,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 3.257,
+   "checkpointZ": 3.255,
+   "errorM": 0.002
+  },
+  {
+   "id": 66,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 3.147,
+   "checkpointZ": 3.203,
+   "errorM": 0.056
+  },
+  {
+   "id": 67,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 3.01,
+   "checkpointZ": 3.076,
+   "errorM": 0.066
+  },
+  {
+   "id": 68,
+   "channel": "measured",
+   "support": 98,
+   "dtmZ": 2.891,
+   "checkpointZ": 2.91,
+   "errorM": 0.019
+  },
+  {
+   "id": 69,
+   "channel": "measured",
+   "support": 98,
+   "dtmZ": 2.779,
+   "checkpointZ": 2.814,
+   "errorM": 0.035
+  },
+  {
+   "id": 70,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.499,
+   "checkpointZ": 2.516,
+   "errorM": 0.017
+  },
+  {
+   "id": 71,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.491,
+   "checkpointZ": 2.49,
+   "errorM": 0.001
+  },
+  {
+   "id": 72,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.48,
+   "checkpointZ": 2.476,
+   "errorM": 0.004
+  },
+  {
+   "id": 73,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.45,
+   "checkpointZ": 2.448,
+   "errorM": 0.002
+  },
+  {
+   "id": 74,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.467,
+   "checkpointZ": 2.481,
+   "errorM": 0.014
+  },
+  {
+   "id": 75,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.488,
+   "checkpointZ": 2.487,
+   "errorM": 0.001
+  },
+  {
+   "id": 76,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.657,
+   "checkpointZ": 2.642,
+   "errorM": 0.015
+  },
+  {
+   "id": 77,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.972,
+   "checkpointZ": 2.966,
+   "errorM": 0.006
+  },
+  {
+   "id": 78,
+   "channel": "interpolated",
+   "support": 6,
+   "dtmZ": 2.989,
+   "checkpointZ": 3.257,
+   "errorM": 0.268
+  },
+  {
+   "id": 79,
+   "channel": "interpolated",
+   "support": 5,
+   "dtmZ": 2.824,
+   "checkpointZ": 3.34,
+   "errorM": 0.516
+  },
+  {
+   "id": 80,
+   "channel": "interpolated",
+   "support": 25,
+   "dtmZ": 2.044,
+   "checkpointZ": 3.284,
+   "errorM": 1.24
+  },
+  {
+   "id": 81,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 3.091,
+   "checkpointZ": 3.111,
+   "errorM": 0.02
+  },
+  {
+   "id": 82,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 3.005,
+   "checkpointZ": 3.008,
+   "errorM": 0.003
+  },
+  {
+   "id": 83,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.889,
+   "checkpointZ": 2.891,
+   "errorM": 0.002
+  },
+  {
+   "id": 84,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.883,
+   "checkpointZ": 2.864,
+   "errorM": 0.019
+  },
+  {
+   "id": 85,
+   "channel": "measured",
+   "support": 94,
+   "dtmZ": 2.934,
+   "checkpointZ": 3.003,
+   "errorM": 0.069
+  },
+  {
+   "id": 86,
+   "channel": "measured",
+   "support": 59,
+   "dtmZ": 3.033,
+   "checkpointZ": 2.975,
+   "errorM": 0.058
+  },
+  {
+   "id": 87,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.725,
+   "checkpointZ": 2.738,
+   "errorM": 0.013
+  },
+  {
+   "id": 88,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.347,
+   "checkpointZ": 2.361,
+   "errorM": 0.014
+  },
+  {
+   "id": 89,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.357,
+   "checkpointZ": 2.383,
+   "errorM": 0.026
+  },
+  {
+   "id": 90,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.027,
+   "checkpointZ": 2.011,
+   "errorM": 0.016
+  },
+  {
+   "id": 91,
+   "channel": "measured",
+   "support": 98,
+   "dtmZ": 1.784,
+   "checkpointZ": 1.768,
+   "errorM": 0.016
+  },
+  {
+   "id": 92,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 1.672,
+   "checkpointZ": 1.661,
+   "errorM": 0.011
+  },
+  {
+   "id": 93,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 1.584,
+   "checkpointZ": 1.56,
+   "errorM": 0.024
+  },
+  {
+   "id": 94,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 1.611,
+   "checkpointZ": 1.594,
+   "errorM": 0.017
+  },
+  {
+   "id": 95,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.171,
+   "checkpointZ": 2.114,
+   "errorM": 0.057
+  },
+  {
+   "id": 96,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.352,
+   "checkpointZ": 2.348,
+   "errorM": 0.004
+  },
+  {
+   "id": 97,
+   "channel": "measured",
+   "support": 96,
+   "dtmZ": 2.198,
+   "checkpointZ": 2.18,
+   "errorM": 0.018
+  },
+  {
+   "id": 98,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.053,
+   "checkpointZ": 2.036,
+   "errorM": 0.017
+  },
+  {
+   "id": 99,
+   "channel": "measured",
+   "support": 45,
+   "dtmZ": 1.735,
+   "checkpointZ": 1.732,
+   "errorM": 0.003
+  },
+  {
+   "id": 100,
+   "channel": "measured",
+   "support": 35,
+   "dtmZ": 1.553,
+   "checkpointZ": 1.556,
+   "errorM": 0.003
+  },
+  {
+   "id": 101,
+   "channel": "measured",
+   "support": 62,
+   "dtmZ": 1.915,
+   "checkpointZ": 1.94,
+   "errorM": 0.025
+  },
+  {
+   "id": 102,
+   "channel": "measured",
+   "support": 95,
+   "dtmZ": 2.307,
+   "checkpointZ": 2.365,
+   "errorM": 0.058
+  },
+  {
+   "id": 103,
+   "channel": "measured",
+   "support": 97,
+   "dtmZ": 2.294,
+   "checkpointZ": 2.339,
+   "errorM": 0.045
+  },
+  {
+   "id": 104,
+   "channel": "measured",
+   "support": 94,
+   "dtmZ": 2.311,
+   "checkpointZ": 2.36,
+   "errorM": 0.049
+  }
+ ]
+}
