@@ -238,3 +238,7 @@ every crop's rate under each setting. No direction is predicted.
 The half-saturation constant h of Eq. 5 is not varied: promotion compares support values by order
 only, and Eq. 5 is strictly increasing in return count for every h > 0, so promotion counts do not
 depend on h (Methods S9). h does affect the threshold query, which D8 does not cover.
+
+Note to D8, 11 November 2026, before any D8 run: support is stored as whole points (0-100), so two
+return counts can round to the same value under one h and not another. The invariance to h above
+therefore holds up to that rounding; D8 does not test it.

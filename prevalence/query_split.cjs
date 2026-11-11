@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * Threshold-aligned splitting on the probability sample (rules: docs/RULES_ADDITIONAL_TESTS.md, D6).
+ * Threshold-aligned splitting on the probability sample (rules: docs/RULES_ADDITIONAL_TESTS.md, D6;
+ * SPLIT-T with complete-source records: D7).
  * Usage: node prevalence/query_split.cjs [cropsDir]
  *  - Methods on the 60 valid crops of D4, with the settings of D5 (strict feature runs, one-cell
  *    Douglas-Peucker): DP with endpoint records; SPLIT-T (a vertex forced wherever the provenance or
@@ -25,7 +26,7 @@ const dir=path.resolve(process.argv[2]||path.join(__dirname,'crops'));
 if(!fs.existsSync(path.join(dir,'index.json'))){console.log('threshold-aligned split: crops not present, skipped');process.exit(0);}
 const state=JSON.parse(fs.readFileSync(path.join(dir,'index.json'),'utf8'));
 const rel=path.relative(path.join(ROOT,'real-data-audit','crops'),dir);
-const THR=[66,33,50],METHODS=['endpoint','splitT','ecdp'],EPS=1e-6,REPS=2000,MIN_SPANS=20;
+const THR=[66,33,50],METHODS=['endpoint','splitT','ecdp','splitTEC'],EPS=1e-6,REPS=2000,MIN_SPANS=20;
 
 const band=v=>v==null?'-':v>=66?'2':v>=33?'1':'0';
 const classKey=e=>`${e.provenance}|${band(e.typed.M)}|${band(e.typed.I)}`;
@@ -37,10 +38,10 @@ const promoted=(rec,span)=>{const t=W.record(span);
 function scoreCrop(spec){
   const S=W.siteRuns(spec),tol=S.grid.cellSizeM;
   const out={};for(const t of THR){out[t]={scored:0,qualifying:0};for(const m of METHODS)out[t][m]={ca:0,fa:0,wr:0,cr:0};}
-  const verts={endpoint:0,splitT:0,ecdp:0},spans={endpoint:0,splitT:0,ecdp:0},prom={endpoint:0,splitT:0,ecdp:0};
+  const verts={endpoint:0,splitT:0,ecdp:0,splitTEC:0},spans={endpoint:0,splitT:0,ecdp:0,splitTEC:0},prom={endpoint:0,splitT:0,ecdp:0,splitTEC:0};
   for(const run of S.runs){
     const n=run.edges.length,keepDP=A.dpIndices(run.vertices,tol),keepT=dpWithForced(run.vertices,bandBoundaries(run.edges),tol);
-    const keeps={endpoint:keepDP,splitT:keepT,ecdp:keepDP};
+    const keeps={endpoint:keepDP,splitT:keepT,ecdp:keepDP,splitTEC:keepT};
     const recOf={};   // per method: record of the span holding each edge
     for(const m of METHODS){
       const keep=keeps[m],seen=new Uint8Array(n),rec=new Array(n);
@@ -48,7 +49,7 @@ function scoreCrop(spec){
       verts[m]+=keep.length;
       for(let j=0;j<keep.length-1;j++){
         const a=keep[j],b=keep[j+1];if(!(b>a))throw Error(`${spec.id}: ${m} spans out of order`);
-        const span=run.edges.slice(a,b),r=m==='ecdp'?W.record(span):W.record([run.edges[a],run.edges[b-1]]);
+        const span=run.edges.slice(a,b),r=(m==='ecdp'||m==='splitTEC')?W.record(span):W.record([run.edges[a],run.edges[b-1]]);
         spans[m]++;if(promoted(r,span))prom[m]++;
         for(let k=a;k<b;k++){if(seen[k]++)throw Error(`${spec.id}: ${m} edge ${k} in more than one span`);rec[k]=r;}
       }
@@ -68,7 +69,8 @@ function scoreCrop(spec){
     for(const m of METHODS){const s=o[m].ca+o[m].fa+o[m].wr+o[m].cr;
       if(Math.abs(s-o.scored)>EPS)throw Error(`${spec.id}: lengths do not sum (${m}, t=${t})`);
       if(Math.abs(o[m].ca+o[m].wr-o.qualifying)>EPS)throw Error(`${spec.id}: qualifying length differs (${m}, t=${t})`);}
-    if(t!==50&&(o.splitT.fa>EPS||o.splitT.wr>EPS))throw Error(`${spec.id}: SPLIT-T misanswers the query at t=${t} (D6, item 1)`);}
+    if(t!==50&&(o.splitT.fa>EPS||o.splitT.wr>EPS))throw Error(`${spec.id}: SPLIT-T misanswers the query at t=${t} (D6, item 1)`);
+    if(o.splitTEC.fa>EPS||(t!==50&&o.splitTEC.wr>EPS))throw Error(`${spec.id}: SPLIT-T+EC misanswers the query at t=${t} (D7)`);}
   return{verts,spans,prom,out};
 }
 
@@ -105,6 +107,6 @@ const out={driver:'threshold-aligned splitting on the probability sample',rules:
     perCropMultiple:{crops:rated.length,median:r2(quant(mult,.5)),q1:r2(quant(mult,.25)),q3:r2(quant(mult,.75)),max:r2(Math.max(...mult))}},
   supportPromotion:Object.fromEntries(METHODS.map(m=>[m,{spans:sums(m),promoted:sump(m),pct:r2(100*sump(m)/sums(m))}])),
   query:summary,
-  checks:{splitTExactAt66and33:true,everyEdgeInExactlyOneSpan:true,lengthsSum:true}};
+  checks:{splitTExactAt66and33:true,splitTECNoFalseAcceptanceAndExactAt66and33:true,everyEdgeInExactlyOneSpan:true,lengthsSum:true}};
 fs.writeFileSync(path.join(ROOT,'results','query_split_r1.json'),JSON.stringify(out,null,1)+'\n');
 console.log(JSON.stringify(out,null,1));

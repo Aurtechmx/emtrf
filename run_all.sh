@@ -386,9 +386,18 @@ PYCHK
 import json,sys
 d=json.load(open("results/query_split_r1.json"));q=d["query"]
 got=(d["cropsScored"],d["vertices"]["pooled"]["splitT"],d["vertices"]["pooled"]["endpoint"],q["66"]["splitT"]["retentionPct"],q["50"]["splitT"]["falseAcceptPerKm"],q["50"]["ecdp"]["falseAcceptPerKm"],q["66"]["endpoint"]["falseAcceptPerKm"])
-if got!=(60,46108,22631,100,3.87,0,20.94): print("  SPLIT QUERY MISMATCH:",got,file=sys.stderr); sys.exit(1)
+h=(q["50"]["splitTEC"]["falseAcceptPerKm"],q["66"]["splitTEC"]["retentionPct"],q["50"]["splitTEC"]["retentionPct"])
+if got!=(60,46108,22631,100,3.87,0,20.94) or h!=(0,100,82.55): print("  SPLIT QUERY MISMATCH:",got,h,file=sys.stderr); sys.exit(1)
 PYCHK
-  echo "  threshold split: exact at 66 and 33 with 2.04x DP's vertices; at 50 it accepts 3.9 m/km failing line"
+  echo "  threshold split: exact at 66 and 33 with 2.04x DP's vertices; at 50 it accepts 3.9 m/km failing line, with complete-source records none"
+  node prevalence/sensitivity_sample.cjs >/dev/null 2>&1 || fail "sample sensitivity (D8)"
+  python3 - <<'PYCHK' || fail "sample sensitivity (values)"
+import json,sys
+S=json.load(open("results/sensitivity_sample_r1.json"))["summary"]
+got=tuple((S[k]["cropsWithPromotion"],S[k]["medianPct"],S[k]["ecdpPromotions"]) for k in ("C0","C1","C2"))+(S["C1"]["cropsWithCellChanged"],)
+if got!=((59,20.6,0),(56,23.9,0),(59,33.6,0),14): print("  SENSITIVITY MISMATCH:",got,file=sys.stderr); sys.exit(1)
+PYCHK
+  echo "  sensitivity: median promotion 20.6 % (1 m), 23.9 % (cells from point spacing), 33.6 % (two-cell tolerance)"
 else
   echo "  3DEP sample: crops not present, skipped"
 fi

@@ -31,6 +31,11 @@
    "spans": 14058,
    "promoted": 0,
    "pct": 0
+  },
+  "splitTEC": {
+   "spans": 37535,
+   "promoted": 0,
+   "pct": 0
   }
  },
  "query": {
@@ -73,6 +78,19 @@
      47.94,
      72.97
     ]
+   },
+   "splitTEC": {
+    "falseAcceptPerKm": 0,
+    "falseAccept95": [
+     0,
+     0
+    ],
+    "wrongRejectPerKm": 0,
+    "retentionPct": 100,
+    "retention95": [
+     100,
+     100
+    ]
    }
   },
   "50": {
@@ -113,6 +131,19 @@
     "retention95": [
      33.24,
      48.99
+    ]
+   },
+   "splitTEC": {
+    "falseAcceptPerKm": 0,
+    "falseAccept95": [
+     0,
+     0
+    ],
+    "wrongRejectPerKm": 29.05,
+    "retentionPct": 82.55,
+    "retention95": [
+     78.06,
+     89.29
     ]
    }
   },
@@ -155,11 +186,25 @@
      35.05,
      50.65
     ]
+   },
+   "splitTEC": {
+    "falseAcceptPerKm": 0,
+    "falseAccept95": [
+     0,
+     0
+    ],
+    "wrongRejectPerKm": 0,
+    "retentionPct": 100,
+    "retention95": [
+     100,
+     100
+    ]
    }
   }
  },
  "checks": {
   "splitTExactAt66and33": true,
+  "splitTECNoFalseAcceptanceAndExactAt66and33": true,
   "everyEdgeInExactlyOneSpan": true,
   "lengthsSum": true
  }

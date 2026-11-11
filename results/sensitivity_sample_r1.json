@@ -1,0 +1,1784 @@
+{
+ "driver": "sensitivity of the sample promotion rate to cell size and tolerance",
+ "rules": "docs/RULES_ADDITIONAL_TESTS.md, D8",
+ "summary": {
+  "C0": {
+   "cropsWithPromotion": 59,
+   "crops": 60,
+   "cropsWithAtLeast20Spans": 56,
+   "medianPct": 20.6,
+   "q1Pct": 13.5,
+   "q3Pct": 33.1,
+   "spans": 14058,
+   "ecdpPromotions": 0
+  },
+  "C1": {
+   "cropsWithPromotion": 56,
+   "crops": 60,
+   "cropsWithAtLeast20Spans": 52,
+   "medianPct": 23.9,
+   "q1Pct": 14,
+   "q3Pct": 34.2,
+   "spans": 12336,
+   "ecdpPromotions": 0,
+   "cropsWithCellChanged": 14,
+   "cellSizesM": [
+    1,
+    2,
+    3
+   ]
+  },
+  "C2": {
+   "cropsWithPromotion": 59,
+   "crops": 60,
+   "cropsWithAtLeast20Spans": 56,
+   "medianPct": 33.6,
+   "q1Pct": 24.4,
+   "q3Pct": 42.5,
+   "spans": 10525,
+   "ecdpPromotions": 0
+  }
+ },
+ "crops": [
+  {
+   "id": "u000",
+   "unit": "TX_Victoria_2006",
+   "groundReturns": 5808,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 16,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 12.5
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 13,
+    "promoted": 1,
+    "ecPromoted": 0,
+    "ratePct": 7.7
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 10,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 20
+   }
+  },
+  {
+   "id": "u001",
+   "unit": "USGS_LPC_MN_Phase1_LeSueurCO_2010_LAS_2016",
+   "groundReturns": 5223,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 268,
+    "promoted": 31,
+    "ecPromoted": 0,
+    "ratePct": 11.6
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 92,
+    "promoted": 8,
+    "ecPromoted": 0,
+    "ratePct": 8.7
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 178,
+    "promoted": 49,
+    "ecPromoted": 0,
+    "ratePct": 27.5
+   }
+  },
+  {
+   "id": "u002",
+   "unit": "USGS_LPC_WY_Casper_Natrona_2015_LAS_2017",
+   "groundReturns": 36801,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 103,
+    "promoted": 19,
+    "ecPromoted": 0,
+    "ratePct": 18.4
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 103,
+    "promoted": 19,
+    "ecPromoted": 0,
+    "ratePct": 18.4
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 71,
+    "promoted": 24,
+    "ecPromoted": 0,
+    "ratePct": 33.8
+   }
+  },
+  {
+   "id": "u003",
+   "unit": "KS_Osage_2010",
+   "groundReturns": 4874,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 92,
+    "promoted": 27,
+    "ecPromoted": 0,
+    "ratePct": 29.3
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 23,
+    "promoted": 1,
+    "ecPromoted": 0,
+    "ratePct": 4.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 50,
+    "promoted": 28,
+    "ecPromoted": 0,
+    "ratePct": 56
+   }
+  },
+  {
+   "id": "u004",
+   "unit": "WI_Oshkosh_3Rivers_FondDuLac_TL_2018",
+   "groundReturns": 36051,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 243,
+    "promoted": 58,
+    "ecPromoted": 0,
+    "ratePct": 23.9
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 243,
+    "promoted": 58,
+    "ecPromoted": 0,
+    "ratePct": 23.9
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 182,
+    "promoted": 67,
+    "ecPromoted": 0,
+    "ratePct": 36.8
+   }
+  },
+  {
+   "id": "u005",
+   "unit": "KS_MiamiCo_2009",
+   "groundReturns": 4763,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 119,
+    "promoted": 23,
+    "ecPromoted": 0,
+    "ratePct": 19.3
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 32,
+    "promoted": 1,
+    "ecPromoted": 0,
+    "ratePct": 3.1
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 66,
+    "promoted": 27,
+    "ecPromoted": 0,
+    "ratePct": 40.9
+   }
+  },
+  {
+   "id": "u006",
+   "unit": "WV_FEMAR3_Southcentral_B1_2018",
+   "groundReturns": 77036,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 974,
+    "promoted": 451,
+    "ecPromoted": 0,
+    "ratePct": 46.3
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 974,
+    "promoted": 451,
+    "ecPromoted": 0,
+    "ratePct": 46.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 917,
+    "promoted": 445,
+    "ecPromoted": 0,
+    "ratePct": 48.5
+   }
+  },
+  {
+   "id": "u007",
+   "unit": "MO_LivingstonCounty_2011",
+   "groundReturns": 9061,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 505,
+    "promoted": 19,
+    "ecPromoted": 0,
+    "ratePct": 3.8
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 27,
+    "promoted": 11,
+    "ecPromoted": 0,
+    "ratePct": 40.7
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 293,
+    "promoted": 24,
+    "ecPromoted": 0,
+    "ratePct": 8.2
+   }
+  },
+  {
+   "id": "u008",
+   "unit": "AL_SWCentral_1_B22",
+   "groundReturns": 14991,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 183,
+    "promoted": 21,
+    "ecPromoted": 0,
+    "ratePct": 11.5
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 183,
+    "promoted": 21,
+    "ecPromoted": 0,
+    "ratePct": 11.5
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 110,
+    "promoted": 28,
+    "ecPromoted": 0,
+    "ratePct": 25.5
+   }
+  },
+  {
+   "id": "u009",
+   "unit": "USGS_LPC_IL_District4_Tazewell_2014_LAS_2016",
+   "groundReturns": 9588,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 108,
+    "promoted": 18,
+    "ecPromoted": 0,
+    "ratePct": 16.7
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 49,
+    "promoted": 20,
+    "ecPromoted": 0,
+    "ratePct": 40.8
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 66,
+    "promoted": 19,
+    "ecPromoted": 0,
+    "ratePct": 28.8
+   }
+  },
+  {
+   "id": "u010",
+   "unit": "ID_DryCreek_2007",
+   "groundReturns": 14129,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 705,
+    "promoted": 233,
+    "ecPromoted": 0,
+    "ratePct": 33
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 705,
+    "promoted": 233,
+    "ecPromoted": 0,
+    "ratePct": 33
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 460,
+    "promoted": 198,
+    "ecPromoted": 0,
+    "ratePct": 43
+   }
+  },
+  {
+   "id": "u011",
+   "unit": "USGS_LPC_MI_31Co_Jackson_2016_LAS_2019",
+   "groundReturns": 22954,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 167,
+    "promoted": 29,
+    "ecPromoted": 0,
+    "ratePct": 17.4
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 167,
+    "promoted": 29,
+    "ecPromoted": 0,
+    "ratePct": 17.4
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 122,
+    "promoted": 28,
+    "ecPromoted": 0,
+    "ratePct": 23
+   }
+  },
+  {
+   "id": "u013",
+   "unit": "AL_19Co_1_B24",
+   "groundReturns": 70493,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 269,
+    "promoted": 95,
+    "ecPromoted": 0,
+    "ratePct": 35.3
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 269,
+    "promoted": 95,
+    "ecPromoted": 0,
+    "ratePct": 35.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 192,
+    "promoted": 89,
+    "ecPromoted": 0,
+    "ratePct": 46.4
+   }
+  },
+  {
+   "id": "u014",
+   "unit": "TX_MillsCo_2006",
+   "groundReturns": 3731,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 132,
+    "promoted": 16,
+    "ecPromoted": 0,
+    "ratePct": 12.1
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 10,
+    "promoted": 1,
+    "ecPromoted": 0,
+    "ratePct": 10
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 90,
+    "promoted": 26,
+    "ecPromoted": 0,
+    "ratePct": 28.9
+   }
+  },
+  {
+   "id": "u016",
+   "unit": "SC_Berkeley_2016",
+   "groundReturns": 32436,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 90,
+    "promoted": 13,
+    "ecPromoted": 0,
+    "ratePct": 14.4
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 90,
+    "promoted": 13,
+    "ecPromoted": 0,
+    "ratePct": 14.4
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 71,
+    "promoted": 14,
+    "ecPromoted": 0,
+    "ratePct": 19.7
+   }
+  },
+  {
+   "id": "u017",
+   "unit": "USGS_LPC_TX_West_Central_B7_2018_LAS_2019",
+   "groundReturns": 33590,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 59,
+    "promoted": 6,
+    "ecPromoted": 0,
+    "ratePct": 10.2
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 59,
+    "promoted": 6,
+    "ecPromoted": 0,
+    "ratePct": 10.2
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 37,
+    "promoted": 5,
+    "ecPromoted": 0,
+    "ratePct": 13.5
+   }
+  },
+  {
+   "id": "u018",
+   "unit": "USGS_LPC_IN_Central_MarionCo_2016_LAS_2018",
+   "groundReturns": 12673,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 149,
+    "promoted": 21,
+    "ecPromoted": 0,
+    "ratePct": 14.1
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 149,
+    "promoted": 21,
+    "ecPromoted": 0,
+    "ratePct": 14.1
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 100,
+    "promoted": 22,
+    "ecPromoted": 0,
+    "ratePct": 22
+   }
+  },
+  {
+   "id": "u019",
+   "unit": "USGS_LPC_IN_ET_B6_Jay_2012_LAS_2016",
+   "groundReturns": 5921,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 101,
+    "promoted": 11,
+    "ecPromoted": 0,
+    "ratePct": 10.9
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 7,
+    "promoted": 0,
+    "ecPromoted": 0,
+    "ratePct": 0
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 59,
+    "promoted": 11,
+    "ecPromoted": 0,
+    "ratePct": 18.6
+   }
+  },
+  {
+   "id": "u020",
+   "unit": "FL_LeonCo_2009",
+   "groundReturns": 10522,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 169,
+    "promoted": 32,
+    "ecPromoted": 0,
+    "ratePct": 18.9
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 169,
+    "promoted": 32,
+    "ecPromoted": 0,
+    "ratePct": 18.9
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 115,
+    "promoted": 44,
+    "ecPromoted": 0,
+    "ratePct": 38.3
+   }
+  },
+  {
+   "id": "u021",
+   "unit": "USGS_LPC_AZ_BrawleyRillito_NRCS_2018",
+   "groundReturns": 53665,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 179,
+    "promoted": 33,
+    "ecPromoted": 0,
+    "ratePct": 18.4
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 179,
+    "promoted": 33,
+    "ecPromoted": 0,
+    "ratePct": 18.4
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 120,
+    "promoted": 39,
+    "ecPromoted": 0,
+    "ratePct": 32.5
+   }
+  },
+  {
+   "id": "u022",
+   "unit": "USGS_LPC_MI_Wexford_2016_LAS_2017",
+   "groundReturns": 19058,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 164,
+    "promoted": 37,
+    "ecPromoted": 0,
+    "ratePct": 22.6
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 164,
+    "promoted": 37,
+    "ecPromoted": 0,
+    "ratePct": 22.6
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 120,
+    "promoted": 36,
+    "ecPromoted": 0,
+    "ratePct": 30
+   }
+  },
+  {
+   "id": "u023",
+   "unit": "NE_Southwest_1_2020",
+   "groundReturns": 52918,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 133,
+    "promoted": 45,
+    "ecPromoted": 0,
+    "ratePct": 33.8
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 133,
+    "promoted": 45,
+    "ecPromoted": 0,
+    "ratePct": 33.8
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 123,
+    "promoted": 46,
+    "ecPromoted": 0,
+    "ratePct": 37.4
+   }
+  },
+  {
+   "id": "u024",
+   "unit": "WA_EasternCascades_3_2019",
+   "groundReturns": 135377,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 145,
+    "promoted": 81,
+    "ecPromoted": 0,
+    "ratePct": 55.9
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 145,
+    "promoted": 81,
+    "ecPromoted": 0,
+    "ratePct": 55.9
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 145,
+    "promoted": 81,
+    "ecPromoted": 0,
+    "ratePct": 55.9
+   }
+  },
+  {
+   "id": "u025",
+   "unit": "ID_CityofRocks_2011",
+   "groundReturns": 22114,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 283,
+    "promoted": 95,
+    "ecPromoted": 0,
+    "ratePct": 33.6
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 283,
+    "promoted": 95,
+    "ecPromoted": 0,
+    "ratePct": 33.6
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 163,
+    "promoted": 76,
+    "ecPromoted": 0,
+    "ratePct": 46.6
+   }
+  },
+  {
+   "id": "u026",
+   "unit": "USGS_LPC_OK_DamRehab3_7_2011_LAS_2018",
+   "groundReturns": 4267,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 49,
+    "promoted": 5,
+    "ecPromoted": 0,
+    "ratePct": 10.2
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 13,
+    "promoted": 0,
+    "ecPromoted": 0,
+    "ratePct": 0
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 20,
+    "promoted": 4,
+    "ecPromoted": 0,
+    "ratePct": 20
+   }
+  },
+  {
+   "id": "u027",
+   "unit": "SD_MO_River_Dewberry_B2_2016",
+   "groundReturns": 109649,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 48,
+    "promoted": 6,
+    "ecPromoted": 0,
+    "ratePct": 12.5
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 48,
+    "promoted": 6,
+    "ecPromoted": 0,
+    "ratePct": 12.5
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 36,
+    "promoted": 10,
+    "ecPromoted": 0,
+    "ratePct": 27.8
+   }
+  },
+  {
+   "id": "u028",
+   "unit": "CA_OrangeCo_2011",
+   "groundReturns": 14633,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 264,
+    "promoted": 43,
+    "ecPromoted": 0,
+    "ratePct": 16.3
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 264,
+    "promoted": 43,
+    "ecPromoted": 0,
+    "ratePct": 16.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 194,
+    "promoted": 48,
+    "ecPromoted": 0,
+    "ratePct": 24.7
+   }
+  },
+  {
+   "id": "u029",
+   "unit": "MO_StLouis_2012",
+   "groundReturns": 8105,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 212,
+    "promoted": 8,
+    "ecPromoted": 0,
+    "ratePct": 3.8
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 0,
+    "promoted": 0,
+    "ecPromoted": 0,
+    "ratePct": null
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 124,
+    "promoted": 19,
+    "ecPromoted": 0,
+    "ratePct": 15.3
+   }
+  },
+  {
+   "id": "u030",
+   "unit": "NE_SouthernNE_B4B_2018",
+   "groundReturns": 57460,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 189,
+    "promoted": 78,
+    "ecPromoted": 0,
+    "ratePct": 41.3
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 189,
+    "promoted": 78,
+    "ecPromoted": 0,
+    "ratePct": 41.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 187,
+    "promoted": 78,
+    "ecPromoted": 0,
+    "ratePct": 41.7
+   }
+  },
+  {
+   "id": "u031",
+   "unit": "ARRA-FL_Charlotte-W_2010",
+   "groundReturns": 11975,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 264,
+    "promoted": 69,
+    "ecPromoted": 0,
+    "ratePct": 26.1
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 264,
+    "promoted": 69,
+    "ecPromoted": 0,
+    "ratePct": 26.1
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 144,
+    "promoted": 61,
+    "ecPromoted": 0,
+    "ratePct": 42.4
+   }
+  },
+  {
+   "id": "u032",
+   "unit": "FL_Peninsular_FDEM_Okeechobee_2018",
+   "groundReturns": 83998,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 13,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 15.4
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 13,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 15.4
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 8,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 25
+   }
+  },
+  {
+   "id": "u033",
+   "unit": "WY_Southwest_4_2020",
+   "groundReturns": 37742,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 253,
+    "promoted": 51,
+    "ecPromoted": 0,
+    "ratePct": 20.2
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 253,
+    "promoted": 51,
+    "ecPromoted": 0,
+    "ratePct": 20.2
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 197,
+    "promoted": 63,
+    "ecPromoted": 0,
+    "ratePct": 32
+   }
+  },
+  {
+   "id": "u034",
+   "unit": "AR_UpperWhiteVillage-FEMA_2012",
+   "groundReturns": 4078,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 187,
+    "promoted": 34,
+    "ecPromoted": 0,
+    "ratePct": 18.2
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 57,
+    "promoted": 6,
+    "ecPromoted": 0,
+    "ratePct": 10.5
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 111,
+    "promoted": 41,
+    "ecPromoted": 0,
+    "ratePct": 36.9
+   }
+  },
+  {
+   "id": "u035",
+   "unit": "USGS_LPC_TX_South_B2_2018_LAS_2019",
+   "groundReturns": 28947,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 74,
+    "promoted": 12,
+    "ecPromoted": 0,
+    "ratePct": 16.2
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 74,
+    "promoted": 12,
+    "ecPromoted": 0,
+    "ratePct": 16.2
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 45,
+    "promoted": 11,
+    "ecPromoted": 0,
+    "ratePct": 24.4
+   }
+  },
+  {
+   "id": "u036",
+   "unit": "ME_SouthCoastal_2_2020",
+   "groundReturns": 60293,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 492,
+    "promoted": 181,
+    "ecPromoted": 0,
+    "ratePct": 36.8
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 492,
+    "promoted": 181,
+    "ecPromoted": 0,
+    "ratePct": 36.8
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 433,
+    "promoted": 182,
+    "ecPromoted": 0,
+    "ratePct": 42
+   }
+  },
+  {
+   "id": "u037",
+   "unit": "AK_EMRI_2_D24",
+   "groundReturns": 27010,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 363,
+    "promoted": 87,
+    "ecPromoted": 0,
+    "ratePct": 24
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 363,
+    "promoted": 87,
+    "ecPromoted": 0,
+    "ratePct": 24
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 320,
+    "promoted": 91,
+    "ecPromoted": 0,
+    "ratePct": 28.4
+   }
+  },
+  {
+   "id": "u038",
+   "unit": "NM_SouthCentral_Acoma_TL_2018",
+   "groundReturns": 17834,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 512,
+    "promoted": 158,
+    "ecPromoted": 0,
+    "ratePct": 30.9
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 512,
+    "promoted": 158,
+    "ecPromoted": 0,
+    "ratePct": 30.9
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 389,
+    "promoted": 150,
+    "ecPromoted": 0,
+    "ratePct": 38.6
+   }
+  },
+  {
+   "id": "u039",
+   "unit": "USGS_LPC_OK_Woodward_UTM15_B5_2016__LAS_2018",
+   "groundReturns": 53443,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 252,
+    "promoted": 80,
+    "ecPromoted": 0,
+    "ratePct": 31.7
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 252,
+    "promoted": 80,
+    "ecPromoted": 0,
+    "ratePct": 31.7
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 196,
+    "promoted": 90,
+    "ecPromoted": 0,
+    "ratePct": 45.9
+   }
+  },
+  {
+   "id": "u040",
+   "unit": "KY_FluorsparDistrict_2019",
+   "groundReturns": 44139,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 75,
+    "promoted": 25,
+    "ecPromoted": 0,
+    "ratePct": 33.3
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 75,
+    "promoted": 25,
+    "ecPromoted": 0,
+    "ratePct": 33.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 63,
+    "promoted": 29,
+    "ecPromoted": 0,
+    "ratePct": 46
+   }
+  },
+  {
+   "id": "u041",
+   "unit": "CA_SanJoaquin_6_2021",
+   "groundReturns": 144663,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 9,
+    "promoted": 3,
+    "ecPromoted": 0,
+    "ratePct": 33.3
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 9,
+    "promoted": 3,
+    "ecPromoted": 0,
+    "ratePct": 33.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 8,
+    "promoted": 3,
+    "ecPromoted": 0,
+    "ratePct": 37.5
+   }
+  },
+  {
+   "id": "u042",
+   "unit": "USGS_LPC_MI_31Co_Sanilac_2017_LAS_2019",
+   "groundReturns": 16019,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 70,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 2.9
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 70,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 2.9
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 42,
+    "promoted": 3,
+    "ecPromoted": 0,
+    "ratePct": 7.1
+   }
+  },
+  {
+   "id": "u043",
+   "unit": "MI_FEMA_Cheboygan_2019",
+   "groundReturns": 23868,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 225,
+    "promoted": 25,
+    "ecPromoted": 0,
+    "ratePct": 11.1
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 225,
+    "promoted": 25,
+    "ecPromoted": 0,
+    "ratePct": 11.1
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 154,
+    "promoted": 35,
+    "ecPromoted": 0,
+    "ratePct": 22.7
+   }
+  },
+  {
+   "id": "u044",
+   "unit": "WY_YellowstoneNP_1_2020",
+   "groundReturns": 20944,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 145,
+    "promoted": 20,
+    "ecPromoted": 0,
+    "ratePct": 13.8
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 145,
+    "promoted": 20,
+    "ecPromoted": 0,
+    "ratePct": 13.8
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 108,
+    "promoted": 26,
+    "ecPromoted": 0,
+    "ratePct": 24.1
+   }
+  },
+  {
+   "id": "u045",
+   "unit": "USGS_LPC_MO_FEMAR7_North_A2_2017_LAS_2019",
+   "groundReturns": 46219,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 653,
+    "promoted": 293,
+    "ecPromoted": 0,
+    "ratePct": 44.9
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 653,
+    "promoted": 293,
+    "ecPromoted": 0,
+    "ratePct": 44.9
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 589,
+    "promoted": 276,
+    "ecPromoted": 0,
+    "ratePct": 46.9
+   }
+  },
+  {
+   "id": "u046",
+   "unit": "USGS_LPC_TN_3County_2015_LAS_2017",
+   "groundReturns": 28315,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 278,
+    "promoted": 76,
+    "ecPromoted": 0,
+    "ratePct": 27.3
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 278,
+    "promoted": 76,
+    "ecPromoted": 0,
+    "ratePct": 27.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 170,
+    "promoted": 56,
+    "ecPromoted": 0,
+    "ratePct": 32.9
+   }
+  },
+  {
+   "id": "u047",
+   "unit": "WV_FEMAHQ_B2_2018",
+   "groundReturns": 31009,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 567,
+    "promoted": 173,
+    "ecPromoted": 0,
+    "ratePct": 30.5
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 567,
+    "promoted": 173,
+    "ecPromoted": 0,
+    "ratePct": 30.5
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 411,
+    "promoted": 177,
+    "ecPromoted": 0,
+    "ratePct": 43.1
+   }
+  },
+  {
+   "id": "u048",
+   "unit": "USGS_LPC_TX_West_Central_B11_2018_LAS_2019",
+   "groundReturns": 49942,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 494,
+    "promoted": 183,
+    "ecPromoted": 0,
+    "ratePct": 37
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 494,
+    "promoted": 183,
+    "ecPromoted": 0,
+    "ratePct": 37
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 400,
+    "promoted": 181,
+    "ecPromoted": 0,
+    "ratePct": 45.3
+   }
+  },
+  {
+   "id": "u049",
+   "unit": "USGS_LPC_IN_WT_B10_Benton_2013_LAS_2016",
+   "groundReturns": 4972,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 205,
+    "promoted": 37,
+    "ecPromoted": 0,
+    "ratePct": 18
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 57,
+    "promoted": 16,
+    "ecPromoted": 0,
+    "ratePct": 28.1
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 120,
+    "promoted": 41,
+    "ecPromoted": 0,
+    "ratePct": 34.2
+   }
+  },
+  {
+   "id": "u050",
+   "unit": "USGS_LPC_MI_31Co_Midland_2016_LAS_2019",
+   "groundReturns": 18248,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 125,
+    "promoted": 3,
+    "ecPromoted": 0,
+    "ratePct": 2.4
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 125,
+    "promoted": 3,
+    "ecPromoted": 0,
+    "ratePct": 2.4
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 87,
+    "promoted": 12,
+    "ecPromoted": 0,
+    "ratePct": 13.8
+   }
+  },
+  {
+   "id": "u051",
+   "unit": "GA_Statewide_B2_2018",
+   "groundReturns": 8312,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 166,
+    "promoted": 59,
+    "ecPromoted": 0,
+    "ratePct": 35.5
+   },
+   "C1": {
+    "cell": 2,
+    "tolCells": 1,
+    "spans": 60,
+    "promoted": 24,
+    "ecPromoted": 0,
+    "ratePct": 40
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 108,
+    "promoted": 45,
+    "ecPromoted": 0,
+    "ratePct": 41.7
+   }
+  },
+  {
+   "id": "u052",
+   "unit": "ND_3DEPProcessing_4_D22",
+   "groundReturns": 21158,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 128,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 1.6
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 128,
+    "promoted": 2,
+    "ecPromoted": 0,
+    "ratePct": 1.6
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 73,
+    "promoted": 1,
+    "ecPromoted": 0,
+    "ratePct": 1.4
+   }
+  },
+  {
+   "id": "u053",
+   "unit": "USGS_LPC_MO_AR_Miss_Laud_UTM16_2014_LAS_2016",
+   "groundReturns": 18269,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 134,
+    "promoted": 12,
+    "ecPromoted": 0,
+    "ratePct": 9
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 134,
+    "promoted": 12,
+    "ecPromoted": 0,
+    "ratePct": 9
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 103,
+    "promoted": 15,
+    "ecPromoted": 0,
+    "ratePct": 14.6
+   }
+  },
+  {
+   "id": "u054",
+   "unit": "TN_OSMRE-GPSC_2011",
+   "groundReturns": 10648,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 235,
+    "promoted": 99,
+    "ecPromoted": 0,
+    "ratePct": 42.1
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 235,
+    "promoted": 99,
+    "ecPromoted": 0,
+    "ratePct": 42.1
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 145,
+    "promoted": 72,
+    "ecPromoted": 0,
+    "ratePct": 49.7
+   }
+  },
+  {
+   "id": "u055",
+   "unit": "NM_HermitsPeak_1_D23",
+   "groundReturns": 143699,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 781,
+    "promoted": 369,
+    "ecPromoted": 0,
+    "ratePct": 47.2
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 781,
+    "promoted": 369,
+    "ecPromoted": 0,
+    "ratePct": 47.2
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 758,
+    "promoted": 362,
+    "ecPromoted": 0,
+    "ratePct": 47.8
+   }
+  },
+  {
+   "id": "u056",
+   "unit": "USGS_LPC_MO_AR_Mercer_Grundy_2014_LAS_2016",
+   "groundReturns": 12396,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 143,
+    "promoted": 30,
+    "ecPromoted": 0,
+    "ratePct": 21
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 143,
+    "promoted": 30,
+    "ecPromoted": 0,
+    "ratePct": 21
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 89,
+    "promoted": 29,
+    "ecPromoted": 0,
+    "ratePct": 32.6
+   }
+  },
+  {
+   "id": "u057",
+   "unit": "ME_CrownofMaine_B2_2018",
+   "groundReturns": 21805,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 468,
+    "promoted": 126,
+    "ecPromoted": 0,
+    "ratePct": 26.9
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 468,
+    "promoted": 126,
+    "ecPromoted": 0,
+    "ratePct": 26.9
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 339,
+    "promoted": 139,
+    "ecPromoted": 0,
+    "ratePct": 41
+   }
+  },
+  {
+   "id": "u058",
+   "unit": "USGS_LPC_LA_Barataria_2013_LAS_2015",
+   "groundReturns": 2206,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 2,
+    "promoted": 0,
+    "ecPromoted": 0,
+    "ratePct": 0
+   },
+   "C1": {
+    "cell": 3,
+    "tolCells": 1,
+    "spans": 0,
+    "promoted": 0,
+    "ecPromoted": 0,
+    "ratePct": null
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 2,
+    "promoted": 0,
+    "ecPromoted": 0,
+    "ratePct": 0
+   }
+  },
+  {
+   "id": "u059",
+   "unit": "CT_Statewide_B5_2016",
+   "groundReturns": 23208,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 261,
+    "promoted": 58,
+    "ecPromoted": 0,
+    "ratePct": 22.2
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 261,
+    "promoted": 58,
+    "ecPromoted": 0,
+    "ratePct": 22.2
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 195,
+    "promoted": 65,
+    "ecPromoted": 0,
+    "ratePct": 33.3
+   }
+  },
+  {
+   "id": "u060",
+   "unit": "GA_Central_4_2018",
+   "groundReturns": 20643,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 224,
+    "promoted": 57,
+    "ecPromoted": 0,
+    "ratePct": 25.4
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 224,
+    "promoted": 57,
+    "ecPromoted": 0,
+    "ratePct": 25.4
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 168,
+    "promoted": 57,
+    "ecPromoted": 0,
+    "ratePct": 33.9
+   }
+  },
+  {
+   "id": "u061",
+   "unit": "OK_Panhandle_B1C_2018",
+   "groundReturns": 33250,
+   "C0": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 142,
+    "promoted": 53,
+    "ecPromoted": 0,
+    "ratePct": 37.3
+   },
+   "C1": {
+    "cell": 1,
+    "tolCells": 1,
+    "spans": 142,
+    "promoted": 53,
+    "ecPromoted": 0,
+    "ratePct": 37.3
+   },
+   "C2": {
+    "cell": 1,
+    "tolCells": 2,
+    "spans": 129,
+    "promoted": 56,
+    "ecPromoted": 0,
+    "ratePct": 43.4
+   }
+  }
+ ]
+}
