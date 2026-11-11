@@ -258,3 +258,39 @@ provenance union over every replaced edge), as D7 on the sample. Reported with t
 the other methods (extra vertices against DP, lines whose geometry differs from DP, support
 promotion, provenance loss). The run fails unless SPLIT-T-EC keeps the same vertices as SPLIT-T
 and has no support promotion and no provenance loss at any site.
+
+## D10. Support against independent RTK checkpoints at Marsh Island (`external-check/marsh_checkpoints.cjs`)
+
+Added on 11 November 2026, before any D10 code was written or run. D1-D9 are unchanged.
+
+Disclosure: the absolute errors of these checkpoints against a DTM of this crop were computed
+earlier in separate OpenLiDARViewer validation work (summary accuracy only). Their relation to
+support has not been computed before these rules were committed.
+
+Data: the 104 RTK check shots (Emlid RS3) of the USGS Marsh Island UAS release (Over et al., 2024;
+NAD83(2011) UTM 19N, NAVD88), in the crop's local frame (origin 340303, 4612812), independent of the
+aerial control. The DTM is the one every Marsh Island result uses (frozen snapshot, 0.5 m cells,
+point-in-cell mean, buildDtmGrid).
+
+Matching: each checkpoint takes the cell that contains it (no interpolation). Its support is the
+cell's support on the 0-100 scale in the cell's channel (measured cells: measured support;
+interpolated cells: interpolation support). A checkpoint in an unsupported cell or outside the grid
+is not scored and is counted. Error = |DTM height of the cell - checkpoint height|.
+
+Primary measure: Spearman rank correlation between support and error over all scored checkpoints,
+with a 95% interval from 2,000 bootstrap replicates over checkpoints (xorshift32, seed 20261111).
+Secondary: median error and count per support band (below 33, 33 to below 66, 66 or above) and per
+channel; the primary measure without errors above 1 m (the physical bare-earth threshold of the
+earlier validation, fixed independently of these results), reported alongside, not instead.
+Every checkpoint's support, channel and error are written out. No result is excluded.
+No direction is required for the run to pass; a negative correlation would mean higher support,
+smaller error. The outcome is reported whatever it is.
+
+## D11. Composition checked on random operator chains (`oracles/composition_property.py`)
+
+Added on 11 November 2026, before any D11 code was written or run. A property test, not an
+empirical study. In the independent Python model: 10,000 random cases (fixed seed), each a list of
+source records (per channel: a support value, unavailable, or not applicable; provenance; at least
+one supported source) split at random into consecutive groups. Applying the meet to each group and
+then to the group results must equal applying it once to all sources: same value or unavailable
+state per channel, same provenance and lineage. The run fails on any mismatch.
