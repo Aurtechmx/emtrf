@@ -206,3 +206,35 @@ with at least 20 DP spans) and pooled; the share of spans with support promotion
 33 and 50, false acceptance and wrong rejection per kilometre and retention, with the coverage and
 accounting assertions of D5 applied to every method. Pooled values carry 2,000 bootstrap
 replicates resampling whole crops (xorshift32, seed 20261109). Every outcome is reported.
+
+## D7. Threshold-aligned splitting with complete-source records (`prevalence/query_split.cjs`)
+
+Added on 11 November 2026, before any D7 code was written or run. D1-D6 are unchanged.
+
+Method SPLIT-T+EC: the geometry of SPLIT-T (D6), with each span carrying the complete-source
+record of EC-DP (minimum support per channel and provenance union over every replaced edge).
+
+Stated beforehand: no false acceptance at any threshold, because the record is the span minimum;
+no false acceptance and no wrong rejection at t = 66 and 33, because every edge of a span lies in
+one band. The run fails if either is violated; these check the implementation. Its vertices equal
+SPLIT-T's. Reported with the D6 measures, on the same 60 crops and thresholds 66, 33 and 50; the
+informative outcome is retention at t = 50 against EC-DP and SPLIT-T.
+
+## D8. Sensitivity of the sample promotion rate to cell size and tolerance (`prevalence/sensitivity_sample.cjs`)
+
+Added on 11 November 2026, before any D8 code was written or run. D1-D7 are unchanged.
+
+On the 60 valid crops of D4, the D4 measures (crops with at least one promoted span; per-crop
+promotion rate of DP endpoint records over crops with at least 20 spans: median and quartiles;
+EC-DP promotions) are computed under three settings:
+- C0, as D4: 1 m cells, contour interval 1 m, Douglas-Peucker tolerance of one cell.
+- C1: the cell is the smallest whole metre at or above the crop's nominal point spacing,
+  sqrt(10,000 m^2 / ground returns), and at least 1 m; the grid covers the same 100 m square
+  (floor(100 / cell) cells per side); contour interval and tolerance equal one cell.
+- C2: 1 m cells and contour interval, tolerance of two cells.
+Reported: each measure under each setting, the number of crops whose cell changes under C1, and
+every crop's rate under each setting. No direction is predicted.
+
+The half-saturation constant h of Eq. 5 is not varied: promotion compares support values by order
+only, and Eq. 5 is strictly increasing in return count for every h > 0, so promotion counts do not
+depend on h (Methods S9). h does affect the threshold query, which D8 does not cover.
