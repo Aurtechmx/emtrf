@@ -178,3 +178,31 @@ defined; the pooled value from summed lengths; and, for the pooled values and th
 differences EC-DP minus endpoint, 2,000 bootstrap replicates resampling whole crops
 (xorshift32, seed 20261109), recomputing each ratio from the summed lengths, 2.5 and 97.5
 percentiles. Crops with no false acceptance are kept.
+
+## D6. Threshold-aligned splitting (`ablation/baselines.cjs`, SPLIT-T; `prevalence/query_split.cjs`)
+
+Added on 10 November 2026, before any SPLIT-T code was run or any SPLIT-T result existed. D1-D5
+above are unchanged.
+
+Method SPLIT-T. A vertex is forced wherever two consecutive source edges differ in class. The
+class of an edge is its provenance (M, I, X or U) together with, for each support channel, the
+band of its value: below 33, 33 to below 66, 66 or above, or no value. Each piece between forced
+vertices is simplified with the production Douglas-Peucker rule at one source cell, and each span
+carries the record of its first and last source edges (endpoint attribution, as for DP).
+
+Stated beforehand:
+1. For the query of D5 at t = 66 and t = 33, SPLIT-T has no false acceptance and no wrong
+   rejection, because every edge of a span shares the band and provenance of its end edges. The
+   run fails if either is non-zero; this is a check of the implementation, not a finding.
+2. Its cost is retained vertices beyond those of DP.
+3. Inside a band its records can still exceed the span minimum (support promotion), which a query
+   at a threshold other than 33 or 66 can expose. The query is therefore also run at t = 50, a
+   threshold not stored in the bands, for DP endpoint records, SPLIT-T and EC-DP.
+
+Reported, on the four crops (as Supplementary Methods S7): retained vertices, their multiple of
+DP's, support promotion and provenance loss as shares of spans. On the 60 valid crops of D4, with
+the settings of D5: the multiple of DP's retained vertices, per crop (median and quartiles, crops
+with at least 20 DP spans) and pooled; the share of spans with support promotion; and, at t = 66,
+33 and 50, false acceptance and wrong rejection per kilometre and retention, with the coverage and
+accounting assertions of D5 applied to every method. Pooled values carry 2,000 bootstrap
+replicates resampling whole crops (xorshift32, seed 20261109). Every outcome is reported.
