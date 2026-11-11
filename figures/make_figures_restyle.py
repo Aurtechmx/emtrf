@@ -80,7 +80,7 @@ def dimticks(ax):
 # ============ Figure 1 (file fig3): pipeline schematic ============
 # Even 6-box grid: margins + equal boxes + equal gutters, boxes sized to fit their text.
 fig, ax = plt.subplots(figsize=(7.6, 2.55)); ax.set_xlim(0,1); ax.set_ylim(0,1); ax.axis("off")
-N=6; ML=0.012; g=0.020
+N=6; ML=0.012; g=0.036
 boxW=(1-2*ML-(N-1)*g)/N; step=boxW+g
 BY0, BH = 0.40, 0.33; BMID=BY0+BH/2
 xs=[ML+i*step for i in range(N)]
@@ -137,12 +137,14 @@ xt=np.array([.02,.05,.10,.20,.40]); y=np.array([55.2,75.6,81.1,85.2,100])
 fig,ax=plt.subplots(figsize=(7.1,3.6))
 ax.plot(xt,y,"o-",lw=1.8,ms=5.5,label="Endpoint-only inheritance",color=VERM)
 ax.plot(xt,np.zeros_like(xt),"s-",lw=1.6,ms=4.8,label="EC-DP (complete source arc)",color=BLUE)
-for xi,yi in zip(xt,y): ax.text(xi,yi+3.4,f"{yi:.1f}",ha="center",fontsize=7.8,color=GREY)
+for k,(xi,yi) in enumerate(zip(xt,y)):
+    if k==0: ax.text(xi-.007,yi,f"{yi:.1f}",ha="right",va="center",fontsize=7.8,color=GREY)  # left of the steep first segment
+    else: ax.text(xi,yi+3.4,f"{yi:.1f}",ha="center",fontsize=7.8,color=GREY)
 # moved clear of the legend (was overlapping at lower-right)
 ax.annotate("0 at every tolerance",xy=(.20,0),xytext=(.135,14),
             arrowprops=dict(arrowstyle="->",lw=.8,color=BLUE),color=BLUE,fontweight="bold",fontsize=8)
 ax.set_xlabel("Douglas-Peucker tolerance (fixture units)"); ax.set_ylabel("Spans with support promotion (%)")
-ax.set_xlim(0,.425); ax.set_ylim(-3,109); ax.legend(loc="center right",**LEG)
+ax.set_xlim(-.012,.425); ax.set_ylim(-3,109); ax.legend(loc="center right",**LEG)
 ax.set_title("Endpoint-only inheritance promotes support; EC-DP never does",fontweight="bold",color=BLACK)
 ax.text(0,-.20,"10,000 deterministic polylines with deliberately weak interior support.\n"
         "Rates characterize this stress family, not real-world prevalence.",
@@ -181,14 +183,17 @@ fig,ax=plt.subplots(figsize=(7.0,4.0)); xx=np.arange(4); w=.58
 ax.bar(xx,M,w,label="Measured-derived (M)",color=BLUE,edgecolor="white")
 ax.bar(xx,I,w,bottom=M,label="Interpolated-derived (I)",color=ORANGE,edgecolor="white",hatch="....")
 ax.bar(xx,X,w,bottom=M+I,label="Mixed-derived (X)",color=GREEN,edgecolor="white",hatch="////")
+ax.axhline(50,ls=":",lw=.9,color=GREY,zorder=3); ax.text(3.36,51.2,"50%",va="bottom",ha="left",fontsize=7.5,color=GREY)
+# value labels sit on a white chip so they stay legible over hatching, dots and the 50% line
 for i in range(4):
     for val,bot in [(M[i],0),(I[i],M[i]),(X[i],M[i]+I[i])]:
         if val>=7:
-            ax.text(i,bot+val/2,f"{val:.1f}%",ha="center",va="center",fontsize=7.7,
-                    color="white" if (bot==0 or bot==M[i]+I[i]) else BLACK,fontweight="bold")
-ax.axhline(50,ls=":",lw=.9,color=GREY); ax.text(3.46,50,"50%",va="center",fontsize=7.5,color=GREY)
+            y=bot+val/2
+            if abs(y-50)<5: y=50+7 if bot+val>=62 else 50-7   # keep clear of the 50% reference line
+            ax.text(i,y,f"{val:.1f}%",ha="center",va="center",fontsize=7.7,color=BLACK,fontweight="bold",zorder=4,
+                    bbox=dict(boxstyle="round,pad=0.22",facecolor="white",edgecolor="none",alpha=0.92))
 ax.text(1.5,108,"Mixed ancestry exceeds 50% at StREAM and Estonia Tava",ha="center",va="center",fontsize=7.7,color=GREY)
-ax.set_xticks(xx); ax.set_xticklabels([f"{s}\nn={n:,}" for s,n in zip(sites,ns)]); ax.set_ylim(0,114)
+ax.set_xticks(xx); ax.set_xticklabels([f"{s}\nn={n:,}" for s,n in zip(sites,ns)]); ax.set_ylim(0,114); ax.set_xlim(-.5,3.72)
 ax.set_ylabel("Contour segments (%)")
 ax.set_title("Ancestry composition of field-derived contour segments",fontweight="bold",color=BLACK)
 ax.legend(loc="upper center",bbox_to_anchor=(.5,-.14),ncol=3,**LEG); dimticks(ax)

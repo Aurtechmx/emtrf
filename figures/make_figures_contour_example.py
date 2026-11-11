@@ -139,11 +139,11 @@ axs[1].set_title("(b) Provenance", fontweight="bold", color=BLACK, fontsize=8.5)
 axs[2].set_title("(c) Query on endpoint records", fontweight="bold", color=BLACK, fontsize=8.5)
 axs[3].set_title("(d) Query on EC-DP records", fontweight="bold", color=BLACK, fontsize=8.5)
 leg = dict(loc="upper right", frameon=True, facecolor="white", framealpha=0.88, edgecolor="lightgrey", fontsize=7)
-axs[0].legend(handles=[Line2D([0],[0], color=BLUE, lw=1.5, ls="-", label="solid"),
-                       Line2D([0],[0], color=ORANGE, lw=1.5, ls="--", label="dashed")], ncol=2, **leg)
-axs[1].legend(handles=[Line2D([0],[0], color=BLUE, lw=1.6, ls="-", label="M"),
-                       Line2D([0],[0], color=ORANGE, lw=1.6, ls="--", label="I"),
-                       Line2D([0],[0], color=GREEN, lw=2.0, ls="-", label="X (mixed)")], ncol=3, **leg)
+grade_handles = [Line2D([0],[0], color=BLUE, lw=1.5, ls="-", label="solid"),
+                 Line2D([0],[0], color=ORANGE, lw=1.5, ls="--", label="dashed")]
+prov_handles = [Line2D([0],[0], color=BLUE, lw=1.6, ls="-", label="M"),
+                Line2D([0],[0], color=ORANGE, lw=1.6, ls="--", label="I"),
+                Line2D([0],[0], color=GREEN, lw=2.0, ls="-", label="X (mixed)")]
 outcome_handles = [Line2D([0],[0], **out_style["ca"], label="accepted, source passes"),
                    Line2D([0],[0], **out_style["fa"], label="accepted, source fails"),
                    Line2D([0],[0], **out_style["wr"], label="rejected, source passes"),
@@ -152,13 +152,19 @@ bg_handles = [Patch(facecolor="#DCEEF7", edgecolor=MID, label="Measured-derived 
               Patch(facecolor="#FFF5D8", edgecolor=MID, label="Interpolated-derived DTM cell")]
 fig.legend(handles=outcome_handles + bg_handles, loc="lower center", ncol=3, frameon=False,
            bbox_to_anchor=(0.5, 0.0), fontsize=7, columnspacing=1.2, handlelength=2.2)
-fig.subplots_adjust(bottom=0.135, wspace=0.08, hspace=0.12, top=0.96)
+# panel (a)/(b) keys sit below the figure, off the contours
+fig.legend(handles=grade_handles, title="(a) display grade", loc="upper center", ncol=2, frameon=False,
+           bbox_to_anchor=(0.30, 0.0), fontsize=7, title_fontsize=7, handlelength=2.2)
+fig.legend(handles=prov_handles, title="(b) provenance", loc="upper center", ncol=3, frameon=False,
+           bbox_to_anchor=(0.70, 0.0), fontsize=7, title_fontsize=7, handlelength=2.2)
+fig.subplots_adjust(bottom=0.135, wspace=0.08, hspace=0.30, top=0.96)
 for ax in axs[2:]: ax.set_xticks([0, 10, 20, 30])
 for ax, name in ((axs[2], "end"), (axs[3], "ec")):
     fa = 100*tot[name]["fa"]/tot["len"]; ret = 100*tot[name]["ca"]/tot["qual"]
-    ax.text(0.98, 0.02, ("false acceptance: none" if fa == 0 else f"false acceptance: {fa:.1f}%\nof total source length") + f"\nqualifying length kept: {ret:.0f}%",
-            transform=ax.transAxes, ha="right", va="bottom", fontsize=7, color=BLACK,
-            bbox=dict(facecolor="white", edgecolor="lightgrey", alpha=0.9, boxstyle="round,pad=0.25"))
+    # result line under the panel title, so no contour is covered
+    ax.text(0.5, 1.012, ("false acceptance: none" if fa == 0 else f"false acceptance: {fa:.1f}% of total source length") + f"\nqualifying length kept: {ret:.0f}%",
+            transform=ax.transAxes, ha="center", va="bottom", fontsize=7, color=GREY)
+    ax.set_title(ax.get_title(), fontweight="bold", color=BLACK, fontsize=8.5, pad=24)
 fig.savefig(OUT/"fig9_contour_example.pdf", bbox_inches="tight", pad_inches=0.05, dpi=300)
 fig.savefig(PNG/"fig9_contour_example.png", bbox_inches="tight", pad_inches=0.05, dpi=150)
 plt.close(fig)

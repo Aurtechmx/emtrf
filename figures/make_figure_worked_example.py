@@ -46,8 +46,9 @@ a, b = E["spanVertexRange"]
 V = np.array(E["runVertices"])[a:b + 1] - [ox, oy]
 ax.plot(V[:, 0], V[:, 1], color=INK, lw=1.0, marker="o", ms=3.2, mfc="white", mew=0.9, zorder=4)
 ax.plot(V[[0, -1], 0], V[[0, -1], 1], color=BLUE, lw=2.0, zorder=5, solid_capstyle="round")
+nx_ = W["col1"] - W["col0"] + 1
 ax.annotate(f"{weak['returns']} returns\n(site median {E['medianReturnsPerMeasuredCell']:g})",
-            xy=(wx + cs, wy + 0.2 * cs), xytext=(wx + 1.9 * cs, wy - 1.75 * cs), fontsize=7, color=INK,
+            xy=(wx + cs, wy + cs), xytext=(nx_ * cs + 0.25, wy + cs), fontsize=7, color=INK, va="center", annotation_clip=False,  # outside the grid so no cell count is hidden
             bbox=dict(boxstyle="round,pad=0.25", fc="white", ec=VERM, lw=0.8),
             arrowprops=dict(arrowstyle="-", color=VERM, lw=0.9), zorder=7)
 nx, ny = W["col1"] - W["col0"] + 1, W["row1"] - W["row0"] + 1
@@ -89,7 +90,7 @@ bx.legend(handles=[Line2D([0], [0], color=INK, lw=1.4, label="source edges (refe
                    Line2D([0], [0], color=VERM, lw=1.6, ls="--", label="EC-DP, complete source")],
           loc="upper left", bbox_to_anchor=(0.0, -0.17), ncol=1, frameon=False, fontsize=7)
 
-fig.subplots_adjust(left=0.07, right=0.99, top=0.91, bottom=0.33, wspace=0.28)
+fig.subplots_adjust(left=0.07, right=0.99, top=0.91, bottom=0.33, wspace=0.62)
 fig.savefig(OUT / "fig10_worked_example.pdf", dpi=300)
 fig.savefig(PNG / "fig10_worked_example.png", dpi=200)
 print("done")

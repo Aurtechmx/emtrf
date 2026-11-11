@@ -210,9 +210,9 @@ for ax in axs: ax.set_xlim(ext[0],ext[1]); ax.set_ylim(ext[2],ext[3])
 bg_handles=[Patch(facecolor='#DCEEF7',edgecolor=MID,label='Measured-derived DTM cell'),Patch(facecolor='#FFF5D8',edgecolor=MID,label='Interpolated-derived DTM cell')]
 left_handles=[Line2D([0],[0],color=BLUE,lw=1.3,ls='-',label='solid'),Line2D([0],[0],color=ORANGE,lw=1.3,ls='--',label='dashed'),Line2D([0],[0],color=VERM,lw=1.3,ls=':',label='gap')]
 right_handles=[Line2D([0],[0],color=BLUE,lw=1.4,ls='-',label='M'),Line2D([0],[0],color=ORANGE,lw=1.4,ls='--',label='I'),Line2D([0],[0],color=GREEN,lw=1.8,ls='-.',label='X (mixed)')]
-axs[0].legend(handles=left_handles,loc='lower left',frameon=True,framealpha=.94,ncol=3,fontsize=7)
-axs[1].legend(handles=right_handles,loc='lower left',frameon=True,framealpha=.94,ncol=3,fontsize=7)
-fig.legend(handles=bg_handles,loc='lower center',ncol=2,frameon=False,bbox_to_anchor=(.5,-.045),fontsize=7.4)
+axs[0].legend(handles=left_handles,loc='upper center',bbox_to_anchor=(.5,-.17),frameon=False,ncol=3,fontsize=7)  # below the map, off the contours
+axs[1].legend(handles=right_handles,loc='upper center',bbox_to_anchor=(.5,-.17),frameon=False,ncol=3,fontsize=7)
+fig.legend(handles=bg_handles,loc='lower center',ncol=2,frameon=False,bbox_to_anchor=(.5,-.10),fontsize=7.4)
 fig.suptitle('Same simplified StREAM contours, different evidence semantics',fontweight='bold',y=.99)
 fig.subplots_adjust(bottom=.20,wspace=.10,top=.88)
 save(fig,'fig8_stream_map.pdf')
