@@ -9,7 +9,7 @@
       "orcid": "0009-0007-3147-323X"
     }
   ],
-  "description": "Reference implementation and reproducibility package for the Evidence-Monotone Terrain Representation Framework (EMTRF): an operator contract that carries provenance, per-channel support, applicability and complete-source lineage through representation-only operations, with Evidence-Constrained Douglas-Peucker (EC-DP) as the reference instance and EC-wrap as a retrofit for other simplifiers. One command (./run_all.sh) reruns every analysis of the accompanying Computers & Geosciences manuscript and checks each reported value; steps whose optional tools or data are absent are reported as not run. Includes the 60 crops of the USGS 3DEP probability sample and the external CC0 audit data; see DATA_LICENSES.md.",
+  "description": "Reference implementation and reproducibility package for the Evidence-Monotone Terrain Representation Framework (EMTRF): an operator contract that carries provenance, per-channel support, applicability and complete-source lineage through representation-only operations, with Evidence-Constrained Douglas-Peucker (EC-DP) as the reference instance and EC-wrap as a retrofit for other simplifiers. One command (./run_all.sh) reruns every analysis of the accompanying Computers & Geosciences manuscript and checks each reported value; steps whose optional tools or data are absent are reported as not run. Includes crops from public sources (USGS 3DEP, StREAM, USGS Marsh Island, Estonian Land and Spatial Development Board) and the external CC0 audit data, each under its own licence; see DATA_LICENSES.md.",
   "keywords": [
     "terrain representation",
     "provenance",

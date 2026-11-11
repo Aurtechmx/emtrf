@@ -12,7 +12,7 @@ from pathlib import Path
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Patch
 
 # --- EMTRF: ablation values are loaded from the committed strict analysis output, never
-# --- hardcoded. Hardcoding let the manuscript, supplement and figures drift apart once.
+# --- hardcoded, so the manuscript, supplement and figures cannot drift apart.
 import json as _json, os as _os
 def _load_ablation():
     _p = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "results",

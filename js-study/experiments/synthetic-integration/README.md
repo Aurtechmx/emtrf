@@ -19,7 +19,7 @@ The main deterministic fixtures are:
 - **P04** one-sided support / extrapolation-guard ablation;
 - **P05** Gaussian hill with a central observation band removed.
 
-Exact outputs are recorded in `../../results/synthetic-integration.json`.
+When run, the harness writes its outputs to `results/synthetic_integration_results.json` next to it.
 
 ## Important density note
 

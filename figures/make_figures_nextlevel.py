@@ -7,7 +7,7 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle, Patch
 from matplotlib.lines import Line2D
 
 # --- EMTRF: ablation values are loaded from the committed strict analysis output, never
-# --- hardcoded. Hardcoding let the manuscript, supplement and figures drift apart once.
+# --- hardcoded, so the manuscript, supplement and figures cannot drift apart.
 import json as _json, os as _os
 def _load_ablation():
     _p = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "results",
@@ -113,7 +113,7 @@ _lbl=['Measured-derived\nterrain cell','Reference support\n$n=6,\\;n_t=10,\\;h=3
 _BFS4=8.2
 _ec=[BLUE,BLUE,ORANGE,VERM]; _fc=['#EEF7FB','#F7FAFC','#FFF9E8','#FFF1EC']
 # Widths measured from the rendered text: 'Frozen OpenLiDARViewer' is the longest line and
-# previously overflowed a hardcoded box.
+# sets the box width.
 fig.canvas.draw(); _r=fig.canvas.get_renderer(); _iv=ax.transData.inverted()
 _w=[]
 for _l in _lbl:

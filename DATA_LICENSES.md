@@ -25,4 +25,14 @@ commercially or non-commercially, and redistributing the data, provided the data
 are identified and the open-data license is referenced.
 
 Attribution: source data (c) Estonian Land and Spatial Development Board, 2020 elevation data,
-Open Data License (https://geoportaal.maaruum.ee/eng/spatial-data/elevation-data-p308.html).
+Open Data License (https://geoportaal.maaruum.ee/eng/spatial-data/elevation-data-p308.html; licence text: https://geoportaal.maaamet.ee/opendata-licence).
+
+## Acknowledgement and changes made
+
+USGS data (3DEP crops, White Sands, Marsh Island): "Data from the U.S. Geological Survey, 3D Elevation
+Program." USGS asks for this acknowledgement and places no restriction on use.
+
+Changes made to the redistributed crops (relevant to the CC BY 4.0 StREAM data, stated for all of
+them): each crop is a clipped extract of the source point cloud, limited to ground-classified
+returns, and stored as 32-bit floating-point values relative to a crop origin in a compact binary
+file. No other change was made.

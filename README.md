@@ -106,7 +106,7 @@ release.
 
 ## License
 
-MIT license; see [`LICENSE`](LICENSE). Code comments and documentation are in English.
+MIT license; see [`LICENSE`](LICENSE). The Supplement source and PDF in this package are covered by the same licence; the version published with the article is governed by the journal's terms. Third-party data keep their own licences ([`DATA_LICENSES.md`](DATA_LICENSES.md)). The audit scripts run GDAL, GRASS GIS, SAGA GIS, WhiteboxTools, lidR, SciPy, scikit-image, QGIS, GeoPandas and mapshaper as separate programs; none is bundled, and each keeps its own licence. Code comments and documentation are in English.
 
 ## Citation
 
