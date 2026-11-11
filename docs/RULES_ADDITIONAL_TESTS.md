@@ -242,3 +242,19 @@ depend on h (Methods S9). h does affect the threshold query, which D8 does not c
 Note to D8, 11 November 2026, before any D8 run: support is stored as whole points (0-100), so two
 return counts can round to the same value under one h and not another. The invariance to h above
 therefore holds up to that rounding; D8 does not test it.
+
+Correction to D8, 11 November 2026, after the D8 run: the invariance argument above is incomplete.
+Lines are split into feature runs where the display grade changes, and the grade depends on h
+through the thresholds 33 and 66, so the spans compared, and hence promotion counts, can change
+with h. D8 results are unchanged; they hold for the published h only.
+
+## D9. Threshold split with complete-source records on the four crops (`ablation/baselines.cjs`)
+
+Added on 11 November 2026, before any D9 code was written or run. D1-D8 are unchanged.
+
+On the four frozen crops and the inputs of the alternative-method comparison, one method is
+added: SPLIT-T-EC, the SPLIT-T geometry of D6 with complete-source records (minimum support and
+provenance union over every replaced edge), as D7 on the sample. Reported with the measures of
+the other methods (extra vertices against DP, lines whose geometry differs from DP, support
+promotion, provenance loss). The run fails unless SPLIT-T-EC keeps the same vertices as SPLIT-T
+and has no support promotion and no provenance loss at any site.
