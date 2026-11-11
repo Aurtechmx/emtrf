@@ -69,6 +69,8 @@ for s in d["sites"]:
     if ec["linesWithGeometryDifferentFromDP"] or ec["extraVerticesVsDP"] or ec["supportPromotionCount"] or ec["provenanceLossCount"] or ec["overstatedLengthPct"]: bad.append((n,"EC-DP not DP-identical / not zero"))
     if m["SPLIT-0"]["supportPromotionCount"] or m["SPLIT-0"]["overstatedLengthPct"]: bad.append((n,"SPLIT-0 promotes"))
     if m["SPLIT-0"]["extraVerticesVsDP"]!=split0_extra[n]: bad.append((n,"SPLIT-0 vertex cost changed"))
+    st=m["SPLIT-T"]
+    if st["provenanceLossCount"] or st["extraVerticesVsDP"]!={"White Sands":82,"Estonia Tava":166,"StREAM":83,"Marsh Island":43}[n]: bad.append((n,"SPLIT-T changed (S24)"))
     mean=m["DP-MEAN"]
     if mean["extraVerticesVsDP"] or mean["linesWithGeometryDifferentFromDP"] or mean["supportPromotionCount"]<=dp["supportPromotionCount"]: bad.append((n,"length-weighted mean no longer promotes more than endpoints"))
 for b in bad: print("  BASELINE MISMATCH:",b,file=sys.stderr)
@@ -379,6 +381,14 @@ got=(s["cropsWithQualifyingLength"],P["endpoint"]["falseAcceptPerKm"],P["ecdp"][
 if not ok or got!=(21,20.94,0,65.12,44.61): print("  QUERY SAMPLE MISMATCH:",c,got,file=sys.stderr); sys.exit(1)
 PYCHK
   echo "  3DEP query: edges covered once; at 66 endpoint records accept 20.9 m/km failing line, EC-DP none"
+  node prevalence/query_split.cjs >/dev/null 2>&1 || fail "threshold-aligned split (coverage, accounting or exactness at 66/33)"
+  python3 - <<'PYCHK' || fail "threshold-aligned split (values)"
+import json,sys
+d=json.load(open("results/query_split_r1.json"));q=d["query"]
+got=(d["cropsScored"],d["vertices"]["pooled"]["splitT"],d["vertices"]["pooled"]["endpoint"],q["66"]["splitT"]["retentionPct"],q["50"]["splitT"]["falseAcceptPerKm"],q["50"]["ecdp"]["falseAcceptPerKm"],q["66"]["endpoint"]["falseAcceptPerKm"])
+if got!=(60,46108,22631,100,3.87,0,20.94): print("  SPLIT QUERY MISMATCH:",got,file=sys.stderr); sys.exit(1)
+PYCHK
+  echo "  threshold split: exact at 66 and 33 with 2.04x DP's vertices; at 50 it accepts 3.9 m/km failing line"
 else
   echo "  3DEP sample: crops not present, skipped"
 fi

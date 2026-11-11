@@ -1,0 +1,166 @@
+{
+ "driver": "threshold-aligned splitting on the probability sample",
+ "rules": "docs/RULES_ADDITIONAL_TESTS.md, D6",
+ "cropsScored": 60,
+ "vertices": {
+  "pooled": {
+   "endpoint": 22631,
+   "splitT": 46108,
+   "multiple": 2.04
+  },
+  "perCropMultiple": {
+   "crops": 56,
+   "median": 1.78,
+   "q1": 1.54,
+   "q3": 2.1,
+   "max": 5.57
+  }
+ },
+ "supportPromotion": {
+  "endpoint": {
+   "spans": 14058,
+   "promoted": 3935,
+   "pct": 27.99
+  },
+  "splitT": {
+   "spans": 37535,
+   "promoted": 1264,
+   "pct": 3.37
+  },
+  "ecdp": {
+   "spans": 14058,
+   "promoted": 0,
+   "pct": 0
+  }
+ },
+ "query": {
+  "33": {
+   "endpoint": {
+    "falseAcceptPerKm": 80.11,
+    "falseAccept95": [
+     46.72,
+     117.58
+    ],
+    "wrongRejectPerKm": 53.24,
+    "retentionPct": 80.44,
+    "retention95": [
+     68.84,
+     87.68
+    ]
+   },
+   "splitT": {
+    "falseAcceptPerKm": 0,
+    "falseAccept95": [
+     0,
+     0
+    ],
+    "wrongRejectPerKm": 0,
+    "retentionPct": 100,
+    "retention95": [
+     100,
+     100
+    ]
+   },
+   "ecdp": {
+    "falseAcceptPerKm": 0,
+    "falseAccept95": [
+     0,
+     0
+    ],
+    "wrongRejectPerKm": 100.44,
+    "retentionPct": 63.11,
+    "retention95": [
+     47.94,
+     72.97
+    ]
+   }
+  },
+  "50": {
+   "endpoint": {
+    "falseAcceptPerKm": 36.1,
+    "falseAccept95": [
+     18.91,
+     54.08
+    ],
+    "wrongRejectPerKm": 58.64,
+    "retentionPct": 64.77,
+    "retention95": [
+     50.91,
+     72.71
+    ]
+   },
+   "splitT": {
+    "falseAcceptPerKm": 3.87,
+    "falseAccept95": [
+     1.11,
+     7.69
+    ],
+    "wrongRejectPerKm": 21.56,
+    "retentionPct": 87.05,
+    "retention95": [
+     83.27,
+     91.38
+    ]
+   },
+   "ecdp": {
+    "falseAcceptPerKm": 0,
+    "falseAccept95": [
+     0,
+     0
+    ],
+    "wrongRejectPerKm": 95.59,
+    "retentionPct": 42.57,
+    "retention95": [
+     33.24,
+     48.99
+    ]
+   }
+  },
+  "66": {
+   "endpoint": {
+    "falseAcceptPerKm": 20.94,
+    "falseAccept95": [
+     5.22,
+     43.97
+    ],
+    "wrongRejectPerKm": 19.96,
+    "retentionPct": 65.12,
+    "retention95": [
+     49.95,
+     73.85
+    ]
+   },
+   "splitT": {
+    "falseAcceptPerKm": 0,
+    "falseAccept95": [
+     0,
+     0
+    ],
+    "wrongRejectPerKm": 0,
+    "retentionPct": 100,
+    "retention95": [
+     100,
+     100
+    ]
+   },
+   "ecdp": {
+    "falseAcceptPerKm": 0,
+    "falseAccept95": [
+     0,
+     0
+    ],
+    "wrongRejectPerKm": 31.7,
+    "retentionPct": 44.61,
+    "retention95": [
+     35.05,
+     50.65
+    ]
+   }
+  }
+ },
+ "checks": {
+  "splitTExactAt66and33": true,
+  "everyEdgeInExactlyOneSpan": true,
+  "lengthsSum": true
+ }
+}

@@ -490,6 +490,31 @@ $n$; $m$; $\varepsilon$ & source vertices; retained segments; Douglas--Peucker t
 \end{table}
 
 \vspace{6mm}
+
+\vspace{4mm}
+\noindent\textbf{S24. Threshold-aligned splitting.} Rules written before any run (\texttt{docs/\allowbreak RULES\_\allowbreak ADDITIONAL\_\allowbreak TESTS.md}, D6) and committed on their own before the first run. The method forces a vertex wherever the provenance or the band of a channel's support (below 33, 33 to below 66, 66 or above, or no value) changes, simplifies each piece with the production Douglas--Peucker rule at one source cell, and copies endpoint records. On the four crops (as Methods S7) it retained 1.2--2.0 times DP's vertices (43--166 more), changed the geometry of 24--63 lines, promoted support inside a band on 0.6--3.0\% of spans and lost no provenance. On the 60 crops of Methods S22, with the settings of S23 (Table~S14), it retained 2.04 times DP's vertices in total (per crop, over crops with at least 20 spans: median 1.78, quartiles 1.54--2.10, maximum 5.57) and promoted support on 3.4\% of its spans, against 28.0\% for DP endpoint records and none for EC-DP. At $t=66$ and $t=33$ it answered the query exactly, as stated beforehand; this checks the implementation. At $t=50$, a threshold its bands do not contain, it accepted failing line and kept less than all qualifying line. EC-DP accepted no failing line at any threshold and kept the DP geometry. Driver: \texttt{prevalence/query\_split.cjs}; four-crop rows: \texttt{ablation/baselines.cjs}.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{center}\scriptsize
+\captionof*{table}{\textbf{Table S14.} Attribute query on the 60 sampled crops for three record rules: false acceptance and wrong rejection per kilometre of scored contour, and retention of qualifying length. Pooled values with 95\% intervals from 2{,}000 bootstrap replicates resampling whole crops. Threshold 50 lies inside a band of the split.}
+\begin{tabular}{@{}rlrrr@{}}
+\toprule
+$t$ & Records & False acceptance (m/km) & Wrong rejection (m/km) & Retention (\%) \\
+\midrule
+66 & DP, endpoint records & 20.94 [5.22--43.97] & 19.96 & 65.1 [50.0--73.8] \\
+ & Split at 33 and 66 & 0.00 & 0.00 & 100.0 \\
+ & EC-DP & 0.00 & 31.70 & 44.6 [35.0--50.6] \\
+33 & DP, endpoint records & 80.11 [46.72--117.58] & 53.24 & 80.4 [68.8--87.7] \\
+ & Split at 33 and 66 & 0.00 & 0.00 & 100.0 \\
+ & EC-DP & 0.00 & 100.44 & 63.1 [47.9--73.0] \\
+50 & DP, endpoint records & 36.10 [18.91--54.08] & 58.64 & 64.8 [50.9--72.7] \\
+ & Split at 33 and 66 & 3.87 [1.11--7.69] & 21.56 & 87.0 [83.3--91.4] \\
+ & EC-DP & 0.00 & 95.59 & 42.6 [33.2--49.0] \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+
 \section*{Supplementary Notes}
 
 \noindent\textbf{N1. Worked substitution of the reference support profile.} The measured and interpolated
