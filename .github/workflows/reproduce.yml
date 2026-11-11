@@ -1,0 +1,27 @@
+name: reproduce
+# Runs the one-command check (run_all.sh) on a clean runner at a tagged release.
+# Third-party GIS toolchains are not installed here; run_all.sh reports those steps as skipped.
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Tag or commit to check"
+        default: "v1.2.0"
+  push:
+    branches: [main]
+jobs:
+  run_all:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref || 'v1.2.0' }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - run: python -m pip install -r requirements.txt
+      - run: bash run_all.sh
