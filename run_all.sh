@@ -71,6 +71,8 @@ for s in d["sites"]:
     if m["SPLIT-0"]["extraVerticesVsDP"]!=split0_extra[n]: bad.append((n,"SPLIT-0 vertex cost changed"))
     st=m["SPLIT-T"]
     if st["provenanceLossCount"] or st["extraVerticesVsDP"]!={"White Sands":82,"Estonia Tava":166,"StREAM":83,"Marsh Island":43}[n]: bad.append((n,"SPLIT-T changed (S24)"))
+    se=m["SPLIT-T-EC"]
+    if se["retainedVertices"]!=st["retainedVertices"] or se["supportPromotionCount"] or se["provenanceLossCount"]: bad.append((n,"SPLIT-T-EC fails D9"))
     mean=m["DP-MEAN"]
     if mean["extraVerticesVsDP"] or mean["linesWithGeometryDifferentFromDP"] or mean["supportPromotionCount"]<=dp["supportPromotionCount"]: bad.append((n,"length-weighted mean no longer promotes more than endpoints"))
 for b in bad: print("  BASELINE MISMATCH:",b,file=sys.stderr)

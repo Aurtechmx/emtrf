@@ -15,6 +15,7 @@
  *               b = 0 is exact homogeneity.
  *   SPLIT-T     split where the provenance or the band of a channel's support (<33, 33-66, >=66,
  *               none) changes, DP each run; endpoint attribution (rules: D6).
+ *   SPLIT-T-EC  SPLIT-T geometry; complete-source minimum support and provenance union (D9).
  *   DP-MEAN     DP geometry; each span carries the length-weighted mean typed support and the
  *               provenance union of the source edges it replaces.
  *   EC-DP       DP geometry; each retained span carries the minimum typed support and the
@@ -126,6 +127,7 @@ function evaluateSite(spec,confidenceOverride){
     {id:'BOUNDARY',keep:r=>dpWithForced(r.vertices,provBoundaries(r.edges),tol),attribution:'endpoint'},
     ...SPLIT_BINS.map(b=>({id:`SPLIT-${b}`,keep:r=>dpWithForced(r.vertices,splitBoundaries(r.edges,b),tol),attribution:'endpoint'})),
     {id:'SPLIT-T',keep:r=>dpWithForced(r.vertices,bandBoundaries(r.edges),tol),attribution:'endpoint'},
+    {id:'SPLIT-T-EC',keep:r=>dpWithForced(r.vertices,bandBoundaries(r.edges),tol),attribution:'complete'},
     {id:'DP-MEAN',keep:r=>A.dpIndices(r.vertices,tol),attribution:'lengthMean'},
     {id:'EC-DP',keep:r=>A.dpIndices(r.vertices,tol),attribution:'complete'},
   ];
@@ -159,6 +161,7 @@ if(require.main===module){
       BOUNDARY:'vertex forced at every provenance-class change, then DP; endpoint attribution',
       'SPLIT-b':'runs homogeneous in provenance and typed support binned at b confidence points, DP per run; endpoint attribution (b=0 exact)',
       'SPLIT-T':'runs split where provenance or the band of a channel (<33, 33-66, >=66) changes, DP per run; endpoint attribution (D6)',
+      'SPLIT-T-EC':'SPLIT-T geometry; complete-source minimum support and provenance union (D9)',
       'DP-MEAN':'DP geometry; length-weighted mean support and provenance union over the replaced edges',
       'EC-DP':'DP geometry; complete-source minimum support and provenance union'},
     sites};
