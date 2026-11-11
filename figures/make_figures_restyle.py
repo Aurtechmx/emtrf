@@ -216,19 +216,19 @@ pipes=[("P0  grade provenance\n+ endpoint support",support,grade),
        ("P1  typed provenance\n+ endpoint support",support,typed),
        ("P2  grade provenance\n+ complete source",[0,0,0,0],grade),
        ("P3  typed provenance\n+ complete source",[0,0,0,0],[0,0,0,0])]
-fig,axs=plt.subplots(1,4,figsize=(7.25,3.7),sharey=True); barw=.34; x4=np.arange(4)
+fig,axs=plt.subplots(1,4,figsize=(5.8,3.4),sharey=True); barw=.36; x4=np.arange(4)
 for idx,(ax,(ttl,sp,pr)) in enumerate(zip(axs,pipes)):
     b1=ax.bar(x4-barw/2,sp,barw,color=VERM,label="Support promotion")
     b2=ax.bar(x4+barw/2,pr,barw,color=BLUE,hatch="////",label="Provenance loss")
-    ax.set_title(ttl,fontsize=8.1,fontweight="bold",color=BLACK); ax.set_xticks(x4)
-    ax.set_xticklabels(sitesA,rotation=45,ha="right",fontsize=7.5); ax.set_ylim(0,108)
+    ax.set_title(ttl,fontsize=7.4,fontweight="bold",color=BLACK); ax.set_xticks(x4)
+    ax.set_xticklabels(sitesA,rotation=45,ha="right",fontsize=7); ax.set_ylim(0,122); ax.set_yticks([0,20,40,60,80,100])
     for bars in (b1,b2):
         for b in bars:
-            h=b.get_height(); ax.text(b.get_x()+b.get_width()/2,h+2.0,f"{h:g}",ha="center",fontsize=7.5,color=GREY)
+            h=b.get_height(); ax.text(b.get_x()+b.get_width()/2,h+2.0,f"{h:g}",ha="center",va="bottom",rotation=90,fontsize=6.8,color=GREY)
     if idx==0: ax.set_ylabel("Rate (%)")
-    if idx==3: ax.text(1.5,54,"both violation\nclasses eliminated",ha="center",color=GREEN,fontweight="bold",fontsize=7.4)
+    if idx==3: ax.text(1.5,54,"both violation\nclasses eliminated",ha="center",color=GREEN,fontweight="bold",fontsize=7)
     dimticks(ax); sns.despine(ax=ax,left=True,bottom=True)
-fig.suptitle("Four-pipeline ablation: each shortcut removed independently, identical retained geometry",fontweight="bold",y=1.01,color=BLACK)
+fig.suptitle("Four-pipeline ablation: each shortcut removed independently, identical retained geometry",fontweight="bold",fontsize=8.6,y=1.0,color=BLACK)
 handles=[Patch(facecolor=VERM,label="Support promotion"),Patch(facecolor=BLUE,hatch="////",label="Provenance loss")]
 fig.legend(handles=handles,loc="lower center",ncol=2,bbox_to_anchor=(.5,-.02),**LEG)
 fig.subplots_adjust(bottom=.28,wspace=.12,top=.78)

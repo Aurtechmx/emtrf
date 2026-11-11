@@ -52,15 +52,17 @@ for(const spec of A.DATASETS){
       const a=keep[j],b=keep[j+1];const spanLen=Array.from({length:b-a},(_,i)=>edgeLen(run,a+i)).reduce((x,y)=>x+y,0);total+=spanLen;
       for(const ch of CH){
         const pr=profile(run,a,b,ch);if(pr.min==null)continue;
-        const ends=[run.edges[a].typed[ch],run.edges[b-1].typed[ch]].filter(x=>x!=null);const ep=Math.min(...ends);
+        const ends=[run.edges[a].typed[ch],run.edges[b-1].typed[ch]].filter(x=>x!=null);
+        // An endpoint record whose two end edges do not carry the channel states nothing for it.
+        const ep=ends.length?Math.min(...ends):null;
         for(const t of T){
           const o=acc[`${ch}${t}`];const truth=pr.fraction[t]*pr.length;o.trueLen+=truth;
-          const e=ep>=t?pr.length:0,m=pr.min>=t?pr.length:0,p=pr.fraction[t]*pr.length;
+          const e=ep!=null&&ep>=t?pr.length:0,m=pr.min>=t?pr.length:0,p=pr.fraction[t]*pr.length;
           o.endpoint+=e;o.minimum+=m;o.profile+=p;
           o.endpointOver+=Math.max(0,e-truth);o.endpointUnder+=Math.max(0,truth-e);o.minimumUnder+=Math.max(0,truth-m);
         }
         // Part 3: any scalar above the arc minimum is unsafe for some threshold.
-        if(ep>pr.min){scalarChecks++;const t=(pr.min+ep)/2; // t in (min, ep]: the record accepts, the minimum edge fails
+        if(ep!=null&&ep>pr.min){scalarChecks++;const t=(pr.min+ep)/2; // t in (min, ep]: the record accepts, the minimum edge fails
           const anyFail=(()=>{for(let k=a;k<b;k++){const v=run.edges[k].typed[ch];if(v!=null&&v<t)return true;}return false;})();
           if(!(ep>=t&&anyFail))scalarViolations++;}
       }

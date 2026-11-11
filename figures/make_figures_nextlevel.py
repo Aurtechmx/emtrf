@@ -44,6 +44,7 @@ OUT = ROOT / "figures"
 SUP = ROOT / "supplementary"
 OUT.mkdir(parents=True,exist_ok=True); SUP.mkdir(parents=True,exist_ok=True)
 mpl.rcParams.update({
+    'font.family': 'Helvetica Neue', 'mathtext.fontset': 'stixsans',
     'font.size': 8.5, 'axes.titlesize': 10.5, 'axes.labelsize': 9,
     'xtick.labelsize': 8, 'ytick.labelsize': 8, 'legend.fontsize': 8,
     'figure.titlesize': 11, 'pdf.fonttype': 42, 'ps.fonttype': 42,

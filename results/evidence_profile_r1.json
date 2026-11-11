@@ -77,21 +77,21 @@
     },
     "I>=66": {
      "trueLengthM": 0,
-     "statedEndpointM": 15.38,
+     "statedEndpointM": 0,
      "statedMinimumM": 0,
      "statedProfileM": 0,
-     "endpointOverstatedM": 15.38,
+     "endpointOverstatedM": 0,
      "endpointUnderstatedM": 0,
      "minimumUnderstatedM": 0,
      "profileErrorM": 0
     },
     "I>=33": {
      "trueLengthM": 201.99,
-     "statedEndpointM": 201.99,
+     "statedEndpointM": 186.61,
      "statedMinimumM": 201.99,
      "statedProfileM": 201.99,
      "endpointOverstatedM": 0,
-     "endpointUnderstatedM": 0,
+     "endpointUnderstatedM": 15.38,
      "minimumUnderstatedM": 0,
      "profileErrorM": 0
     }
@@ -123,21 +123,21 @@
     },
     "I>=66": {
      "trueLengthM": 0,
-     "statedEndpointM": 5.26,
+     "statedEndpointM": 0,
      "statedMinimumM": 0,
      "statedProfileM": 0,
-     "endpointOverstatedM": 5.26,
+     "endpointOverstatedM": 0,
      "endpointUnderstatedM": 0,
      "minimumUnderstatedM": 0,
      "profileErrorM": 0
     },
     "I>=33": {
      "trueLengthM": 88.5,
-     "statedEndpointM": 94.25,
+     "statedEndpointM": 89,
      "statedMinimumM": 79,
      "statedProfileM": 88.5,
-     "endpointOverstatedM": 9.39,
-     "endpointUnderstatedM": 3.63,
+     "endpointOverstatedM": 7.12,
+     "endpointUnderstatedM": 6.63,
      "minimumUnderstatedM": 9.5,
      "profileErrorM": 0
     }
@@ -191,7 +191,7 @@
   }
  ],
  "scalarBound": {
-  "spansWithEndpointAboveMinimum": 67,
+  "spansWithEndpointAboveMinimum": 53,
   "spansWhereNoUnsafeThresholdExists": 0
  },
  "composition": {

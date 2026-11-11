@@ -389,7 +389,7 @@ echo "  bootstrap: frozen intervals reproduced"
 
 echo "== 17/22 figures (regenerate StREAM input from crop, then plots) =="
 node data/make_stream_features.cjs >/dev/null || fail "stream features"
-for s in make_figures_restyle make_figures_contour_example make_figures_nextlevel make_figure_worked_example make_figure_sample_query; do
+for s in make_figures_nextlevel make_figures_restyle make_figures_contour_example make_figure_worked_example make_figure_sample_query; do
   python3 "figures/$s.py" >/dev/null 2>&1 || fail "figure $s"
 done
 echo "  figures: regenerated"
