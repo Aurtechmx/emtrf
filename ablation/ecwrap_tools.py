@@ -12,7 +12,7 @@ import json, os, shlex, shutil, subprocess, sys, tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from ecwrap import wrap, endpoint_records  # noqa: E402
+from ecwrap import wrap, endpoint_records, AmbiguousMatch  # noqa: E402
 
 MAPSHAPER_VERSION = "0.6.102"
 
@@ -91,13 +91,17 @@ def prov_set(e):
 
 def score(runs, outputs):
     """Endpoint attribution and EC-wrap's own records, scored against the replaced source edges."""
-    a = dict(lines=0, unmatched=0, dropped=0, src=0, ret=0, spans=0, prom=0, loss=0, wprom=0, wloss=0)
-    for (V, E), out in zip(runs, outputs):
+    a = dict(lines=0, unmatched=0, ambiguous=0, ambiguous_idx=[], dropped=0, src=0, ret=0, spans=0, prom=0, loss=0, wprom=0, wloss=0)
+    for n_line, ((V, E), out) in enumerate(zip(runs, outputs)):
         if out is None:  # the tool removed the line (mapshaper deletes closed lines that collapse)
             a["dropped"] += 1
             continue
         try:
             idx, recs = wrap(V, E, out)
+        except AmbiguousMatch:
+            a["ambiguous"] += 1
+            a["ambiguous_idx"].append(n_line)
+            continue
         except ValueError:
             a["unmatched"] += 1
             continue
@@ -112,7 +116,7 @@ def score(runs, outputs):
             a["wprom"] += any(r["min"][ch] is not None and r["min"][ch] > tmin[ch] + 1e-12 for ch in ("M", "I"))
             a["wloss"] += not tprov <= set(r["provenance"])
     pct = lambda n, d: round(100 * n / d, 1) if d else 0.0
-    return {"lines": a["lines"], "linesRemovedByTool": a["dropped"], "linesNotSubsequence": a["unmatched"], "sourceVertices": a["src"], "retainedVertices": a["ret"],
+    return {"lines": a["lines"], "linesRemovedByTool": a["dropped"], "linesNotSubsequence": a["unmatched"], "linesAmbiguousMatch": a["ambiguous"], "ambiguousLineIndices": a["ambiguous_idx"], "sourceVertices": a["src"], "retainedVertices": a["ret"],
             "vertexReductionPct": pct(a["src"] - a["ret"], a["src"]), "spans": a["spans"],
             "endpointPromotion": a["prom"], "endpointPromotionPct": pct(a["prom"], a["spans"]),
             "endpointProvenanceLoss": a["loss"], "endpointProvenanceLossPct": pct(a["loss"], a["spans"]),

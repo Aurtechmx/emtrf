@@ -59,3 +59,10 @@ What this test can and cannot show: the geometry and the points come from other 
 whether endpoint records fail on contours the author did not make. The evidence rule (items 2-4) is
 ours, because the published contours carry none. It is not a measurement of how often published
 products misreport evidence.
+
+Note, 10 November 2026: EC-wrap now refuses a line whose retained vertices match the source in more than
+one way (a repeated coordinate), instead of taking the earliest match. At 5 m this refuses six
+line-simplifier cases, from two distinct published lines, and removes them from scoring (Rust VW 1,
+QGIS VW 1, mapshaper DP 2, mapshaper VW 2).
+The reported counts changed accordingly (35,332 to 35,222 spans over the six simplifiers); the ranges of
+endpoint promotion and provenance loss did not.

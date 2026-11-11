@@ -115,6 +115,8 @@ python3 - <<'PYCHK' || fail "evidence profile (values)"
 import json,sys
 d=json.load(open("results/evidence_profile_r1.json"));bad=[]
 if d["composition"]["mismatches"] or d["composition"]["spanChannelChecks"]<500: bad.append("composition")
+if d["composition"]["emptyChannelMerges"]["emittingAFraction"] or d["composition"]["emptyChannelMerges"]["merges"]<=0: bad.append("empty-channel merges must emit no fraction (Note N4)")
+if d["composition"]["mergesWithInapplicableEdges"]!=341 or d["composition"]["negativeControlTotalLengthWeights"]["wrongValue"]!=33: bad.append("applicable-length weights (Note N4)")
 c=d["completeness"]
 if c["applicableChannelValuesMissing"] or c["edges"]!=3215: bad.append("completeness (Note N4: 0 of 3,215 edges)")
 if d["scalarBound"]["spansWhereNoUnsafeThresholdExists"] or d["scalarBound"]["spansWithEndpointAboveMinimum"]<=0: bad.append("scalar bound")
@@ -152,7 +154,7 @@ if "$PY" -c "import simplification" 2>/dev/null; then
 import json,sys
 d=json.load(open("results/ecwrap_vw_r1.json"));bad=[]
 for s in d["sites"]:
-    if s["linesNotSubsequence"] or s["ecwrapPromotion"] or s["ecwrapProvenanceLoss"] or s["endpointPromotion"]<=0: bad.append(s["site"])
+    if s["linesNotSubsequence"] or s["linesAmbiguousMatch"] or s["ecwrapPromotion"] or s["ecwrapProvenanceLoss"] or s["endpointPromotion"]<=0: bad.append(s["site"])
 for b in bad: print("  ECWRAP MISMATCH:",b,file=sys.stderr)
 sys.exit(1 if bad else 0)
 PYCHK
@@ -176,6 +178,7 @@ if any(r["ecwrapPromotion"] or r["ecwrapProvenanceLoss"] for r in R): bad.append
 p=[r["endpointPromotionPct"] for r in R]; l=[r["endpointProvenanceLossPct"] for r in R]
 if (min(p),max(p),min(l),max(l))!=(2.8,32.4,0.0,8.0): bad.append("ranges %s"%((min(p),max(p),min(l),max(l)),))
 if sum(r["linesNotSubsequence"] for r in R)!=1: bad.append("unmatched")
+if any(r["linesAmbiguousMatch"] for r in R): bad.append("ambiguous source match")
 for b in bad: print("  ECWRAP TOOLS MISMATCH:",b,file=sys.stderr)
 sys.exit(1 if bad else 0)
 PYCHK
@@ -189,12 +192,13 @@ import json,sys
 d=json.load(open("results/external_audit_r1.json"));R={(r["cellSizeM"],r["simplifier"]):r for r in d["rows"]};bad=[]
 if d["publishedLines"]!=1015 or d["points"]!=96502: bad.append("inputs")
 if any(r["ecwrapPromotion"] or r["ecwrapProvenanceLoss"] or r["linesNotSubsequence"] for r in R.values()): bad.append("ecwrap records")
-for k,v in {(5,"Rust DP"):(4474,38.7,34.3),(5,"Rust VW"):(8041,28.1,24.6),(2.5,"Rust DP"):(7984,39.7,32.6),(10,"Rust DP"):(2672,43.8,22.2)}.items():
+if sum(r["linesAmbiguousMatch"] for r in R.values())!=6 or len({i for r in R.values() for i in r["ambiguousLineIndices"]})!=2: bad.append("ambiguous source matches (S19: 6 line-simplifier cases, 2 source lines)")
+for k,v in {(5,"Rust DP"):(4474,38.7,34.3),(5,"Rust VW"):(8023,28.1,24.7),(2.5,"Rust DP"):(7984,39.7,32.6),(10,"Rust DP"):(2672,43.8,22.2)}.items():
     r=R.get(k) or R.get((float(k[0]),k[1]))
     if not r or (r["spans"],r["endpointPromotionPct"],r["endpointProvenanceLossPct"])!=v: bad.append(str(k))
 if not d["toolsNotInstalled"]:
     P=[r for (c,_),r in R.items() if c==5]
-    if len(P)!=6 or sum(r["spans"] for r in P)!=35332 or (min(r["endpointPromotionPct"] for r in P),max(r["endpointPromotionPct"] for r in P))!=(28.0,40.7): bad.append("six simplifiers")
+    if len(P)!=6 or sum(r["spans"] for r in P)!=35222 or (min(r["endpointPromotionPct"] for r in P),max(r["endpointPromotionPct"] for r in P))!=(28.0,40.7): bad.append("six simplifiers")
 for b in bad: print("  EXTERNAL AUDIT MISMATCH:",b,file=sys.stderr)
 sys.exit(1 if bad else 0)
 PYCHK
@@ -269,6 +273,20 @@ if got!=want: print("  ECWRAP_CLI MISMATCH:",got,file=sys.stderr)
 sys.exit(0 if got==want else 1)
 PYCHK
 rm -rf "$T"; echo "  ecwrap_cli: fixture records match"
+python3 - <<'PYCHK' || fail "ecwrap ambiguity fixture"
+import sys; sys.path.insert(0,"ablation")
+from ecwrap import wrap, AmbiguousMatch
+# A,B,C,B,D passes through B twice with different evidence on either side: keeping A,B,D has two source mappings.
+V=[[0,0],[1,0.1],[2,0],[1,0.1],[3,0]]; E=[{"provenance":"M","M":90},{"provenance":"M","M":10},{"provenance":"M","M":80},{"provenance":"M","M":90}]
+try: wrap(V,E,[V[0],V[1],V[4]]); ok=False
+except AmbiguousMatch: ok=True
+# keeping every vertex, and a closed ring whose ends coincide, each have exactly one mapping
+idx,_=wrap(V,E,V); ring=[[0,0],[1,0],[1,1],[0,0]]; idx2,_=wrap(ring,[{"provenance":"M","M":50}]*3,[ring[0],ring[2],ring[3]])
+ok=ok and idx==[0,1,2,3,4] and idx2==[0,2,3]
+if not ok: print("  ECWRAP AMBIGUITY FIXTURE MISMATCH",file=sys.stderr)
+sys.exit(0 if ok else 1)
+PYCHK
+echo "  ecwrap: ambiguous source matches are rejected, unique ones recovered"
 
 echo "== 12/22 held-out ground check (half the ground returns build the terrain, half test it; 20 seeds, ~4 min) =="
 node ablation/heldout_check.cjs >/dev/null || fail "held-out check"

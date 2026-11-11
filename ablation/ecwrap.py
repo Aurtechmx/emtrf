@@ -40,11 +40,39 @@ def source_map(src, out):
     return go(0, 0)
 
 
+class AmbiguousMatch(ValueError):
+    """More than one assignment of output vertices to source indices exists, so the replaced
+    source edges are not uniquely determined."""
+
+
+def count_maps(src, out, cap=2):
+    """Number of order-preserving assignments of the output vertices to source indices with both
+    ends pinned (capped at `cap`)."""
+    key = lambda p: (round(p[0], 9), round(p[1], 9))
+    pos = {}
+    for j, p in enumerate(src):
+        pos.setdefault(key(p), []).append(j)
+    ko = [key(p) for p in out]
+    ways = {}
+    for k, kk in enumerate(ko):
+        cur = {}
+        for j in pos.get(kk, []):
+            if (k == 0 and j != 0) or (k == len(ko) - 1 and j != len(src) - 1):
+                continue
+            cur[j] = 1 if k == 0 else min(cap, sum(w for jp, w in ways.items() if jp < j))
+        ways = cur
+    return min(cap, sum(ways.values()))
+
+
 def wrap(vertices, edges, out_vertices, channels=("M", "I")):
-    """Complete-source records for each output segment: {interval, provenance, min, profile}."""
+    """Complete-source records for each output segment: {interval, provenance, min, profile}.
+    Raises ValueError if the output is not a vertex subsequence of the source, and AmbiguousMatch
+    if the source indices cannot be recovered uniquely (the line is then reported, not guessed)."""
     idx = source_map(vertices, out_vertices)
     if idx is None:
         raise ValueError("output is not a vertex subsequence of the source with both ends kept")
+    if count_maps(vertices, out_vertices) > 1:
+        raise AmbiguousMatch("output vertices match the source in more than one way")
     recs = []
     for a, b in zip(idx[:-1], idx[1:]):
         rec = {"interval": [a, b], "provenance": sorted({c for k in range(a, b) for c in
@@ -81,12 +109,14 @@ if __name__ == "__main__":
     sites = json.loads(runs_file.read_text()); result = []
     for s in sites:
         area = s["cellSizeM"] ** 2
-        acc = dict(lines=0, src=0, ret=0, spans=0, prom=0, loss=0, unmatched=0, wprom=0, wloss=0)
+        acc = dict(lines=0, src=0, ret=0, spans=0, prom=0, loss=0, unmatched=0, ambiguous=0, wprom=0, wloss=0)
         for run in s["runs"]:
             V = run["vertices"]; E = run["edges"]
             out = [list(p) for p in simplify_coords_vw(V, area)]
             try:
                 idx, recs = wrap(V, E, out)
+            except AmbiguousMatch:
+                acc["ambiguous"] += 1; continue
             except ValueError:
                 acc["unmatched"] += 1; continue
             ep = endpoint_records(E, idx)
@@ -103,7 +133,7 @@ if __name__ == "__main__":
                 acc["wloss"] += not truth_prov <= set(r["provenance"])
         pct = lambda n, d: round(100 * n / d, 1) if d else 0.0
         result.append({"site": s["label"], "simplifier": "Visvalingam-Whyatt (simplification package)", "areaM2": area,
-                       "lines": acc["lines"], "linesNotSubsequence": acc["unmatched"], "sourceVertices": acc["src"], "retainedVertices": acc["ret"],
+                       "lines": acc["lines"], "linesNotSubsequence": acc["unmatched"], "linesAmbiguousMatch": acc["ambiguous"], "sourceVertices": acc["src"], "retainedVertices": acc["ret"],
                        "vertexReductionPct": pct(acc["src"] - acc["ret"], acc["src"]), "spans": acc["spans"],
                        "endpointPromotion": acc["prom"], "endpointPromotionPct": pct(acc["prom"], acc["spans"]),
                        "endpointProvenanceLoss": acc["loss"], "endpointProvenanceLossPct": pct(acc["loss"], acc["spans"]),

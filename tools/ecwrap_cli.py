@@ -32,7 +32,7 @@ import json, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "ablation"))
-from ecwrap import wrap  # noqa: E402
+from ecwrap import wrap, AmbiguousMatch  # noqa: E402
 
 
 def load_edges(path):
@@ -62,7 +62,7 @@ def cmd_lines(src, dst):
 def cmd_wrap(src, simplified, dst, null_code=None):
     source = load_edges(src)
     nz = lambda v, nd=1: null_code if v is None else round(v, nd)
-    feats, skipped = [], []
+    feats, skipped, ambiguous = [], [], []
     for f in json.loads(Path(simplified).read_text())["features"]:
         g, lid = f.get("geometry"), f["properties"]["line_id"]
         if not g or g["type"] != "LineString" or lid not in source:
@@ -71,6 +71,8 @@ def cmd_wrap(src, simplified, dst, null_code=None):
         out = [p[:2] for p in g["coordinates"]]
         try:
             idx, recs = wrap(V, E, out)
+        except AmbiguousMatch:
+            ambiguous.append(lid); continue
         except ValueError:
             skipped.append(lid); continue
         for j, r in enumerate(recs):
@@ -86,6 +88,9 @@ def cmd_wrap(src, simplified, dst, null_code=None):
     print(f"{len(feats)} simplified segments written to {dst}")
     if skipped:
         print(f"{len(skipped)} lines skipped (missing, not a single LineString, or not a vertex subset of the source): {skipped[:10]}")
+    if ambiguous:
+        print(f"{len(ambiguous)} lines skipped because the source vertices they keep cannot be identified uniquely "
+              f"(a coordinate occurs more than once); supply retained source indices instead: {ambiguous[:10]}")
 
 
 if __name__ == "__main__":

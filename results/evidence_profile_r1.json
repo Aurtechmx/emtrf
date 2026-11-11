@@ -196,7 +196,17 @@
  },
  "composition": {
   "spanChannelChecks": 708,
-  "mismatches": 0
+  "mismatches": 0,
+  "mergesWithInapplicableEdges": 341,
+  "emptyChannelMerges": {
+   "merges": 206,
+   "emittingAFraction": 0
+  },
+  "negativeControlTotalLengthWeights": {
+   "checks": 1416,
+   "wrongValue": 33,
+   "valueWhereChannelAppliesToNoEdge": 412
+  }
  },
  "completeness": {
   "edges": 3215,

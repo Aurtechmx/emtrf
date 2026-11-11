@@ -31,13 +31,15 @@ const r2=x=>Math.round(x*100)/100;
 function edgeLen(run,k){const p=run.vertices[k],q=run.vertices[k+1];return Math.hypot(q.x-p.x,q.y-p.y);}
 /** Profile of edges a..b-1 of a run for one channel: {length, min, atOrAbove:{t:length}} */
 function profile(run,a,b,ch){
-  let L=0,min=null;const above={};for(const t of T)above[t]=0;
-  for(let k=a;k<b;k++){const v=run.edges[k].typed[ch];if(v==null)continue;const l=edgeLen(run,k);L+=l;min=min==null?v:Math.min(min,v);for(const t of T)if(v>=t)above[t]+=l;}
-  return{length:L,min,fraction:Object.fromEntries(T.map(t=>[t,L?above[t]/L:null]))};
+  let L=0,tot=0,min=null;const above={};for(const t of T)above[t]=0;
+  for(let k=a;k<b;k++){const v=run.edges[k].typed[ch];tot+=edgeLen(run,k);if(v==null)continue;const l=edgeLen(run,k);L+=l;min=min==null?v:Math.min(min,v);for(const t of T)if(v>=t)above[t]+=l;}
+  return{length:L,total:tot,min,fraction:Object.fromEntries(T.map(t=>[t,L?above[t]/L:null]))};
 }
+/** Negative control: the same merge weighted by total represented length instead of channel-applicable length. */
+function mergeByTotal(ps){const L=ps.reduce((s,p)=>s+p.total,0);return Object.fromEntries(T.map(t=>[t,L?ps.reduce((s,p)=>s+(p.fraction[t]==null?0:p.fraction[t]*p.total),0)/L:null]));}
 function merge(ps){const L=ps.reduce((s,p)=>s+p.length,0);return{length:L,min:ps.reduce((m,p)=>p.min==null?m:m==null?p.min:Math.min(m,p.min),null),fraction:Object.fromEntries(T.map(t=>[t,L?ps.reduce((s,p)=>s+(p.fraction[t]==null?0:p.fraction[t]*p.length),0)/L:null]))};}
 
-const sites=[];let scalarChecks=0,scalarViolations=0,edgesChecked=0,applicableMissing=0;let compChecks=0,compMismatch=0;
+const sites=[];let scalarChecks=0,scalarViolations=0,edgesChecked=0,applicableMissing=0;let compChecks=0,compMismatch=0,compInapplicable=0,emptyMerges=0,emptyMergesWithValue=0,totalWeightChecks=0,totalWeightMismatch=0,totalWeightSpurious=0;
 for(const spec of A.DATASETS){
   const S=W.siteRuns(spec),tol=S.grid.cellSizeM;
   // completeness: a channel that applies to an edge (its provenance includes it) must carry a value
@@ -71,6 +73,10 @@ for(const spec of A.DATASETS){
       for(const ch of CH){
         const direct=profile(run,a,b,ch);const parts=[];for(let q=0;q<inner.length-1;q++)parts.push(profile(run,inner[q],inner[q+1],ch));
         const m=merge(parts);compChecks++;
+        if(parts.some(q=>q.length<q.total-1e-9))compInapplicable++;
+        if(m.length===0){emptyMerges++;if(T.some(t=>m.fraction[t]!=null))emptyMergesWithValue++;}
+        const mt=mergeByTotal(parts);for(const t of T){totalWeightChecks++;const d=direct.fraction[t],e=mt[t];
+          if(d==null){if(e!=null)totalWeightSpurious++;}else if(e==null||Math.abs(d-e)>=1e-9)totalWeightMismatch++;}
         for(const t of T){const d=direct.fraction[t],e=m.fraction[t];if(!((d==null&&e==null)||Math.abs(d-e)<1e-9))compMismatch++;}
         if(!((direct.min==null&&m.min==null)||direct.min===m.min))compMismatch++;
       }
@@ -82,7 +88,8 @@ for(const spec of A.DATASETS){
 }
 const out={driver:'support-profile record (length accounting, composition, scalar bound)',thresholds:T,sites,
   scalarBound:{spansWithEndpointAboveMinimum:scalarChecks,spansWhereNoUnsafeThresholdExists:scalarViolations},
-  composition:{spanChannelChecks:compChecks,mismatches:compMismatch},
+  composition:{spanChannelChecks:compChecks,mismatches:compMismatch,mergesWithInapplicableEdges:compInapplicable,emptyChannelMerges:{merges:emptyMerges,emittingAFraction:emptyMergesWithValue},
+    negativeControlTotalLengthWeights:{checks:totalWeightChecks,wrongValue:totalWeightMismatch,valueWhereChannelAppliesToNoEdge:totalWeightSpurious}},
   completeness:{edges:edgesChecked,applicableChannelValuesMissing:applicableMissing}};
 fs.writeFileSync(path.join(ROOT,'results','evidence_profile_r1.json'),JSON.stringify(out,null,1)+'\n');
 const csv=['site,channel_threshold,true_length_m,stated_endpoint_m,stated_minimum_m,stated_profile_m,endpoint_overstated_m,endpoint_understated_m,minimum_understated_m,profile_error_m'];
