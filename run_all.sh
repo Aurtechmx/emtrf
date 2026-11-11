@@ -412,6 +412,14 @@ for s in make_figures_nextlevel make_figures_restyle make_figures_contour_exampl
   python3 "figures/$s.py" >/dev/null 2>&1 || fail "figure $s"
 done
 echo "  figures: regenerated"
+if [ -f results/query_sample_r1.json ]; then
+python3 - <<'PYCHK' || fail "pooled-query concentration (S23)"
+import json,sys
+c=json.load(open("results/query_sample_concentration.json"))
+got=(c["falseAcceptLengthTop3CropsPct"],c["qualifyingLengthTop3CropsPct"],c["leaveOneOutFalseAcceptPerKm"],c["withoutTop3FalseAcceptPerKm"],c["withoutTop3EndpointRetentionPct"],c["withoutTop3EcdpRetentionPct"])
+if got!=(79.8,64.0,[11.9,22.4],4.8,49.3,35.4): print("  CONCENTRATION MISMATCH:",got,file=sys.stderr); sys.exit(1)
+PYCHK
+fi
 
 echo "== 18/22 synthetic EC-DP overhead benchmark (640k vertices, 30 reps) =="
 bash benchmarks/reproduce.sh >/dev/null || fail "synthetic benchmark"

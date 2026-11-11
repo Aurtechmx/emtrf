@@ -90,5 +90,16 @@ def top3(vals):
 conc = {"falseAcceptLengthTop3CropsPct": top3([c["t66"]["endpoint"]["fa"] for c in rows]),
         "qualifyingLengthTop3CropsPct": top3([c["t66"]["qualifyingM"] for c in rows]),
         "medianCropFalseAcceptPerKm": q["typicalCrop"]["endpoint"]["falseAcceptPerKm"]["median"]}
+# Leave-one-crop-out and leave-three-out stability of the pooled t = 66 values.
+def pooled(rs):
+    sc = sum(c["t66"]["scoredM"] for c in rs); ql = sum(c["t66"]["qualifyingM"] for c in rs)
+    return (1000 * sum(c["t66"]["endpoint"]["fa"] for c in rs) / sc,
+            100 * sum(c["t66"]["endpoint"]["ca"] for c in rs) / ql, 100 * sum(c["t66"]["ecdp"]["ca"] for c in rs) / ql)
+loo = [pooled(rows[:i] + rows[i + 1:]) for i in range(len(rows))]
+top3 = {c["id"] for c in sorted(rows, key=lambda c: -c["t66"]["endpoint"]["fa"])[:3]}
+w3 = pooled([c for c in rows if c["id"] not in top3])
+rng = lambda k: [round(min(x[k] for x in loo), 1), round(max(x[k] for x in loo), 1)]
+conc.update({"leaveOneOutFalseAcceptPerKm": rng(0), "leaveOneOutEndpointRetentionPct": rng(1), "leaveOneOutEcdpRetentionPct": rng(2),
+             "withoutTop3FalseAcceptPerKm": round(w3[0], 1), "withoutTop3EndpointRetentionPct": round(w3[1], 1), "withoutTop3EcdpRetentionPct": round(w3[2], 1)})
 (ROOT / "results" / "query_sample_concentration.json").write_text(json.dumps(conc, indent=1) + "\n")
 print(conc)
