@@ -197,5 +197,9 @@
  "composition": {
   "spanChannelChecks": 708,
   "mismatches": 0
+ },
+ "completeness": {
+  "edges": 3215,
+  "applicableChannelValuesMissing": 0
  }
 }

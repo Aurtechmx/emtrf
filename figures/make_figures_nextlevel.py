@@ -95,22 +95,7 @@ ax.text(.5,.26,'Representation-only operators conserve provenance, absorb unsupp
 ax.text(.5,.08,'Declared inference may create a new support/uncertainty channel,\nbut must expose its method, calibration semantics, and lineage.',ha='center',va='center',fontsize=7.8,color=GRAY)
 save(fig,'fig3_emtrf_pipeline.pdf')
 
-# Figure 2: source arc, two panels
-x=np.arange(7); geom=np.array([0,0.018,0.009,0.014,0.006,0.015,0]); sup=np.array([.93,.97,.88,.18,.90,.95,.93])
-fig=plt.figure(figsize=(7.2,4.15)); gs=fig.add_gridspec(2,1,height_ratios=[1,1.15],hspace=.16)
-ax=fig.add_subplot(gs[0]); ax.plot(x,geom,'o-',lw=1.6,ms=4.5,label='Source polyline',color=BLUE); ax.plot([0,6],[0,0],ls='--',lw=1.7,label='Simplified chord (both methods)',color=ORANGE)
-ax.set_ylabel('Geometry\n(arbitrary units)'); ax.set_xticks(x); ax.set_xticklabels([]); ax.set_ylim(-.002,.025); ax.grid(axis='both',alpha=.22); ax.legend(loc='upper center',ncol=2,frameon=False); ax.set_title('Identical geometry, two different inherited support values',fontweight='bold')
-ax2=fig.add_subplot(gs[1]); bars=ax2.bar(x,sup,width=.52,edgecolor='white',lw=.6,color=BLUE)
-bars[3].set_facecolor(VERM); bars[3].set_hatch('////');
-for xi,yi in zip(x,sup):
-    if xi==3: ax2.text(xi,yi+.05,f'{yi:.2f}',ha='center',va='bottom',fontsize=7.6,color=BLACK,fontweight='bold')
-    else: ax2.text(xi,yi-.05,f'{yi:.2f}',ha='center',va='top',fontsize=7.6,color='white',fontweight='bold')
-ax2.axhline(.93,ls='--',lw=1.4,color=ORANGE); ax2.axhline(.18,ls='-',lw=1.4,color=GREEN)
-ax2.text(6.25,.93,'endpoint-only\ninherits 0.93',va='center',fontsize=8,color=ORANGE,fontweight='bold')
-ax2.text(6.25,.18,'complete-source\ninherits 0.18',va='center',fontsize=8,color=GREEN,fontweight='bold')
-ax2.annotate('weak interior source\nremoved by DP',xy=(3,.20),xytext=(3,.62),arrowprops=dict(arrowstyle='->',lw=.8,color=GRAY),ha='center',va='center',fontsize=7.8,color=GRAY)
-ax2.set_ylim(0,1.06); ax2.set_xlim(-.65,7.25); ax2.set_ylabel('Support value'); ax2.set_xlabel('Source-arc vertex'); ax2.set_xticks(x); ax2.grid(axis='y',alpha=.22)
-save(fig,'fig1_source_arc.pdf')
+# Figure 2 is drawn by make_figures_restyle.py only.
 
 # Figure 3: stress
 xt=np.array([.02,.05,.10,.20,.40]); y=np.array([55.2,75.6,81.1,85.2,100])

@@ -106,29 +106,30 @@ ax.text(.5,.07,"Declared inference may create a new support/uncertainty channel,
         "but must expose its method, calibration semantics, and lineage.",ha="center",va="center",fontsize=7.8,color=GREY)
 finish(fig,"fig3_emtrf_pipeline.pdf",despine=False)
 
-# ============ Figure 2 (file fig1): source arc, two panels ============
+# ============ Figure 2 (file fig1): source arc, two panels on one vertex axis ============
 x=np.arange(7); geom=np.array([0,0.018,0.009,0.014,0.006,0.015,0]); sup=np.array([.93,.97,.88,.18,.90,.95,.93])
-fig=plt.figure(figsize=(7.2,4.15)); gs=fig.add_gridspec(2,1,height_ratios=[1,1.15],hspace=.18)
-ax=fig.add_subplot(gs[0])
-ax.plot(x,geom,"o-",lw=1.6,ms=4.5,label="Source polyline",color=BLUE)
-ax.plot([0,6],[0,0],ls="--",lw=1.7,label="Simplified chord (both methods)",color=ORANGE)
-ax.set_ylabel("Geometry\n(arb. units)"); ax.set_xticks(x); ax.set_xticklabels([]); ax.set_ylim(-.002,.025)
-ax.legend(loc="upper center",ncol=2,**LEG)
-ax.set_title("Identical geometry, two different inherited support values",fontweight="bold",color=BLACK)
-dimticks(ax)
-ax2=fig.add_subplot(gs[1])
-bars=ax2.bar(x,sup,width=.52,edgecolor="white",lw=.6,color=BLUE)
+fig,(ax,ax2)=plt.subplots(2,1,figsize=(5.4,3.9),sharex=True,gridspec_kw=dict(height_ratios=[0.8,1.2],hspace=0.12))
+ax.plot(x,geom,"o-",lw=1.5,ms=4,color=BLUE,label="Source polyline",zorder=3)
+ax.plot([0,6],[0,0],ls="--",lw=1.6,color=ORANGE,label="Simplified chord (same for both methods)",zorder=2)
+ax.plot([0,6],[0,0],"o",ms=5,mfc="white",mec=ORANGE,mew=1.3,zorder=4)
+ax.set_ylim(-.004,.022); ax.set_yticks([]); ax.set_ylabel("Offset")
+ax.legend(loc="lower center",bbox_to_anchor=(0.5,1.0),ncol=2,frameon=False,fontsize=7.5,handlelength=2.2)
+ax.grid(False)
+bars=ax2.bar(x,sup,width=.56,color=BLUE,edgecolor="white",lw=.6,zorder=2)
 bars[3].set_facecolor(VERM); bars[3].set_hatch("////")
 for xi,yi in zip(x,sup):
-    ax2.text(xi,yi+.025,f"{yi:.2f}",ha="center",va="bottom",fontsize=7.6,
-             color=BLACK if xi==3 else GREY,fontweight="bold" if xi==3 else "normal")
-ax2.axhline(.93,ls="--",lw=1.4,color=ORANGE); ax2.axhline(.18,ls="-",lw=1.4,color=GREEN)
-ax2.text(6.28,.93,"endpoint-only\ninherits 0.93",va="center",fontsize=8,color=ORANGE,fontweight="bold")
-ax2.text(6.28,.18,"complete-source\ninherits 0.18",va="center",fontsize=8,color=GREEN,fontweight="bold")
-ax2.annotate("weak interior source\nremoved by DP",xy=(3,.18),xytext=(3.5,.58),
-             arrowprops=dict(arrowstyle="->",lw=.8,color=GREY),ha="center",fontsize=7.8,color=GREY)
-ax2.set_ylim(0,1.08); ax2.set_xlim(-.65,7.6); ax2.set_ylabel("Support value"); ax2.set_xlabel("Source-arc vertex")
-ax2.set_xticks(x); dimticks(ax2)
+    if xi==3: ax2.text(xi,yi+.025,f"{yi:.2f}",ha="center",va="bottom",fontsize=7.5,color=BLACK,fontweight="bold")
+    else: ax2.text(xi,yi-.07,f"{yi:.2f}",ha="center",va="top",fontsize=7.5,color="white",fontweight="bold")
+ax2.axhline(.93,ls="--",lw=1.4,color=ORANGE,zorder=3); ax2.axhline(.18,ls="-",lw=1.4,color=GREEN,zorder=3)
+lab=dict(transform=mpl.transforms.blended_transform_factory(ax2.transAxes,ax2.transData),ha="left",va="center",
+         fontsize=7.5,fontweight="bold",clip_on=False)
+ax2.text(1.015,.93,"endpoint record\n0.93",color=ORANGE,**lab)
+ax2.text(1.015,.18,"complete-source\nrecord 0.18",color=GREEN,**lab)
+ax2.annotate("weak vertex,\nremoved by DP",xy=(3,.30),xytext=(3,.60),ha="center",va="center",fontsize=7.5,color=GREY,
+             arrowprops=dict(arrowstyle="->",lw=.8,color=GREY))
+ax2.set_xlim(-.55,6.55); ax2.set_ylim(0,1.05); ax2.set_yticks([0,.2,.4,.6,.8,1.0])
+ax2.set_ylabel("Support"); ax2.set_xlabel("Source-arc vertex"); ax2.set_xticks(x)
+for a_ in (ax,ax2): dimticks(a_)
 finish(fig,"fig1_source_arc.pdf")
 
 # ============ Figure 3 (file fig2): stress ============

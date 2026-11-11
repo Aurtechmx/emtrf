@@ -37,9 +37,11 @@ function profile(run,a,b,ch){
 }
 function merge(ps){const L=ps.reduce((s,p)=>s+p.length,0);return{length:L,min:ps.reduce((m,p)=>p.min==null?m:m==null?p.min:Math.min(m,p.min),null),fraction:Object.fromEntries(T.map(t=>[t,L?ps.reduce((s,p)=>s+(p.fraction[t]==null?0:p.fraction[t]*p.length),0)/L:null]))};}
 
-const sites=[];let scalarChecks=0,scalarViolations=0;let compChecks=0,compMismatch=0;
+const sites=[];let scalarChecks=0,scalarViolations=0,edgesChecked=0,applicableMissing=0;let compChecks=0,compMismatch=0;
 for(const spec of A.DATASETS){
   const S=W.siteRuns(spec),tol=S.grid.cellSizeM;
+  // completeness: a channel that applies to an edge (its provenance includes it) must carry a value
+  for(const r of S.runs)for(const e of r.edges){edgesChecked++;const pv=A.unionProv([e]);for(const ch of CH)if(pv.has(ch)&&e.typed[ch]==null)applicableMissing++;}
   const acc={};for(const ch of CH)for(const t of T)acc[`${ch}${t}`]={trueLen:0,endpoint:0,minimum:0,profile:0,endpointOver:0,endpointUnder:0,minimumUnder:0};
   let total=0;
   for(const run of S.runs){
@@ -80,7 +82,8 @@ for(const spec of A.DATASETS){
 }
 const out={driver:'support-profile record (length accounting, composition, scalar bound)',thresholds:T,sites,
   scalarBound:{spansWithEndpointAboveMinimum:scalarChecks,spansWhereNoUnsafeThresholdExists:scalarViolations},
-  composition:{spanChannelChecks:compChecks,mismatches:compMismatch}};
+  composition:{spanChannelChecks:compChecks,mismatches:compMismatch},
+  completeness:{edges:edgesChecked,applicableChannelValuesMissing:applicableMissing}};
 fs.writeFileSync(path.join(ROOT,'results','evidence_profile_r1.json'),JSON.stringify(out,null,1)+'\n');
 const csv=['site,channel_threshold,true_length_m,stated_endpoint_m,stated_minimum_m,stated_profile_m,endpoint_overstated_m,endpoint_understated_m,minimum_understated_m,profile_error_m'];
 for(const s of sites)for(const[k,v]of Object.entries(s.channels))csv.push([s.site,k,v.trueLengthM,v.statedEndpointM,v.statedMinimumM,v.statedProfileM,v.endpointOverstatedM,v.endpointUnderstatedM,v.minimumUnderstatedM,v.profileErrorM].join(','));

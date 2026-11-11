@@ -115,6 +115,8 @@ python3 - <<'PYCHK' || fail "evidence profile (values)"
 import json,sys
 d=json.load(open("results/evidence_profile_r1.json"));bad=[]
 if d["composition"]["mismatches"] or d["composition"]["spanChannelChecks"]<500: bad.append("composition")
+c=d["completeness"]
+if c["applicableChannelValuesMissing"] or c["edges"]!=3215: bad.append("completeness (Note N4: 0 of 3,215 edges)")
 if d["scalarBound"]["spansWhereNoUnsafeThresholdExists"] or d["scalarBound"]["spansWithEndpointAboveMinimum"]<=0: bad.append("scalar bound")
 for s in d["sites"]:
     for k,v in s["channels"].items():
@@ -369,7 +371,7 @@ echo "  bootstrap: frozen intervals reproduced"
 
 echo "== 17/22 figures (regenerate StREAM input from crop, then plots) =="
 node data/make_stream_features.cjs >/dev/null || fail "stream features"
-for s in make_figures_restyle make_figures_contour_example make_figures_nextlevel make_figure_worked_example; do
+for s in make_figures_restyle make_figures_contour_example make_figures_nextlevel make_figure_worked_example make_figure_sample_query; do
   python3 "figures/$s.py" >/dev/null 2>&1 || fail "figure $s"
 done
 echo "  figures: regenerated"
