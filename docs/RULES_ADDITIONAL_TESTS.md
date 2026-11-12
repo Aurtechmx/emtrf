@@ -325,3 +325,13 @@ channel; median support and median error for NVA and for VVA checkpoints. Every 
 values are written out; nothing is excluded. No direction is required for the run to pass, and the
 outcome is reported whatever it is. Limits fixed here: 6 m patches (support of interpolated cells
 uses only returns within the block), one project, errors known beforehand.
+
+## D13. Composition checked on the JavaScript implementation (`js-study/composition_property.cjs`)
+
+Added on 11 November 2026, before any D13 code was written or run. A property test, as D11, but on
+the JavaScript `typedMeet` that EC-DP and EC-wrap use, not on the Python model. 10,000 random cases
+(fixed seed): 2-9 source records, each channel a value, applicable but missing, or not applicable,
+with or without a declared scope, with provenance and lineage; the records are split at random into
+consecutive groups. The meet of the group results must equal the meet of all sources: the same
+support per channel, the same unavailable channels, scopes, provenance and lineage. The run fails
+on any mismatch. A control with a deliberately broken composition must fail.
