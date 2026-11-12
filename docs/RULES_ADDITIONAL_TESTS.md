@@ -294,3 +294,34 @@ source records (per channel: a support value, unavailable, or not applicable; pr
 one supported source) split at random into consecutive groups. Applying the meet to each group and
 then to the group results must equal applying it once to all sources: same value or unavailable
 state per channel, same provenance and lineage. The run fails on any mismatch.
+
+## D12. Support against independent checkpoints in forest terrain, Coconino (`external-check/coconino_checkpoints.cjs`)
+
+Added on 11 November 2026, after D10 was run and before any D12 code was written or run. D12 was
+designed because D10 had too little range in support to test the relation (96 of 104 checkpoints in
+cells of support 94 or above). D1-D11 are unchanged.
+
+Disclosure: the errors of these checkpoints against a 1 m DTM were computed earlier in separate
+OpenLiDARViewer validation work, and it is known from that work that one vegetated checkpoint has an
+error of about 0.7 m in a cell holding a single return, and that two vegetated checkpoints have no
+ground return in their cell. The relation between support and error has not been computed.
+
+Data: USGS AZ Coconino B1 2019 (3DEP project 19049, public domain): the 60 accuracy checkpoints
+(38 non-vegetated NVA, 22 vegetated VVA; independent of the LiDAR control points) that fall inside
+the 57 tiles of the earlier work, and the class-2 ground returns within 3 m of each (16,614 returns),
+both in a local Conus Albers frame, NAVD88 (Geoid12B) for LiDAR and checkpoints alike.
+
+Processing: for each checkpoint, the 5 x 5 block of whole 1 m cells centred on the cell that contains
+it (aligned to whole metres of the local frame; the block lies inside the 6 m patch), built with the
+frozen snapshot (point-in-cell mean, buildDtmGrid) as for the 1 m sites. The target return count of
+the support function is one value for the whole site: the median return count over the measured
+cells of all 60 blocks, fixed from counts alone. Support, channel and error as in D10. A checkpoint
+whose cell is unsupported is counted, not scored.
+
+Primary measure: Spearman rank correlation between support and error over the scored checkpoints,
+95% interval from 2,000 bootstrap replicates over checkpoints (xorshift32, seed 20261111).
+Secondary: the same within measured cells only; median error and count per support band and per
+channel; median support and median error for NVA and for VVA checkpoints. Every checkpoint's
+values are written out; nothing is excluded. No direction is required for the run to pass, and the
+outcome is reported whatever it is. Limits fixed here: 6 m patches (support of interpolated cells
+uses only returns within the block), one project, errors known beforehand.
