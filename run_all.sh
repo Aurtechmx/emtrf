@@ -57,6 +57,8 @@ got=(p["sites"],p["spans"],p["endpointPromoted"],p["endpointPromotedPct"],p["end
      sorted(s["endpoint"]["promotedPct"] for s in d["sites"]),sorted(s["endpoint"]["provenanceLossPct"] for s in d["sites"]))
 want=(5,70867,22220,31.4,926,0,0,[23.2,24.6,31.7,34.3,34.7],[0.3,0.4,1.1,2.7,2.8])
 if got!=want: print("  PRODUCER EVIDENCE MISMATCH:",got,file=sys.stderr); sys.exit(1)
+u=d["descriptiveNotPrespecified"]["understatementM"]
+if (u["n"],u["median"],u["q1"],u["q3"],u["p95"])!=(22220,0.157,0.055,0.331,0.717): print("  PRODUCER EVIDENCE SIZE MISMATCH:",u,file=sys.stderr); sys.exit(1)
 PYCHK
 echo "  producer evidence layers (Copernicus DEM GLO-90): endpoint records understate the producer's height error on 23.2-34.7 % of spans at five sites; complete-source records on none"
 

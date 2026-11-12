@@ -6,7 +6,7 @@ on:
     inputs:
       ref:
         description: "Tag or commit to check"
-        default: "v1.2.3"
+        default: "v1.2.4"
   push:
     branches: [main]
 jobs:
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.ref || 'v1.2.3' }}
+          ref: ${{ github.event.inputs.ref || 'v1.2.4' }}
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc

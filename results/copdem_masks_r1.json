@@ -25,6 +25,11 @@
     "provenanceLossPct": 2.7,
     "largestUnderstatedErrorM": 2.012
    },
+   "understatementM": {
+    "median": 0.102,
+    "q1": 0.025,
+    "q3": 0.356
+   },
    "completeSource": {
     "promoted": 0,
     "provenanceLoss": 0
@@ -50,6 +55,11 @@
     "provenanceLoss": 79,
     "provenanceLossPct": 0.3,
     "largestUnderstatedErrorM": 1.506
+   },
+   "understatementM": {
+    "median": 0.165,
+    "q1": 0.072,
+    "q3": 0.316
    },
    "completeSource": {
     "promoted": 0,
@@ -77,6 +87,11 @@
     "provenanceLossPct": 0.4,
     "largestUnderstatedErrorM": 1.9
    },
+   "understatementM": {
+    "median": 0.2,
+    "q1": 0.081,
+    "q3": 0.409
+   },
    "completeSource": {
     "promoted": 0,
     "provenanceLoss": 0
@@ -102,6 +117,11 @@
     "provenanceLoss": 196,
     "provenanceLossPct": 2.8,
     "largestUnderstatedErrorM": 1.447
+   },
+   "understatementM": {
+    "median": 0.17,
+    "q1": 0.082,
+    "q3": 0.319
    },
    "completeSource": {
     "promoted": 0,
@@ -129,6 +149,11 @@
     "provenanceLossPct": 1.1,
     "largestUnderstatedErrorM": 1.579
    },
+   "understatementM": {
+    "median": 0.165,
+    "q1": 0.07,
+    "q3": 0.316
+   },
    "completeSource": {
     "promoted": 0,
     "provenanceLoss": 0
@@ -144,5 +169,14 @@
   "endpointProvenanceLossPct": 1.3,
   "completeSourcePromoted": 0,
   "completeSourceProvenanceLoss": 0
+ },
+ "descriptiveNotPrespecified": {
+  "understatementM": {
+   "n": 22220,
+   "median": 0.157,
+   "q1": 0.055,
+   "q3": 0.331,
+   "p95": 0.717
+  }
  }
 }
