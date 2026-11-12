@@ -28,8 +28,10 @@ OUT.geojson holds one two-vertex LineString per simplified segment with the fiel
   m_min, i_min         minimum support over the replaced segments, per channel
   m_ge66, m_ge33       share of the replaced length with measured support at or above 66 / 33
   i_ge66, i_ge33       the same for interpolation support
-Values are written at full precision, never rounded, so a query on the file gives the same answer
-as on the source segments (a minimum of 65.96 must not read as 66). Field names fit the
+Export preserves the computed complete-source records without rounding, so threshold decisions on
+the exported values match those on the in-memory records (a minimum of 65.96 is not written as 66).
+Span-level rejection is unchanged: a span fails a query when any replaced source edge fails it.
+Field names fit the
 10-character limit of Shapefile. Where the state is not "value" the numbers are null, or the
 value of --null-code for formats without null (Shapefile).
 """
