@@ -23,6 +23,31 @@
    0.219
   ]
  },
+ "measuredCellsOnly": {
+  "n": 101,
+  "spearman": 0.072,
+  "spearman95": [
+   -0.138,
+   0.27
+  ]
+ },
+ "interpolatedCells": [
+  {
+   "id": 78,
+   "support": 6,
+   "errorM": 0.268
+  },
+  {
+   "id": 79,
+   "support": 5,
+   "errorM": 0.516
+  },
+  {
+   "id": 80,
+   "support": 25,
+   "errorM": 1.24
+  }
+ ],
  "byBand": {
   "66 or above": {
    "n": 96,

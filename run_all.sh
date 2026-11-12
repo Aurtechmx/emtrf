@@ -32,10 +32,12 @@ import json,sys
 d=json.load(open("results/marsh_checkpoints_r1.json"));p=d["primary"];c=d["byChannel"]
 got=(d["scored"],p["spearman"],p["spearman95"],c["measured"]["n"],c["measured"]["medianErrorM"],c["interpolated"]["n"],c["interpolated"]["medianErrorM"])
 if got!=(104,-0.024,[-0.225,0.19],101,0.018,3,0.516): print("  CHECKPOINT MISMATCH:",got,file=sys.stderr); sys.exit(1)
+m=d["measuredCellsOnly"]
+if (m["n"],m["spearman"],m["spearman95"])!=(101,0.072,[-0.138,0.27]) or [(r["id"],r["support"],r["errorM"]) for r in d["interpolatedCells"]]!=[(78,6,0.268),(79,5,0.516),(80,25,1.24)]: print("  CHECKPOINT MEASURED-ONLY MISMATCH:",m,file=sys.stderr); sys.exit(1)
 top=sorted(d["checkpointsScored"],key=lambda r:-r["errorM"])[:3]
 if [r["channel"] for r in top]!=["interpolated"]*3 or max(r["errorM"] for r in d["checkpointsScored"] if r["channel"]=="measured")!=0.082: print("  CHECKPOINT ORDER MISMATCH",file=sys.stderr); sys.exit(1)
 PYCHK
-echo "  RTK checkpoints: support does not rank error (rho -0.02); the three interpolated-cell shots carry the three largest errors"
+echo "  RTK checkpoints: support does not rank error within measured cells (rho +0.07, interval spans zero); the three interpolated-cell shots carry the three largest errors"
 node external-check/coconino_checkpoints.cjs >/dev/null || fail "forest checkpoints (D12)"
 python3 - <<'PYCHK' || fail "forest checkpoints (D12 values)"
 import json,sys
@@ -48,7 +50,7 @@ if got!=want: print("  FOREST CHECKPOINT MISMATCH:",got,file=sys.stderr); sys.ex
 x=d["descriptiveNotPrespecified"]
 if (x["withoutLargestError"]["spearman"],x["withinVVA"]["spearman"],x["withinNVA"]["spearman"])!=(-0.311,-0.545,-0.211): print("  FOREST DESCRIPTIVE MISMATCH",file=sys.stderr); sys.exit(1)
 PYCHK
-echo "  forest checkpoints: support ranks error (rho -0.34, interval excludes zero); median error rises from 0.036 to 0.087 m as support falls"
+echo "  forest checkpoints: support ranks error within measured cells (rho -0.35, interval excludes zero); median error rises from 0.036 to 0.087 m as support falls"
 node external-check/copdem_masks.cjs >/dev/null || fail "producer evidence layers (D14)"
 python3 - <<'PYCHK' || fail "producer evidence layers (D14 values)"
 import json,sys

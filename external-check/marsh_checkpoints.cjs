@@ -55,6 +55,9 @@ const out={driver:'support against independent RTK checkpoints at Marsh Island',
   checkpoints:CK.checkpoints.length,scored:rows_.length,notScored,
   primary:measure(rows_,rng),
   withoutErrorsAbove1m:measure(rows_.filter(r=>r.errorM<=1),rng),
+  // D15 (added after the pooled run): the principal measure is the correlation within measured cells
+  measuredCellsOnly:measure(rows_.filter(r=>r.channel==='measured'),rng),
+  interpolatedCells:rows_.filter(r=>r.channel==='interpolated').map(r=>({id:r.id,support:r3(r.support),errorM:r3(r.errorM)})),
   byBand:groups(r=>band(r.support)),byChannel:groups(r=>r.channel),
   medianErrorM:r3(quant(rows_.map(r=>r.errorM),.5)),
   checkpointsScored:rows_.map(r=>({...r,support:r3(r.support),dtmZ:r3(r.dtmZ),errorM:r3(r.errorM)}))};
