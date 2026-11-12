@@ -366,3 +366,21 @@ span that crosses edited pixels and is recorded as measured only); the same two 
 complete-source records, which must be zero for the run to pass. A site with fewer than 20 spans is
 reported and not rated. No direction or size is required of the endpoint counts; they are reported
 whatever they are.
+
+## D15. Amendment to D10 and D12: the measured-channel correlation is the principal measure
+
+Added on 11 November 2026, after D10 and D12 were run, and before the Marsh Island measured-only
+correlation was computed. D1-D14 are unchanged and their results stay reported.
+
+Reason: D10 and D12 named the Spearman correlation over all scored checkpoints as primary. Support in
+measured cells and in interpolated cells are different channels, and the contract (Section 2.2) never
+ranks one against the other; a pooled rank correlation does. The principal measure reported in the
+paper is therefore the Spearman correlation over checkpoints in measured cells only, with the same
+95% interval (2,000 bootstrap replicates over checkpoints, xorshift32, seed 20261111). Checkpoints in
+interpolated cells are reported separately and descriptively (count, support, error).
+
+Status of each value: Coconino measured-only was already specified as secondary in D12 (computed
+before this amendment: -0.353, 95% interval -0.568 to -0.102). Marsh Island measured-only was not
+specified in D10; it is computed by the same procedure after this amendment, and its status as a
+post hoc choice of principal measure is stated in the paper. The pooled correlations of D10 (-0.024)
+and D12 (-0.343) remain reported as originally specified. No direction is required of the result.
