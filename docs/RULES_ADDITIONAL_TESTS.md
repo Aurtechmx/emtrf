@@ -335,3 +335,34 @@ with or without a declared scope, with provenance and lineage; the records are s
 consecutive groups. The meet of the group results must equal the meet of all sources: the same
 support per channel, the same unavailable channels, scopes, provenance and lineage. The run fails
 on any mismatch. A control with a deliberately broken composition must fail.
+
+## D14. Evidence layers published by a DEM producer: Copernicus DEM GLO-90 (`external-check/copdem_masks.cjs`)
+
+Added on 11 November 2026, before any Copernicus DEM tile was downloaded. Only the product handbook,
+the licence and the bucket listing had been read. D1-D13 are unchanged.
+
+Purpose: in every earlier test the support values come from this study's own functions. Here both
+provenance and support come from the producer. Copernicus DEM (ESA/Airbus) ships, per pixel, an
+editing mask (EDM) and a height error mask (HEM, the standard deviation of the height error).
+
+Data: the GLO-90 tiles (public AWS bucket `copernicus-dem-90m`) that contain the five field sites of
+this paper (White Sands, StREAM, Estonia Tava, Marsh Island, Coconino), fixed by the sites'
+coordinates alone. From each tile, the window of 300 x 300 pixels centred on the site's pixel,
+shifted where needed to stay inside the tile. No other tile or window is tried.
+
+Evidence, by the producer's masks only: a pixel is measured when EDM = 1 (not edited) and HEM is a
+valid value; void when EDM = 0; otherwise edited (infilled, interpolated, smoothed, flattened or
+water), which carries no height error estimate. Support in the measured channel is compared by
+order only: a smaller HEM is stronger.
+
+Processing: the window is treated as a grid in pixel units. Contours at a 10 m interval with the
+frozen snapshot extractor; whole stitched lines (no splitting at grades); Douglas-Peucker at a
+one-pixel tolerance. Each segment takes the evidence of its 2 x 2 pixel block, as in the paper.
+
+Measures per site and pooled: spans; spans where the endpoint record reports a smaller height error
+than the largest among the measured pixels of the segments it replaces (support promotion); spans
+where the endpoint record omits a provenance type present in the replaced segments (for instance a
+span that crosses edited pixels and is recorded as measured only); the same two counts for
+complete-source records, which must be zero for the run to pass. A site with fewer than 20 spans is
+reported and not rated. No direction or size is required of the endpoint counts; they are reported
+whatever they are.
