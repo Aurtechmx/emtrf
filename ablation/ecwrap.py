@@ -64,8 +64,18 @@ def count_maps(src, out, cap=2):
     return min(cap, sum(ways.values()))
 
 
+def applies(edge, ch):
+    """A channel applies to an edge when its provenance includes that kind of evidence: the measured
+    channel to M and X edges, the interpolation channel to I and X edges."""
+    return edge["provenance"] in (ch, "X")
+
+
 def wrap(vertices, edges, out_vertices, channels=("M", "I")):
-    """Complete-source records for each output segment: {interval, provenance, min, profile}.
+    """Complete-source records for each output segment: {interval, provenance, state, min, profile}.
+    Per channel, state is "value" when every replaced edge to which the channel applies has a value,
+    "unavailable" when at least one of them has none (rule iv: the minimum is never taken over the
+    rest), and "not_applicable" when the channel applies to none of them; min and profile are None
+    unless state is "value". Values on edges to which a channel does not apply are ignored.
     Raises ValueError if the output is not a vertex subsequence of the source, and AmbiguousMatch
     if the source indices cannot be recovered uniquely (the line is then reported, not guessed)."""
     idx = source_map(vertices, out_vertices)
@@ -76,20 +86,27 @@ def wrap(vertices, edges, out_vertices, channels=("M", "I")):
     recs = []
     for a, b in zip(idx[:-1], idx[1:]):
         rec = {"interval": [a, b], "provenance": sorted({c for k in range(a, b) for c in
-               ({"M", "I"} if edges[k]["provenance"] == "X" else {edges[k]["provenance"]})}), "min": {}, "profile": {}}
+               ({"M", "I"} if edges[k]["provenance"] == "X" else {edges[k]["provenance"]})}),
+               "state": {}, "min": {}, "profile": {}}
         for ch in channels:
-            tot = 0.0; above = {t: 0.0 for t in THRESHOLDS}; mn = None
+            tot = 0.0; above = {t: 0.0 for t in THRESHOLDS}; mn = None; applicable = missing = False
             for k in range(a, b):
+                if not applies(edges[k], ch):
+                    continue
+                applicable = True
                 v = edges[k].get(ch)
                 if v is None:
+                    missing = True
                     continue
                 l = ((vertices[k + 1][0] - vertices[k][0]) ** 2 + (vertices[k + 1][1] - vertices[k][1]) ** 2) ** 0.5
                 tot += l; mn = v if mn is None else min(mn, v)
                 for t in THRESHOLDS:
                     if v >= t:
                         above[t] += l
-            rec["min"][ch] = mn
-            rec["profile"][ch] = None if tot == 0 else {t: above[t] / tot for t in THRESHOLDS}
+            state = "not_applicable" if not applicable else "unavailable" if missing else "value"
+            rec["state"][ch] = state
+            rec["min"][ch] = mn if state == "value" else None
+            rec["profile"][ch] = {t: above[t] / tot for t in THRESHOLDS} if state == "value" and tot > 0 else None
         recs.append(rec)
     return idx, recs
 

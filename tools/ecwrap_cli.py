@@ -15,18 +15,23 @@ SOURCE_EDGES.geojson holds one two-vertex LineString per source segment with the
   line_id  line the segment belongs to
   seq      position of the segment along its line (0, 1, 2, ...)
   prov     M (measured), I (interpolated) or X (both)
-  m_sup    measured support 0-100, or null where it does not apply
-  i_sup    interpolation support 0-100, or null where it does not apply
+  m_sup    measured support 0-100; applies to M and X segments, null elsewhere
+  i_sup    interpolation support 0-100; applies to I and X segments, null elsewhere
+A null value on a segment to which the channel applies is a missing value: every simplified
+segment that replaces it reports that channel as unavailable, never a minimum of the rest.
 
 OUT.geojson holds one two-vertex LineString per simplified segment with the fields
   line_id, span        line and position of the simplified segment
   src_from, src_to     source vertex interval it replaces (lineage)
   prov                 provenance union of the replaced segments (M, I or X)
+  m_state, i_state     value, unavailable (a replaced segment lacks a value) or not_applicable
   m_min, i_min         minimum support over the replaced segments, per channel
   m_ge66, m_ge33       share of the replaced length with measured support at or above 66 / 33
   i_ge66, i_ge33       the same for interpolation support
-Field names fit the 10-character limit of Shapefile. A channel that does not apply is null, or
-the value of --null-code for formats without null (Shapefile).
+Values are written at full precision, never rounded, so a query on the file gives the same answer
+as on the source segments (a minimum of 65.96 must not read as 66). Field names fit the
+10-character limit of Shapefile. Where the state is not "value" the numbers are null, or the
+value of --null-code for formats without null (Shapefile).
 """
 import json, sys
 from pathlib import Path
@@ -61,7 +66,7 @@ def cmd_lines(src, dst):
 
 def cmd_wrap(src, simplified, dst, null_code=None):
     source = load_edges(src)
-    nz = lambda v, nd=1: null_code if v is None else round(v, nd)
+    nz = lambda v: null_code if v is None else v
     feats, skipped, ambiguous = [], [], []
     for f in json.loads(Path(simplified).read_text())["features"]:
         g, lid = f.get("geometry"), f["properties"]["line_id"]
@@ -81,9 +86,10 @@ def cmd_wrap(src, simplified, dst, null_code=None):
             feats.append({"type": "Feature", "geometry": {"type": "LineString", "coordinates": [V[a], V[b]]}, "properties": {
                 "line_id": lid, "span": j, "src_from": a, "src_to": b,
                 "prov": "X" if len(r["provenance"]) == 2 else r["provenance"][0],
+                "m_state": r["state"]["M"], "i_state": r["state"]["I"],
                 "m_min": nz(r["min"]["M"]), "i_min": nz(r["min"]["I"]),
-                "m_ge66": nz(pm and pm[66], 4), "m_ge33": nz(pm and pm[33], 4),
-                "i_ge66": nz(pi and pi[66], 4), "i_ge33": nz(pi and pi[33], 4)}})
+                "m_ge66": nz(pm and pm[66]), "m_ge33": nz(pm and pm[33]),
+                "i_ge66": nz(pi and pi[66]), "i_ge33": nz(pi and pi[33])}})
     Path(dst).write_text(json.dumps({"type": "FeatureCollection", "name": "spans", "features": feats}))
     print(f"{len(feats)} simplified segments written to {dst}")
     if skipped:

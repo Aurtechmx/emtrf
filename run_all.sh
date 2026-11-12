@@ -321,7 +321,37 @@ got=[(x["src_from"],x["src_to"],x["prov"],x["m_min"],x["i_min"]) for x in p]
 if got!=want: print("  ECWRAP_CLI MISMATCH:",got,file=sys.stderr)
 sys.exit(0 if got==want else 1)
 PYCHK
-rm -rf "$T"; echo "  ecwrap_cli: fixture records match"
+python3 - "$T" <<'PYCHK' || fail "ecwrap_cli (precision and missing values)"
+import json,sys,subprocess
+T=sys.argv[1]
+V=[[0,0],[1,0.1],[2,0],[3,0.1],[4,0],[5,0.1],[6,0]]
+# line 1: true minimum 65.96 must not pass a query at 66 after export and reload
+# line 2: an applicable measured value is missing, so the span's measured channel is unavailable
+E={1:[("M",90.0,None),("M",65.96,None),("M",80.0,None)],2:[("M",90.0,None),("M",None,None),("X",70.0,50.0)]}
+f=[{"type":"Feature","properties":{"line_id":l,"seq":k,"prov":p,"m_sup":m,"i_sup":i},"geometry":{"type":"LineString","coordinates":[V[k],V[k+1]]}}
+   for l,ee in E.items() for k,(p,m,i) in enumerate(ee)]
+json.dump({"type":"FeatureCollection","features":f},open(T+"/e2.geojson","w"))
+json.dump({"type":"FeatureCollection","features":[{"type":"Feature","properties":{"line_id":l},"geometry":{"type":"LineString","coordinates":[V[0],V[3]]}} for l in E]},open(T+"/s2.geojson","w"))
+bad=[]
+for nc in (None,-1):
+    args=["python3","tools/ecwrap_cli.py","wrap",T+"/e2.geojson",T+"/s2.geojson",T+"/o2.geojson"]+(["--null-code",str(nc)] if nc is not None else [])
+    subprocess.run(args,check=True,capture_output=True)
+    P={x["line_id"]:x for x in (g["properties"] for g in json.load(open(T+"/o2.geojson"))["features"])}
+    a,b=P[1],P[2]
+    if not (a["m_state"]=="value" and a["m_min"]==65.96 and not (a["m_min"]>=66)): bad.append(("precision",nc,a))
+    if abs(a["m_ge66"]-sum(((V[k+1][0]-V[k][0])**2+(V[k+1][1]-V[k][1])**2)**0.5 for k in (0,2))/sum(((V[k+1][0]-V[k][0])**2+(V[k+1][1]-V[k][1])**2)**0.5 for k in (0,1,2)))>1e-15: bad.append(("profile",nc,a))
+    if not (b["m_state"]=="unavailable" and b["m_min"]==nc and b["m_ge66"]==nc and b["i_state"]=="value" and b["i_min"]==50.0 and b["prov"]=="X"): bad.append(("missing",nc,b))
+sys.path.insert(0,"ablation")
+from ecwrap import wrap
+_,r=wrap(V[:4],[{"provenance":"M","M":90},{"provenance":"M","M":None},{"provenance":"I","I":40}],[V[0],V[3]])
+r=r[0]
+if not (r["state"]=={"M":"unavailable","I":"value"} and r["min"]=={"M":None,"I":40} and r["profile"]["M"] is None): bad.append(("wrap",r))
+_,r=wrap(V[:3],[{"provenance":"I","M":95,"I":30},{"provenance":"I","I":60}],[V[0],V[2]])
+if not (r[0]["state"]["M"]=="not_applicable" and r[0]["min"]["M"] is None): bad.append(("not applicable",r[0]))
+if bad: print("  ECWRAP PRECISION/MISSING MISMATCH:",bad,file=sys.stderr)
+sys.exit(1 if bad else 0)
+PYCHK
+rm -rf "$T"; echo "  ecwrap_cli: fixture records match; exported minima keep full precision; a missing applicable value makes the channel unavailable"
 python3 - <<'PYCHK' || fail "ecwrap ambiguity fixture"
 import sys; sys.path.insert(0,"ablation")
 from ecwrap import wrap, AmbiguousMatch
