@@ -1,0 +1,148 @@
+{
+ "driver": "evidence layers published by a DEM producer (Copernicus DEM GLO-90)",
+ "rules": "docs/RULES_ADDITIONAL_TESTS.md, D14",
+ "intervalM": 10,
+ "tolerancePixels": 1,
+ "sites": [
+  {
+   "id": "white-sands",
+   "tile": "Copernicus_DSM_COG_30_N32_00_W107_00",
+   "pixels": {
+    "measuredPct": 99.2,
+    "editedPct": 0.8,
+    "voidPct": 0,
+    "medianHemM": 0.389
+   },
+   "lines": 1320,
+   "sourceVertices": 118264,
+   "retainedVertices": 18706,
+   "spans": 17386,
+   "rated": true,
+   "endpoint": {
+    "promoted": 5965,
+    "promotedPct": 34.3,
+    "provenanceLoss": 471,
+    "provenanceLossPct": 2.7,
+    "largestUnderstatedErrorM": 2.012
+   },
+   "completeSource": {
+    "promoted": 0,
+    "provenanceLoss": 0
+   }
+  },
+  {
+   "id": "stream",
+   "tile": "Copernicus_DSM_COG_30_N37_00_W081_00",
+   "pixels": {
+    "measuredPct": 99.3,
+    "editedPct": 0.7,
+    "voidPct": 0,
+    "medianHemM": 0.827
+   },
+   "lines": 3574,
+   "sourceVertices": 171149,
+   "retainedVertices": 28772,
+   "spans": 25198,
+   "rated": true,
+   "endpoint": {
+    "promoted": 7994,
+    "promotedPct": 31.7,
+    "provenanceLoss": 79,
+    "provenanceLossPct": 0.3,
+    "largestUnderstatedErrorM": 1.506
+   },
+   "completeSource": {
+    "promoted": 0,
+    "provenanceLoss": 0
+   }
+  },
+  {
+   "id": "estonia",
+   "tile": "Copernicus_DSM_COG_30_N59_00_E024_00",
+   "pixels": {
+    "measuredPct": 99.5,
+    "editedPct": 0.5,
+    "voidPct": 0,
+    "medianHemM": 0.868
+   },
+   "lines": 2173,
+   "sourceVertices": 35720,
+   "retainedVertices": 9406,
+   "spans": 7233,
+   "rated": true,
+   "endpoint": {
+    "promoted": 1779,
+    "promotedPct": 24.6,
+    "provenanceLoss": 29,
+    "provenanceLossPct": 0.4,
+    "largestUnderstatedErrorM": 1.9
+   },
+   "completeSource": {
+    "promoted": 0,
+    "provenanceLoss": 0
+   }
+  },
+  {
+   "id": "marsh",
+   "tile": "Copernicus_DSM_COG_30_N41_00_W071_00",
+   "pixels": {
+    "measuredPct": 65.7,
+    "editedPct": 34.3,
+    "voidPct": 0,
+    "medianHemM": 1.455
+   },
+   "lines": 1940,
+   "sourceVertices": 35696,
+   "retainedVertices": 9030,
+   "spans": 7090,
+   "rated": true,
+   "endpoint": {
+    "promoted": 1644,
+    "promotedPct": 23.2,
+    "provenanceLoss": 196,
+    "provenanceLossPct": 2.8,
+    "largestUnderstatedErrorM": 1.447
+   },
+   "completeSource": {
+    "promoted": 0,
+    "provenanceLoss": 0
+   }
+  },
+  {
+   "id": "coconino",
+   "tile": "Copernicus_DSM_COG_30_N35_00_W112_00",
+   "pixels": {
+    "measuredPct": 99.5,
+    "editedPct": 0.5,
+    "voidPct": 0,
+    "medianHemM": 0.895
+   },
+   "lines": 1589,
+   "sourceVertices": 95582,
+   "retainedVertices": 15549,
+   "spans": 13960,
+   "rated": true,
+   "endpoint": {
+    "promoted": 4838,
+    "promotedPct": 34.7,
+    "provenanceLoss": 151,
+    "provenanceLossPct": 1.1,
+    "largestUnderstatedErrorM": 1.579
+   },
+   "completeSource": {
+    "promoted": 0,
+    "provenanceLoss": 0
+   }
+  }
+ ],
+ "pooledOverRatedSites": {
+  "sites": 5,
+  "spans": 70867,
+  "endpointPromoted": 22220,
+  "endpointPromotedPct": 31.4,
+  "endpointProvenanceLoss": 926,
+  "endpointProvenanceLossPct": 1.3,
+  "completeSourcePromoted": 0,
+  "completeSourceProvenanceLoss": 0
+ }
+}

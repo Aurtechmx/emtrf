@@ -49,6 +49,16 @@ x=d["descriptiveNotPrespecified"]
 if (x["withoutLargestError"]["spearman"],x["withinVVA"]["spearman"],x["withinNVA"]["spearman"])!=(-0.311,-0.545,-0.211): print("  FOREST DESCRIPTIVE MISMATCH",file=sys.stderr); sys.exit(1)
 PYCHK
 echo "  forest checkpoints: support ranks error (rho -0.34, interval excludes zero); median error rises from 0.036 to 0.087 m as support falls"
+node external-check/copdem_masks.cjs >/dev/null || fail "producer evidence layers (D14)"
+python3 - <<'PYCHK' || fail "producer evidence layers (D14 values)"
+import json,sys
+d=json.load(open("results/copdem_masks_r1.json"));p=d["pooledOverRatedSites"]
+got=(p["sites"],p["spans"],p["endpointPromoted"],p["endpointPromotedPct"],p["endpointProvenanceLoss"],p["completeSourcePromoted"],p["completeSourceProvenanceLoss"],
+     sorted(s["endpoint"]["promotedPct"] for s in d["sites"]),sorted(s["endpoint"]["provenanceLossPct"] for s in d["sites"]))
+want=(5,70867,22220,31.4,926,0,0,[23.2,24.6,31.7,34.3,34.7],[0.3,0.4,1.1,2.7,2.8])
+if got!=want: print("  PRODUCER EVIDENCE MISMATCH:",got,file=sys.stderr); sys.exit(1)
+PYCHK
+echo "  producer evidence layers (Copernicus DEM GLO-90): endpoint records understate the producer's height error on 23.2-34.7 % of spans at five sites; complete-source records on none"
 
 echo "== 5/22 P0-P3 ablation (reconstructed driver; Table 4 / S2) =="
 # The paper reports STRICT mode: every eligible span retained, no result-defined exclusion.

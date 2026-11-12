@@ -38,3 +38,17 @@ Changes made to the redistributed crops (relevant to the CC BY 4.0 StREAM data, 
 them): each crop is a clipped extract of the source point cloud, limited to ground-classified
 returns, and stored as 32-bit floating-point values relative to a crop origin in a compact binary
 file. No other change was made.
+
+## Copernicus DEM GLO-90 windows (`external-check/copdem/`)
+
+Five 300 x 300 pixel windows (DEM, height error mask, editing mask) cut from Copernicus DEM GLO-90
+tiles by `external-check/extract_copdem.py`, redistributed under the licence for COP-DEM-GLO-90-F
+(Global 90 m, Full, Free & Open), which grants reproduction, distribution and adaptation.
+
+Produced using Copernicus WorldDEM-90 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH
+2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved.
+
+The organisations in charge of the Copernicus programme by law or by delegation do not incur any
+liability for any use of the Copernicus WorldDEM-90. This study is not endorsed by them.
+Dataset DOI: 10.5270/ESA-c5d3d65.
+

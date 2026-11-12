@@ -1,0 +1,142 @@
+{
+ "product": "Copernicus DEM GLO-90 (COP-DEM-GLO-90-F), public bucket copernicus-dem-90m",
+ "windowPixels": 300,
+ "layout": "DEM float32, HEM float32, EDM uint8; little-endian, row-major, row 0 at the southern edge",
+ "sites": [
+  {
+   "id": "white-sands",
+   "lon": -106.49455,
+   "lat": 32.85453,
+   "tile": "Copernicus_DSM_COG_30_N32_00_W107_00",
+   "tilePixels": [
+    1200,
+    1200
+   ],
+   "pixelSizeDeg": [
+    0.0008333333333333,
+    0.0008333333333333
+   ],
+   "window": {
+    "xOff": 457,
+    "yOff": 25,
+    "cols": 300,
+    "rows": 300
+   },
+   "sourceSha256": {
+    "DEM": "f4404180f1789ff2abdbaad7d9bdd6720f9b259b77402b8d8bc2db765f3438be",
+    "HEM": "2500089576cb825bba86fcff58105fc6b3e58b1c6ce44b38b3db4ab822be52e3",
+    "EDM": "c5980da85d1847c7c3d9accc8aceda52f5b1180bc02903f588cb0178bb0fae74"
+   },
+   "file": "white-sands.bin",
+   "sha256": "7b51b361bb31102569ab56c80d1216ac8b2ed074dc5f03bb58fe68f9066774dc"
+  },
+  {
+   "id": "stream",
+   "lon": -80.44483,
+   "lat": 37.21087,
+   "tile": "Copernicus_DSM_COG_30_N37_00_W081_00",
+   "tilePixels": [
+    1200,
+    1200
+   ],
+   "pixelSizeDeg": [
+    0.0008333333333333,
+    0.0008333333333333
+   ],
+   "window": {
+    "xOff": 516,
+    "yOff": 797,
+    "cols": 300,
+    "rows": 300
+   },
+   "sourceSha256": {
+    "DEM": "834bf1074bb6f62db213047981ee86800212e0ea4725bd75bc51a320fe6166ad",
+    "HEM": "20beb99e5337254c146621fb115501082e9edd19c6a00a44e3c7340a51770e2a",
+    "EDM": "1c30959d5f5cff053bc186402a3b1f57871cf744e873dcecd322400de8ad3615"
+   },
+   "file": "stream.bin",
+   "sha256": "022cd93a0b19dde273ca0d813876de65744948bfdfa7676ad94736c4fbc781ed"
+  },
+  {
+   "id": "estonia",
+   "lon": 24.69236,
+   "lat": 59.25298,
+   "tile": "Copernicus_DSM_COG_30_N59_00_E024_00",
+   "tilePixels": [
+    800,
+    1200
+   ],
+   "pixelSizeDeg": [
+    0.00125,
+    0.0008333333333333
+   ],
+   "window": {
+    "xOff": 404,
+    "yOff": 746,
+    "cols": 300,
+    "rows": 300
+   },
+   "sourceSha256": {
+    "DEM": "6ba823b2319b044912ea91f7fabf5996dd6b3fcc5514b443b9829940d4ceff03",
+    "HEM": "4b272e14e8cb642c3ed6fe2750499ee337a895624f9506c650078159bf8b5e1f",
+    "EDM": "2fbd6e027c56058bfe37a3acd01fbec1112c546255174a7ebb13a8cc143a4b6a"
+   },
+   "file": "estonia.bin",
+   "sha256": "5b35c5b19aeef1b7d79ce6d0ab37a9f329a5fc16b7d164cebf984028a17282e1"
+  },
+  {
+   "id": "marsh",
+   "lon": -70.91601,
+   "lat": 41.65181,
+   "tile": "Copernicus_DSM_COG_30_N41_00_W071_00",
+   "tilePixels": [
+    1200,
+    1200
+   ],
+   "pixelSizeDeg": [
+    0.0008333333333333,
+    0.0008333333333333
+   ],
+   "window": {
+    "xOff": 0,
+    "yOff": 268,
+    "cols": 300,
+    "rows": 300
+   },
+   "sourceSha256": {
+    "DEM": "4b8feacfc9536a9211e3b01d4ab962ad92d646d3d3a5c9f7df52f4a291612efc",
+    "HEM": "69fd1f69f046328750954ac62e94346f038227b735c6b63826109c752cce16e7",
+    "EDM": "8fcd958a50925a921e4b65b2bc626868bd79c3673efce72e3aa6adb0e5fa7b2b"
+   },
+   "file": "marsh.bin",
+   "sha256": "a9cc16a7e666ced16ccc14da40a6d9c3e4981a9f1419911a71d676cbba2a4407"
+  },
+  {
+   "id": "coconino",
+   "lon": -111.60527,
+   "lat": 35.15309,
+   "tile": "Copernicus_DSM_COG_30_N35_00_W112_00",
+   "tilePixels": [
+    1200,
+    1200
+   ],
+   "pixelSizeDeg": [
+    0.0008333333333333,
+    0.0008333333333333
+   ],
+   "window": {
+    "xOff": 324,
+    "yOff": 866,
+    "cols": 300,
+    "rows": 300
+   },
+   "sourceSha256": {
+    "DEM": "9ce107b20be7204e0467a446bfcc99994603638e3e4a84830cca13d2bdef539d",
+    "HEM": "05fde5973ee101f0ad7885be29d11df9e58db1800e7129e93c3da7cb34cf5128",
+    "EDM": "ee9d05f8d2cef3de51b00e4bb3f79f9d42ee45966ca7969d1d9c10828c766ab0"
+   },
+   "file": "coconino.bin",
+   "sha256": "57c8f1c05adc045baa50e880df2894be25eda215e7b69409784f6c0da9fbd0a5"
+  }
+ ]
+}
