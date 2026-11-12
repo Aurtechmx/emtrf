@@ -1,0 +1,756 @@
+{
+ "driver": "support against independent checkpoints in forest terrain (Coconino)",
+ "rules": "docs/RULES_ADDITIONAL_TESTS.md, D12",
+ "checkpoints": 60,
+ "scored": 60,
+ "notScored": {
+  "unsupported": 0
+ },
+ "targetCount": 8,
+ "primary": {
+  "n": 60,
+  "spearman": -0.343,
+  "spearman95": [
+   -0.556,
+   -0.09
+  ]
+ },
+ "measuredCellsOnly": {
+  "n": 58,
+  "spearman": -0.353,
+  "spearman95": [
+   -0.568,
+   -0.102
+  ]
+ },
+ "byBand": {
+  "66 or above": {
+   "n": 27,
+   "medianSupport": 75,
+   "medianErrorM": 0.036
+  },
+  "33 to below 66": {
+   "n": 22,
+   "medianSupport": 50,
+   "medianErrorM": 0.041
+  },
+  "below 33": {
+   "n": 11,
+   "medianSupport": 19,
+   "medianErrorM": 0.087
+  }
+ },
+ "byChannel": {
+  "measured": {
+   "n": 58,
+   "medianSupport": 61,
+   "medianErrorM": 0.043
+  },
+  "interpolated": {
+   "n": 2,
+   "medianSupport": 47.5,
+   "medianErrorM": 0.044
+  }
+ },
+ "byType": {
+  "NVA": {
+   "n": 38,
+   "medianSupport": 73,
+   "medianErrorM": 0.038
+  },
+  "VVA": {
+   "n": 22,
+   "medianSupport": 50,
+   "medianErrorM": 0.064
+  }
+ },
+ "medianErrorM": 0.043,
+ "descriptiveNotPrespecified": {
+  "withoutLargestError": {
+   "n": 59,
+   "spearman": -0.311,
+   "spearman95": [
+    -0.527,
+    -0.054
+   ]
+  },
+  "withinNVA": {
+   "n": 38,
+   "spearman": -0.211,
+   "spearman95": [
+    -0.508,
+    0.105
+   ]
+  },
+  "withinVVA": {
+   "n": 22,
+   "spearman": -0.545,
+   "spearman95": [
+    -0.783,
+    -0.115
+   ]
+  }
+ },
+ "checkpointRows": [
+  {
+   "id": "UR16",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2275.673,
+   "checkpointZ": 2275.772,
+   "errorM": 0.099
+  },
+  {
+   "id": "OT16",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 10,
+   "support": 77,
+   "dtmZ": 2243.037,
+   "checkpointZ": 2243.041,
+   "errorM": 0.004
+  },
+  {
+   "id": "UR10",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2171.524,
+   "checkpointZ": 2171.382,
+   "errorM": 0.142
+  },
+  {
+   "id": "HG11",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2192.387,
+   "checkpointZ": 2192.305,
+   "errorM": 0.082
+  },
+  {
+   "id": "UR05",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 3,
+   "support": 19,
+   "dtmZ": 2043.566,
+   "checkpointZ": 2043.657,
+   "errorM": 0.091
+  },
+  {
+   "id": "UR04",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 6,
+   "support": 50,
+   "dtmZ": 2042.9,
+   "checkpointZ": 2042.912,
+   "errorM": 0.012
+  },
+  {
+   "id": "BE08",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2050.24,
+   "checkpointZ": 2050.194,
+   "errorM": 0.046
+  },
+  {
+   "id": "OT13",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 12,
+   "support": 80,
+   "dtmZ": 2084.753,
+   "checkpointZ": 2084.778,
+   "errorM": 0.025
+  },
+  {
+   "id": "BR07",
+   "type": "VVA",
+   "scored": true,
+   "channel": "interpolated",
+   "returnsInCell": 0,
+   "support": 49,
+   "dtmZ": 2127.447,
+   "checkpointZ": 2127.38,
+   "errorM": 0.067
+  },
+  {
+   "id": "UR01",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2189.427,
+   "checkpointZ": 2189.388,
+   "errorM": 0.039
+  },
+  {
+   "id": "HG12",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 10,
+   "support": 77,
+   "dtmZ": 2175.911,
+   "checkpointZ": 2175.914,
+   "errorM": 0.003
+  },
+  {
+   "id": "OT04",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 9,
+   "support": 75,
+   "dtmZ": 2181.506,
+   "checkpointZ": 2181.466,
+   "errorM": 0.04
+  },
+  {
+   "id": "UR02",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 11,
+   "support": 79,
+   "dtmZ": 2154.888,
+   "checkpointZ": 2154.884,
+   "errorM": 0.004
+  },
+  {
+   "id": "OT14",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2089.36,
+   "checkpointZ": 2089.387,
+   "errorM": 0.027
+  },
+  {
+   "id": "XNVA105",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 9,
+   "support": 75,
+   "dtmZ": 2086.827,
+   "checkpointZ": 2086.803,
+   "errorM": 0.024
+  },
+  {
+   "id": "TR07",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 6,
+   "support": 50,
+   "dtmZ": 2086.486,
+   "checkpointZ": 2086.528,
+   "errorM": 0.042
+  },
+  {
+   "id": "OT11",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 14,
+   "support": 82,
+   "dtmZ": 2177.206,
+   "checkpointZ": 2177.17,
+   "errorM": 0.036
+  },
+  {
+   "id": "OT09",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 10,
+   "support": 77,
+   "dtmZ": 2075.482,
+   "checkpointZ": 2075.491,
+   "errorM": 0.009
+  },
+  {
+   "id": "BE04",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 11,
+   "support": 79,
+   "dtmZ": 2154.743,
+   "checkpointZ": 2154.678,
+   "errorM": 0.065
+  },
+  {
+   "id": "BR02",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 4,
+   "support": 29,
+   "dtmZ": 2223.147,
+   "checkpointZ": 2223.06,
+   "errorM": 0.087
+  },
+  {
+   "id": "BE15",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2222.61,
+   "checkpointZ": 2222.656,
+   "errorM": 0.046
+  },
+  {
+   "id": "TR02",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 4,
+   "support": 29,
+   "dtmZ": 2373.614,
+   "checkpointZ": 2373.438,
+   "errorM": 0.176
+  },
+  {
+   "id": "BE02",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2231.134,
+   "checkpointZ": 2231.153,
+   "errorM": 0.019
+  },
+  {
+   "id": "BE19",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2093.96,
+   "checkpointZ": 2094.009,
+   "errorM": 0.049
+  },
+  {
+   "id": "TR10",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2095.668,
+   "checkpointZ": 2095.684,
+   "errorM": 0.016
+  },
+  {
+   "id": "UR07",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 6,
+   "support": 50,
+   "dtmZ": 2086.626,
+   "checkpointZ": 2086.686,
+   "errorM": 0.06
+  },
+  {
+   "id": "OT12",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 5,
+   "support": 39,
+   "dtmZ": 2158.349,
+   "checkpointZ": 2158.408,
+   "errorM": 0.059
+  },
+  {
+   "id": "BE07",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 9,
+   "support": 75,
+   "dtmZ": 1894.675,
+   "checkpointZ": 1894.659,
+   "errorM": 0.016
+  },
+  {
+   "id": "BE10",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 6,
+   "support": 50,
+   "dtmZ": 2000.729,
+   "checkpointZ": 2000.638,
+   "errorM": 0.091
+  },
+  {
+   "id": "HG08",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2076.816,
+   "checkpointZ": 2076.809,
+   "errorM": 0.007
+  },
+  {
+   "id": "BR14",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 5,
+   "support": 39,
+   "dtmZ": 2159.966,
+   "checkpointZ": 2159.954,
+   "errorM": 0.012
+  },
+  {
+   "id": "OT07",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2228.055,
+   "checkpointZ": 2228.023,
+   "errorM": 0.032
+  },
+  {
+   "id": "TR16",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 3,
+   "support": 19,
+   "dtmZ": 2206.684,
+   "checkpointZ": 2206.78,
+   "errorM": 0.096
+  },
+  {
+   "id": "BR06",
+   "type": "VVA",
+   "scored": true,
+   "channel": "interpolated",
+   "returnsInCell": 0,
+   "support": 46,
+   "dtmZ": 2418.918,
+   "checkpointZ": 2418.897,
+   "errorM": 0.021
+  },
+  {
+   "id": "XNVA502",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 12,
+   "support": 80,
+   "dtmZ": 1955.184,
+   "checkpointZ": 1955.146,
+   "errorM": 0.038
+  },
+  {
+   "id": "TR09",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 1956.726,
+   "checkpointZ": 1956.676,
+   "errorM": 0.05
+  },
+  {
+   "id": "UR08",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2095.135,
+   "checkpointZ": 2095.175,
+   "errorM": 0.04
+  },
+  {
+   "id": "TR14",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 2,
+   "support": 10,
+   "dtmZ": 2229.648,
+   "checkpointZ": 2229.719,
+   "errorM": 0.071
+  },
+  {
+   "id": "OT08",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2199.864,
+   "checkpointZ": 2199.918,
+   "errorM": 0.054
+  },
+  {
+   "id": "UR19",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 13,
+   "support": 81,
+   "dtmZ": 1924.759,
+   "checkpointZ": 1924.829,
+   "errorM": 0.07
+  },
+  {
+   "id": "TR05",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 6,
+   "support": 50,
+   "dtmZ": 1978.328,
+   "checkpointZ": 1978.351,
+   "errorM": 0.023
+  },
+  {
+   "id": "HG01",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 34,
+   "support": 92,
+   "dtmZ": 2109.2,
+   "checkpointZ": 2109.117,
+   "errorM": 0.083
+  },
+  {
+   "id": "UR13",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 6,
+   "support": 50,
+   "dtmZ": 2098.354,
+   "checkpointZ": 2098.371,
+   "errorM": 0.017
+  },
+  {
+   "id": "OT10",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 18,
+   "support": 86,
+   "dtmZ": 2383.659,
+   "checkpointZ": 2383.703,
+   "errorM": 0.044
+  },
+  {
+   "id": "UR15",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 5,
+   "support": 39,
+   "dtmZ": 1941.358,
+   "checkpointZ": 1941.392,
+   "errorM": 0.034
+  },
+  {
+   "id": "UR20",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 3,
+   "support": 19,
+   "dtmZ": 2119.429,
+   "checkpointZ": 2119.457,
+   "errorM": 0.028
+  },
+  {
+   "id": "BR11",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 3,
+   "support": 19,
+   "dtmZ": 2834.855,
+   "checkpointZ": 2834.154,
+   "errorM": 0.701
+  },
+  {
+   "id": "TR17",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 6,
+   "support": 50,
+   "dtmZ": 2063.835,
+   "checkpointZ": 2063.764,
+   "errorM": 0.071
+  },
+  {
+   "id": "BE03",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2248.089,
+   "checkpointZ": 2248.105,
+   "errorM": 0.016
+  },
+  {
+   "id": "OT01",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2324.524,
+   "checkpointZ": 2324.533,
+   "errorM": 0.009
+  },
+  {
+   "id": "UR14",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 4,
+   "support": 29,
+   "dtmZ": 1945.904,
+   "checkpointZ": 1945.958,
+   "errorM": 0.054
+  },
+  {
+   "id": "TR01",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 11,
+   "support": 79,
+   "dtmZ": 1977.623,
+   "checkpointZ": 1977.574,
+   "errorM": 0.049
+  },
+  {
+   "id": "UR11",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 4,
+   "support": 29,
+   "dtmZ": 1969.56,
+   "checkpointZ": 1969.543,
+   "errorM": 0.017
+  },
+  {
+   "id": "HG06",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 10,
+   "support": 77,
+   "dtmZ": 2154.563,
+   "checkpointZ": 2154.591,
+   "errorM": 0.028
+  },
+  {
+   "id": "HG05",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 6,
+   "support": 50,
+   "dtmZ": 2192.155,
+   "checkpointZ": 2192.216,
+   "errorM": 0.061
+  },
+  {
+   "id": "OT19",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2302.428,
+   "checkpointZ": 2302.495,
+   "errorM": 0.067
+  },
+  {
+   "id": "BR04",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 3,
+   "support": 19,
+   "dtmZ": 2405.26,
+   "checkpointZ": 2405.165,
+   "errorM": 0.095
+  },
+  {
+   "id": "TR15",
+   "type": "VVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 1,
+   "support": 3,
+   "dtmZ": 2350.008,
+   "checkpointZ": 2350.093,
+   "errorM": 0.085
+  },
+  {
+   "id": "OT03",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 8,
+   "support": 73,
+   "dtmZ": 2299.464,
+   "checkpointZ": 2299.489,
+   "errorM": 0.025
+  },
+  {
+   "id": "BE12",
+   "type": "NVA",
+   "scored": true,
+   "channel": "measured",
+   "returnsInCell": 7,
+   "support": 61,
+   "dtmZ": 2182.61,
+   "checkpointZ": 2182.438,
+   "errorM": 0.172
+  }
+ ]
+}

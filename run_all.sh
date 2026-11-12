@@ -19,6 +19,9 @@ bash oracles/differential.sh | tail -6 || fail "js<->py differential"
 python3 oracles/composition_property.py > /tmp/emtrf_composition.json || fail "composition on random chains (D11)"
 python3 -c 'import json,sys;d=json.load(open("/tmp/emtrf_composition.json"));sys.exit(0 if (d["cases"],d["mismatches"])==(10000,0) else 1)' || fail "composition on random chains (D11 values)"
 echo "  composition: 10,000 random operator chains, composed record equals direct record in every case"
+node js-study/composition_property.cjs > /tmp/emtrf_composition_js.json || fail "composition on the JavaScript implementation (D13)"
+python3 -c 'import json,sys;d=json.load(open("/tmp/emtrf_composition_js.json"));sys.exit(0 if (d["cases"],d["groups"],d["mismatches"],d["control"]["caught"])==(10000,32703,0,1860) else 1)' || fail "composition on the JavaScript implementation (D13 values)"
+echo "  composition (JavaScript typedMeet): 10,000 random chains, no mismatch; broken control caught"
 
 echo "== 4/22 real-data audit (Table 2) =="
 ( cd real-data-audit && ./reproduce.sh >/dev/null && shasum -a 256 -c SHA256SUMS >/dev/null ) || fail "real-data audit"
@@ -33,6 +36,19 @@ top=sorted(d["checkpointsScored"],key=lambda r:-r["errorM"])[:3]
 if [r["channel"] for r in top]!=["interpolated"]*3 or max(r["errorM"] for r in d["checkpointsScored"] if r["channel"]=="measured")!=0.082: print("  CHECKPOINT ORDER MISMATCH",file=sys.stderr); sys.exit(1)
 PYCHK
 echo "  RTK checkpoints: support does not rank error (rho -0.02); the three interpolated-cell shots carry the three largest errors"
+node external-check/coconino_checkpoints.cjs >/dev/null || fail "forest checkpoints (D12)"
+python3 - <<'PYCHK' || fail "forest checkpoints (D12 values)"
+import json,sys
+d=json.load(open("results/coconino_checkpoints_r1.json"));p=d["primary"];b=d["byBand"];t=d["byType"]
+got=(d["scored"],d["targetCount"],p["spearman"],p["spearman95"],d["measuredCellsOnly"]["spearman"],
+     [b[k]["n"] for k in ("66 or above","33 to below 66","below 33")],[b[k]["medianErrorM"] for k in ("66 or above","33 to below 66","below 33")],
+     t["NVA"]["medianSupport"],t["VVA"]["medianSupport"],t["NVA"]["medianErrorM"],t["VVA"]["medianErrorM"])
+want=(60,8,-0.343,[-0.556,-0.09],-0.353,[27,22,11],[0.036,0.041,0.087],73,50,0.038,0.064)
+if got!=want: print("  FOREST CHECKPOINT MISMATCH:",got,file=sys.stderr); sys.exit(1)
+x=d["descriptiveNotPrespecified"]
+if (x["withoutLargestError"]["spearman"],x["withinVVA"]["spearman"],x["withinNVA"]["spearman"])!=(-0.311,-0.545,-0.211): print("  FOREST DESCRIPTIVE MISMATCH",file=sys.stderr); sys.exit(1)
+PYCHK
+echo "  forest checkpoints: support ranks error (rho -0.34, interval excludes zero); median error rises from 0.036 to 0.087 m as support falls"
 
 echo "== 5/22 P0-P3 ablation (reconstructed driver; Table 4 / S2) =="
 # The paper reports STRICT mode: every eligible span retained, no result-defined exclusion.

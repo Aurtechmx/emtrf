@@ -38,7 +38,7 @@ a separate audit environment (see [Source identities](#source-identities)).
 | `prevalence/` | Probability sample of 60 USGS 3DEP work units, one 100 m crop each (`draw_sample.py` fetches the crops with PDAL; `score_sample.cjs` scores them; `query_sample.cjs` runs the attribute query on them; rules in `docs/RULES_ADDITIONAL_TESTS.md`, D4 and D5; the 60 crops are in `prevalence/crops/`). | §5.3, §5.7, Supplementary Methods S22, S23 |
 | `scale/` | Scale test: 129 crops cut by a fixed rule from 18 public-agency tiles (`extract_crops.py`, `scale_test.cjs`; rules in `scale/README.md`; crops not in the repository). | §5.4, Supplementary Methods S18 |
 | `source-audit/` | Source-level audit record of the OLV v0.6.5 export path. | §4.7, §5.6, Supplementary source audit |
-| `external-check/` | The 104 independent RTK checkpoints of the Marsh Island release and the driver that compares their errors with cell support (rules D10). | §5.3, Supplementary Methods S26 |
+| `external-check/` | Independent survey checkpoints at Marsh Island (104 RTK shots) and in Coconino forest terrain (60 USGS accuracy checkpoints), and the drivers that compare their errors with cell support (rules D10, D12). | §5.3, Supplementary Methods S26--S27 |
 | `gdal-audit/` | First-submission audit on `gdal_contour` geometry from a synthetic surface (`thirdparty_gdal_audit.py`, GDAL 3.13.1). | Supplementary Note N3 |
 | `bootstrap/` | Deterministic 10,000-replicate bootstrap over whole contour lines. | Figure 5, §4.4 |
 | `benchmarks/` | Synthetic overhead benchmark (640,000 vertices, 30 repetitions) and the real-contour benchmark (289 lines, 5,305 vertices). | §4.9, §5.8 |
