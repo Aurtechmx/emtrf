@@ -89,6 +89,14 @@
     -0.783,
     -0.115
    ]
+  },
+  "withinVVAMeasured": {
+   "n": 20,
+   "spearman": -0.568,
+   "spearman95": [
+    -0.793,
+    -0.165
+   ]
   }
  },
  "checkpointRows": [

@@ -49,6 +49,8 @@ want=(60,8,-0.343,[-0.556,-0.09],-0.353,[27,22,11],[0.036,0.041,0.087],73,50,0.0
 if got!=want: print("  FOREST CHECKPOINT MISMATCH:",got,file=sys.stderr); sys.exit(1)
 x=d["descriptiveNotPrespecified"]
 if (x["withoutLargestError"]["spearman"],x["withinVVA"]["spearman"],x["withinNVA"]["spearman"])!=(-0.311,-0.545,-0.211): print("  FOREST DESCRIPTIVE MISMATCH",file=sys.stderr); sys.exit(1)
+v=x["withinVVAMeasured"]
+if (v["n"],v["spearman"],v["spearman95"])!=(20,-0.568,[-0.793,-0.165]): print("  FOREST VEGETATED MEASURED-ONLY MISMATCH",v,file=sys.stderr); sys.exit(1)
 PYCHK
 echo "  forest checkpoints: support ranks error within measured cells (rho -0.35, interval excludes zero); median error rises from 0.036 to 0.087 m as support falls"
 node external-check/copdem_masks.cjs >/dev/null || fail "producer evidence layers (D14)"

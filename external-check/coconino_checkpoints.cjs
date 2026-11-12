@@ -67,7 +67,9 @@ const out={driver:'support against independent checkpoints in forest terrain (Co
   medianErrorM:r3(quant(S.map(r=>r.errorM),.5)),
   // not in the rules; added after the run and reported as descriptive
   descriptiveNotPrespecified:{withoutLargestError:measure(S.filter(r=>r.errorM<Math.max(...S.map(q=>q.errorM))),rng),
-    withinNVA:measure(S.filter(r=>r.type==='NVA'),rng),withinVVA:measure(S.filter(r=>r.type==='VVA'),rng)},
+    withinNVA:measure(S.filter(r=>r.type==='NVA'),rng),
+    // vegetated checkpoints: all 22 including two interpolated cells (pooled, as first reported) and the 20 in measured cells (reported as the main subgroup value); order kept so earlier values do not change
+    withinVVA:measure(S.filter(r=>r.type==='VVA'),rng),withinVVAMeasured:measure(S.filter(r=>r.type==='VVA'&&r.channel==='measured'),rng)},
   checkpointRows:rows.map(r=>r.scored?{...r,support:r3(r.support),dtmZ:r3(r.dtmZ),checkpointZ:r3(r.checkpointZ),errorM:r3(r.errorM)}:r)};
 fs.writeFileSync(path.join(ROOT,'results','coconino_checkpoints_r1.json'),JSON.stringify(out,null,1)+'\n');
 const{checkpointRows,...summary}=out;console.log(JSON.stringify(summary,null,1));
